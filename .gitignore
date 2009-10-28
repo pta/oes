@@ -1,3 +1,5 @@
 sql/*~
 sql/*.dia.tmpfile
 sql/oes.sql
+sql/*.svg
+sql/*.png
