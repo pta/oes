@@ -14,8 +14,8 @@ drop table if exists
 -- Class
 create table Class
 (
-	ID			INT	PRIMARY KEY
-					AUTO_INCREMENT,
+	ID			INT	primary key
+					auto_increment,
 	Name			CHAR(10),
 	K			INT
 );
