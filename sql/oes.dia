@@ -225,7 +225,7 @@
         <dia:real val="0.10000000000000001"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#Option#</dia:string>
+        <dia:string>#Choice#</dia:string>
       </dia:attribute>
       <dia:attribute name="comment">
         <dia:string>##</dia:string>
@@ -795,7 +795,7 @@
         <dia:real val="0.10000000000000001"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#Test_Option#</dia:string>
+        <dia:string>#Test_Choice#</dia:string>
       </dia:attribute>
       <dia:attribute name="comment">
         <dia:string>##</dia:string>
@@ -853,7 +853,7 @@
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Option#</dia:string>
+            <dia:string>#Choice#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>#INT#</dia:string>
