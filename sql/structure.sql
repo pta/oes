@@ -1,9 +1,15 @@
 
-drop table if exists Exam;
-drop table if exists Student;
-drop table if exists Subject;
-drop table if exists Teacher;
-drop table if exists Class;
+drop table if exists
+	Test_Answer,
+	Test_Choice,
+	Test,
+	Choice,
+	Question,
+	Exam,
+	Student,
+	Subject,
+	Teacher,
+	Class;
 
 -- Class
 create table Class
@@ -65,3 +71,62 @@ create table Exam
 	Start_Time		DATETIME
 );
 
+-- Question
+create table Question
+(
+	ID			INT	primary key
+					auto_increment,
+	Text			TEXT,
+	Subject			INT	references Subject
+					on delete cascade
+					on update cascade
+);
+
+-- Choice
+create table Choice
+(
+	ID			INT	primary key
+					auto_increment,
+	Question		INT	references Question
+					on delete cascade
+					on update cascade,
+	Text			TEXT,
+	Correct			TINYINT(1)
+);
+
+-- Test
+create table Test
+(
+	ID			INT	primary key
+					auto_increment,
+	Student			INT	references Student
+					on delete cascade
+					on update cascade,
+	Exam			INT	references Exam
+					on delete cascade
+					on update cascade
+);
+
+-- Test_Choice
+create table Test_Choice
+(
+	Test			INT	references Test
+					on delete cascade
+					on update cascade,
+	Choice			INT	references Choice
+					on delete cascade
+					on update cascade,
+	PRIMARY KEY (Test, Choice)
+);
+
+-- Test_Answer
+create table Test_Answer
+(
+	Test			INT	references Test
+					on delete cascade
+					on update cascade,
+	Answer			INT	references Choice
+					on delete cascade
+					on update cascade,
+	PRIMARY KEY (Test, Answer)
+);
