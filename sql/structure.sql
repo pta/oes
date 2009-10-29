@@ -58,7 +58,7 @@ create table Exam
 (
 	ID			INT	primary key
 					auto_increment,
-	Name			VARCHAR(60)	unique,
+	Name			VARCHAR(60)	unique null,
 	Class			INT	references Class
 					on delete cascade
 					on update cascade,
