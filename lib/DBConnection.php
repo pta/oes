@@ -14,6 +14,28 @@ function fetch_columns ($result)
 	return $arr;
 }
 
+/**
+ * wrap string value
+ */
+function str_value ($val)
+{
+	if ($val == null)
+		return 'null';
+	else
+		return "'$val'";
+}
+
+/**
+ * wrap number value
+ */
+function num_value ($val)
+{
+	if ($val == null)
+		return 'null';
+	else
+		return $val;
+}
+
 class DBConnection
 {
 	private $connection;
