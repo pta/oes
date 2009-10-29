@@ -34,7 +34,7 @@ create table Subject
 (
 	ID			INT	primary key
 					auto_increment,
-	Name			VARCHAR(20)
+	Name			VARCHAR(60)	unique
 );
 
 -- Student
@@ -42,13 +42,15 @@ create table Student
 (
 	ID			INT	primary key
 					auto_increment,
-	Student_ID		CHAR(8),
+	Student_ID		CHAR(8)		unique null,
 	FirstName		VARCHAR(13),
 	LastName		VARCHAR(30),
 	DoB			Date,
 	Class			INT	references Class
 					on delete cascade
-					on update cascade
+					on update cascade,
+
+	UNIQUE (FirstName, LastName, DoB, Class)
 );
 
 -- Exam
@@ -56,19 +58,22 @@ create table Exam
 (
 	ID			INT	primary key
 					auto_increment,
-	Name			VARCHAR(60),
+	Name			VARCHAR(60)	unique,
 	Class			INT	references Class
 					on delete cascade
 					on update cascade,
 	Subject			INT	references Subject
 					on delete cascade
 					on update cascade,
+	Time			TINYINT(1),
 	Teacher			INT	references Teacher
 					on delete cascade
 					on update cascade,
 	Duration		TIME,
 	Sched_Time		DATETIME,
-	Start_Time		DATETIME
+	Start_Time		DATETIME,
+
+	UNIQUE (Class, Subject, Time)
 );
 
 -- Question
@@ -104,7 +109,9 @@ create table Test
 					on update cascade,
 	Exam			INT	references Exam
 					on delete cascade
-					on update cascade
+					on update cascade,
+
+	UNIQUE (Student, Exam)
 );
 
 -- Test_Choice
