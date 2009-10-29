@@ -16,7 +16,7 @@ create table Class
 (
 	ID			INT	primary key
 					auto_increment,
-	Name			CHAR(10),
+	Name			CHAR(10)	not null,
 	K			INT
 ) type = innodb;
 
@@ -25,8 +25,8 @@ create table Teacher
 (
 	ID			INT	primary key
 					auto_increment,
-	FirstName		VARCHAR(13),
-	LastName		VARCHAR(30)
+	FirstName		VARCHAR(13)	not null,
+	LastName		VARCHAR(30)	not null
 ) type = innodb;
 
 -- Subject
@@ -34,7 +34,7 @@ create table Subject
 (
 	ID			INT	primary key
 					auto_increment,
-	Name			VARCHAR(60)	unique
+	Name			VARCHAR(60)	unique not null
 ) type = innodb;
 
 -- Student
@@ -42,10 +42,10 @@ create table Student
 (
 	ID			INT	primary key
 					auto_increment,
-	Student_ID		CHAR(8)		unique null,
-	FirstName		VARCHAR(13),
-	LastName		VARCHAR(30),
-	DoB			Date,
+	Student_ID		CHAR(8)		unique,
+	FirstName		VARCHAR(13)	not null,
+	LastName		VARCHAR(30)	not null,
+	DoB			Date		not null,
 	Class			INT	references Class
 					on delete cascade
 					on update cascade,
@@ -81,7 +81,7 @@ create table Question
 (
 	ID			INT	primary key
 					auto_increment,
-	Text			TEXT,
+	Text			TEXT		not null,
 	Subject			INT	references Subject
 					on delete cascade
 					on update cascade
@@ -95,8 +95,8 @@ create table Choice
 	Question		INT	references Question
 					on delete cascade
 					on update cascade,
-	Text			TEXT,
-	Correct			TINYINT(1)
+	Text			TEXT		not null,
+	Correct			TINYINT(1)	not null
 ) type = innodb;
 
 -- Test
