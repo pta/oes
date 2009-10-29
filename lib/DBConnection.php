@@ -1,5 +1,19 @@
 <?php
 
+function fetch_column ($result)
+{
+	while ($row = mysql_fetch_array ($result))
+		$arr[] = $row[0];
+	return $arr;
+}
+
+function fetch_columns ($result)
+{
+	while ($row = mysql_fetch_array ($result))
+		$arr[] = $row;
+	return $arr;
+}
+
 class DBConnection
 {
 	private $connection;
@@ -59,5 +73,29 @@ class DBConnection
 
 	function commit()
 	{$this->query ('commit;');}
+
+	function getColumn ($column, $table)
+	{
+		$result = $this->query ("select `$column` from `$table` order by `$column`;");
+		$ret = fetch_column ($result);
+		mysql_free_result ($result);
+		return $ret;
+	}
+
+	function getColumns ($columns, $table)
+	{
+		$result = $this->query ("select $columns from `$table` order by $columns;");
+		$ret = fetch_columns ($result);
+		mysql_free_result ($result);
+		return $ret;
+	}
+
+	function getValue ($colname, $table, $criteria)
+	{
+		$query = "select `$colname` from `$table` where $criteria;";
+		$result = $this->query ($query);
+		$row = mysql_fetch_array ($result);
+		return $row[0];
+	}
 }
 ?>
