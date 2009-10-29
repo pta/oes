@@ -18,7 +18,7 @@ create table Class
 					auto_increment,
 	Name			CHAR(10),
 	K			INT
-);
+) type = innodb;
 
 -- Teacher
 create table Teacher
@@ -27,7 +27,7 @@ create table Teacher
 					auto_increment,
 	FirstName		VARCHAR(13),
 	LastName		VARCHAR(30)
-);
+) type = innodb;
 
 -- Subject
 create table Subject
@@ -35,7 +35,7 @@ create table Subject
 	ID			INT	primary key
 					auto_increment,
 	Name			VARCHAR(60)	unique
-);
+) type = innodb;
 
 -- Student
 create table Student
@@ -51,7 +51,7 @@ create table Student
 					on update cascade,
 
 	UNIQUE (FirstName, LastName, DoB, Class)
-);
+) type = innodb;
 
 -- Exam
 create table Exam
@@ -74,7 +74,7 @@ create table Exam
 	Start_Time		DATETIME,
 
 	UNIQUE (Class, Subject, Time)
-);
+) type = innodb;
 
 -- Question
 create table Question
@@ -85,7 +85,7 @@ create table Question
 	Subject			INT	references Subject
 					on delete cascade
 					on update cascade
-);
+) type = innodb;
 
 -- Choice
 create table Choice
@@ -97,7 +97,7 @@ create table Choice
 					on update cascade,
 	Text			TEXT,
 	Correct			TINYINT(1)
-);
+) type = innodb;
 
 -- Test
 create table Test
@@ -112,7 +112,7 @@ create table Test
 					on update cascade,
 
 	UNIQUE (Student, Exam)
-);
+) type = innodb;
 
 -- Test_Choice
 create table Test_Choice
@@ -124,7 +124,7 @@ create table Test_Choice
 					on delete cascade
 					on update cascade,
 	PRIMARY KEY (Test, Choice)
-);
+) type = innodb;
 
 -- Test_Answer
 create table Test_Answer
@@ -136,4 +136,4 @@ create table Test_Answer
 					on delete cascade
 					on update cascade,
 	PRIMARY KEY (Test, Answer)
-);
+) type = innodb;

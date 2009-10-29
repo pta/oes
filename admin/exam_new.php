@@ -16,6 +16,8 @@ include_once "../lib/Database.php";
 		$sched_hour = $_POST['sched_hour'];
 		$sched_time = $sched_date . ' ' . $sched_hour . ':00';
 
+		$db->begin();
+
 		try
 		{
 			if (($class = $_POST['class']) == 0)
@@ -28,10 +30,7 @@ include_once "../lib/Database.php";
 				catch (Exception $e)
 				{
 					echo "<center>Không thể tạo <b>lớp</b> mới với tên '$newclass'.</center>";
-					echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
-					echo "<center><button onClick='history.back()'>Trở lại</button></center>";
-					echo $e->getMessage();
-					return -1;
+					throw $e;
 				}
 			}
 
@@ -45,10 +44,7 @@ include_once "../lib/Database.php";
 				catch (Exception $e)
 				{
 					echo "<center>Không thể tạo <b>môn</b> mới với tên '$newsubject'.</center>";
-					echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
-					echo "<center><button onClick='history.back()'>Trở lại</button></center>";
-					echo $e->getMessage();
-					return -1;
+					throw $e;
 				}
 			}
 
@@ -62,23 +58,24 @@ include_once "../lib/Database.php";
 				catch (Exception $e)
 				{
 					echo "<center>Không thể tạo <b>giáo viên</b> mới với tên '$newteacher'.</center>";
-					echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
-					echo "<center><button onClick='history.back()'>Trở lại</button></center>";
-					echo $e->getMessage();
-					return -1;
+					throw $e;
 				}
 			}
 
 			$db->insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time);
 
+			$db->commit();
 			echo "<center>Tạo đợt thi mới thành công!</center>";
 		}
 		catch (Exception $e)
 		{
+			$db->rollback();
+
 			echo "<center>Không thể tạo <b>đợt thi</b> mới.</center>";
 			echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
 			echo "<center><button onClick='history.back()'>Trở lại</button></center>";
 			echo $e->getMessage();
+
 			return -1;
 		}
 	}

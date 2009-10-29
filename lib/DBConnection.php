@@ -50,5 +50,14 @@ class DBConnection
 
 		return $result;
 	}
+
+	function begin()
+	{$this->query ('begin;');}
+
+	function rollback()
+	{$this->query ('rollback;');}
+
+	function commit()
+	{$this->query ('commit;');}
 }
 ?>
