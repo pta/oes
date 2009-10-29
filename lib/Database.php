@@ -34,6 +34,14 @@ class Database extends DBConnection
 		return $ret;
 	}
 
+	function getValue ($colname, $table, $criteria)
+	{
+		$query = "select `$colname` from `$table` where $criteria;";
+		$result = $this->query ($query);
+		$row = mysql_fetch_array ($result);
+		return $row[0];
+	}
+
 	function getClassList()
 	{
 		return $this->getColumns ('Name, ID', 'Class');
@@ -52,23 +60,31 @@ class Database extends DBConnection
 	function insertClass ($class)
 	{
 		$this->query ("insert into Class values (null, '$class', $class[4]);");
+		return $this->getValue ('ID', 'Class', "Name='$class'");
 	}
 
 	function insertSubject ($subject)
 	{
 		$this->query ("insert into Subject values (null, '$subject');");
+		return $this->getValue ('ID', 'Subject', "Name='$subject'");
 	}
 
 	function insertTeacher ($teacher)
 	{
 		$lastname = substr (strrchr($teacher, 32), 1);
 		$firstname = substr ($teacher, 0, strlen($teacher) - strlen($lastname));
-		$this->query ("insert into Teacher values (null, '$firtname', '$lastname');");
+		$this->query ("insert into Teacher values (null, '$firstname', '$lastname');");
+		return $this->getValue ('ID', 'Teacher', "FirstName='$firstname' AND LastName='$lastname'");
 	}
 
 	function insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time)
 	{
-		$this->query ("insert into Exam values (null, '$name', $class, $subject, $time, '$teacher', '$duration', '$sched_time', null);");
+		if ($name == null)
+			$name = 'null';
+		else
+			$name = "'$name'";
+
+		$this->query ("insert into Exam values (null, $name, $class, $subject, $time, '$teacher', '$duration', '$sched_time', null);");
 	}
 }
 

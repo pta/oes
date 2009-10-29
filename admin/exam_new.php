@@ -20,40 +20,53 @@ include_once "../lib/Database.php";
 		{
 			if (($class = $_POST['class']) == 0)
 			{
-				$class = $_POST['newclass'];
+				$newclass = $_POST['newclass'];
 				try
 				{
-					$db->insertClass ($class);
+					$class = $db->insertClass ($newclass);
 				}
 				catch (Exception $e)
 				{
-					echo "<center>Không thể tạo <b>lớp</b> mới với tên '$class'.</center>";
+					echo "<center>Không thể tạo <b>lớp</b> mới với tên '$newclass'.</center>";
 					echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
 					echo "<center><button onClick='history.back()'>Trở lại</button></center>";
+					echo $e->getMessage();
 					return -1;
 				}
 			}
 
 			if (($subject = $_POST['subject']) == 0)
 			{
-				$subject = $_POST['newsubject'];
+				$newsubject = $_POST['newsubject'];
 				try
 				{
-					$db->insertSubject ($subject);
+					$subject = $db->insertSubject ($newsubject);
 				}
 				catch (Exception $e)
 				{
-					echo "<center>Không thể tạo <b>môn</b> mới với tên '$subject'.</center>";
+					echo "<center>Không thể tạo <b>môn</b> mới với tên '$newsubject'.</center>";
 					echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
 					echo "<center><button onClick='history.back()'>Trở lại</button></center>";
+					echo $e->getMessage();
 					return -1;
 				}
 			}
 
 			if (($teacher = $_POST['teacher']) == 0)
 			{
-				$teacher = $_POST['newteacher'];
-				$db->insertTeacher ($teacher);
+				$newteacher = $_POST['newteacher'];
+				try
+				{
+					$teacher = $db->insertTeacher ($newteacher);
+				}
+				catch (Exception $e)
+				{
+					echo "<center>Không thể tạo <b>giáo viên</b> mới với tên '$newteacher'.</center>";
+					echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
+					echo "<center><button onClick='history.back()'>Trở lại</button></center>";
+					echo $e->getMessage();
+					return -1;
+				}
 			}
 
 			$db->insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time);
