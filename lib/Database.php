@@ -68,7 +68,7 @@ class Database extends DBConnection
 
 	function insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time)
 	{
-		$query = 'insert into Exam values (';
+		$this->query ("insert into Exam values (null, '$name', $class, $subject, $time, '$teacher', '$duration', '$sched_time', null);");
 	}
 }
 

@@ -14,27 +14,60 @@ include_once "../lib/Database.php";
 		$duration = $_POST['duration'];
 		$sched_date = $_POST['sched_date'];
 		$sched_hour = $_POST['sched_hour'];
-		$sched_time = $sched_date . ' ' . $sched_hour . '00';
+		$sched_time = $sched_date . ' ' . $sched_hour . ':00';
 
-		if (($class = $_POST['class']) == 0)
+		try
 		{
-			$class = $_POST['newclass'];
-			$db->insertClass ($class);
-		}
+			if (($class = $_POST['class']) == 0)
+			{
+				$class = $_POST['newclass'];
+				try
+				{
+					$db->insertClass ($class);
+				}
+				catch (Exception $e)
+				{
+					echo "<center>Không thể tạo <b>lớp</b> mới với tên '$class'.</center>";
+					echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
+					echo "<center><button onClick='history.back()'>Trở lại</button></center>";
+					return -1;
+				}
+			}
 
-		if (($subject = $_POST['subject']) == 0)
+			if (($subject = $_POST['subject']) == 0)
+			{
+				$subject = $_POST['newsubject'];
+				try
+				{
+					$db->insertSubject ($subject);
+				}
+				catch (Exception $e)
+				{
+					echo "<center>Không thể tạo <b>môn</b> mới với tên '$subject'.</center>";
+					echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
+					echo "<center><button onClick='history.back()'>Trở lại</button></center>";
+					return -1;
+				}
+			}
+
+			if (($teacher = $_POST['teacher']) == 0)
+			{
+				$teacher = $_POST['newteacher'];
+				$db->insertTeacher ($teacher);
+			}
+
+			$db->insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time);
+
+			echo "<center>Tạo đợt thi mới thành công!</center>";
+		}
+		catch (Exception $e)
 		{
-			$subject = $_POST['newsubject'];
-			$db->insertSubject ($subject);
+			echo "<center>Không thể tạo <b>đợt thi</b> mới.</center>";
+			echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
+			echo "<center><button onClick='history.back()'>Trở lại</button></center>";
+			echo $e->getMessage();
+			return -1;
 		}
-
-		if (($teacher = $_POST['teacher']) == 0)
-		{
-			$teacher = $_POST['newteacher'];
-			$db->insertTeacher ($teacher);
-		}
-
-		$db->insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time);
 	}
 ?>
 
