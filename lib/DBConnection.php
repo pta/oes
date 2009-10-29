@@ -57,8 +57,8 @@ class DBConnection
 
 		if (!$result)
 		{
-			$message  = 'Invalid query: ' . mysql_error() . "\n";
-			$message .= 'Whole query: ' . $query;
+			$message  = 'Invalid query: ' . mysql_error() . "\n<br>";
+			$message .= "Whole query: <code>$query</code>";
 			throw new Exception ($message);
 		}
 
