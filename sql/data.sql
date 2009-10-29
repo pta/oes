@@ -1,5 +1,8 @@
 
 insert into Class values (null, "CN1K6E", 6);
+insert into Class values (null, "CN1K7D", 7);
+insert into Class values (null, "CN1K8G", 8);
+insert into Class values (null, "CN1K6G", 6);
 
 insert into Teacher values (null, "Vân", "Thái Thị Thanh");
 insert into Teacher values (null, "Quang", "Đào Hào");
