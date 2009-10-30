@@ -16,7 +16,7 @@ create table Class
 (
 	ID			INT	primary key
 					auto_increment,
-	Name			CHAR(10)	not null,
+	Name			CHAR(10)	unique not null,
 	K			INT
 ) type = innodb;
 
