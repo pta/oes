@@ -29,7 +29,7 @@ include_once "../lib/Database.php";
 				}
 				catch (Exception $e)
 				{
-					echo "<center>Không thể tạo <b>lớp</b> mới với tên '$newclass'.</center>";
+					echo "<center>Không thể tạo <b>Lớp</b> mới với tên '$newclass'.</center>";
 					throw $e;
 				}
 			}
@@ -43,7 +43,7 @@ include_once "../lib/Database.php";
 				}
 				catch (Exception $e)
 				{
-					echo "<center>Không thể tạo <b>môn</b> mới với tên '$newsubject'.</center>";
+					echo "<center>Không thể tạo <b>Môn</b> mới với tên '$newsubject'.</center>";
 					throw $e;
 				}
 			}
@@ -57,7 +57,7 @@ include_once "../lib/Database.php";
 				}
 				catch (Exception $e)
 				{
-					echo "<center>Không thể tạo <b>giáo viên</b> mới với tên '$newteacher'.</center>";
+					echo "<center>Không thể tạo <b>Giáo viên</b> mới với tên '$newteacher'.</center>";
 					throw $e;
 				}
 			}
@@ -71,7 +71,7 @@ include_once "../lib/Database.php";
 		{
 			$db->rollback();
 
-			echo "<center>Không thể tạo <b>đợt thi</b> mới.</center>";
+			echo "<center>Không thể tạo <b>Đợt thi</b> mới.</center>";
 			echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
 			echo "<center><button onClick='history.back()'>Trở lại</button></center>";
 			echo $e->getMessage();

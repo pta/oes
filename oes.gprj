@@ -12,15 +12,13 @@ base_path=/home/development/projects/
 description=
 
 [files]
-current_page=4
+current_page=3
 FILE_NAME_0=14;PHP;0;16;1;1;0;/home/development/projects/oes/admin/index.php;0
 FILE_NAME_1=590;PHP;0;16;1;1;0;/home/development/projects/oes/admin/exam_new.php;0
 FILE_NAME_2=1441;PHP;0;16;1;1;0;/home/development/projects/oes/lib/Database.php;0
 FILE_NAME_3=0;PHP;0;16;1;1;0;/home/development/projects/oes/lib/DBConnection.php;0
-FILE_NAME_4=0;SQL;0;16;1;1;0;/home/development/projects/oes/sql/structure.sql;0
 
 [build-menu]
 SQLFT_00_LB=_Import
 SQLFT_00_CM=mysql -u pta_home -p123456 -D pta_home -e "source %f"
 SQLFT_00_WD=%d
-filetypes=SQL;
