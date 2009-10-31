@@ -84,7 +84,7 @@ include_once "../lib/Database.php";
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>OES Admin - Exam</title>
+	<title>OES Admin - New Exam</title>
 </HEAD>
 <BODY>
 <div align=center>
