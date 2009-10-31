@@ -1,0 +1,25 @@
+
+.autocomplete_list
+{
+	font-family:monospace;
+	color:black;
+	padding-left: 3px;
+	padding-top: 3px;
+	border: 1px solid #000000;
+	background: #fff;
+}
+
+.autocomplete_shadow
+{
+	position:relative;
+	top: 2px;
+	left: 2px;
+	background: #555;
+}
+
+.autocomplete_list div
+{
+	position:relative;
+	top: -2px;
+	left: -2px;
+}
