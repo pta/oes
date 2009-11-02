@@ -13,25 +13,27 @@ include_once "../lib/util.php";
 		$db->begin();
 		try
 		{
-			$subject = 0;
+			$subjects = $db->getColumn ('ID', 'Subject');
 
-			for ($i = 0; $i < 100; ++$i)
+			foreach ($subjects as $subject)
 			{
-				$question = str_replace ("\n", '<br>', rand_str (rand (100, 200)));
-
-				$questionID = $db->insertQuestion ($question, $subject);
-
-				$n = rand (2, 10);
-				for ($j = 0; $j < $n; ++$j)
+				for ($i = 0; $i < 100; ++$i)
 				{
-					$choice = str_replace ("\n", '<br>', rand_str (rand (10, 50)));
-					$correct = (mt_rand (0, 3) == 0)?'true':'false';
-					$db->insertChoice ($questionID, $choice, $correct);
-				}
+					$question = str_replace ("\n", '<br>', rand_str (rand (100, 200)));
 
-				$db->commit();
+					$questionID = $db->insertQuestion ($question, $subject);
+
+					$n = rand (2, 10);
+					for ($j = 0; $j < $n; ++$j)
+					{
+						$choice = str_replace ("\n", '<br>', rand_str (rand (10, 50)));
+						$correct = (mt_rand (0, 3) == 0)?'true':'false';
+						$db->insertChoice ($questionID, $choice, $correct);
+					}
+				}
 			}
 
+			$db->commit();
 			echo "<center>Sinh ngẫu nhiên dữ liệu trắc nghiệm thành công!</center>";
 		}
 		catch (Exception $e)
