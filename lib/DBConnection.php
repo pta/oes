@@ -30,10 +30,10 @@ function str_value ($val)
  */
 function num_value ($val)
 {
-	if ($val == null)
-		return 'null';
-	else
+	if (is_numeric ($val))
 		return $val;
+	else
+		return 'null';
 }
 
 class DBConnection

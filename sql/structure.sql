@@ -72,6 +72,8 @@ create table Exam
 	Duration		TIME,
 	Sched_Time		DATETIME,
 	Start_Time		DATETIME,
+	NoQ			INT,
+	Max_NoC			INT,
 
 	UNIQUE (Class, Subject, Time)
 ) type = innodb;
@@ -110,6 +112,7 @@ create table Test
 	Exam			INT	references Exam
 					on delete cascade
 					on update cascade,
+	Time_Spent		TIME,
 
 	UNIQUE (Student, Exam)
 ) type = innodb;
