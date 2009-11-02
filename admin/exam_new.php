@@ -98,6 +98,10 @@ include_once "../lib/Database.php";
 <HEAD>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>OES Admin - New Exam</title>
+
+	<!-- link calendar files  -->
+	<script language="JavaScript" src="../js/tigra_calendar/calendar_db.js"></script>
+	<link rel="stylesheet" href="../js/tigra_calendar/calendar.css">
 </HEAD>
 <BODY>
 <div align=center>
@@ -151,7 +155,11 @@ include_once "../lib/Database.php";
 				<td><input id=duration name=duration value=90> phút
 
 			<tr><td><label for=sched_date>Ngày  thi</label>
-				<td><input id=sched_date name=sched_date> (dd/mm/yy)
+				<td><script language="JavaScript">
+						var today = f_tcalGenerDate (new Date());
+						document.writeln ("<input id=sched_date name=sched_date value=" + today + ">");
+						new tcal ({'controlname':'sched_date'});
+					</script>
 
 			<tr><td><label for=sched_hour>Giờ thi</label>
 				<td><input id=sched_hour name=sched_hour value=15:00> (HH:mm)
