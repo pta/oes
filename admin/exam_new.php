@@ -11,7 +11,18 @@ include_once "../lib/Database.php";
 	{
 		$name = $_POST['name'];
 		$time = $_POST['time'];
-		$duration = $_POST['duration'];
+
+		$duration = (int) $_POST['duration'];
+
+		if (gettype ($duration) == 'integer')
+		{
+			$hour = (int) ($duration / 60);
+			$minute = $duration % 60;
+			$duration = "$hour:$minute:00";
+		}
+		else
+			$duration = null;
+
 		$sched_date = $_POST['sched_date'];
 		$sched_hour = $_POST['sched_hour'];
 		$sched_time = $sched_date . ' ' . $sched_hour . ':00';
