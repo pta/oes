@@ -112,9 +112,8 @@ class DBConnection
 		return $ret;
 	}
 
-	function getValue ($colname, $table, $criteria)
+	function getValue ($query)
 	{
-		$query = "select `$colname` from `$table` where $criteria;";
 		$result = $this->query ($query);
 		$row = mysql_fetch_array ($result);
 		return $row[0];
@@ -122,9 +121,7 @@ class DBConnection
 
 	function getLastInsertID()
 	{
-		$result = $this->query ('select last_insert_id()');
-		$row = mysql_fetch_array ($result);
-		return $row[0];
+		return $this->getValue ('select last_insert_id()');
 	}
 }
 ?>
