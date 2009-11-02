@@ -88,17 +88,17 @@ class DBConnection
 	}
 
 	function begin()
-	{$this->query ('begin;');}
+	{$this->query ('begin');}
 
 	function rollback()
-	{$this->query ('rollback;');}
+	{$this->query ('rollback');}
 
 	function commit()
-	{$this->query ('commit;');}
+	{$this->query ('commit');}
 
 	function getColumn ($column, $table)
 	{
-		$result = $this->query ("select `$column` from `$table` order by `$column`;");
+		$result = $this->query ("select `$column` from `$table` order by `$column`");
 		$ret = fetch_column ($result);
 		mysql_free_result ($result);
 		return $ret;
@@ -106,7 +106,7 @@ class DBConnection
 
 	function getColumns ($columns, $table)
 	{
-		$result = $this->query ("select $columns from `$table` order by $columns;");
+		$result = $this->query ("select $columns from `$table` order by $columns");
 		$ret = fetch_columns ($result);
 		mysql_free_result ($result);
 		return $ret;
