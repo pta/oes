@@ -119,5 +119,12 @@ class DBConnection
 		$row = mysql_fetch_array ($result);
 		return $row[0];
 	}
+
+	function getLastInsertID()
+	{
+		$result = $this->query ('select last_insert_id()');
+		$row = mysql_fetch_array ($result);
+		return $row[0];
+	}
 }
 ?>

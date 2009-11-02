@@ -25,14 +25,14 @@ class Database extends DBConnection
 		$class = str_value ($class);
 
 		$this->query ("insert into Class values (null, $class, $k);");
-		return $this->getValue ('ID', 'Class', "Name=$class");
+		return $this->getLastInsertID();
 	}
 
 	function insertSubject ($subject)
 	{
 		$subject = str_value ($subject);
 		$this->query ("insert into Subject values (null, $subject);");
-		return $this->getValue ('ID', 'Subject', "Name=$subject");
+		return $this->getLastInsertID();
 	}
 
 	function insertTeacher ($teacher)
@@ -44,8 +44,7 @@ class Database extends DBConnection
 		$firstname = str_value ($firstname);
 
 		$this->query ("insert into Teacher values (null, $firstname, $lastname);");
-
-		return $this->getValue ('ID', 'Teacher', "FirstName=$firstname AND LastName=$lastname");
+		return $this->getLastInsertID();
 	}
 
 	function insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time)
@@ -56,6 +55,24 @@ class Database extends DBConnection
 		$teacher = num_value ($teacher);
 
 		$this->query ("insert into Exam values (null, $name, $class, $subject, $time, $teacher, '$duration', '$sched_time', null);");
+		return $this->getLastInsertID();
+	}
+
+	function insertQuestion ($text, $subject)
+	{
+		$text = str_value ($text);
+		$subject = num_value ($subject);
+
+		$this->query ("insert into Question values (null, $text, $subject);");
+		return $this->getLastInsertID();
+	}
+
+	function insertChoice ($question, $text, $correct)
+	{
+		$text = str_value ($text);
+
+		$this->query ("insert into Choice values (null, $question, $text, $correct);");
+		return $this->getLastInsertID();
 	}
 }
 
