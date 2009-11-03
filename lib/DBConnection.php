@@ -81,7 +81,7 @@ class DBConnection
 		$this->database = $database;
 	}
 
-	function import ($sorce)
+	function import ($source)
 	{
 		return exec ("mysql -u $this->username -p$this->password -D $this->database -e 'source $source'");
 	}
