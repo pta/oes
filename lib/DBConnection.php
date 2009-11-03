@@ -83,7 +83,18 @@ class DBConnection
 
 	function import ($source)
 	{
-		return exec ("mysql -u $this->username -p$this->password -D $this->database -e 'source $source'");
+		$result = system ("mysql --show-warnings\
+						--host='$this->server'\
+						--user='$this->username'\
+						--password='$this->password'\
+						--database='$this->database'\
+						--execute='source $source'",
+				$return_code);
+
+		if ($return_code != 0)
+			throw new Exception ("Could not import $source: " . $result);
+
+		return $result;
 	}
 
 	function query ($query)
