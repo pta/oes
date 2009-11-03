@@ -13,6 +13,9 @@ include_once "../lib/util.php";
 		$db->begin();
 		try
 		{
+			echo $db->import ('../sql/structure.sql');
+			echo $db->import ('../sql/data.sql');
+
 			$subjects = $db->getColumn ('ID', 'Subject');
 
 			foreach ($subjects as $subject)
@@ -34,7 +37,7 @@ include_once "../lib/util.php";
 			}
 
 			$db->commit();
-			echo "<center>Sinh ngẫu nhiên dữ liệu trắc nghiệm thành công!</center>";
+			echo "<center>Sinh dữ liệu mẫu thành công!</center>";
 		}
 		catch (Exception $e)
 		{
@@ -52,13 +55,13 @@ include_once "../lib/util.php";
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>OES Admin - New Question</title>
+	<title>OES Admin - Sample Database</title>
 </HEAD>
 <BODY>
 <div align=center>
-	<h1>Sinh ngẫu nhiên dữ liệu trắc nghiệm?</h1>
+	<h1>Sinh dữ liệu mẫu?</h1>
 
-	<form action=question_random.php method=POST>
+	<form action=sample_db.php method=POST>
 		<input type=reset value=Huỷ>
 		<input type=submit name=submit value='Thực hiện'>
 	</form>
