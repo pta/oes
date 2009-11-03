@@ -39,6 +39,8 @@ function num_value ($val)
 class DBConnection
 {
 	private $connection;
+	private $server, $username, $password;
+	private $database;
 
 	function __construct ($server, $username, $password)
 	{
@@ -46,6 +48,10 @@ class DBConnection
 
 		if (!$this->connection)
 			throw new Exception ('Could not connect: ' . mysql_error());
+
+		$this->server = $server;
+		$this->username = $username;
+		$this->password = $password;
 	}
 
 	/**
@@ -71,6 +77,13 @@ class DBConnection
 
 		if (!$result)
 			throw new Exception ("Could not use $database: " . mysql_error());
+
+		$this->database = $database;
+	}
+
+	function import ($sorce)
+	{
+		return exec ("mysql -u $this->username -p$this->password -D $this->database -e 'source $source'");
 	}
 
 	function query ($query)
