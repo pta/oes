@@ -3,6 +3,8 @@ include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
 <?php
+	header ('Content-Type: text/html; charset=UTF-8');
+
 	$db = new Database ($db_server, $db_username, $db_password);
 	$db->selectDatabase ($db_database);
 
@@ -26,11 +28,6 @@ include_once "../lib/Database.php";
 		catch (Exception $e)
 		{
 			?>
-				<HEAD>
-					<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-					<title>OES Admin - Student Login</title>
-				</HEAD>
-
 				<center>Đăng nhập thất bại!</center>
 				<center>Xin hãy kiểm tra thông tin đã nhập.</center>
 				<center><button onClick='history.back()'>Trở lại</button></center>
@@ -44,7 +41,6 @@ include_once "../lib/Database.php";
 
 <HTML>
 <HEAD>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>OES Admin - Student Login</title>
 
 	<!-- link calendar files  -->

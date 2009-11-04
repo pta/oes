@@ -1,15 +1,10 @@
-<HTML>
-<HEAD>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>OES Admin - New Question</title>
-</HEAD>
-
 <?php
 include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
-
 <?php
+	header ('Content-Type: text/html; charset=UTF-8');
+
 	$db = new Database ($db_server, $db_username, $db_password);
 	$db->selectDatabase ($db_database);
 
@@ -62,6 +57,11 @@ include_once "../lib/Database.php";
 		}
 	}
 ?>
+
+<HTML>
+<HEAD>
+	<title>OES Admin - New Question</title>
+</HEAD>
 
 <BODY>
 <div align=center>

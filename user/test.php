@@ -3,6 +3,8 @@ include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
 <?php
+	header ('Content-Type: text/html; charset=UTF-8');
+
 	session_start();
 
 	if (!isset ($_SESSION['student']))
@@ -13,51 +15,56 @@ include_once "../lib/Database.php";
 	$student = $_SESSION['student'];
 ?>
 
-<HTML>
-<HEAD>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>OES Admin - Test</title>
-</HEAD>
-
 <?php
 	$db = new Database ($db_server, $db_username, $db_password);
 	$db->selectDatabase ($db_database);
 
-	$db->begin();
+	$exams = $db->getRunningExams ($student);
 
-	try
+	if (count ($exams) == 0)
 	{
-		$exams = $db->getRunningExams ($student);
+		echo '<center>Không có buổi thi nào cho bạn.</center>';
+		return;
+	}
 
-		if (count ($exams) == 0)
+	$exam = $exams[0];
+
+	$test = $db->openTest ($student, $exam['ID']);
+
+	if ($test == null)
+	{
+		$db->begin();
+
+		try
 		{
-			echo '<center>Không có buổi thi nào cho bạn.</center>';
-			return;
-		}
-
-		$exam = $exams[0];
-
-		$test = $db->openTest ($student, $exam['ID']);
-
-		if ($test == null)
 			$test = $db->createTest ($student, $exam['ID'], $exam['Subject'],
 					$exam['NoQ'], $exam['Max_NoC']);
 
-		$db->commit();
-		echo "<center>Tạo đợt thi mới thành công!</center>";
-	}
-	catch (Exception $e)
-	{
-		$db->rollback();
+			$db->commit();
+		}
+		catch (Exception $e)
+		{
+			$db->rollback();
 
-		echo "<center>Không thể tạo <b>Đợt thi</b> mới.</center>";
-		echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
-		echo "<center><button onClick='history.back()'>Trở lại</button></center>";
-		echo $e->getMessage();
+			?>
+				<center>Không thể tạo <b>Bài thi</b> mới.</center>
+				<center><button onClick='history.back()'>Trở lại</button></center>
+			<?php
 
-		return -1;
+			echo $e->getMessage();
+			return -1;
+		}
 	}
+
+	$testData = $db->getColumns (
+
+	echo "<center>Tạo bài thi mới thành công!</center>";
 ?>
+
+<HTML>
+<HEAD>
+	<title>OES Admin - Test</title>
+</HEAD>
 
 <BODY>
 <div align=center>
