@@ -119,6 +119,71 @@ class Database extends DBConnection
 		$this->query ("insert into Choice values (null, $question, $text, $correct)");
 		return $this->getLastInsertID();
 	}
+
+	function getRunningExams ($student)
+	{
+		$class = $this->getValue ("select Class from Student where ID=$student");
+		$class = num_value ($class);
+
+		$result = $this->query ("select * from Exam where Class=$class and Start_Time is not NULL");
+		$exams = fetch_assoc ($result);
+		mysql_free_result ($result);
+
+		return $exams;
+	}
+
+	function openTest ($student, $exam)
+	{
+		return $this->getValue ("select ID from Test"
+				. " where Student = $student and Exam = $exam");
+	}
+
+	function createTest ($student, $exam, $subject, $noq, $max_noc)
+	{
+		$subject = str_value ($subject);
+
+		$test = $this->insertTest ($student, $exam);
+
+		$result = $this->query ("select ID from Question"
+				. " where Subject = $subject order by rand() limit $noq");
+		$questions = fetch_column ($result);
+		mysql_free_result ($result);
+
+		foreach ($questions as $question)
+		{
+			$n = $max_noc - 1;
+
+			$result = $this->query (
+					"(select ID from Choice"
+							. " where Question = $question and Correct = 1"
+							. " order by rand() limit 1)"
+					. "union"
+					. "(select ID from Choice"
+							. " where Question = $question and Correct = 0"
+							. " order by rand() limit $n)"
+					. "order by rand()");
+			$choices = fetch_column ($result);
+			mysql_free_result ($result);
+
+			foreach ($choices as $choice)
+			{
+				$this->insertTestChoice ($test, $choice);
+			}
+		}
+
+		return $test;
+	}
+
+	function insertTestChoice ($test, $choice)
+	{
+		$this->query ("insert into Test_Choice values ($test, $choice)");
+	}
+
+	function insertTest ($student, $exam)
+	{
+		$this->query ("insert into Test values (null, $student, $exam, null)");
+		return $this->getLastInsertID();
+	}
 }
 
 ?>

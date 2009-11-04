@@ -14,6 +14,13 @@ function fetch_columns ($result)
 	return $arr;
 }
 
+function fetch_assoc ($result)
+{
+	while ($row = mysql_fetch_assoc ($result))
+		$arr[] = $row;
+	return $arr;
+}
+
 /**
  * wrap string value
  */
@@ -140,6 +147,7 @@ class DBConnection
 	{
 		$result = $this->query ($query);
 		$row = mysql_fetch_array ($result);
+		mysql_free_result ($result);
 		return $row[0];
 	}
 
