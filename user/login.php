@@ -3,8 +3,6 @@ include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
 <?php
-	header ('Content-Type: text/html; charset=UTF-8');
-
 	$db = new Database ($db_server, $db_username, $db_password);
 	$db->selectDatabase ($db_database);
 
@@ -27,6 +25,7 @@ include_once "../lib/Database.php";
 		}
 		catch (Exception $e)
 		{
+			header ('Content-Type: text/html; charset=UTF-8');
 			?>
 				<center>Đăng nhập thất bại!</center>
 				<center>Xin hãy kiểm tra thông tin đã nhập.</center>
@@ -37,6 +36,8 @@ include_once "../lib/Database.php";
 			return -1;
 		}
 	}
+
+	header ('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <HTML>

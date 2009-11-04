@@ -3,8 +3,6 @@ include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
 <?php
-	header ('Content-Type: text/html; charset=UTF-8');
-
 	session_start();
 
 	if (!isset ($_SESSION['student']))
@@ -23,6 +21,7 @@ include_once "../lib/Database.php";
 
 	if (count ($exams) == 0)
 	{
+		header ('Content-Type: text/html; charset=UTF-8');
 		echo '<center>Không có buổi thi nào cho bạn.</center>';
 		return;
 	}
@@ -46,6 +45,7 @@ include_once "../lib/Database.php";
 		{
 			$db->rollback();
 
+			header ('Content-Type: text/html; charset=UTF-8');
 			?>
 				<center>Không thể tạo <b>Bài thi</b> mới.</center>
 				<center><button onClick='history.back()'>Trở lại</button></center>
@@ -56,9 +56,9 @@ include_once "../lib/Database.php";
 		}
 	}
 
-	$testData = $db->getColumns (
+	$_SESSION['test'] = $test;
 
-	echo "<center>Tạo bài thi mới thành công!</center>";
+	header ('Location: question.php');
 ?>
 
 <HTML>
