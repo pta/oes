@@ -19,6 +19,49 @@ class Database extends DBConnection
 		return $this->getColumns ('FirstName, LastName, ID', 'Teacher');
 	}
 
+	function ensureStudent ($student_id, $firstname, $lastname, $dob, $class)
+	{
+		if ($student_id != null)
+			$id = $this->getValue ("select ID from Student where Student_ID = $student_id");
+
+		if ($id == null)
+		{
+			$id = $this->insertStudent ($student_id, $firstname, $lastname, $dob, $class);
+		}
+		else if ($firstname || $lastname || $dob || $class)
+		{
+			$id = $this->getStudentID ($student_id, $firstname, $lastname, $dob, $class);
+
+			if ($id == null)
+				throw new Exception ("Incorrect Student data: ($student_id, $firstname, $lastname, $dob, $class)");
+		}
+
+		return $id;
+	}
+
+	function insertStudent ($student_id, $firstname, $lastname, $dob, $class)
+	{
+		$student_id = str_value ($student_id);
+		$firstname = str_value ($firstname);
+		$lastname = str_value ($lastname);
+		$dob = str_value ($dob);
+		$class = num_value ($class);
+
+		$this->query ("insert into Student values (null, $student_id, $firstname, $lastname, $dob, $class)");
+		return $this->getLastInsertID();
+	}
+
+	function getStudentID ($student_id, $firstname, $lastname, $dob, $class)
+	{
+		$student_id = str_value ($student_id);
+		$firstname = str_value ($firstname);
+		$lastname = str_value ($lastname);
+		$dob = str_value ($dob);
+		$class = num_value ($class);
+
+		return $this->getValue ("select ID from Student where (Student_ID = $student_id) and (FirstName = $firstname) and LastName = $lastname and DoB = $dob and Class = $class");
+	}
+
 	function insertClass ($class)
 	{
 		$k = num_value ($class[4]);
