@@ -1,3 +1,9 @@
+<HTML>
+<HEAD>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>OES Admin - New Question</title>
+</HEAD>
+
 <?php
 include_once "../config.php";
 include_once "../lib/Database.php";
@@ -45,21 +51,18 @@ include_once "../lib/Database.php";
 		{
 			$db->rollback();
 
-			echo "<center>Không thể tạo <b>Câu hỏi</b> mới.</center>";
-			echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
-			echo "<center><button onClick='history.back()'>Trở lại</button></center>";
-			echo $e->getMessage();
+			?>
+				<center>Không thể tạo <b>Câu hỏi</b> mới.</center>
+				<center>Xin hãy kiểm tra thông tin đã nhập.</center>
+				<center><button onClick='history.back()'>Trở lại</button></center>
+			<?php
 
+			echo $e->getMessage();
 			return -1;
 		}
 	}
 ?>
 
-<HTML>
-<HEAD>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>OES Admin - New Question</title>
-</HEAD>
 <BODY>
 <div align=center>
 	<h1>Tạo câu hỏi mới</h1>

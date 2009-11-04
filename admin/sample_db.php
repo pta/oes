@@ -1,3 +1,9 @@
+<HTML>
+<HEAD>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>OES Admin - Sample Database</title>
+</HEAD>
+
 <?php
 include_once "../config.php";
 include_once "../lib/Database.php";
@@ -43,20 +49,17 @@ include_once "../lib/util.php";
 		{
 			$db->rollback();
 
-			echo "<center>Thất bại!</center>";
-			echo "<center><button onClick='history.back()'>Trở lại</button></center>";
-			echo $e->getMessage();
+			?>
+				<center>Thất bại!</center>
+				<center><button onClick='history.back()'>Trở lại</button></center>
+			<?php
 
+			echo $e->getMessage();
 			return -1;
 		}
 	}
 ?>
 
-<HTML>
-<HEAD>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>OES Admin - Sample Database</title>
-</HEAD>
 <BODY>
 <div align=center>
 	<h1>Sinh dữ liệu mẫu?</h1>

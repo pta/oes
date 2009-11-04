@@ -23,11 +23,18 @@ include_once "../lib/Database.php";
 		}
 		catch (Exception $e)
 		{
-			echo "<center>Đăng nhập thất bại!</center>";
-			echo "<center>Xin hãy kiểm tra thông tin đã nhập.</center>";
-			echo "<center><button onClick='history.back()'>Trở lại</button></center>";
-			echo $e->getMessage();
+			?>
+				<HEAD>
+					<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+					<title>OES Admin - Student Login</title>
+				</HEAD>
 
+				<center>Đăng nhập thất bại!</center>
+				<center>Xin hãy kiểm tra thông tin đã nhập.</center>
+				<center><button onClick='history.back()'>Trở lại</button></center>
+			<?php
+
+			echo $e->getMessage();
 			return -1;
 		}
 	}
@@ -36,7 +43,7 @@ include_once "../lib/Database.php";
 <HTML>
 <HEAD>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>OES Admin - New Exam</title>
+	<title>OES Admin - Student Login</title>
 
 	<!-- link calendar files  -->
 	<script language="JavaScript" src="../js/tigra_calendar/calendar_db.js"></script>
