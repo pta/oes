@@ -154,7 +154,7 @@ include_once "../lib/Database.php";
 			<tr><td><label for=duration>Thời gian</label>
 				<td><input id=duration name=duration value=90> phút
 
-			<tr><td><label for=sched_date>Ngày  thi</label>
+			<tr><td><label for=sched_date>Ngày thi</label>
 				<td><script language="JavaScript">
 						var today = f_tcalGenerDate (new Date());
 						document.writeln ("<input id=sched_date name=sched_date value=" + today + ">");
