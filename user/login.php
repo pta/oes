@@ -42,7 +42,7 @@ include_once "../lib/Database.php";
 
 <HTML>
 <HEAD>
-	<title>OES Admin - Student Login</title>
+	<title>OES - Student Login</title>
 
 	<!-- link calendar files  -->
 	<script language="JavaScript" src="../js/tigra_calendar/calendar_db.js"></script>

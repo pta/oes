@@ -22,7 +22,7 @@ class Database extends DBConnection
 	function ensureStudent ($student_id, $firstname, $lastname, $dob, $class)
 	{
 		if ($student_id != null)
-			$id = $this->getValue ("select ID from Student where Student_ID = $student_id");
+			$id = $this->getValue ("select ID from Student where Student_ID = '$student_id'");
 
 		if ($id == null)
 		{
@@ -99,7 +99,8 @@ class Database extends DBConnection
 		$noq = num_value ($noq);
 		$max_noc = num_value ($max_noc);
 
-		$this->query ("insert into Exam values (null, $name, $class, $subject, $time, $teacher, '$duration', '$sched_time', null, $noq, $max_noc)");
+		//$this->query ("insert into Exam values (null, $name, $class, $subject, $time, $teacher, '$duration', '$sched_time', null, $noq, $max_noc)");
+		$this->query ("insert into Exam values (null, $name, $class, $subject, $time, $teacher, '$duration', '$sched_time', '$sched_time', $noq, $max_noc)");
 		return $this->getLastInsertID();
 	}
 
@@ -149,7 +150,7 @@ class Database extends DBConnection
 		$questions = fetch_column ($result);
 		mysql_free_result ($result);
 
-		foreach ($questions as $question)
+		foreach ($questions as $ord => $question)
 		{
 			$n = $max_noc - 1;
 
@@ -167,16 +168,16 @@ class Database extends DBConnection
 
 			foreach ($choices as $choice)
 			{
-				$this->insertTestChoice ($test, $choice);
+				$this->insertTestChoice ($ord + 1, $test, $choice);
 			}
 		}
 
 		return $test;
 	}
 
-	function insertTestChoice ($test, $choice)
+	function insertTestChoice ($ord, $test, $choice)
 	{
-		$this->query ("insert into Test_Choice values ($test, $choice)");
+		$this->query ("insert into Test_Choice values ($ord, $test, $choice)");
 	}
 
 	function insertTest ($student, $exam)

@@ -120,6 +120,7 @@ create table Test
 -- Test_Choice
 create table Test_Choice
 (
+	Ord			INT,
 	Test			INT	references Test
 					on delete cascade
 					on update cascade,

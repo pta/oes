@@ -1,2 +1,7 @@
 
-iframe {visibility:hidden; height:0px;}
+iframe
+{
+	visibility:hidden;
+	height:0px;
+	width:0px
+}
