@@ -62,7 +62,6 @@ include_once "../lib/util.php";
 	<h1>Sinh dữ liệu mẫu?</h1>
 
 	<form action=sample_db.php method=POST>
-		<input type=reset value=Huỷ>
 		<input type=submit name=submit value='Thực hiện'>
 	</form>
 
