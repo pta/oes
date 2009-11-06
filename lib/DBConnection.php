@@ -61,18 +61,6 @@ class DBConnection
 		$this->password = $password;
 	}
 
-	/**
-	 * compatibility
-	 */
-	function DBConnection ($server, $username, $password)
-	{
-		if (version_compare (PHP_VERSION,"5.0.0","<"))
-		{
-			$this->__construct ($server, $username, $password);
-			register_shutdown_function (array ($this, "__destruct"));
-		}
-	}
-
 	function __destruct()
 	{
 		mysql_close ($this->connection);
