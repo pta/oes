@@ -14,9 +14,6 @@ include_once "../lib/util.php";
 		$db->begin();
 		try
 		{
-			echo $db->import ('../sql/structure.sql');
-			echo $db->import ('../sql/data.sql');
-
 			$subjects = $db->getColumn ('ID', 'Subject');
 
 			foreach ($subjects as $subject)
