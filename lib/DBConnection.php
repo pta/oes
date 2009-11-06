@@ -2,6 +2,7 @@
 
 function fetch_column ($result)
 {
+	$arr = array();
 	while ($row = mysql_fetch_array ($result))
 		$arr[] = $row[0];
 	return $arr;
@@ -9,6 +10,7 @@ function fetch_column ($result)
 
 function fetch_columns ($result)
 {
+	$arr = array();
 	while ($row = mysql_fetch_array ($result))
 		$arr[] = $row;
 	return $arr;
@@ -16,6 +18,7 @@ function fetch_columns ($result)
 
 function fetch_assoc ($result)
 {
+	$arr = array();
 	while ($row = mysql_fetch_assoc ($result))
 		$arr[] = $row;
 	return $arr;
