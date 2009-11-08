@@ -1,9 +1,23 @@
 
-#left
+#question_list
 {
-	overflow:auto;
-	height:560px;
-	background:#3DBFDF;
+	text-align: center;
+	overflow: auto;
+	height: 300px;
+	background: #C1FFEB;
+	font-family: monospace;
+}
+
+#question_list a.question_current
+{
+	border-width: 2px;
+	border-style: solid;
+	background-color: lightgray;
+}
+
+#question_list a.question_answered
+{
+	color: gray;
 }
 
 #question {background-color: #99CC99;}
