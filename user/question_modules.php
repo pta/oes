@@ -119,12 +119,10 @@ include_once "../lib/Database.php";
 				$question = $qoc[0];
 				$o = $qoc[1];
 
-				if ($o == $ord)
-					echo '<a class=question_current';
-				else if ($qoc[2])
-					echo '<a class=question_answered';
-				else
-					echo '<a';
+				echo '<a class=\'question';
+				if ($o == $ord)	echo ' current';
+				if ($qoc[2])	echo ' answered';
+				echo '\'';
 
 				echo " href='javascript:onSelect($o)'>";
 				printf ("Câu %02d", $o + 1);

@@ -15,14 +15,17 @@
 	font-family: monospace;
 }
 
-#question_list a.question_current
+#question_list a.current
 {
 	border-width: 2px;
 	border-style: solid;
 	background-color: lightgray;
 }
 
-#question_list a.question_answered {color: gray}
+#question_list a.answered
+{
+	color: gray
+}
 
 #question
 {
