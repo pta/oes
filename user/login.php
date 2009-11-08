@@ -16,6 +16,7 @@ include_once "../lib/Database.php";
 
 		try
 		{
+			session_start();
 			session_destroy();
 			session_start();
 
