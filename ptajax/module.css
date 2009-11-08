@@ -1,7 +1,14 @@
 
 iframe
 {
-	visibility:hidden;
-	height:0px;
-	width:0px
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+}
+
+div.script
+{
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
 }
