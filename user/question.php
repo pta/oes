@@ -44,8 +44,8 @@ include_once "../lib/Database.php";
 </head>
 
 <body style="margin:0; padding:0">
-<table align=center width=780 height=560 bgcolor=cyan>
-	<td width=100 bgcolor=#4DAADC>
+<table align=center width=780 height=560>
+	<td width=100>
 		<script>insertModule ('right', 'question_modules.php?id=right')</script>
 	<td valign=top>
 		<script>insertModule ('main', 'question_modules.php?id=main')</script>

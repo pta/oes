@@ -182,6 +182,7 @@ class Database extends DBConnection
 
 	function insertTestAnswer ($test, $choice)
 	{
+		$this->query ("delete from Test_Answer where Test = $test and Answer in (select ID from Choice where Question = (select Question from Choice where ID = $choice))");
 		$this->query ("insert into Test_Answer values ($test, $choice)");
 	}
 

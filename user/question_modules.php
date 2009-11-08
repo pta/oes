@@ -54,6 +54,15 @@ include_once "../lib/Database.php";
 
 		return $arr_qoc;
 	}
+
+	function get_choices ($db, $test, $ord)
+	{
+		$result = $db->query ("select ID, Text from Choice where ID in (select Choice from Test_Choice where Test=$test and Ord = $ord) order by Text");
+		$choices = fetch_columns ($result);
+		mysql_free_result ($result);
+
+		return $choices;
+	}
 ?>
 <?php
 	session_start();
@@ -143,25 +152,29 @@ include_once "../lib/Database.php";
 			$qtext = $db->getValue ("select Text from Question where ID = $question");
 			echo "<div id=question>$qtext</div>";
 
-			$result = $db->query ("select ID, Text from Choice where ID in (select Choice from Test_Choice where Test=$test and Ord = $ord) order by Text");
-			$choices = fetch_columns ($result);
-			mysql_free_result ($result);
+			$answer = $db->getValue ("select ID from (select Answer from Test_Answer where Test = $test) as A join (select ID from Choice where Question = $question) as B on Answer = ID;");
 
-			echo '<div id=choices" align=center>';
-			echo '<table width=100%>';
+			$arr_it = get_choices ($db, $test, $ord);
 
-			foreach ($choices as $i => $choice)
+			echo '<div id=choices align=center>';
+			echo '<table width=100% cellspacing=0>';
+
+			foreach ($arr_it as $i => $it)
 			{
 				$b = $i % 2;
-				$answer = $choice['ID'];
+				$id = $it['ID'];
 
-				echo "<tr class=choice$b>";
-				echo '<td align=center>';
+				if ($id == $answer)
+					echo "<tr class='choice choice$b chose'";
+				else
+					echo "<tr class='choice choice$b'";
+
+				echo " onclick='onChoose ($ord, $id)'>";
+
+				echo '<td align=center><span class=choiceli>';
 				echo chr (ord ('A') + $i);
-				echo '<td>';
-				echo $choice['Text'];
-				echo '<td align=center>';
-				echo "<input type=button value=Chọn onclick='onChoose ($ord, $answer)'>";
+				echo '</span><td>';
+				echo $it['Text'];
 			}
 
 			echo '</table>';
