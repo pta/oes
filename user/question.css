@@ -6,7 +6,7 @@
 	height: 580px;
 }
 
-#question_list
+#list
 {
 	text-align: center;
 	overflow: auto;
@@ -15,14 +15,14 @@
 	font-family: monospace;
 }
 
-#question_list a.current
+#list a.current
 {
 	border-width: 2px;
 	border-style: solid;
 	background-color: lightgray;
 }
 
-#question_list a.answered
+#list a.answered
 {
 	color: gray
 }
