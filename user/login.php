@@ -16,6 +16,7 @@ include_once "../lib/Database.php";
 
 		try
 		{
+			session_destroy();
 			session_start();
 
 			$_SESSION['student'] = $db->ensureStudent ($student_id,

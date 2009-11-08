@@ -40,17 +40,28 @@ include_once "../lib/Database.php";
 			loadModule ('main', 'question_modules.php?id=main&ord=' + ord);
 			loadModule ('question_list', 'question_modules.php?id=list&ord=' + ord);
 		}
+
+		function onSkip()
+		{
+			loadModule ('main', 'question_modules.php?id=main&skip');
+			loadModule ('question_list', 'question_modules.php?id=list&skip');
+		}
 	</script>
 </head>
 
 <body style="margin:0; padding:0">
-<table align=center width=780 height=560>
+<table align=center width=780 cellspacing=0 cellpadding=0>
 	<td width=100>
 		<script>insertModule ('right', 'question_modules.php?id=right')</script>
 	<td valign=top>
 		<script>insertModule ('main', 'question_modules.php?id=main')</script>
 	<td valign=top width=100>
-		<script>insertModule ('question_list', 'question_modules.php?id=list')</script>
+		<table cellspacing=0 cellpadding=0>
+			<tr><td><script>insertModule ('question_list', 'question_modules.php?id=list')</script>
+			<tr><td align=center>
+				<input type=button value='Quay lại' onClick='parent.history.go(-2)'>
+				<input type=button value='Bỏ qua' onClick='onSkip()'>
+		</table>
 </table>
 </body>
 </html>

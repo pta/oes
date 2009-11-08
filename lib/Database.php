@@ -141,7 +141,7 @@ class Database extends DBConnection
 
 	function createTest ($student, $exam, $subject, $noq, $max_noc)
 	{
-		$subject = str_value ($subject);
+		$subject = num_value ($subject);
 
 		$test = $this->insertTest ($student, $exam);
 
@@ -168,7 +168,7 @@ class Database extends DBConnection
 
 			foreach ($choices as $choice)
 			{
-				$this->insertTestChoice ($ord + 1, $test, $choice);
+				$this->insertTestChoice ($ord, $test, $choice);
 			}
 		}
 

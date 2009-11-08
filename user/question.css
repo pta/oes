@@ -1,5 +1,10 @@
 
-#main {background-color: #99CCFF}
+#main
+{
+	background-color: #99CCFF;
+	overflow: auto;
+	height: 580px;
+}
 
 #question_list
 {
@@ -23,26 +28,18 @@
 {
 	margin: 10px;
 	background-color: #459EF7;
+	padding: 10px;
 }
 
 #choices
 {
 	margin: 10px 20px 10px 20px;
-	overflow: auto;
-	height: 300px;
 }
 
 .choice {cursor: pointer}
 
 .choice0 {background-color: #CCCCFF}
 .choice1 {background-color: #AAAACC}
-
-.choiceli
-{
-	color: #045;
-	border-width: 1px;
-	border-style: dotted;
-}
 
 .chose .choiceli
 {
