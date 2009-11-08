@@ -3,6 +3,59 @@ include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
 <?php
+	function first_unaswered ($arr_qoc, $start = 0)
+	{
+		$n = count ($arr_qoc);
+
+		for ($i = $start; $i < $n; ++$i)
+			if (!$arr_qoc[$i][2])
+				return $arr_qoc[$i];
+
+		for ($i = 0; $i < $start; ++$i)
+			if (!$arr_qoc[$i][2])
+				return $arr_qoc[$i];
+
+		return $arr_qoc[$start];
+	}
+
+	function next_ord ($arr_qoc, $ord)
+	{
+		$n = count ($arr_qoc);
+		++$ord;
+
+		if ($ord < $n)
+			return $ord;
+		else
+			return $arr_qoc[0][1];
+	}
+
+	function get_qoc ($db, $test)
+	{
+		$result = $db->query ("select Question, Ord from Choice join (select Choice, Ord from Test_Choice where Test = $test) as A on ID = Choice group by Question order by Ord");
+		$arr_qoc = fetch_columns ($result);
+		mysql_free_result ($result);
+
+		$result = $db->query ("select distinct Question from Choice where ID in (select Answer from Test_Answer where Test = $test)");
+		$answered = fetch_column ($result);
+		mysql_free_result ($result);
+
+		if ($answered != null)
+		{
+			foreach ($arr_qoc as $i => $q)
+				$arr_qoc[$i][2] = in_array ($q[0], $answered);
+		}
+		else
+		{
+			foreach ($arr_qoc as $i => $q)
+				$arr_qoc[$i][2] = false;
+		}
+
+		unset ($answered);
+
+		return $arr_qoc;
+	}
+?>
+<?php
 	session_start();
 
 	if (! (isset ($_SESSION['student'])
@@ -20,33 +73,40 @@ include_once "../lib/Database.php";
 	$db = new Database ($db_server, $db_username, $db_password);
 	$db->selectDatabase ($db_database);
 
-	$result = $db->query ("select distinct Question from Choice where ID in (select Answer from Test_Answer where Test = $test)");
-	$answered = fetch_column ($result);
-	mysql_free_result ($result);
-
-	if ($answered == null)
-		$answered = array();
-
-	$result = $db->query ("select Question, Ord from Choice join (select Choice, Ord from Test_Choice where Test = $test) as A on ID = Choice group by Question order by Ord");
-	$questions = fetch_columns ($result);
-	mysql_free_result ($result);
+	$arr_qoc = get_qoc ($db, $test);
 
 	switch ($id)
 	{
-		case 'left':
+		case 'list':
 		{
-			foreach ($questions as $q)
+			if (isset ($_GET['ord']))
 			{
-				$question = $q[0];
-				$ord = $q[1];
+				$ord = $_GET['ord'];
 
-				echo "<a href=# onClick='javascript:loadModule (\"main\", \"question_modules.php?id=main&ord=$ord\");return false;'>";
-				printf ("#%02d", $ord);
-				echo "</a>";
+				if (isset ($_GET['next']))
+					$ord = next_ord ($arr_qoc, $ord);
+			}
+			else
+			{
+				$qoc = first_unaswered ($arr_qoc, 0);
+				$ord = $qoc[1];
+			}
 
-				if (in_array ($question, $answered))
-					echo '------';
-				echo '<br>';
+			foreach ($arr_qoc as $qoc)
+			{
+				$question = $qoc[0];
+				$o = $qoc[1];
+
+				if ($o == $ord)
+					echo '<a class=question_current';
+				else if ($qoc[2])
+					echo '<a class=question_answered';
+				else
+					echo '<a';
+
+				echo " href='javascript:onSelect($o)'>";
+				printf ("Câu %02d", $o);
+				echo "</a><br>";
 			}
 
 			break;
@@ -54,33 +114,31 @@ include_once "../lib/Database.php";
 
 		case 'main':
 		{
+
 			if (!isset ($_GET['ord']))
 			{
-				// first unanswered question
-				foreach ($questions as $q)
-				{
-					$question = $q[0];
-					$ord = $q[1];
-
-					if (!in_array ($question, $answered))
-						break;
-				}
+				$qoc = first_unaswered ($arr_qoc, 0);
+				$question = $qoc[0];
+				$ord = $qoc[1];
 			}
 			else
 			{
 				$ord = $_GET['ord'];
 
-				$question = $db->getValue ("select Question from Choice where ID = (select Choice from Test_Choice where Test = $test and Ord = $ord limit 1)");
-
 				if (isset ($_GET['ans']))
 				{
-					//............................
-					++$ord;
-					header ("Location: question_modules.php?id=main&ord=$ord");
+					$ans = $_GET['ans'];
+
+					$db->insertTestAnswer ($test, $ans);
+
+					if (isset ($_GET['next']))
+						$ord = next_ord ($arr_qoc, $ord);
 				}
+
+				$question = $db->getValue ("select Question from Choice where ID = (select Choice from Test_Choice where Test = $test and Ord = $ord limit 1)");
 			}
 
-			printf ('<h3 align=center>Câu #%02d</h3>', $ord);
+			printf ('<h3 align=center>Câu %02d</h3>', $ord);
 
 			$qtext = $db->getValue ("select Text from Question where ID = $question");
 			echo "<div id=question>$qtext</div>";
@@ -98,12 +156,12 @@ include_once "../lib/Database.php";
 				$answer = $choice['ID'];
 
 				echo "<tr class=choice$b>";
-				echo "<td align=center>";
+				echo '<td align=center>';
 				echo chr (ord ('A') + $i);
 				echo '<td>';
 				echo $choice['Text'];
 				echo '<td align=center>';
-				echo "<input type=button value=Chọn onclick='loadModule (\"main\", \"question_modules.php?id=main&ord=$ord&ans=$answer\")'>";
+				echo "<input type=button value=Chọn onclick='onChoose ($ord, $answer)'>";
 			}
 
 			echo '</table>';
