@@ -33,25 +33,25 @@ include_once "../lib/Database.php";
 		function onChoose (ord, answer)
 		{
 			loadModule ('main', 'question_modules.php?id=main&ord=' + ord + '&ans=' + answer);
-			loadModule ('question_list', 'question_modules.php?id=list&ord=' + ord);
+			loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
 		}
 
 		function onSelect (ord)
 		{
 			loadModule ('main', 'question_modules.php?id=main&ord=' + ord);
-			loadModule ('question_list', 'question_modules.php?id=list&ord=' + ord);
+			loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
 		}
 
 		function onSkip()
 		{
 			loadModule ('main', 'question_modules.php?id=main&skip');
-			loadModule ('question_list', 'question_modules.php?id=list&skip');
+			loadModule ('list', 'question_modules.php?id=list&skip');
 		}
 
 		function onNext()
 		{
 			loadModule ('main', 'question_modules.php?id=main&next');
-			loadModule ('question_list', 'question_modules.php?id=list&next');
+			loadModule ('list', 'question_modules.php?id=list&next');
 		}
 	</script>
 </head>
@@ -62,7 +62,7 @@ include_once "../lib/Database.php";
 		<script>insertModule ('main', 'question_modules.php?id=main')</script>
 	<td valign=top width=100>
 		<table cellspacing=0 cellpadding=0>
-			<tr><td><script>insertModule ('question_list', 'question_modules.php?id=list')</script>
+			<tr><td><script>insertModule ('list', 'question_modules.php?id=list')</script>
 			<tr><td align=center>
 				<a class=button href='javascript:parent.history.go(-2)'>Quay lại</a>
 				<a class=button href='javascript:onNext()'>Tiếp theo</a>
