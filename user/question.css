@@ -1,0 +1,13 @@
+
+#left
+{
+	overflow:auto;
+	height:560px;
+	background:#3DBFDF;
+}
+
+#question {background-color: #99CC99;}
+
+#choices {overflow:auto; height:300px;}
+.choice0 {background-color: #CC9999;}
+.choice1 {background-color: #9999CC;}

@@ -25,23 +25,8 @@ include_once "../lib/Database.php";
 <head>
 	<title>OES - Question</title>
 	<link href="../ptajax/module.css" rel="stylesheet" type="text/css">
+	<link href="question.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="../ptajax/module.js"></script>
-
-	<style>
-		#left
-		{
-			overflow:auto;
-			height:560px;
-			background:#3DBFDF;
-		}
-
-		#question {background-color: #99CC99;}
-
-		#choices {overflow:auto; height:300px;}
-		.choice0 {background-color: #CC9999;}
-		.choice1 {background-color: #9999CC;}
-
-	</style>
 </head>
 
 <body style="margin:0; padding:0">
