@@ -17,15 +17,13 @@
 
 #list a.current
 {
+	font-weight: bold;
 	border-width: 2px;
 	border-style: solid;
 	background-color: lightgray;
 }
 
-#list a.answered
-{
-	color: gray
-}
+#list a.answered {color: gray}
 
 #main #question
 {
@@ -34,13 +32,9 @@
 	padding: 10px;
 }
 
-#main #choices
-{
-	margin: 10px 20px 10px 20px;
-}
+#main #choices {margin: 10px 20px 10px 20px;}
 
 #main #choices .choice {cursor: pointer}
-
 #main #choices .choice0 {background-color: #CCCCFF}
 #main #choices .choice1 {background-color: #AAAADD}
 
@@ -50,3 +44,17 @@
 	border-width: 2px;
 	border-style: solid;
 }
+
+#clock
+{
+	text-align: center;
+	font-family: monospace;
+	background-color: #CFC;
+	border-width: 3px;
+	border-style: solid;
+	border-color: green;
+}
+#clock .title {color: green;}
+#clock .timeout {color: red; font-weight: bold; text-decoration: blink}
+#clock .duration {color: brown;}
+#clock .percent {color: blue;}

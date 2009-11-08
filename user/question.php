@@ -30,10 +30,16 @@ include_once "../lib/Database.php";
 	<script type="text/javascript" src="../ptajax/module.js"></script>
 
 	<script type="text/javascript">
+		var TIME_OUT = false;
+		var clockInterval;
+
 		function onChoose (ord, answer)
 		{
-			loadModule ('main', 'question_modules.php?id=main&ord=' + ord + '&ans=' + answer);
-			loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
+			if (!TIME_OUT)
+			{
+				loadModule ('main', 'question_modules.php?id=main&ord=' + ord + '&ans=' + answer);
+				loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
+			}
 		}
 
 		function onSelect (ord)
@@ -53,6 +59,12 @@ include_once "../lib/Database.php";
 			loadModule ('main', 'question_modules.php?id=main&next');
 			loadModule ('list', 'question_modules.php?id=list&next');
 		}
+
+		function onTimeOut()
+		{
+			clearInterval (clockInterval);
+			TIME_OUT = true;
+		}
 	</script>
 </head>
 
@@ -62,6 +74,13 @@ include_once "../lib/Database.php";
 		<script>insertModule ('main', 'question_modules.php?id=main')</script>
 	<td valign=top width=100>
 		<table cellspacing=0 cellpadding=0>
+			<tr><td>
+				<script>
+					insertScriptModule ('clock', 'question_modules.php?id=clock')
+					clockInterval = setInterval (
+							"loadModule ('clock', 'question_modules.php?id=clock')",
+							<?=$miliseconds_per_minute?>);
+				</script>
 			<tr><td><script>insertModule ('list', 'question_modules.php?id=list')</script>
 			<tr><td align=center>
 				<a class=button href='javascript:parent.history.go(-2)'>Quay lại</a>

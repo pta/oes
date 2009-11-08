@@ -85,6 +85,11 @@ include_once "../lib/Database.php";
 		else
 			return $ord;
 	}
+
+	function time_to_minutes ($time)
+	{
+		return $time->format('H') * 60 + $time->format('i');
+	}
 ?>
 <?php
 	session_start();
@@ -104,13 +109,12 @@ include_once "../lib/Database.php";
 	$db = new Database ($db_server, $db_username, $db_password);
 	$db->selectDatabase ($db_database);
 
-	$arr_qoc = get_arr_qoc ($db, $test);
-
 	switch ($id)
 	{
 		case 'list':
 		{
 			$ord = init_ord();
+			$arr_qoc = get_arr_qoc ($db, $test);
 			$ord = jump_ord ($arr_qoc, $ord);
 			$qoc = get_qoc ($arr_qoc, $ord);
 
@@ -137,11 +141,12 @@ include_once "../lib/Database.php";
 		{
 			$ord = init_ord();
 
-			if (isset ($_GET['ans']))
+			if (isset ($_GET['ans']) && !isset ($_SESSION['TIME_OUT']))
 			{
 				$db->insertTestAnswer ($test, $_GET['ans']);
 			}
 
+			$arr_qoc = get_arr_qoc ($db, $test);
 			$ord = jump_ord ($arr_qoc, $ord);
 
 			$question = $arr_qoc[$ord][0];
@@ -181,9 +186,45 @@ include_once "../lib/Database.php";
 			break;
 		}
 
-		case 'right':
-			echo $id;
+		case 'clock':
+		{
+			$ts = $db->getValue ("select Time_Spent from Test where ID = $test");
+
+			if ($ts == null) $ts = '00:00:00';
+			$ts = new DateTime ($ts);
+			$its = time_to_minutes ($ts);
+
+			if (isset ($_SESSION['duration']))
+				$duration = $_SESSION['duration'];
+			else
+			{
+				$duration = $db->getValue ("select Duration from Exam where ID = (select Exam from Test where ID = $test)");
+				$duration = new DateTime ($duration);
+				$_SESSION['duration'] = $duration;
+			}
+
+			$iduration = time_to_minutes ($duration);
+
+			if ($ts < $duration)
+			{
+				echo "<div class=title>Thời gian</div>";
+
+				$ts->modify ("+1 minute");
+				$db->query ("update Test set Time_Spent = '" . $ts->format ('H:i:s')
+						. "' where ID = $test");
+			}
+			else
+			{
+				echo '<div class="script">onTimeOut();</div>';
+				echo "<div class=timeout>Hết giờ</div>";
+				$_SESSION['TIME_OUT'] = true;
+			}
+
+			printf ("<div class=duration>%02d/%02d</div>", $its, $iduration);
+			printf ("<div class=percent>%02d%%</div>", intval (100.0*$its/$iduration));
+
 			break;
+		}
 	}
 
 ?>
