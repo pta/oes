@@ -6,13 +6,14 @@ a.button
 	font-variant: small-caps;
 	font-family: sans-serif;
 	font-weight: bold;
-	color: #000000;
-	background-color: #C1C1C2;
+	color: black;
+	background-color: #CCC;
+	border-width: 2px;
 	border-style: solid;
-	border-bottom-color: #333333;
-	border-right-color: #555555;
-	border-left-color: #BBBBBB;
-	border-top-color: #DDDDDD;
+	border-bottom-color: #444;
+	border-right-color: #777;
+	border-left-color: #DDD;
+	border-top-color: #EEE;
 }
 
 a.button:visited
@@ -22,17 +23,16 @@ a.button:visited
 
 a.button:hover
 {
-	color: #FFFFFF;
-	background-color: #777777;
+	color: white;
+	background-color: #888;
 }
 
 a.button:active
 {
-	color: #FFFFFF;
-	background-color: #666666;
-	border-style: solid;
-	border-top-color: #333333;
-	border-left-color: #555555;
-	border-right-color: #BBBBBB;
-	border-bottom-color: #DDDDDD;
+	color: white;
+	background-color: #666;
+	border-top-color: #444;
+	border-left-color: #777;
+	border-right-color: #DDD;
+	border-bottom-color: #EEE;
 }

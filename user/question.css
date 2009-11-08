@@ -1,7 +1,7 @@
 
 #main
 {
-	background-color: #99CCFF;
+	background-color: #54AAFF;
 	overflow: auto;
 	height: 580px;
 }
@@ -30,7 +30,7 @@
 #question
 {
 	margin: 10px;
-	background-color: #459EF7;
+	background-color: #99CCFF;
 	padding: 10px;
 }
 
@@ -42,7 +42,7 @@
 .choice {cursor: pointer}
 
 .choice0 {background-color: #CCCCFF}
-.choice1 {background-color: #AAAACC}
+.choice1 {background-color: #AAAADD}
 
 .chose .choiceli
 {
