@@ -8,7 +8,7 @@ function onIFrameLoad (iFrame, name)
 function insertModule (name, src)
 {
 	document.writeln ("<div id='" + name + "'>Loading...</div>")
-	document.writeln ("<iframe id='iFrame_" + name
+	document.writeln ("<iframe frameborder=0 id='iFrame_" + name
 			+ "' onload='onIFrameLoad(this,\"" + name
 			+ "\")'></iframe>");
 
