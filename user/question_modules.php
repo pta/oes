@@ -156,7 +156,7 @@ include_once "../lib/Database.php";
 			$arr_it = get_choices ($db, $test, $ord);
 
 			echo '<div id=choices align=center>';
-			echo '<table width=100% cellspacing=0>';
+			echo '<table width=100% cellspacing=0 cellpadding=0>';
 
 			foreach ($arr_it as $i => $it)
 			{

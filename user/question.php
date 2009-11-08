@@ -24,8 +24,9 @@ include_once "../lib/Database.php";
 <html>
 <head>
 	<title>OES - Question</title>
-	<link href="../ptajax/module.css" rel="stylesheet" type="text/css">
+	<link href="abutton.css" rel="stylesheet" type="text/css">
 	<link href="question.css" rel="stylesheet" type="text/css">
+	<link href="../ptajax/module.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="../ptajax/module.js"></script>
 
 	<script type="text/javascript">
@@ -46,6 +47,12 @@ include_once "../lib/Database.php";
 			loadModule ('main', 'question_modules.php?id=main&skip');
 			loadModule ('question_list', 'question_modules.php?id=list&skip');
 		}
+
+		function onNext()
+		{
+			loadModule ('main', 'question_modules.php?id=main&next');
+			loadModule ('question_list', 'question_modules.php?id=list&next');
+		}
 	</script>
 </head>
 
@@ -59,8 +66,9 @@ include_once "../lib/Database.php";
 		<table cellspacing=0 cellpadding=0>
 			<tr><td><script>insertModule ('question_list', 'question_modules.php?id=list')</script>
 			<tr><td align=center>
-				<input type=button value='Quay lại' onClick='parent.history.go(-2)'>
-				<input type=button value='Bỏ qua' onClick='onSkip()'>
+				<a class=button href='javascript:parent.history.go(-2)'>Quay lại</a>
+				<a class=button href='javascript:onNext()'>Tiếp theo</a>
+				<a class=button href='javascript:onSkip()'>Câu hỏi chưa chọn</a>
 		</table>
 </table>
 </body>

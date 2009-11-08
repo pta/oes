@@ -1,0 +1,38 @@
+
+a.button
+{
+	display: block;
+	text-align: center;
+	font-variant: small-caps;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: #000000;
+	background-color: #C1C1C2;
+	border-style: solid;
+	border-bottom-color: #333333;
+	border-right-color: #555555;
+	border-left-color: #BBBBBB;
+	border-top-color: #DDDDDD;
+}
+
+a.button:visited
+{
+	font-weight: normal;
+}
+
+a.button:hover
+{
+	color: #FFFFFF;
+	background-color: #777777;
+}
+
+a.button:active
+{
+	color: #FFFFFF;
+	background-color: #666666;
+	border-style: solid;
+	border-top-color: #333333;
+	border-left-color: #555555;
+	border-right-color: #BBBBBB;
+	border-bottom-color: #DDDDDD;
+}
