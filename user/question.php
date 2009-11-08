@@ -32,8 +32,8 @@ include_once "../lib/Database.php";
 	<script type="text/javascript">
 		function onChoose (ord, answer)
 		{
-			loadModule ('main', 'question_modules.php?id=main&next&ord=' + ord + '&ans=' + answer);
-			loadModule ('question_list', 'question_modules.php?id=list&next&ord=' + ord);
+			loadModule ('main', 'question_modules.php?id=main&ord=' + ord + '&ans=' + answer);
+			loadModule ('question_list', 'question_modules.php?id=list&ord=' + ord);
 		}
 
 		function onSelect (ord)
@@ -58,8 +58,6 @@ include_once "../lib/Database.php";
 
 <body style="margin:0; padding:0">
 <table align=center width=780 cellspacing=0 cellpadding=0>
-	<td width=100>
-		<script>insertModule ('right', 'question_modules.php?id=right')</script>
 	<td valign=top>
 		<script>insertModule ('main', 'question_modules.php?id=main')</script>
 	<td valign=top width=100>
