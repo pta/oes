@@ -180,6 +180,11 @@ class Database extends DBConnection
 		$this->query ("insert into Test_Choice values ($ord, $test, $choice)");
 	}
 
+	function insertTestAnswer ($test, $choice)
+	{
+		$this->query ("insert into Test_Answer values ($test, $choice)");
+	}
+
 	function insertTest ($student, $exam)
 	{
 		$this->query ("insert into Test values (null, $student, $exam, null)");
