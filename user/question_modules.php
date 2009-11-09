@@ -85,11 +85,6 @@ include_once "../lib/Database.php";
 		else
 			return $ord;
 	}
-
-	function time_to_minutes ($time)
-	{
-		return $time->format('H') * 60 + $time->format('i');
-	}
 ?>
 <?php
 	session_start();
@@ -190,28 +185,21 @@ include_once "../lib/Database.php";
 		{
 			$ts = $db->getValue ("select Time_Spent from Test where ID = $test");
 
-			if ($ts == null) $ts = '00:00:00';
-			$ts = new DateTime ($ts);
-			$its = time_to_minutes ($ts);
+			if ($ts == null) $ts = 0;
 
 			if (isset ($_SESSION['duration']))
 				$duration = $_SESSION['duration'];
 			else
 			{
 				$duration = $db->getValue ("select Duration from Exam where ID = (select Exam from Test where ID = $test)");
-				$duration = new DateTime ($duration);
 				$_SESSION['duration'] = $duration;
 			}
-
-			$iduration = time_to_minutes ($duration);
 
 			if ($ts < $duration)
 			{
 				echo "<div class=title>Thời gian</div>";
-
-				$ts->modify ("+1 minute");
-				$db->query ("update Test set Time_Spent = '" . $ts->format ('H:i:s')
-						. "' where ID = $test");
+				$db->query ("update Test set Time_Spent = " . ($ts + 1)
+						. " where ID = $test");
 			}
 			else
 			{
@@ -220,8 +208,8 @@ include_once "../lib/Database.php";
 				$_SESSION['TIME_OUT'] = true;
 			}
 
-			printf ("<div class=factor>%02d/%02d</div>", $its, $iduration);
-			printf ("<div class=percent>%02d%%</div>", intval (100.0*$its/$iduration));
+			printf ("<div class=factor>%02d/%02d</div>", $ts, $duration);
+			printf ("<div class=percent>%02d%%</div>", 100*$ts/$duration);
 
 			break;
 		}

@@ -69,7 +69,7 @@ create table Exam
 	Teacher			INT	references Teacher
 					on delete cascade
 					on update cascade,
-	Duration		TIME,
+	Duration		INT,
 	Sched_Time		DATETIME,
 	Start_Time		DATETIME,
 	NoQ			INT,
@@ -112,7 +112,7 @@ create table Test
 	Exam			INT	references Exam
 					on delete cascade
 					on update cascade,
-	Time_Spent		TIME,
+	Time_Spent		INT,
 
 	UNIQUE (Student, Exam)
 ) engine = innodb;
