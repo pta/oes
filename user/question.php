@@ -39,6 +39,7 @@ include_once "../lib/Database.php";
 			{
 				loadModule ('main', 'question_modules.php?id=main&ord=' + ord + '&ans=' + answer);
 				loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
+				loadModule ('proc', 'question_modules.php?id=proc&ord=' + ord);
 			}
 		}
 
@@ -46,18 +47,21 @@ include_once "../lib/Database.php";
 		{
 			loadModule ('main', 'question_modules.php?id=main&ord=' + ord);
 			loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
+			loadModule ('proc', 'question_modules.php?id=proc&ord=' + ord);
 		}
 
 		function onSkip()
 		{
 			loadModule ('main', 'question_modules.php?id=main&skip');
 			loadModule ('list', 'question_modules.php?id=list&skip');
+			loadModule ('proc', 'question_modules.php?id=proc&skip');
 		}
 
 		function onNext()
 		{
 			loadModule ('main', 'question_modules.php?id=main&next');
 			loadModule ('list', 'question_modules.php?id=list&next');
+			loadModule ('proc', 'question_modules.php?id=proc&next');
 		}
 
 		function onTimeOut()
@@ -81,6 +85,7 @@ include_once "../lib/Database.php";
 							"loadModule ('clock', 'question_modules.php?id=clock')",
 							<?php echo $miliseconds_per_minute;?>);
 				</script>
+			<tr><td><script>insertModule ('proc', 'question_modules.php?id=proc')</script>
 			<tr><td><script>insertModule ('list', 'question_modules.php?id=list')</script>
 			<tr><td align=center>
 				<a class=button href='javascript:parent.history.go(-2)'>Quay lại</a>

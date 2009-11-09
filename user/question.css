@@ -56,5 +56,19 @@
 }
 #clock .title {color: green;}
 #clock .timeout {color: red; font-weight: bold; text-decoration: blink}
-#clock .duration {color: brown;}
+#clock .factor {color: brown;}
 #clock .percent {color: blue;}
+
+#proc
+{
+	text-align: center;
+	font-family: monospace;
+	background-color: #FFC;
+	border-width: 3px;
+	border-style: solid;
+	border-color: brown;
+}
+#proc .title {color: green;}
+#proc .done {color: red; font-weight: bold; text-decoration: blink}
+#proc .factor {color: brown;}
+#proc .percent {color: blue;}

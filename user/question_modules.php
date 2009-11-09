@@ -220,8 +220,33 @@ include_once "../lib/Database.php";
 				$_SESSION['TIME_OUT'] = true;
 			}
 
-			printf ("<div class=duration>%02d/%02d</div>", $its, $iduration);
+			printf ("<div class=factor>%02d/%02d</div>", $its, $iduration);
 			printf ("<div class=percent>%02d%%</div>", intval (100.0*$its/$iduration));
+
+			break;
+		}
+
+		case 'proc':
+		{
+			$done = $db->getValue ("select count(Answer) from Test_Answer where Test = $test");
+
+			if ($done == null) $done = 0;
+
+			if (isset ($_SESSION['NoQ']))
+				$noq = $_SESSION['NoQ'];
+			else
+			{
+				$noq = $db->getValue ("select count(distinct Ord) from Test_Choice where Test = $test");
+				$_SESSION['NoQ'] = $noq;
+			}
+
+			if ($done < $noq)
+				echo "<div class=title>Thực hiện</div>";
+			else
+				echo "<div class=done>Hoàn thành</div>";
+
+			printf ("<div class=factor>%02d/%02d</div>", $done, $noq);
+			printf ("<div class=percent>%02d%%</div>", intval (100.0*$done/$noq));
 
 			break;
 		}
