@@ -76,7 +76,7 @@ include_once "../lib/Database.php";
 <table align=center width=780 cellspacing=0 cellpadding=0>
 	<td valign=top>
 		<script>insertModule ('main', 'question_modules.php?id=main')</script>
-	<td valign=top width=100>
+	<td valign=top width=100 bgcolor=#54AAFF>
 		<table cellspacing=0 cellpadding=0>
 			<tr><td align=center>
 				<a class=button href='login.php'>Thoát</a>
@@ -88,11 +88,11 @@ include_once "../lib/Database.php";
 							<?php echo $miliseconds_per_minute;?>);
 				</script>
 			<tr><td><script>insertModule ('proc', 'question_modules.php?id=proc')</script>
-			<tr><td><script>insertModule ('list', 'question_modules.php?id=list')</script>
 			<tr><td align=center>
 				<a class=button href='javascript:parent.history.go(-2)'>Quay lại</a>
 				<a class=button href='javascript:onNext()'>Tiếp theo</a>
 				<a class=button href='javascript:onSkip()'>Câu hỏi chưa chọn</a>
+			<tr><td><script>insertModule ('list', 'question_modules.php?id=list')</script>
 		</table>
 </table>
 </body>
