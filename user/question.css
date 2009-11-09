@@ -6,7 +6,7 @@ body {margin:0px; padding:0px; text-align:center;}
 	width: 780px;
 	margin: 0px auto;
 	text-align: center;
-	height: 500px;
+	height: 100%;
 	background-color: #54AAFF;
 }
 
@@ -28,7 +28,7 @@ body {margin:0px; padding:0px; text-align:center;}
 {
 	text-align: center;
 	overflow: auto;
-	height: 259px;
+	height: 260px;
 	background-color: #C1FFEB;
 	font-family: monospace;
 	padding: 3px 0px;

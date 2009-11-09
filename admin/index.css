@@ -13,7 +13,7 @@ h1 {font-variant: small-caps;}
 {
 	background-color: #C1FFEB;
 	overflow: auto;
-	height: 500px;
+	height: 100%;
 	text-align: center;
 }
 
@@ -22,7 +22,7 @@ h1 {font-variant: small-caps;}
 	float: left;
 	text-align: center;
 	width: 160px;
-	height: 500px;
+	height: 100%;
 	background-color: #54AAFF;
 	font-family: sans-serif;
 }
