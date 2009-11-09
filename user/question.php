@@ -39,7 +39,7 @@ include_once "../lib/Database.php";
 			{
 				loadModule ('main', 'question_modules.php?id=main&ord=' + ord + '&ans=' + answer);
 				loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
-				loadModule ('proc', 'question_modules.php?id=proc&ord=' + ord);
+				loadModule ('proc', 'question_modules.php?id=proc');
 			}
 		}
 
@@ -47,21 +47,18 @@ include_once "../lib/Database.php";
 		{
 			loadModule ('main', 'question_modules.php?id=main&ord=' + ord);
 			loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
-			loadModule ('proc', 'question_modules.php?id=proc&ord=' + ord);
 		}
 
 		function onSkip()
 		{
 			loadModule ('main', 'question_modules.php?id=main&skip');
 			loadModule ('list', 'question_modules.php?id=list&skip');
-			loadModule ('proc', 'question_modules.php?id=proc&skip');
 		}
 
 		function onNext()
 		{
 			loadModule ('main', 'question_modules.php?id=main&next');
 			loadModule ('list', 'question_modules.php?id=list&next');
-			loadModule ('proc', 'question_modules.php?id=proc&next');
 		}
 
 		function onTimeOut()
