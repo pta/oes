@@ -125,7 +125,7 @@ include_once "../lib/Database.php";
 
 				echo " href='javascript:onSelect($o)'>";
 				printf ("Câu %02d", $o + 1);
-				echo "</a><br>";
+				echo '</a>';
 			}
 
 			$_SESSION['ord'] = $ord;

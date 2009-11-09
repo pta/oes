@@ -15,12 +15,20 @@
 	font-family: monospace;
 }
 
+#list a
+{
+	display: block;
+	padding: 0px;
+	margin: 0px 6px;
+}
+
 #list a.current
 {
 	font-weight: bold;
 	border-width: 2px;
 	border-style: solid;
 	background-color: lightgray;
+	margin: -2px 6px;
 }
 
 #list a.answered {color: gray}
