@@ -3,16 +3,17 @@
 {
 	background-color: #54AAFF;
 	overflow: auto;
-	height: 530px;
+	height: 500px;
 }
 
 #list
 {
 	text-align: center;
 	overflow: auto;
-	height: 260px;
+	height: 259px;
 	background-color: #C1FFEB;
 	font-family: monospace;
+	padding: 3px 0px;
 }
 
 #list a
