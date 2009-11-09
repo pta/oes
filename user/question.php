@@ -78,6 +78,8 @@ include_once "../lib/Database.php";
 		<script>insertModule ('main', 'question_modules.php?id=main')</script>
 	<td valign=top width=100>
 		<table cellspacing=0 cellpadding=0>
+			<tr><td align=center>
+				<a class=button href='login.php'>Thoát</a>
 			<tr><td>
 				<script>
 					insertScriptModule ('clock', 'question_modules.php?id=clock')
