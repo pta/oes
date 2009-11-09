@@ -146,7 +146,7 @@ include_once "../lib/Database.php";
 							$arr = $db->getTeacherList();
 							foreach ($arr as $teacher)
 							{
-								$tname = $teacher[0] . ' ' . $teacher[1];
+								$tname = $teacher[1] . ' ' . $teacher[0];
 								echo "<option value=$teacher[2]>$tname</option>";
 							}
 						?>
