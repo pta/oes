@@ -15,7 +15,7 @@ include_once "../lib/Database.php";
 			if (!$arr_qoc[$i][2])
 				return $i;
 
-		return $arr_qoc[$ord];
+		return $ord;
 	}
 
 	function next_ord ($arr_qoc, $ord)
