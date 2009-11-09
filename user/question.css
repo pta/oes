@@ -1,9 +1,27 @@
 
+body {margin:0px; padding:0px;}
+
+#all
+{
+	width: 780px;
+	margin: 0px auto;
+	text-align: center;
+	height: 500px;
+	background-color: #54AAFF;
+}
+
 #main
 {
-	background-color: #54AAFF;
 	overflow: auto;
-	height: 500px;
+	width: 680px;
+	float: left;
+}
+
+#control
+{
+	float: right;
+	text-align: center;
+	width: 100px;
 }
 
 #list

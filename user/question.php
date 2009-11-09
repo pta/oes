@@ -72,27 +72,27 @@ include_once "../lib/Database.php";
 	</script>
 </head>
 
-<body style="margin:0; padding:0">
-<table align=center width=780 cellspacing=0 cellpadding=0>
-	<td valign=top>
-		<script>insertModule ('main', 'question_modules.php?id=main')</script>
-	<td valign=top width=100 bgcolor=#54AAFF>
-		<table cellspacing=0 cellpadding=0>
-			<tr><td align=center>
-				<a class=button href='login.php'>Thoát</a>
-			<tr><td>
-				<script>
-					insertScriptModule ('clock', 'question_modules.php?id=clock')
-					clockInterval = setInterval (
-							"loadModule ('clock', 'question_modules.php?id=clock')",
-							<?php echo $miliseconds_per_minute;?>);
-				</script>
-			<tr><td><script>insertModule ('proc', 'question_modules.php?id=proc')</script>
-			<tr><td align=center>
-				<a class=button href='javascript:onNext()'>Tiếp theo</a>
-				<a class=button href='javascript:onSkip()'>Câu hỏi chưa chọn</a>
-			<tr><td><script>insertModule ('list', 'question_modules.php?id=list')</script>
-		</table>
-</table>
+<body>
+<div id=all>
+	<script>insertModule ('main', 'question_modules.php?id=main')</script>
+
+	<div id=control>
+		<a class=button href='login.php'>Thoát</a>
+
+		<script>
+			insertScriptModule ('clock', 'question_modules.php?id=clock')
+			clockInterval = setInterval (
+					"loadModule ('clock', 'question_modules.php?id=clock')",
+					<?php echo $miliseconds_per_minute;?>);
+		</script>
+
+		<script>insertModule ('proc', 'question_modules.php?id=proc')</script>
+
+		<a class=button href='javascript:onNext()'>Tiếp theo</a>
+		<a class=button href='javascript:onSkip()'>Câu hỏi chưa chọn</a>
+
+		<script>insertModule ('list', 'question_modules.php?id=list')</script>
+	</div>
+</div>
 </body>
 </html>
