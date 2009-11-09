@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="../ptajax/module.js"></script>
 </head>
 
-<body style="margin:0; padding:0">
+<body>
 <div id=all>
 	<div id=control>
 		<a href=# onClick="loadModule('main','exam_new.php')">Tạo đợt thi mới</a>
