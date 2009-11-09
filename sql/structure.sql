@@ -1,4 +1,13 @@
 
+drop table if exists User;
+create table User
+(
+	ID			CHAR(13)	primary key,
+	Pass			CHAR(40)	not null
+)
+	collate utf8_unicode_ci
+	engine = innodb;
+
 drop table if exists
 	Test_Answer,
 	Test_Choice,
