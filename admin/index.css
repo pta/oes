@@ -1,0 +1,41 @@
+
+h1 {font-variant: small-caps;}
+
+#all
+{
+	width: 780px;
+	margin: 0px auto;
+	text-align: center;
+}
+
+#main
+{
+	background-color: #C1FFEB;
+	overflow: auto;
+	height: 500px;
+	text-align: center;
+}
+
+#control
+{
+	float: left;
+	text-align: center;
+	width: 160px;
+	height: 500px;
+	background-color: #54AAFF;
+	font-family: sans-serif;
+}
+
+#control a
+{
+	display: block;
+	text-align: center;
+	font-variant: small-caps;
+	font-family: sans-serif;
+	font-weight: bold;
+	color: black;
+	background-color: #ACC;
+	margin-bottom: -2px;
+	border-width: 2px;
+	border-style: solid;
+}

@@ -1,4 +1,13 @@
 <?php
+	session_start();
+	if (!isset ($_SESSION['user']))
+	{
+		$_SESSION['page'] = 'question_new.php';
+		header ("Location: login.php");
+		return;
+	}
+?>
+<?php
 include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
