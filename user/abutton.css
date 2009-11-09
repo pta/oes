@@ -16,11 +16,6 @@ a.button
 	border-top-color: #EEE;
 }
 
-a.button:visited
-{
-	font-weight: normal;
-}
-
 a.button:hover
 {
 	color: white;
