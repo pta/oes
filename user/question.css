@@ -69,6 +69,6 @@
 	border-color: brown;
 }
 #proc .title {color: green;}
-#proc .done {color: red; font-weight: bold; text-decoration: blink}
+#proc .done {color: blue; font-weight: bold;}
 #proc .factor {color: brown;}
 #proc .percent {color: blue;}
