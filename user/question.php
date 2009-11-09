@@ -89,7 +89,6 @@ include_once "../lib/Database.php";
 				</script>
 			<tr><td><script>insertModule ('proc', 'question_modules.php?id=proc')</script>
 			<tr><td align=center>
-				<a class=button href='javascript:parent.history.go(-2)'>Quay lại</a>
 				<a class=button href='javascript:onNext()'>Tiếp theo</a>
 				<a class=button href='javascript:onSkip()'>Câu hỏi chưa chọn</a>
 			<tr><td><script>insertModule ('list', 'question_modules.php?id=list')</script>
