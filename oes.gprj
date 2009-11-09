@@ -13,8 +13,3 @@ description=
 
 [files]
 current_page=-1
-
-[build-menu]
-SQLFT_00_LB=_Import
-SQLFT_00_CM=mysql -u pta_home -p123456 -D pta_home -e "source %f"
-SQLFT_00_WD=%d
