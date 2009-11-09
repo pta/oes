@@ -62,6 +62,8 @@ class DBConnection
 		$this->server = $server;
 		$this->username = $username;
 		$this->password = $password;
+
+		$this->query ("set names utf8");
 	}
 
 	function __destruct()
