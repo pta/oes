@@ -80,21 +80,22 @@ include_once "../lib/Database.php";
 					</select>
 					<input id=newsubject name=newsubject>
 
-			<tr><td><table>
-						<tr><th>Câu hỏi
-							<th>Lựa chọn
-
-						<tr><td><textarea cols=40 rows=13 id=question name=question></textarea>
-							<td><table>
-									<script>
-										for (var i = 0; i < 10; ++i)
-										{
-											document.writeln ("<tr><td><input size=40 name=choice" + i + ">");
-											document.writeln ("<label><input type=checkbox name=correct" + i + ">Đúng</label>");
-										}
-									</script>
-								</table>
-					</table>
+			<tr><td>
+				<table>
+					<tr><td>Câu hỏi
+					<tr><td><textarea cols=40 rows=13 id=question name=question></textarea>
+					<tr><td>Lựa chọn
+					<tr><td>
+						<table>
+							<script>
+								for (var i = 0; i < 10; ++i)
+								{
+									document.writeln ("<tr><td><input size=40 name=choice" + i + ">");
+									document.writeln ("<label><input type=checkbox name=correct" + i + ">Đúng</label>");
+								}
+							</script>
+						</table>
+				</table>
 
 			<tr align=center>
 				<td colspan=2>
