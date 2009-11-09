@@ -79,7 +79,7 @@ include_once "../lib/Database.php";
 					insertScriptModule ('clock', 'question_modules.php?id=clock')
 					clockInterval = setInterval (
 							"loadModule ('clock', 'question_modules.php?id=clock')",
-							<?=$miliseconds_per_minute?>);
+							<?php echo $miliseconds_per_minute;?>);
 				</script>
 			<tr><td><script>insertModule ('list', 'question_modules.php?id=list')</script>
 			<tr><td align=center>
