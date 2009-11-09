@@ -6,6 +6,12 @@ include_once "../lib/Database.php";
 	$db = new Database ($db_server, $db_username, $db_password);
 	$db->selectDatabase ($db_database);
 
+	session_start();
+
+	// session_unset();
+	unset ($_SESSION['student'], $_SESSION['test'], $_SESSION['ord'],
+		$_SESSION['TIME_OUT'], $_SESSION['duration'], $_SESSION['NoQ']);
+
 	if (isset ($_POST['submit']))
 	{
 		$student_id = $_POST['student_id'];
@@ -16,10 +22,6 @@ include_once "../lib/Database.php";
 
 		try
 		{
-			session_start();
-			session_destroy();
-			session_start();
-
 			$_SESSION['student'] = $db->ensureStudent ($student_id,
 					$firstname, $lastname, $dob, $class);
 
