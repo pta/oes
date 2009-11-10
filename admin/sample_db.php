@@ -10,7 +10,7 @@
 <?php
 include_once "../config.php";
 include_once "../lib/Database.php";
-include_once "../lib/util.php";
+include_once "../lib/TXTGen.php";
 ?>
 <?php
 	header ('Content-Type: text/html; charset=UTF-8');
@@ -23,20 +23,21 @@ include_once "../lib/util.php";
 		$db->begin();
 		try
 		{
+			$txtGen = new TXTGen();
+
 			$subjects = $db->getColumn ('ID', 'Subject');
 
 			foreach ($subjects as $subject)
 			{
 				for ($i = 0; $i < 100; ++$i)
 				{
-					$question = str_replace ("\n", '<br>', rand_str (rand (100, 200)));
-
+					$question = $txtGen->randParagraph (mt_rand (1, 6));
 					$questionID = $db->insertQuestion ($question, $subject);
 
-					$n = rand (2, 10);
+					$n = rand (4, 10);
 					for ($j = 0; $j < $n; ++$j)
 					{
-						$choice = str_replace ("\n", '<br>', rand_str (rand (10, 50)));
+						$choice = $txtGen->randSentence();
 						$correct = (mt_rand (0, 3) == 0)?'true':'false';
 						$db->insertChoice ($questionID, $choice, $correct);
 					}
