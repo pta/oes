@@ -7,11 +7,12 @@ h1 {font-variant: small-caps;}
 	width: 780px;
 	margin: 0px auto;
 	text-align: center;
+	height: 100%;
+	background-color: #C1FFEB;
 }
 
 #main
 {
-	background-color: #C1FFEB;
 	overflow: auto;
 	height: 100%;
 	text-align: center;
