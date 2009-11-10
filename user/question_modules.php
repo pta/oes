@@ -155,28 +155,24 @@ include_once "../lib/Database.php";
 
 			$arr_it = get_choices ($db, $test, $ord);
 
-			echo '<div id=choices align=center>';
-			echo '<table width=100% cellspacing=0 cellpadding=0>';
+			echo '<div id=choices>';
 
 			foreach ($arr_it as $i => $it)
 			{
-				$b = $i % 2;
 				$id = $it['ID'];
 
-				echo "<tr class='choice choice$b";
+				$eo = ($i&1)?'odd':'even';
+				$val = ($id==$answer)?'check':'box';
+				$cls = ($id==$answer)?'chose':'';
 
-				if ($id == $answer)
-					echo ' chose';
+				$td_img = "<td><img src='../images/$val.png' height=30"
+						. " onclick='onChoose ($ord, $id)'>";
 
-				echo "' onclick='onChoose ($ord, $id)'>";
-
-				echo '<td align=center><span class=choiceli>(';
-				echo chr (ord ('A') + $i);
-				echo ')</span><td>';
-				echo $it['Text'];
+				echo "<div class='choice $eo $cls'><table>";
+				echo $td_img . '<td width=100%>' . $it['Text'] . $td_img;
+				echo '</table></div>';
 			}
 
-			echo '</table>';
 			echo '</div>';
 			break;
 		}
