@@ -199,7 +199,7 @@ include_once "../lib/Database.php";
 			}
 			else
 			{
-				echo '<div class="script">onTimeOut();</div>';
+				echo '<script>parent.onTimeOut()</script>';
 				echo "<div class=timeout>Hết giờ</div>";
 				$_SESSION['TIME_OUT'] = true;
 			}

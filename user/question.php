@@ -77,7 +77,7 @@ include_once "../lib/Database.php";
 		<a class=button href='login.php'>Thoát</a>
 
 		<script>
-			insertScriptModule ('clock', 'question_modules.php?id=clock')
+			insertModule ('clock', 'question_modules.php?id=clock')
 			clockInterval = setInterval (
 					"loadModule ('clock', 'question_modules.php?id=clock')",
 					<?php echo $miliseconds_per_minute;?>);
