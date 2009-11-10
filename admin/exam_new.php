@@ -28,6 +28,7 @@ include_once "../lib/Database.php";
 		$sched_time = $sched_date . ' ' . $sched_hour . ':00';
 		$noq = $_POST['noq'];
 		$max_noc = $_POST['max_noc'];
+		$mul_choice = isset ($_POST['mul_choice']);
 
 		$db->begin();
 
@@ -75,7 +76,7 @@ include_once "../lib/Database.php";
 				}
 			}
 
-			$db->insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time, $noq, $max_noc);
+			$db->insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time, $noq, $max_noc, $mul_choice);
 
 			$db->commit();
 			echo "<center>Tạo đợt thi mới thành công!</center>";
@@ -153,7 +154,7 @@ include_once "../lib/Database.php";
 					<input id=newteacher name=newteacher>
 
 			<tr><td><label for=duration>Thời gian</label>
-				<td><input id=duration name=duration value=90> phút
+				<td><input id=duration name=duration value=60> phút
 
 			<tr><td><label for=sched_date>Ngày thi</label>
 				<td><script language="JavaScript">
@@ -169,7 +170,10 @@ include_once "../lib/Database.php";
 				<td><input id=noq name=noq value=30>
 
 			<tr><td><label for=max_noc>Số lựa chọn tối đa</label>
-				<td><input id=max_noc name=max_noc value=4>
+				<td><input id=max_noc name=max_noc value=5>
+
+			<input type=checkbox id=mul_choice name=mul_choice>
+				<label for=mul_choice>Cho phép câu hỏi nhiều lựa chọn</label>
 
 			<tr align=center>
 				<td colspan=2>

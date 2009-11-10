@@ -90,7 +90,7 @@ class Database extends DBConnection
 		return $this->getLastInsertID();
 	}
 
-	function insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time, $noq, $max_noc)
+	function insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time, $noq, $max_noc, $mul_choice)
 	{
 		$name = str_value ($name);
 		$class = num_value ($class);
@@ -99,9 +99,9 @@ class Database extends DBConnection
 		$duration = num_value ($duration);
 		$noq = num_value ($noq);
 		$max_noc = num_value ($max_noc);
+		$mul_choice = $mul_choice?'true':'false';
 
-		//$this->query ("insert into Exam values (null, $name, $class, $subject, $time, $teacher, '$duration', '$sched_time', null, $noq, $max_noc)");
-		$this->query ("insert into Exam values (null, $name, $class, $subject, $time, $teacher, $duration, '$sched_time', '$sched_time', $noq, $max_noc)");
+		$this->query ("insert into Exam values (null, $name, $class, $subject, $time, $teacher, $duration, '$sched_time', null, null, $noq, $max_noc, $mul_choice)");
 		return $this->getLastInsertID();
 	}
 

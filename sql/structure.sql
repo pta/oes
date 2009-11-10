@@ -89,8 +89,10 @@ create table Exam
 	Duration		INT,
 	Sched_Time		DATETIME,
 	Start_Time		DATETIME,
+	End_Time		DATETIME,
 	NoQ			INT,
 	Max_NoC			INT,
+	Mul_Choice		INT,
 
 	UNIQUE (Class, Subject, Time)
 )
