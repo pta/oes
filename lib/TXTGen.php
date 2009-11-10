@@ -13,15 +13,9 @@ class TXTGen
 	private $words;
 	private $n = 0;
 
-	function __construct ($inputFilePath)
+	function __construct ($inputFilePath = '../lib/words.txt')
 	{
 		$this->load ($inputFilePath);
-	}
-
-	function __destruct()
-	{
-		unset ($this->words);
-		$n = 0;
 	}
 
 	function load ($inputFilePath)
@@ -79,10 +73,20 @@ class TXTGen
 
 		return $sentence;
 	}
+
+	function randParagraph ($nos = 13)
+	{
+		$paragraph = $this->randSentence();
+
+		for ($i = 0; $i < $nos; ++$i)
+			$paragraph .= ' ' . $this->randSentence();
+
+		return $paragraph;
+	}
 }
 
 /*
-$txtGen = new TXTGen ("../lib/words.txt");
+$txtGen = new TXTGen();
 echo $txtGen->randSentence ();
 */
 
