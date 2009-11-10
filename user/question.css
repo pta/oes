@@ -56,16 +56,17 @@ body {margin:0px; padding:0px; text-align:center;}
 #main #question
 {
 	margin: 10px;
-	background-color: #99CCFF;
+	background-color: #ADF;
 	padding: 10px;
+	text-align: justify;
 }
 
 #main #choices
 {
 	margin: 10px 20px;
-	text-align: left;
 }
 
+#main #choices .choice td {text-align: justify;}
 #main #choices .choice img {cursor: pointer;}
 #main #choices .even {background-color: #DDF}
 #main #choices .odd  {background-color: #BBD}
