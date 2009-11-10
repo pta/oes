@@ -11,14 +11,15 @@
 <body>
 <div id=all>
 	<div id=control>
-		<a href=# onClick="loadModule('main','exam_new.php')">Tạo đợt thi mới</a>
+		<a href=# onClick="loadModule('main','exam.php')">Các buổi thi</a>
+		<a href=# onClick="loadModule('main','exam_new.php')">Tạo buổi thi mới</a>
 		<br>
 		<a href=# onClick="loadModule('main','sample_db.php')">Sinh dữ liệu mẫu</a>
 		<a href=# onClick="loadModule('main','question_new.php')">Thêm câu hỏi</a>
 		<br>
 		<a href=# onClick="loadModule('main','login.php')">Thoát</a>
 	</div>
-	<script>insertModule ('main', 'exam_new.php')</script>
+	<script>insertModule ('main', 'exam.php')</script>
 </div>
 </body>
 </html>
