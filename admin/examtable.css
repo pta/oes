@@ -6,6 +6,8 @@
 	margin: 0;
 }
 
+#examtable tr {text-align: left;}
+
 #examtable th {
 	font: bold 13px sans-serif;
 	color: #4f6b72;
