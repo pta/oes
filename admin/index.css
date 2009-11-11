@@ -25,6 +25,11 @@ h1 {font-variant: small-caps;}
 	margin-right: auto;
 }
 
+#main #list table td
+{
+	cursor: pointer;
+}
+
 #control
 {
 	float: left;

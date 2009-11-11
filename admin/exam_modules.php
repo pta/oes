@@ -19,6 +19,7 @@ include_once "../lib/util.php";
 					Class.Name as Lớp,
 					Subject.Name as Môn,
 					Time as Lần,
+					E.ID as ID,
 					concat (Teacher.LastName, ' ', Teacher.FirstName) as Teacher,
 					Duration,
 					UNIX_TIMESTAMP (Sched_Time) as Sched_Time,
@@ -48,7 +49,10 @@ include_once "../lib/util.php";
 
 		while ($row = mysql_fetch_array ($result))
 		{
-			echo (($i++) & 1)?'<tr class=alt>':'<tr>';
+			$exam = $row['ID'];
+
+			echo (($i++) & 1)?'<tr class=alt':'<tr';
+			echo " onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$exam\")'>";
 
 			for ($f = 0; $f < $nof; ++$f)
 				echo '<td>' . $row[$f];
@@ -64,6 +68,40 @@ include_once "../lib/util.php";
 		}
 
 		echo '</table>';
+
+		mysql_free_result ($result);
+	}
+	else if ($id == 'detail' && isset ($_GET['exam']))
+	{
+		$exam = $_GET['exam'];
+
+		$result = $db->query ("select
+					concat (Teacher.LastName, ' ', Teacher.FirstName) as 'Giáo viên',
+					Sched_Time as 'Lịch thi',
+					Start_Time as 'Bắt đầu',
+					End_Time as 'Kết thúc',
+					concat (Duration, ' phút') as 'Thời gian',
+					concat (NoQ, ' câu hỏi') as 'Số lượng',
+					concat (Max_NoC, ' lựa chọn') as 'Tối đa',
+					if (Mul_Choice, 'nhiều phương án', 'một phương án') as 'Lựa chọn'
+				from (select * from Exam where ID = $exam) as E
+					join Teacher on E.Teacher = Teacher.ID");
+
+		if ($result)
+		{
+			$nof = mysql_num_fields ($result);
+			$row = mysql_fetch_array ($result);
+
+			echo '<table>';
+			for ($i = 0; $i < $nof; ++$i)
+			{
+				$field = mysql_field_name ($result, $i);
+
+				if ($row[$i])
+					echo "<tr><td>$field<td>" . $row[$i];
+			}
+			echo '</table>';
+		}
 
 		mysql_free_result ($result);
 	}
