@@ -1,0 +1,34 @@
+
+#examtable
+{
+	width: 80%;
+	padding: 0;
+	margin: 0;
+}
+
+#examtable th {
+	font: bold 13px sans-serif;
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 4px 3px 0px 6px;
+	background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+}
+
+#examtable td {
+	font: 12px sans-serif;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 3px 3px 3px 6px;
+	color: #4f6b72;
+}
+
+
+#examtable tr.alt td {
+	background: #F5FAFA;
+	color: #797268;
+}

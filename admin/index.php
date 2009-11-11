@@ -6,6 +6,8 @@
 	<link href="index.css" rel="stylesheet" type="text/css">
 	<link href="../ptajax/module.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="../ptajax/module.js"></script>
+
+	<link href="examtable.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
