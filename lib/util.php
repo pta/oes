@@ -13,6 +13,9 @@ define ("MONTH", 30 * DAY);
 
 function relative_time ($time)
 {
+	if (!$time)
+		return "chưa bao giờ";
+
 	$delta = time() - $time;
 
 	if ($delta < 0)
