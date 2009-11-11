@@ -1,4 +1,7 @@
 
+@import url("examtable.css");
+@import url("web20.css");
+
 body {margin:0px; padding:0px; text-align:center;}
 h1 {font-variant: small-caps;}
 
@@ -18,16 +21,40 @@ h1 {font-variant: small-caps;}
 	text-align: center;
 }
 
-#main #list table
+#main table
 {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 }
 
+#main table tr {text-align: justify}
+
 #main #list table td
 {
 	cursor: pointer;
+}
+
+#main #list table tr:hover td
+{
+	background-color: #E8EEEE;
+}
+
+#main #list table tr.current td
+{
+	color: blue;
+	text-decoration: underline;
+}
+
+#main #detail
+{
+	margin-top: 13px;
+}
+
+#main #detail table a
+{
+	cursor: pointer;
+	color: blue;
 }
 
 #control
