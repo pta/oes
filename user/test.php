@@ -72,13 +72,15 @@ include_once "../lib/Database.php";
 				E.Name as Tên,
 				Subject.Name as Môn,
 				Time as Lần,
-				concat (if (Time_Spent, Time_Spent, 0), '/', Duration, ' phút') as 'Đã sử dụng',
-				concat (NoQ, ' câu') as 'Số lượng',
+				concat (ifnull((select Time_Spent from Test where Exam = E.ID and Student = $student),0),
+						'/', Duration, ' phút') as 'Đã dùng',
+				concat ((select count(Answer) from Test_Answer
+						where Test = (select ID from Test where Exam = E.ID and Student = $student)),
+						'/', NoQ, ' câu') as 'Số lượng',
 				if (Mul_Choice, 'nhiều đáp án', 'một đáp án') as 'Lựa chọn'
 			from (select * from Exam where Class = $class
 					and Start_Time is not null and End_Time is null) as E
-				join Subject on E.Subject = Subject.ID
-				left join Test on Test.Exam = E.ID");
+				join Subject on E.Subject = Subject.ID");
 
 	if (mysql_num_rows ($result) == 0)
 	{
