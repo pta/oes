@@ -25,9 +25,7 @@ include_once "../lib/util.php";
 					Subject.Name as Môn,
 					Time as Lần,
 					E.ID as ID,
-					UNIX_TIMESTAMP (Sched_Time) as Sched_Time,
-					UNIX_TIMESTAMP (Start_Time) as Start_Time,
-					UNIX_TIMESTAMP (End_Time) as End_Time
+					Sched_Time, Start_Time, End_Time
 				from (select * from Exam
 						where End_Time is null or End_Time > CURRENT_DATE - INTERVAL 1 MONTH
 					) as E
@@ -69,7 +67,7 @@ include_once "../lib/util.php";
 			else if ($row['Start_Time'])
 				echo 'Đang thi';
 			else
-				echo mb_ucfirst (relative_time ($row['Sched_Time']));
+				echo mb_ucfirst (relative_time (strtotime ($row['Sched_Time'])));
 		}
 
 		echo '</table>';
