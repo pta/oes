@@ -3,8 +3,8 @@ include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
 <?php
-	$db = new Database ($db_server, $db_username, $db_password);
-	$db->selectDatabase ($db_database);
+	$db = new Database (DB_HOST, DB_USER, DB_PASS);
+	$db->selectDatabase (DB_NAME);
 
 	session_start();
 

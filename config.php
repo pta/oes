@@ -1,10 +1,11 @@
 <?php
 
-$db_server = "localhost";
-$db_username = "pta_home";
-$db_password = "123456";
-$db_database = "pta_home";
+define ('DB_HOST', 'localhost');
+define ('DB_NAME', 'oes');
+define ('DB_USER', DB_NAME);
+define ('DB_PASS', '123456');
 
-$miliseconds_per_minute = 60000;
+define ('A_MINUTE', 6000);
+define ('STAT_RELAD_INTERVAL', 1000);
 
 ?>

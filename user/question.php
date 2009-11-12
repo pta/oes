@@ -80,7 +80,7 @@ include_once "../lib/Database.php";
 			insertModule ('clock', 'question_modules.php?id=clock')
 			clockInterval = setInterval (
 					"loadModule ('clock', 'question_modules.php?id=clock')",
-					<?php echo $miliseconds_per_minute;?>);
+					<?php echo A_MINUTE?>);
 		</script>
 
 		<script>insertModule ('proc', 'question_modules.php?id=proc')</script>

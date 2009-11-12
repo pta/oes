@@ -1,5 +1,5 @@
 
-# Deleting 'pta_home'@'localhost' ...
-DROP USER 'pta_home'@'localhost';
+# Deleting 'oes'@'localhost' ...
+DROP USER 'oes'@'localhost';
 
-DROP DATABASE IF EXISTS `pta_home` ;
+DROP DATABASE IF EXISTS `oes` ;

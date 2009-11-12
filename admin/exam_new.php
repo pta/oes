@@ -14,8 +14,8 @@ include_once "../lib/Database.php";
 <?php
 	header ('Content-Type: text/html; charset=UTF-8');
 
-	$db = new Database ($db_server, $db_username, $db_password);
-	$db->selectDatabase ($db_database);
+	$db = new Database (DB_HOST, DB_USER, DB_PASS);
+	$db->selectDatabase (DB_NAME);
 
 	if (isset ($_POST['submit']))
 	{

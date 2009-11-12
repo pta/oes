@@ -11,8 +11,8 @@ include_once "../lib/Database.php";
 		$id = str_value ($_POST['id']);
 		$pass = str_value ($_POST['pass']);
 
-		$db = new Database ($db_server, $db_username, $db_password);
-		$db->selectDatabase ($db_database);
+		$db = new Database (DB_HOST, DB_USER, DB_PASS);
+		$db->selectDatabase (DB_NAME);
 
 		$user = $db->getValue ("select ID from User where ID = $id and Pass = sha1($pass)");
 

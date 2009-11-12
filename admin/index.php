@@ -1,3 +1,6 @@
+<?php
+include_once "../config.php";
+?>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -20,7 +23,8 @@
 		{
 			exam = ex;
 			clearAutoStat();
-			statInterval = setInterval ('onAutoStat()', 1000);
+			statInterval = setInterval ('onAutoStat()',
+					<?php echo STAT_RELAD_INTERVAL?>);
 			onAutoStat();
 		}
 
