@@ -59,7 +59,7 @@ include_once "../lib/Database.php";
 
 	function get_choices ($db, $test, $ord)
 	{
-		$result = $db->query ("select ID, Text from Choice where ID in (select Choice from Test_Choice where Test=$test and Ord = $ord) order by Text");
+		$result = $db->query ("select ID, Text from Choice where ID in (select Choice from Test_Choice where Test=$test and Ord = $ord)");
 		$choices = fetch_columns ($result);
 		mysql_free_result ($result);
 
