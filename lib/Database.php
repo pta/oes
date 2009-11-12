@@ -211,7 +211,7 @@ class Database extends DBConnection
 					if (rand()<0.6, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND),
 					if (rand()<0.8, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND),
 					20 + floor (rand() * 21),
-					3 + floor (rand() * 5),
+					4 + floor (rand() * 7),
 					round (rand()))');
 		}
 
