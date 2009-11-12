@@ -102,7 +102,7 @@ include_once "../lib/util.php";
 					concat (Duration, ' phút') as 'Thời gian',
 					concat (NoQ, ' câu hỏi') as 'Số lượng',
 					concat (Max_NoC, ' lựa chọn') as 'Tối đa',
-					if (Mul_Choice, 'nhiều phương án', 'một phương án') as 'Lựa chọn'
+					if (Mul_Choice, 'nhiều đáp án', 'một đáp án') as 'Lựa chọn'
 				from (select * from Exam where ID = $exam) as E
 					join Teacher on E.Teacher = Teacher.ID");
 
