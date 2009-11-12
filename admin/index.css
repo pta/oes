@@ -23,7 +23,6 @@ h1 {font-variant: small-caps;}
 
 #main table
 {
-	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -36,6 +35,7 @@ h1 {font-variant: small-caps;}
 	height: 200px;
 }
 
+#main #list table {width: 80%;}
 #main #list table td {cursor: pointer;}
 #main #list table tr:hover td {background-color: #E8EEEE;}
 #main #list table tr.current td {text-decoration: underline;}

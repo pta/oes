@@ -33,7 +33,7 @@ include_once "../lib/util.php";
 					join Subject on E.Subject = Subject.ID
 				order by Sched_Time desc");
 
-		echo '<table id=examtable cellspacing="0"><tr>';
+		echo '<table class=examtable cellspacing="0"><tr>';
 
 		//$nof = mysql_num_fields ($result);
 		$nof = 4;

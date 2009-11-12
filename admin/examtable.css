@@ -1,14 +1,13 @@
 
-#examtable
+.examtable
 {
-	width: 80%;
 	padding: 0;
 	margin: 0;
 }
 
-#examtable tr {text-align: left;}
+.examtable tr {text-align: left;}
 
-#examtable th {
+.examtable th {
 	font: bold 13px sans-serif;
 	color: #4f6b72;
 	border-right: 1px solid #C1DAD7;
@@ -20,7 +19,7 @@
 	background: #CAE8EA url(images/bg_header.jpg) no-repeat;
 }
 
-#examtable td {
+.examtable td {
 	font: 12px sans-serif;
 	border-right: 1px solid #C1DAD7;
 	border-bottom: 1px solid #C1DAD7;
@@ -30,7 +29,7 @@
 }
 
 
-#examtable tr.alt td {
+.examtable tr.alt td {
 	background: #F5FAFA;
 	color: #797268;
 }
