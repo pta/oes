@@ -33,8 +33,6 @@ include_once "../lib/util.php";
 					join Subject on E.Subject = Subject.ID
 				order by Sched_Time desc");
 
-		echo '<h3>Quản lý buổi thi</h3>';
-
 		echo '<table id=examtable cellspacing="0"><tr>';
 
 		//$nof = mysql_num_fields ($result);
@@ -50,12 +48,18 @@ include_once "../lib/util.php";
 		{
 			$ex = $row['ID'];
 
-			if ($ex == $exam)
-				echo (($i++) & 1)?'<tr class="alt current"':'<tr class=current';
-			else
-				echo (($i++) & 1)?'<tr class=alt':'<tr';
+			$style = '';
 
-			echo " onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$ex\")'>";
+			if ($row['End_Time'])
+				$style .= ' finished';
+			else if ($row['Start_Time'])
+				$style .= ' running';
+
+			if ($ex == $exam) $style .= ' current';
+
+			if (($i++) & 1) $style .= ' alt';
+
+			echo "<tr class='$style' onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$ex\")'>";
 
 			for ($f = 0; $f < $nof; ++$f)
 				echo '<td>' . $row[$f];
@@ -63,9 +67,9 @@ include_once "../lib/util.php";
 			echo '<td>';
 
 			if ($row['End_Time'])
-				echo 'Đã kết thúc';
+				echo '<span class=finished>Đã kết thúc</span>';
 			else if ($row['Start_Time'])
-				echo 'Đang thi';
+				echo '<span class=running>Đang thi</span>';
 			else
 				echo mb_ucfirst (relative_time (strtotime ($row['Sched_Time'])));
 		}
@@ -105,6 +109,9 @@ include_once "../lib/util.php";
 		$nof = mysql_num_fields ($result);
 		$row = mysql_fetch_array ($result);
 
+		if (!$row[0])
+			throw new Exception("WTH?");
+
 		$hasAction = false;
 
 		echo '<table class=web20>';
@@ -127,8 +134,8 @@ include_once "../lib/util.php";
 						. "$field</a><td>";
 			}
 		}
-		echo '</table>';
-
 		mysql_free_result ($result);
+
+		echo '</table>';
 	}
 ?>
