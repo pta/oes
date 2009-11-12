@@ -23,6 +23,10 @@ include_once "../lib/TXTGen.php";
 		$db->begin();
 		try
 		{
+			/* Exam */
+			$db->insertRandomExam ();
+
+			/* Question and Choice */
 			$txtGen = new TXTGen();
 
 			$subjects = $db->getColumn ('ID', 'Subject');

@@ -192,6 +192,31 @@ class Database extends DBConnection
 		$this->query ("insert into Test values (null, $student, $exam, null)");
 		return $this->getLastInsertID();
 	}
+
+	function insertRandomExam()
+	{
+		$noq = mt_rand (6, 13);
+
+		for ($i = 0; $i < $noq; ++$i)
+		{
+			$this->query ('insert ignore into Exam values (
+					null,
+					left(md5(rand()),6),
+					1 + floor (rand() * (select count(*) from Class)),
+					1 + floor (rand() * (select count(*) from Subject)),
+					1 + floor (rand() * 4),
+					1 + floor (rand() * (select count(*) from Teacher)),
+					(1 + floor (rand() * 4)) * 30,
+					NOW() + INTERVAL (RAND() * 91 - 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND,
+					if (rand()<0.6, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND),
+					if (rand()<0.8, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND),
+					20 + floor (rand() * 21),
+					3 + floor (rand() * 5),
+					round (rand()))');
+		}
+
+		$this->query ('update Exam set Start_Time = Sched_Time where End_Time is not null and Start_Time is null');
+	}
 }
 
 ?>
