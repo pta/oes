@@ -32,10 +32,11 @@ h1 {font-variant: small-caps;}
 #main #list
 {
 	overflow: auto;
-	height: 200px;
+	margin: 20px;
+	height: 130px;
 }
 
-#main #list table {width: 80%;}
+#main #list table {width: 100%;}
 #main #list table td {cursor: pointer;}
 #main #list table tr:hover td {background-color: #E8EEEE;}
 #main #list table tr.current td {text-decoration: underline;}
@@ -43,13 +44,18 @@ h1 {font-variant: small-caps;}
 
 #main #detail
 {
-	margin-top: 13px;
+	margin: 0px 20px;
 }
 
 #main #detail table a
 {
 	cursor: pointer;
 	color: blue;
+}
+
+#main #stat
+{
+	margin: 20px;
 }
 
 #control

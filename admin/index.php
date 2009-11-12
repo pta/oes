@@ -6,6 +6,30 @@
 	<link href="index.css" rel="stylesheet" type="text/css">
 	<link href="../ptajax/module.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="../ptajax/module.js"></script>
+
+	<script>
+		var statInterval;
+		var exam;
+
+		function onAutoStat()
+		{
+			loadModule ('stat', 'exam_modules.php?id=stat&exam=' + exam);
+		}
+
+		function setAutoStat (ex)
+		{
+			exam = ex;
+			clearAutoStat();
+			statInterval = setInterval ('onAutoStat()', 1000);
+			onAutoStat();
+		}
+
+		function clearAutoStat()
+		{
+			if (statInterval)
+				clearInterval (statInterval);
+		}
+	</script>
 </head>
 
 <body>
