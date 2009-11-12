@@ -138,7 +138,13 @@ include_once "../lib/Database.php";
 
 			if (isset ($_GET['ans']) && !isset ($_SESSION['TIME_OUT']))
 			{
-				$db->insertTestAnswer ($test, $_GET['ans']);
+				$ended = $db->getValue ("select (End_Time is not null) from Exam
+						where ID = (select Exam from Test where ID = $test)");
+
+				if (!$ended)
+					$db->insertTestAnswer ($test, $_GET['ans']);
+				else
+					echo '<script>parent.onTimeOut()</script>';
 			}
 
 			$arr_qoc = get_arr_qoc ($db, $test);
