@@ -122,18 +122,6 @@ class Database extends DBConnection
 		return $this->getLastInsertID();
 	}
 
-	function getRunningExams ($student)
-	{
-		$class = $this->getValue ("select Class from Student where ID=$student");
-		$class = num_value ($class);
-
-		$result = $this->query ("select * from Exam where Class=$class and Start_Time is not NULL");
-		$exams = fetch_assoc ($result);
-		mysql_free_result ($result);
-
-		return $exams;
-	}
-
 	function openTest ($student, $exam)
 	{
 		return $this->getValue ("select ID from Test"

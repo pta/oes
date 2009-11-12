@@ -1,0 +1,14 @@
+
+@import url("../admin/examtable.css");
+
+body {text-align:center;}
+h2 {font-variant: small-caps;}
+
+table.examtable
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.examtable td {cursor: pointer;}
+table.examtable tr:hover td {background-color: #E8EEEE;}
