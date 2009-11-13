@@ -1,0 +1,147 @@
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="docs.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<h1>OES - Online Exam System</h1>
+	<div class=desc>Hệ thống thi trắc nghiệm trực tuyến.</div>
+
+	<div class=info>
+		<div>Tác giả: Phạm Tuấn Anh</div>
+		<div>Liên hệ: SpamAnytime at gmail dot com</div>
+		<div>Môi trưởng phát triển: XAMPP Lite 1.7.2</div>
+		<div>Ngôn ngữ: PHP 5.3.0</div>
+		<div>DBMS: MySQL 5.0.5</div>
+		<div>Giấy phép: <a href='GNU General Public License.html'>GPLv2</a></div>
+	</div>
+
+	<div class=index>
+		<h2>Mục lục</h2>
+		<ol>
+			<li><a href=#toc1>Giới thiệu</a>
+			<li><a href=#toc2>Các tính năng nổi bật</a>
+			<li><a href=#toc3>Thiết kế cơ sở dữ liệu</a>
+			<li><a href=#toc4>Mã nguồn</a>
+			<li><a href=#toc5>Triển khai hệ thống</a>
+			<li><a href=#toc6>Sử dụng hệ thống</a>
+		</ol>
+	</div>
+
+	<h2 id=toc1>1. Giới thiệu</h2>
+		OES là hệ thống quản lý và triển khai thi trắc nghiệm trực tuyến.
+		Sử dụng công nghệ AJAX cho phép thiết kế giao diện ứng dụng linh hoạt,
+		thân thiện.
+
+	<h2 id=toc2>2. Các tính năng nổi bật</h2>
+
+	<h2 id=toc3>3. Thiết kế cơ sở dữ liệu</h2>
+		<img src='../sql/oes.png' width=100%>
+
+		<h3>a. Class</h3>
+			Chứa ID, Tên và Khoá của lớp.
+
+		<h3>b. Teacher</h3>
+			Chứa ID và Tên, Họ của giáo viên.
+
+		<h3>c. Student</h3>
+			Chứa ID, MSV, Tên, Họ, ngày sinh và lớp của sinh viên.
+
+		<h3>d. Subject</h3>
+			Chứa ID và Tên mỗi môn thi.
+
+		<h3>e. Question</h3>
+			Ngân hàng câu hỏi: ID, Nội dung câu hỏi và môn.
+
+		<h3>f. Choice</h3>
+			Ngân hàng câu trả lời: ID, câu hỏi, câu trả lời, đúng hay sai.
+
+		<h3>g. Exam</h3>
+			Kì thi, buổi thi.
+
+		<h3>h. Test</h3>
+			Bài thi của mỗi thi sinh.
+
+		<h3>i. Test_Choice</h3>
+			Các câu hỏi nào có trong bài thi nào.
+
+		<h3>j. Test_Answer</h3>
+			Các câu trả lời nào có trong bài thi nào.
+
+		<h2>k. User</h2>
+			Tài khoản người quản lý, giáo viên. Có quyền tạo và quản lý các kì thi.
+
+	<h2 id=toc4>4. Mã nguồn</h2>
+
+		Mã nguồn OES được mở ra với giấy phép GPL.
+		Có thể lấy phiên bản mới nhất tại: <nobr><code>git://github.com/pta/oes.git</code></nobr>.
+		(Chú ý, phải sử dụng hệ quản trị phiên bản <a href='http://git-scm.com/'>git</a> mới có thể lấy nguồn được.
+
+		<h3>Cấu trúc thư mục nguồn</h3>
+			<pre>
+oes
+├── admin ................. (mã php cho các trang quản trị)
+│   └── images
+├── docs .................. (tài liệu hướng dẫn)
+├── images ................ (hình ảnh)
+├── js .................... (các thư viện javascript)
+│   └── tigra_calendar ........ (thư viện bảng lịch = javascript)
+│       └── img
+├── lib ................... (mã php thư viện sử dụng chung)
+├── ptajax ................ (mã AJAX)
+├── sql ................... (các truy vấn thiết lập SQL)
+└── user .................. (mã php cho các trang người dùng dự thi)
+			</pre>
+
+		<h3>Thư viện dùng ngoài</h3>
+			Hệ thống có sử dụng đoạn mã thư viện tigra_calendar tạo bảng lịch bằng javascript.
+
+	<h2 id=toc5>5. Triển khai hệ thống</h2>
+
+		<h3>a. Triển khai XAMPP (Windows)</h3>
+			<h4>Cài đặt</h4>
+				<ul>
+					<li>Tải XAMPP bản mới nhất tại <a href='http://www.apachefriends.org/en/xampp-windows.html#646'>đây</a>. Trong gói đã có kèm theo sẵn.
+					<li>Cài đặt XAMPP vào ổ C:\ sẽ được thư mục C:\xampplite
+				</ul>
+
+			<h4>Tắt dịch vụ IIS</h4>
+				<ul>
+					<li>Run: services.msc
+					<li>Tìm dịch vụ IIS, chuột phải, Stop.
+				</ul>
+			<h4>Khởi động XAMPP</h4>
+				<ul>
+					<li>Chạy giao diện điều khiển <code>C:\xampplite\xampp-control.exe</code>
+					<li>Nhấn Start ở 2 mục Apache và MySQL.
+					<li>Kiểm tra: Mở trình duyệt (FF) vào địa chỉ: <code>localhost</code>.
+					Nếu có trang của XAMPP hiển thị là đã thành công.
+				</ul>
+
+		<h3>b. Cài đặt OES</h3>
+			<ul>
+				<li>Copy toàn bộ thư mục <code>oes</code> vào trong thư mục <code>C:\xampplite\htdocs</code>
+			</ul>
+
+		<h3>c. Triển khai cơ sở dữ liệu</h3>
+			<ul>
+				<li>Chạy file <code>init.cmd</code> trong thư mục <code>oes</code> để tạo database và các cấu trúc bảng.
+				<li>(Tuỳ chọn) vào địa chỉ <code>localhost/oes/admin</code>,
+				nhập id:pass demo là admin:admin.
+				Chọn phần <b>Sinh dữ liệu mẫu</b>, nhấn <b>Thực hiện</b> để hệ thống
+				phát sinh dữ liệu mẫu ngẫu nhiên.
+			</ul>
+
+		<h3>Đến đây hệ thống OES đã sẵn sàng để sử dụng</h3>
+
+	<h2 id=toc6>6. Sử dụng hệ thống</h2>
+
+		<h3>a. Giao diện Quản trị</h3>
+			Địa chỉ <code>localhost/oes/admin/</code>.
+			ID và password demo là admin:admin.
+
+		<h3>b. Giao diện Bài thi</h3>
+			Địa chỉ <code>localhost/oes/user/</code>.
+
+			<p>Nếu là lần đầu tiên một Thí sinh đăng nhập, thì phải điền đầy đủ thông tin.
+			Từ lần sau, chỉ cần nhập MSV là đủ.
+</body>

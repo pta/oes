@@ -1,0 +1,47 @@
+
+body
+{
+	text-align: justify;
+}
+
+h1, h1 + div.desc
+{
+	text-align: center;
+}
+
+div.desc
+{
+	margin-top: -20px;
+	margin-bottom: 20px;
+	font-size: 18px;
+	font-family: sans-serif;
+}
+
+div.info
+{
+	font-family: sans-serif;
+	text-align: left;
+	width: 400px;
+	background-color: #BDB;
+	margin: 0px auto;
+	padding: 6px;
+}
+
+div.index
+{
+	font-family: sans-serif;
+	background-color: #BBD;
+}
+
+code
+{
+	background-color: #DBB;
+}
+
+pre
+{
+	overflow: auto;
+	width: 680px;
+	margin: 0px auto;
+	background-color: #BDD;
+}
