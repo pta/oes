@@ -69,15 +69,15 @@ include_once "../lib/Database.php";
 
 	$result = $db->query ("select
 				E.ID as ID,
-				E.Name as Tên,
-				Subject.Name as Môn,
-				Time as Lần,
-				concat (ifnull((select Time_Spent from Test where Exam = E.ID and Student = $student),0),
-						'/', Duration, ' phút') as 'Đã dùng',
-				concat ((select count(Answer) from Test_Answer
-						where Test = (select ID from Test where Exam = E.ID and Student = $student)),
-						'/', NoQ, ' câu') as 'Số lượng',
-				if (Mul_Choice, 'nhiều đáp án', 'một đáp án') as 'Lựa chọn'
+				E.Name as Name,
+				Subject.Name as Subject,
+				Time,
+				ifnull ((select Time_Spent from Test where Exam = E.ID and Student = $student),0) as Time_Spent,
+				Duration,
+				(select count(Answer) from Test_Answer
+						where Test = (select ID from Test where Exam = E.ID and Student = $student)) as Done,
+				NoQ,
+				Mul_Choice
 			from (select * from Exam where Class = $class
 					and Start_Time is not null and End_Time is null) as E
 				join Subject on E.Subject = Subject.ID");
@@ -91,24 +91,24 @@ include_once "../lib/Database.php";
 
 	echo '<h2>Chọn môn thi</h2>';
 	echo '<table class=examtable cellspacing="0"><tr>';
+	echo '<th>Tên<th>Môn<th>Lần<th>Đã dùng<th>Đã làm<th>Lựa chọn';
 
-	$nof = mysql_num_fields ($result);
-
-	for ($f = 1; $f < $nof; ++$f)
-		echo '<th>' . mysql_field_name ($result, $f);
-
-	$i = 0;
+	$c = 0;
 
 	while ($row = mysql_fetch_array ($result))
 	{
 		$ex = $row['ID'];
 
-		$style = (($i++) & 1)?'alt':null;
+		$style = (($c++) & 1)?'class=alt':null;
 
-		echo "<tr class='$style' onClick='window.location=\"test.php?eid=$ex\"'>";
+		echo "<tr $style onClick='window.location=\"test.php?eid=$ex\"'>";
 
-		for ($f = 1; $f < $nof; ++$f)
-			echo '<td>' . $row[$f];
+		echo '<td>' . $row['Name'];
+		echo '<td>' . $row['Subject'];
+		echo '<td align=right>' . $row['Time'];
+		echo '<td align=right>' . $row['Time_Spent'] . '/' . $row['Duration'] . ' phút';
+		echo '<td align=right>' . $row['Done'] . '/'. $row['NoQ'] . ' câu';
+		echo '<td align=right>' . ($row['Mul_Choice']?'nhiều đáp án':'một đáp án');
 	}
 
 	echo '</table>';

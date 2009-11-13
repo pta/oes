@@ -84,55 +84,65 @@ include_once "../lib/util.php";
 		{
 			$action = $_GET['action'];
 
-			if ($action == "Bắt đầu")
+			if ($action == "start")
 				$db->query ("update Exam set Start_Time = now() where ID = $exam");
-			else if ($action == "Kết thúc")
+			else if ($action == "end")
 				$db->query ("update Exam set End_Time = now() where ID = $exam");
 			else
 				throw new Exception ("UnknowActionException");
 		}
 
 		echo "<script>parent.loadModule ('list', 'exam_modules.php?id=list&exam=$exam');</script>";
-		echo "<script>parent.setAutoStat ('$exam');</script>";
+		echo "<script>parent.setAutoStat ($exam);</script>";
 
 		$result = $db->query ("select
-					concat (Teacher.LastName, ' ', Teacher.FirstName) as 'Giáo viên',
-					concat (Duration, ' phút') as 'Thời gian',
-					concat (NoQ, ' câu hỏi') as 'Số lượng',
-					concat (Max_NoC, ' lựa chọn') as 'Tối đa',
-					if (Mul_Choice, 'nhiều đáp án', 'một đáp án') as 'Lựa chọn',
-					concat ((select count(ID) from Test where Exam = $exam), ' bài dự thi') as 'Tổng số',
-					Sched_Time as 'Lịch thi',
-					Start_Time as 'Bắt đầu',
-					End_Time as 'Kết thúc'
+					LastName,
+					FirstName,
+					Duration,
+					NoQ,
+					Max_NoC,
+					Mul_Choice,
+					Sched_Time,
+					Start_Time,
+					End_Time
 				from (select * from Exam where ID = $exam) as E
 					join Teacher on E.Teacher = Teacher.ID");
 
-		$nof = mysql_num_fields ($result);
 		$row = mysql_fetch_array ($result);
 
 		echo '<table class=web20>';
 
-		for ($i = $c = 0; $i < $nof; ++$i)
+		$c = 0;
+		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
+				. '><td>Giáo viên<td>' . $row['LastName'] . ' ' . $row['FirstName'];
+		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
+				. '><td>Thời gian<td>' . $row['Duration'] . ' phút';
+		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
+				. '><td>Số lượng<td>' . $row['NoQ'] . ' câu hỏi';
+		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
+				. '><td>Tối đa<td>' . $row['Max_NoC'] . ' lựa chọn';
+		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
+				. '><td>Lựa chọn<td>' . ($row['Mul_Choice']?'nhiều đáp án':'một đáp án');
+		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
+				. '><td>Lịch thi<td>' . $row['Sched_Time'];
+		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
+				. '><td>Tổng số<td>'
+				. $db->getValue ("select count(ID) from Test where Exam = $exam")
+				. ' bài dự thi';
+
+		echo '<tr' . ($c++ & 1 ? ' class=odd' : '');
+		if (!$row['Start_Time'])
+			echo "><td><a href=# onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$exam&action=start\")'>Bắt đầu</a><td>";
+		else
 		{
-			$field = mysql_field_name ($result, $i);
+			echo '><td>Bắt đầu<td>' . $row['Start_Time'];
 
-			if ($row[$i])
-			{
-				echo "<tr" . ($c++ & 1 ? ' class=odd' : '')
-						. "><td>$field<td>" . $row[$i];
-			}
+			echo '<tr' . ($c++ & 1 ? ' class=odd' : '');
+			if ($row['End_Time'])
+				echo '><td>Kết thúc<td>' . $row['End_Time'];
 			else
-			{
-				echo "<tr" . ($c++ & 1 ? ' class=odd' : '')
-						. "><td>"
-						. "<a href=# onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$exam&action=$field\")'>"
-						. "$field</a><td>";
-
-				break;
-			}
+				echo "><td><a href=# onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$exam&action=end\")'>Kết thúc</a><td>";
 		}
-		mysql_free_result ($result);
 
 		echo '</table>';
 	}
@@ -149,14 +159,14 @@ include_once "../lib/util.php";
 		$noq = $db->getValue ("select NoQ from Exam where ID = $exam");
 
 		$result = $db->query ("select
-				Student_ID as 'MSV',
-				concat (LastName, ' ', FirstName) as 'Họ Tên',
-				concat (T.Time_Spent, ' phút') as 'Hết',
-				concat ((select count(Answer) from Test_Answer where Test = T.ID), ' câu') as Làm,
-				concat ((select count(Answer) from Test_Answer where Test = T.ID
-							and (select Correct from Choice where Answer = Choice.ID)), ' câu') as Đúng,
-				concat (ifnull((select round(100 * Đúng / Làm)), ''), '%') as XS,
-				round (round (40 * (select Đúng) / $noq) / 4, 2) as Điểm
+				Student_ID,
+				LastName,
+				FirstName,
+				DoB,
+				T.Time_Spent,
+				(select count(Answer) from Test_Answer where Test = T.ID) as Done,
+				(select count(Answer) from Test_Answer where Test = T.ID
+							and (select Correct from Choice where Answer = Choice.ID)) as Correct
 			from Student join
 				(select * from Test where Exam = $exam) as T
 				on T.Student = Student.ID");
@@ -164,25 +174,22 @@ include_once "../lib/util.php";
 		if (mysql_num_rows ($result) != 0)
 		{
 			echo '<table class=examtable cellspacing="0"><tr>';
+			echo '<th>MSV<th>Họ tên<th>NS<th>Hết<th>Làm<th>Đúng<th>XS<th>Điểm';
 
-			$nof = mysql_num_fields ($result);
-
-			for ($f = 0; $f < $nof; ++$f)
-				echo '<th>' . mysql_field_name ($result, $f);
-
-			$i = 0;
+			$c = 0;
 
 			while ($row = mysql_fetch_array ($result))
 			{
-				if (($i++) & 1)
-					echo "<tr class=alt>";
-				else
-					echo "<tr>";
+				echo (($c++)&1)?"<tr class=alt>":"<tr>";
 
-				for ($f = 0; $f < $nof; ++$f)
-				{
-					echo '<td>' . $row[$f];
-				}
+				echo '<td>' . $row['Student_ID'];
+				echo '<td>' . $row['LastName'] . ' ' . $row['FirstName'];
+				echo '<td>' . $row['DoB'];
+				echo '<td align=right>' . $row['Time_Spent'] . ' phút';
+				echo '<td align=right>' . $row['Done'] . ' câu';
+				echo '<td align=right>' . $row['Correct'] . ' câu';
+				echo '<td align=right>' . ($row['Done'] ? round (100 * $row['Correct'] / $row['Done']) . '%' : '---');
+				echo '<td align=right>' . round (round (40 * $row['Correct'] / $noq) / 4, 2);
 			}
 
 			echo '</table>';

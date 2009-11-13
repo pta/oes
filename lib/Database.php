@@ -194,12 +194,12 @@ class Database extends DBConnection
 					0.5 + rand() * (select count(*) from Subject),
 					0.5 + rand() * 4,
 					0.5 + rand() * (select count(*) from Teacher),
-					round (0.5 + rand() * 4) * 30,
+					' . (mt_rand (5, 9) * 5) . ',
 					NOW() + INTERVAL (RAND() * 91 - 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND,
 					if (rand()<0.6, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND),
 					if (rand()<0.8, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND),
-					(4 + floor (rand() * 5)) * 5,
-					3 + floor (rand() * 3),
+					' . (mt_rand (4, 9) * 5) . ',
+					' . mt_rand (3, 5) . ',
 					rand())');
 		}
 
