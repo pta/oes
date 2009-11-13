@@ -45,3 +45,17 @@ pre
 	margin: 0px auto;
 	background-color: #BDD;
 }
+
+table.tablelist
+{
+	margin: 30px auto 0px auto;
+	background-color: #DDB;
+	border-width: 3px;
+	border-style: solid;
+}
+
+table.tablelist td.name
+{
+	font-weight: bold;
+	font-family: monospace;
+}
