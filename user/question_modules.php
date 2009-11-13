@@ -33,11 +33,11 @@ include_once "../lib/Database.php";
 
 	function get_arr_qoc ($db, $test)
 	{
-		$result = $db->query ("select Question, Ord from Choice join (select Choice, Ord from Test_Choice where Test = $test) as A on ID = Choice group by Question order by Ord");
+		$result = $db->query ("select Question, Ord from oes_Choice join (select Choice, Ord from oes_Test_Choice where Test = $test) as A on ID = Choice group by Question order by Ord");
 		$arr_qoc = fetch_columns ($result);
 		mysql_free_result ($result);
 
-		$result = $db->query ("select distinct Question from Choice where ID in (select Answer from Test_Answer where Test = $test)");
+		$result = $db->query ("select distinct Question from oes_Choice where ID in (select Answer from oes_Test_Answer where Test = $test)");
 		$answered = fetch_column ($result);
 		mysql_free_result ($result);
 
@@ -59,7 +59,7 @@ include_once "../lib/Database.php";
 
 	function get_choices ($db, $test, $ord)
 	{
-		$result = $db->query ("select ID, Text from Choice where ID in (select Choice from Test_Choice where Test=$test and Ord = $ord)");
+		$result = $db->query ("select ID, Text from oes_Choice where ID in (select Choice from oes_Test_Choice where Test=$test and Ord = $ord)");
 		$choices = fetch_columns ($result);
 		mysql_free_result ($result);
 
@@ -138,8 +138,8 @@ include_once "../lib/Database.php";
 
 			if (isset ($_GET['ans']) && !isset ($_SESSION['TIME_OUT']))
 			{
-				$ended = $db->getValue ("select (End_Time is not null) from Exam
-						where ID = (select Exam from Test where ID = $test)");
+				$ended = $db->getValue ("select (End_Time is not null) from oes_Exam
+						where ID = (select Exam from oes_Test where ID = $test)");
 
 				if (!$ended)
 					$db->insertTestAnswer ($test, $_GET['ans']);
@@ -154,10 +154,10 @@ include_once "../lib/Database.php";
 
 			printf ('<h3 align=center>Câu %02d</h3>', $ord + 1);
 
-			$qtext = $db->getValue ("select Text from Question where ID = $question");
+			$qtext = $db->getValue ("select Text from oes_Question where ID = $question");
 			echo "<div id=question>$qtext</div>";
 
-			$answer = $db->getValue ("select ID from (select Answer from Test_Answer where Test = $test) as A join (select ID from Choice where Question = $question) as B on Answer = ID;");
+			$answer = $db->getValue ("select ID from (select Answer from oes_Test_Answer where Test = $test) as A join (select ID from oes_Choice where Question = $question) as B on Answer = ID;");
 
 			$arr_it = get_choices ($db, $test, $ord);
 
@@ -185,7 +185,7 @@ include_once "../lib/Database.php";
 
 		case 'clock':
 		{
-			$ts = $db->getValue ("select Time_Spent from Test where ID = $test");
+			$ts = $db->getValue ("select Time_Spent from oes_Test where ID = $test");
 
 			if ($ts == null) $ts = 0;
 
@@ -193,14 +193,14 @@ include_once "../lib/Database.php";
 				$duration = $_SESSION['duration'];
 			else
 			{
-				$duration = $db->getValue ("select Duration from Exam where ID = (select Exam from Test where ID = $test)");
+				$duration = $db->getValue ("select Duration from oes_Exam where ID = (select Exam from oes_Test where ID = $test)");
 				$_SESSION['duration'] = $duration;
 			}
 
 			if ($ts < $duration)
 			{
 				echo "<div class=title>Thời gian</div>";
-				$db->query ("update Test set Time_Spent = " . ($ts + 1)
+				$db->query ("update oes_Test set Time_Spent = " . ($ts + 1)
 						. " where ID = $test");
 			}
 			else
@@ -218,7 +218,7 @@ include_once "../lib/Database.php";
 
 		case 'proc':
 		{
-			$done = $db->getValue ("select count(Answer) from Test_Answer where Test = $test");
+			$done = $db->getValue ("select count(Answer) from oes_Test_Answer where Test = $test");
 
 			if ($done == null) $done = 0;
 
@@ -226,7 +226,7 @@ include_once "../lib/Database.php";
 				$noq = $_SESSION['NoQ'];
 			else
 			{
-				$noq = $db->getValue ("select count(distinct Ord) from Test_Choice where Test = $test");
+				$noq = $db->getValue ("select count(distinct Ord) from oes_Test_Choice where Test = $test");
 				$_SESSION['NoQ'] = $noq;
 			}
 

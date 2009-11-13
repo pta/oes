@@ -29,7 +29,7 @@ include_once "../lib/TXTGen.php";
 			/* Question and Choice */
 			$txtGen = new TXTGen();
 
-			$subjects = $db->getColumn ('ID', 'Subject');
+			$subjects = $db->getColumn ('ID', 'oes_Subject');
 
 			foreach ($subjects as $subject)
 			{

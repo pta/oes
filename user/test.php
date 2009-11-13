@@ -20,7 +20,7 @@ include_once "../lib/Database.php";
 	{
 		$eid = $_GET['eid'];
 
-		$result = $db->query ("select * from Exam where ID = $eid");
+		$result = $db->query ("select * from oes_Exam where ID = $eid");
 		$exam = mysql_fetch_array ($result);
 		mysql_free_result ($result);
 
@@ -64,23 +64,23 @@ include_once "../lib/Database.php";
 	<link href="test.css" rel="stylesheet" type="text/css">
 </head>
 <?php
-	$class = $db->getValue ("select Class from Student where ID=$student");
+	$class = $db->getValue ("select Class from oes_Student where ID=$student");
 	$class = num_value ($class);
 
 	$result = $db->query ("select
 				E.ID as ID,
 				E.Name as Name,
-				Subject.Name as Subject,
+				oes_Subject.Name as Subject,
 				Time,
-				(select Time_Spent from Test where Exam = E.ID and Student = $student) as Time_Spent,
+				(select Time_Spent from oes_Test where Exam = E.ID and Student = $student) as Time_Spent,
 				Duration,
-				(select count(Answer) from Test_Answer
-						where Test = (select ID from Test where Exam = E.ID and Student = $student)) as Done,
+				(select count(Answer) from oes_Test_Answer
+						where Test = (select ID from oes_Test where Exam = E.ID and Student = $student)) as Done,
 				NoQ,
 				Mul_Choice
-			from (select * from Exam where Class = $class
+			from (select * from oes_Exam where Class = $class
 					and Start_Time is not null and End_Time is null) as E
-				join Subject on E.Subject = Subject.ID");
+				join oes_Subject on E.Subject = oes_Subject.ID");
 
 	if (mysql_num_rows ($result) == 0)
 	{

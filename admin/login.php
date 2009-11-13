@@ -14,7 +14,7 @@ include_once "../lib/Database.php";
 		$db = new Database (DB_HOST, DB_USER, DB_PASS);
 		$db->selectDatabase (DB_NAME);
 
-		$user = $db->getValue ("select ID from User where ID = $id and Pass = sha1($pass)");
+		$user = $db->getValue ("select ID from oes_User where ID = $id and Pass = sha1($pass)");
 
 		if ($user != null)
 		{

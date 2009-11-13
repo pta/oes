@@ -1,6 +1,6 @@
 
-drop table if exists User;
-create table User
+drop table if exists oes_User;
+create table oes_User
 (
 	ID			CHAR(13)	primary key,
 	Pass			CHAR(40)	not null
@@ -9,19 +9,19 @@ create table User
 	engine = innodb;
 
 drop table if exists
-	Test_Answer,
-	Test_Choice,
-	Test,
-	Choice,
-	Question,
-	Exam,
-	Student,
-	Subject,
-	Teacher,
-	Class;
+	oes_Test_Answer,
+	oes_Test_Choice,
+	oes_Test,
+	oes_Choice,
+	oes_Question,
+	oes_Exam,
+	oes_Student,
+	oes_Subject,
+	oes_Teacher,
+	oes_Class;
 
 -- Class
-create table Class
+create table oes_Class
 (
 	ID			INT	primary key
 					auto_increment,
@@ -32,7 +32,7 @@ create table Class
 	engine = innodb;
 
 -- Teacher
-create table Teacher
+create table oes_Teacher
 (
 	ID			INT	primary key
 					auto_increment,
@@ -43,7 +43,7 @@ create table Teacher
 	engine = innodb;
 
 -- Subject
-create table Subject
+create table oes_Subject
 (
 	ID			INT	primary key
 					auto_increment,
@@ -53,7 +53,7 @@ create table Subject
 	engine = innodb;
 
 -- Student
-create table Student
+create table oes_Student
 (
 	ID			INT	primary key
 					auto_increment,
@@ -71,7 +71,7 @@ create table Student
 	engine = innodb;
 
 -- Exam
-create table Exam
+create table oes_Exam
 (
 	ID			INT	primary key
 					auto_increment,
@@ -100,7 +100,7 @@ create table Exam
 	engine = innodb;
 
 -- Question
-create table Question
+create table oes_Question
 (
 	ID			INT	primary key
 					auto_increment,
@@ -113,7 +113,7 @@ create table Question
 	engine = innodb;
 
 -- Choice
-create table Choice
+create table oes_Choice
 (
 	ID			INT	primary key
 					auto_increment,
@@ -127,7 +127,7 @@ create table Choice
 	engine = innodb;
 
 -- Test
-create table Test
+create table oes_Test
 (
 	ID			INT	primary key
 					auto_increment,
@@ -145,7 +145,7 @@ create table Test
 	engine = innodb;
 
 -- Test_Choice
-create table Test_Choice
+create table oes_Test_Choice
 (
 	Ord			INT,
 	Test			INT	references Test
@@ -160,7 +160,7 @@ create table Test_Choice
 	engine = innodb;
 
 -- Test_Answer
-create table Test_Answer
+create table oes_Test_Answer
 (
 	Test			INT	references Test
 					on delete cascade

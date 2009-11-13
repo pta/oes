@@ -21,16 +21,16 @@ include_once "../lib/util.php";
 	{
 		$result = $db->query ("select
 					E.Name as Tên,
-					Class.Name as Lớp,
-					Subject.Name as Môn,
+					oes_Class.Name as Lớp,
+					oes_Subject.Name as Môn,
 					Time as Lần,
 					E.ID as ID,
 					Sched_Time, Start_Time, End_Time
-				from (select * from Exam
+				from (select * from oes_Exam
 						where End_Time is null or End_Time > CURRENT_DATE - INTERVAL 1 MONTH
 					) as E
-					join Class on E.Class = Class.ID
-					join Subject on E.Subject = Subject.ID
+					join oes_Class on E.Class = oes_Class.ID
+					join oes_Subject on E.Subject = oes_Subject.ID
 				order by Sched_Time desc");
 
 		echo '<table class=examtable cellspacing="0"><tr>';
@@ -85,9 +85,9 @@ include_once "../lib/util.php";
 			$action = $_GET['action'];
 
 			if ($action == "start")
-				$db->query ("update Exam set Start_Time = now() where ID = $exam");
+				$db->query ("update oes_Exam set Start_Time = now() where ID = $exam");
 			else if ($action == "end")
-				$db->query ("update Exam set End_Time = now() where ID = $exam");
+				$db->query ("update oes_Exam set End_Time = now() where ID = $exam");
 			else
 				throw new Exception ("UnknowActionException");
 		}
@@ -105,8 +105,8 @@ include_once "../lib/util.php";
 					Sched_Time,
 					Start_Time,
 					End_Time
-				from (select * from Exam where ID = $exam) as E
-					join Teacher on E.Teacher = Teacher.ID");
+				from (select * from oes_Exam where ID = $exam) as E
+					join oes_Teacher on E.Teacher = oes_Teacher.ID");
 
 		$row = mysql_fetch_array ($result);
 
@@ -127,7 +127,7 @@ include_once "../lib/util.php";
 				. '><td>Lịch thi<td>' . $row['Sched_Time'];
 		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
 				. '><td>Tổng số<td>'
-				. $db->getValue ("select count(ID) from Test where Exam = $exam")
+				. $db->getValue ("select count(ID) from oes_Test where Exam = $exam")
 				. ' bài dự thi';
 
 		echo '<tr' . ($c++ & 1 ? ' class=odd' : '');
@@ -151,12 +151,12 @@ include_once "../lib/util.php";
 			/* if no row available => stop autoload interval */
 		$running = $db->getValue (
 				"select (End_Time is null and Start_Time is not null)
-				from Exam where ID = $exam");
+				from oes_Exam where ID = $exam");
 
 		if (!$running)
 			echo "<script>parent.clearAutoStat();</script>";
 
-		$noq = $db->getValue ("select NoQ from Exam where ID = $exam");
+		$noq = $db->getValue ("select NoQ from oes_Exam where ID = $exam");
 
 		$result = $db->query ("select
 				Student_ID,
@@ -164,12 +164,12 @@ include_once "../lib/util.php";
 				FirstName,
 				DoB,
 				T.Time_Spent,
-				(select count(Answer) from Test_Answer where Test = T.ID) as Done,
-				(select count(Answer) from Test_Answer where Test = T.ID
-							and (select Correct from Choice where Answer = Choice.ID)) as Correct
-			from Student join
-				(select * from Test where Exam = $exam) as T
-				on T.Student = Student.ID");
+				(select count(Answer) from oes_Test_Answer where Test = T.ID) as Done,
+				(select count(Answer) from oes_Test_Answer where Test = T.ID
+							and (select Correct from oes_Choice where Answer = oes_Choice.ID)) as Correct
+			from oes_Student join
+				(select * from oes_Test where Exam = $exam) as T
+				on T.Student = oes_Student.ID");
 
 		if (mysql_num_rows ($result) != 0)
 		{
