@@ -72,7 +72,7 @@ include_once "../lib/Database.php";
 				E.Name as Name,
 				Subject.Name as Subject,
 				Time,
-				ifnull ((select Time_Spent from Test where Exam = E.ID and Student = $student),0) as Time_Spent,
+				(select Time_Spent from Test where Exam = E.ID and Student = $student) as Time_Spent,
 				Duration,
 				(select count(Answer) from Test_Answer
 						where Test = (select ID from Test where Exam = E.ID and Student = $student)) as Done,
@@ -106,7 +106,7 @@ include_once "../lib/Database.php";
 		echo '<td>' . $row['Name'];
 		echo '<td>' . $row['Subject'];
 		echo '<td align=right>' . $row['Time'];
-		echo '<td align=right>' . $row['Time_Spent'] . '/' . $row['Duration'] . ' phút';
+		echo '<td align=right>' . ($row['Time_Spent']?$row['Time_Spent']:0) . '/' . $row['Duration'] . ' phút';
 		echo '<td align=right>' . $row['Done'] . '/'. $row['NoQ'] . ' câu';
 		echo '<td align=right>' . ($row['Mul_Choice']?'nhiều đáp án':'một đáp án');
 	}
