@@ -17,7 +17,7 @@
 				<a target=main href=login.php>Thoát</a>
 			</div>
 		<td width=100%>
-			<iframe id=main name=main src='exam.php'></iframe>
+			<iframe frameborder=0 id=main name=main src='exam.php'></iframe>
 	</table>
 </body>
 </html>
