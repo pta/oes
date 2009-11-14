@@ -17,13 +17,13 @@ include_once "../lib/Database.php";
 
 	$student = $_SESSION['student'];
 	$test = $_SESSION['test'];
-
-	header ('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <html>
 <head>
 	<title>OES - Question</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
 	<link href="abutton.css" rel="stylesheet" type="text/css">
 	<link href="question.css" rel="stylesheet" type="text/css">
 	<link href="../ptajax/module.css" rel="stylesheet" type="text/css">

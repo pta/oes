@@ -29,8 +29,8 @@ include_once "../lib/Database.php";
 		}
 		catch (Exception $e)
 		{
-			header ('Content-Type: text/html; charset=UTF-8');
 			?>
+				<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head>
 				<center>Đăng nhập thất bại!</center>
 				<center>Xin hãy kiểm tra thông tin đã nhập.</center>
 				<center><button onClick='history.back()'>Trở lại</button></center>
@@ -40,13 +40,12 @@ include_once "../lib/Database.php";
 			return -1;
 		}
 	}
-
-	header ('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <HTML>
 <HEAD>
 	<title>OES - Student Login</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 	<!-- link calendar files  -->
 	<script language="JavaScript" src="../js/tigra_calendar/calendar_db.js"></script>

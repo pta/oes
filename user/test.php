@@ -41,8 +41,8 @@ include_once "../lib/Database.php";
 			{
 				$db->rollback();
 
-				header ('Content-Type: text/html; charset=UTF-8');
 				?>
+					<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head>
 					<center>Không thể tạo <b>Bài thi</b> mới.</center>
 					<center><button onClick='history.back()'>Trở lại</button></center>
 				<?php

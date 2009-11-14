@@ -12,9 +12,14 @@ include_once "../config.php";
 include_once "../lib/Database.php";
 include_once "../lib/TXTGen.php";
 ?>
-<?php
-	header ('Content-Type: text/html; charset=UTF-8');
 
+<HTML>
+<HEAD>
+	<title>OES Admin - Sample Database</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</HEAD>
+
+<?php
 	$db = new Database (DB_HOST, DB_USER, DB_PASS);
 	$db->selectDatabase (DB_NAME);
 
@@ -65,11 +70,6 @@ include_once "../lib/TXTGen.php";
 		}
 	}
 ?>
-
-<HTML>
-<HEAD>
-	<title>OES Admin - Sample Database</title>
-</HEAD>
 
 <BODY>
 <div align=center>

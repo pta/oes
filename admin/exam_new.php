@@ -11,9 +11,18 @@
 include_once "../config.php";
 include_once "../lib/Database.php";
 ?>
-<?php
-	header ('Content-Type: text/html; charset=UTF-8');
 
+<HTML>
+<HEAD>
+	<title>OES Admin - New Exam</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<!-- link calendar files  -->
+	<script language="JavaScript" src="../js/tigra_calendar/calendar_db.js"></script>
+	<link rel="stylesheet" href="../js/tigra_calendar/calendar.css">
+</HEAD>
+
+<?php
 	$db = new Database (DB_HOST, DB_USER, DB_PASS);
 	$db->selectDatabase (DB_NAME);
 
@@ -97,14 +106,6 @@ include_once "../lib/Database.php";
 	}
 ?>
 
-<HTML>
-<HEAD>
-	<title>OES Admin - New Exam</title>
-
-	<!-- link calendar files  -->
-	<script language="JavaScript" src="../js/tigra_calendar/calendar_db.js"></script>
-	<link rel="stylesheet" href="../js/tigra_calendar/calendar.css">
-</HEAD>
 <BODY>
 <div align=center>
 	<h1>Tạo đợt thi mới</h1>
