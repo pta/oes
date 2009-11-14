@@ -19,11 +19,10 @@
 		<h2>Mục lục</h2>
 		<ol>
 			<li><a href=#toc1>Giới thiệu</a>
-			<li><a href=#toc2>Các tính năng nổi bật</a>
+			<li><a href=#toc2>Các tính năng</a>
 			<li><a href=#toc3>Thiết kế cơ sở dữ liệu</a>
 			<li><a href=#toc4>Mã nguồn</a>
-			<li><a href=#toc5>Triển khai hệ thống</a>
-			<li><a href=#toc6>Sử dụng hệ thống</a>
+			<li><a href=#toc5>Triển khai hệ thống (localhost)</a>
 		</ol>
 	</div>
 
@@ -32,7 +31,17 @@
 		Sử dụng công nghệ AJAX cho phép thiết kế giao diện ứng dụng linh hoạt,
 		thân thiện.
 
-	<h2 id=toc2>2. Các tính năng nổi bật</h2>
+	<h2 id=toc2>2. Các tính năng</h2>
+
+		<h3>a. Giao diện Quản trị</h3>
+			Địa chỉ <a href='../admin/index.php'>../admin/index.php</a>
+			với ID và password demo là <code>admin</code>:<code>admin</code>.
+
+		<h3>b. Giao diện Bài thi</h3>
+			Địa chỉ <a href='../user/index.php'>../user/index.php</a>
+
+			<p>Nếu là lần đầu tiên một Thí sinh đăng nhập, thì phải điền đầy đủ thông tin.
+			Từ lần sau, chỉ cần nhập MSV là đủ.
 
 	<h2 id=toc3>3. Thiết kế cơ sở dữ liệu</h2>
 		<img src='../sql/oes.png' width=100%>
@@ -75,7 +84,7 @@ oes
 		<h3>Thư viện dùng ngoài</h3>
 			Hệ thống có sử dụng đoạn mã thư viện <code>tigra_calendar</code> tạo bảng lịch bằng javascript.
 
-	<h2 id=toc5>5. Triển khai hệ thống</h2>
+	<h2 id=toc5>5. Triển khai hệ thống (localhost)</h2>
 
 		<h3>a. Triển khai XAMPP (Windows)</h3>
 			<h4>Cài đặt</h4>
@@ -106,21 +115,9 @@ oes
 			<ul>
 				<li>Chạy file <code>init.cmd</code> trong thư mục <code>oes</code> để tạo database và các cấu trúc bảng.
 				<li>Vào địa chỉ <a href='http://localhost/oes/admin/sample_db.php'>localhost/oes/admin/sample_db.php</a>,
-				đăng nhập nhập id:pass demo là <code>admin:admin</code>, nhấn <b>Thực hiện</b> để hệ thống
+				đăng nhập nhập id:pass demo là <code>admin</code>:<code>admin</code>, nhấn <b>Thực hiện</b> để hệ thống
 				phát sinh dữ liệu mẫu ngẫu nhiên.
 			</ul>
 
-		<h3>Đến đây hệ thống OES đã sẵn sàng để sử dụng</h3>
-
-	<h2 id=toc6>6. Sử dụng hệ thống</h2>
-
-		<h3>a. Giao diện Quản trị</h3>
-			Địa chỉ <a href='http://localhost/oes/admin/'>localhost/oes/admin/</a>
-			với ID và password demo là <code>admin:admin</code>.
-
-		<h3>b. Giao diện Bài thi</h3>
-			Địa chỉ <a href='http://localhost/oes/user/'>localhost/oes/user/</a>
-
-			<p>Nếu là lần đầu tiên một Thí sinh đăng nhập, thì phải điền đầy đủ thông tin.
-			Từ lần sau, chỉ cần nhập MSV là đủ.
+		<h3>Đến đây hệ thống OES đã sẵn sàng để sử dụng tại <a href='http://localhost/oes/index.html'>localhost/oes/index.html</a></h3>
 </body>
