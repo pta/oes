@@ -1,0 +1,31 @@
+
+@import url("examtable.css");
+@import url("web20.css");
+
+table {margin: 0px auto;}
+table tr {text-align: justify;}
+
+#list
+{
+	overflow: auto;
+	margin: 20px;
+	height: 130px;
+}
+
+#list table {width: 100%;}
+#list table td {cursor: pointer;}
+#list table tr:hover td {background-color: #E8EEEE;}
+#list table tr.finished td {color: lightgray;}
+#list table tr.running td {color: green;}
+#list table tr.current td {text-decoration: underline; color: blue;}
+
+#detail {margin: 0px 20px;}
+
+#detail table a
+{
+	cursor: pointer;
+	color: blue;
+}
+
+#stat {margin: 20px auto;}
+#stat table {margin: 0px auto;}

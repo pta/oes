@@ -1,7 +1,4 @@
 
-@import url("examtable.css");
-@import url("web20.css");
-
 body {margin:0px; padding:0px; text-align:center;}
 h1 {font-variant: small-caps;}
 a {text-decoration: none;}
@@ -13,51 +10,19 @@ a {text-decoration: none;}
 	text-align: center;
 	height: 100%;
 	background-color: #C1FFEB;
+	border-spacing: 0px;
 }
+
+table#all td {padding: 0px;}
 
 #main
 {
 	overflow: auto;
+	border: 0px;
 	height: 100%;
+	width: 100%;
 	text-align: center;
-}
-
-#main table
-{
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#main table tr {text-align: justify}
-
-#main #list
-{
-	overflow: auto;
-	margin: 20px;
-	height: 130px;
-}
-
-#main #list table {width: 100%;}
-#main #list table td {cursor: pointer;}
-#main #list table tr:hover td {background-color: #E8EEEE;}
-#main #list table tr.finished td {color: lightgray;}
-#main #list table tr.running td {color: green;}
-#main #list table tr.current td {text-decoration: underline; color: blue;}
-
-#main #detail
-{
-	margin: 0px 20px;
-}
-
-#main #detail table a
-{
-	cursor: pointer;
-	color: blue;
-}
-
-#main #stat
-{
-	margin: 20px;
+	margin: 0px;
 }
 
 #control
