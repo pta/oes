@@ -70,8 +70,6 @@ include_once "../lib/Database.php";
 	{
 		if (isset ($_GET['ord']))
 			return $_GET['ord'];
-		else if (isset ($_SESSION['ord']))
-			return $_SESSION['ord'];
 		else
 			return 0;
 	}
@@ -128,7 +126,7 @@ include_once "../lib/Database.php";
 				echo '</a>';
 			}
 
-			$_SESSION['ord'] = $ord;
+			echo "<script>parent.ord = $ord;</script>";
 			break;
 		}
 

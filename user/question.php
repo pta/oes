@@ -32,6 +32,7 @@ include_once "../lib/Database.php";
 	<script type="text/javascript">
 		var TIME_OUT = false;
 		var clockInterval;
+		var ord;
 
 		function onChoose (ord, answer)
 		{
@@ -45,20 +46,21 @@ include_once "../lib/Database.php";
 
 		function onSelect (ord)
 		{
+			this.ord = ord;
 			loadModule ('main', 'question_modules.php?id=main&ord=' + ord);
 			loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
 		}
 
 		function onSkip()
 		{
-			loadModule ('main', 'question_modules.php?id=main&skip');
-			loadModule ('list', 'question_modules.php?id=list&skip');
+			loadModule ('main', 'question_modules.php?id=main&skip&ord=' + ord);
+			loadModule ('list', 'question_modules.php?id=list&skip&ord=' + ord);
 		}
 
 		function onNext()
 		{
-			loadModule ('main', 'question_modules.php?id=main&next');
-			loadModule ('list', 'question_modules.php?id=list&next');
+			loadModule ('main', 'question_modules.php?id=main&next&ord=' + ord);
+			loadModule ('list', 'question_modules.php?id=list&next&ord=' + ord);
 		}
 
 		function onTimeOut()

@@ -9,7 +9,7 @@ include_once "../lib/Database.php";
 	session_start();
 
 	// session_unset();
-	unset ($_SESSION['student'], $_SESSION['test'], $_SESSION['ord'],
+	unset ($_SESSION['student'], $_SESSION['test'],
 		$_SESSION['TIME_OUT'], $_SESSION['duration'], $_SESSION['NoQ']);
 
 	if (isset ($_POST['submit']))
