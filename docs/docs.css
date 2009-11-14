@@ -30,7 +30,7 @@ div.info
 div.index
 {
 	font-family: sans-serif;
-	background-color: #BBD;
+	background-color: #CCE;
 }
 
 code
@@ -58,4 +58,25 @@ table.tablelist td.name
 {
 	font-weight: bold;
 	font-family: monospace;
+}
+
+div.link
+{
+	text-align: center;
+	font-family: sans-serif;
+	background-color: #CCE;
+	width: 130px;
+	margin: 20px auto;
+	padding: 6px 0px;
+}
+
+div.link a {font-family: sans-serif;}
+
+a {color: blue; text-decoration: none;}
+a:visited {color: blue;}
+
+a:hover
+{
+	text-decoration: underline;
+	color: red;
 }
