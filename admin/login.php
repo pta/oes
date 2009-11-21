@@ -23,7 +23,7 @@ include_once "../lib/Database.php";
 			if (isset ($_SESSION['page']))
 				$page = $_SESSION['page'];
 			else
-				$page = 'exam_new.php';
+				$page = 'exam.php';
 
 			header ("Location: $page");
 		}
