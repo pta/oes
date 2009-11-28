@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+ftpsync -qpsc\
+	ignoremask=".git|ftpup|init.*|config.php"\
+	. ftp://roto.freehostia.com/oes
