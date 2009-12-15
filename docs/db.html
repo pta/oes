@@ -4,6 +4,7 @@
 	<meta http-Equiv="Cache-Control" Content="no-cache">
 	<meta http-Equiv="Pragma" Content="no-cache">
 	<meta http-Equiv="Expires" Content="0">
+	<link href="docs.css" rel="stylesheet" type="text/css">
 	<title>Bài tập Thiết kế CSDL</title>
 	<style>
 		body
@@ -17,7 +18,11 @@
 			counter-increment: h1;
 			content: counter(h1, upper-roman) ". ";
 		}
-		h1 {counter-reset: h2;}
+		h1
+		{
+			counter-reset: h2;
+			text-align: justify;
+		}
 		h2:before
 		{
 			counter-increment: h2;
@@ -49,11 +54,24 @@
 			font-family: sans-serif;
 			color: #644;
 		}
+
+		th
+		{
+			background-color: #444;
+			color: white;
+		}
+
+		tr + td
+		{
+			background-color: #AAA;
+		}
 	</style>
 </head>
 <body>
-	<div>Hệ thống thi trắc nghiệm trực tuyến</div>
-	<div>Phạm Tuấn Anh - CN1K6E</div>
+	<div class=info>
+		<div>Hệ thống thi trắc nghiệm trực tuyến</div>
+		<div>Phạm Tuấn Anh - CN1K6E</div>
+	</div>
 
 	<h1>Phân tích yêu cầu</h1>
 	<h2>Xác định dữ liệu cần lưu trữ</h2>
@@ -110,22 +128,87 @@
 				<td>Ngày sinh (Date of Birth)
 				<td>Ngày tháng
 
-			<tr><th>
-				<th colspan=2>
-			<tr><td>
-				<td>
-				<td>
-			<tr><td>
-				<td>
-				<td>
-			<tr><td>
-				<td>
-				<td>
-			<tr><td>
-				<td>
-				<td>
+			<tr><th>Exam
+				<th colspan=2>Một đợt thi, buổi thi, kì thi
+			<tr><td>ID
+				<td>Định danh
+				<td>Số nguyên
+			<tr><td>Name
+				<td>Tên kì thi
+				<td>Chuỗi 30 kí tự
+			<tr><td>Time
+				<td>Lần thi
+				<td>Số nguyên [1..4]
+			<tr><td>Duration
+				<td>Thời gian cho mỗi bài thi
+				<td>Số nguyên (tính theo phút)
+			<tr><td>NoQ
+				<td>Số lượng câu hỏi (Number of Question)
+				<td>Số nguyên
+			<tr><td>NoMCQ
+				<td>Số lượng cấu hỏi đa lựa chọn
+				<td>Số nguyên
+			<tr><td>Schedule
+				<td>Lịch thi
+				<td>Ngày tháng giờ
+			<tr><td>BeginTime
+				<td>Thời điểm bắt đầu thi
+				<td>Ngày tháng giờ
+			<tr><td>EndTime
+				<td>Thời điểm kết thúc thi
+				<td>Ngày tháng giờ
+
+			<tr><th>Test
+				<th colspan=2>Bài thi
+			<tr><td>ID
+				<td>Mã định danh
+				<td>Số nguyên
+			<tr><td>TimeSpent
+				<td>Thời gian đã sử dụng
+				<td>Số nguyên (tính theo phút)
+
+			<tr><th>Question
+				<th colspan=2>Câu hỏi ngân hàng
+			<tr><td>ID
+				<td>Mã định danh
+				<td>Số nguyên
+			<tr><td>Text
+				<td>Nội dung mã html cho câu hỏi
+				<td>Chuỗi dài
+			<tr><td>MulChoice
+				<td>Cho phép câu hỏi đa lựa chọn?
+				<td>Logic (đúng/sai)
+			<tr><td>Shuffleable
+				<td>Cho phép đảo chỗ thứ tự các lựa chọn
+				<td>Logic (đúng/sai)
+
+			<tr><th>Choice
+				<th colspan=2>Lựa chọn cho mỗi câu hỏi
+			<tr><td>ID
+				<td>Mã định danh
+				<td>Số nguyên
+			<tr><td>Text
+				<td>Nội dung mã html cho lựa chọn
+				<td>Chuỗi dài
+			<tr><td>Correct
+				<td>Lựa chọn này là đúng?
+				<td>Logic (đúng/sai)
+			<tr><td>Exclusive
+				<td>Lựa chọn loại trừ tất cả cái khác?
+				<td>Logic (đúng/sai)
+
+			<tr><th>TestQuestion
+				<th colspan=2>Câu hỏi trong một bài thi
+			<tr><td>ID
+				<td>Mã định danh
+				<td>Số nguyên
+
+			<tr><th>Answer
+				<th colspan=2>Mỗi lựa chọn trong bài thi
 		</table>
 <h1>Thiết kế mức khái niệm</h1>
 	Click vào <a href=db.png target=_blank>đây</a> để xem thiết kế.
+
+<h1>Thiết kế mức logic</h1>
 </body>
 </html>
