@@ -1,6 +1,6 @@
-sql/*~
-sql/*.dia.tmpfile
-sql/oes.sql
-sql/*.svg
-sql/*.png
+docs/*~
+docs/*.dia.tmpfile
+docs/oes.sql
+docs/*.svg
+docs/*.png
 *.geany

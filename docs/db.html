@@ -1,0 +1,131 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-Equiv="Cache-Control" Content="no-cache">
+	<meta http-Equiv="Pragma" Content="no-cache">
+	<meta http-Equiv="Expires" Content="0">
+	<title>Bài tập Thiết kế CSDL</title>
+	<style>
+		body
+		{
+			counter-reset: h1;
+			font-family: sans-serif;
+		}
+
+		h1:before
+		{
+			counter-increment: h1;
+			content: counter(h1, upper-roman) ". ";
+		}
+		h1 {counter-reset: h2;}
+		h2:before
+		{
+			counter-increment: h2;
+			content: counter(h1) "." counter(h2) " ";
+		}
+		h2 {counter-reset: h3;}
+		h3:before
+		{
+			counter-increment: h3;
+			content: counter(h3, lower-alpha) ". ";
+		}
+
+		h1
+		{
+			font-family: sans-serif;
+			font-variant: small-caps;
+			color: #446;
+		}
+
+		h2
+		{
+			font-family: sans-serif;
+			font-style: italic;
+			color: #466;
+		}
+
+		h3
+		{
+			font-family: sans-serif;
+			color: #644;
+		}
+	</style>
+</head>
+<body>
+	<div>Hệ thống thi trắc nghiệm trực tuyến</div>
+	<div>Phạm Tuấn Anh - CN1K6E</div>
+
+	<h1>Phân tích yêu cầu</h1>
+	<h2>Xác định dữ liệu cần lưu trữ</h2>
+		<table border=1>
+
+			<tr><th>Teacher
+				<th colspan=2>Giáo viên bộ môn
+			<tr><td>ID
+				<td>Mã định danh duy nhất cho mỗi giáo viên
+				<td>Số nguyên
+			<tr><td>FirstName
+				<td>Tên
+				<td>Chuỗi 13 kí tự
+			<tr><td>LastName
+				<td>Họ và đệm
+				<td>Chuỗi 30 kí tự
+
+			<tr><th>Class
+				<th colspan=2>Lớp
+			<tr><td>ID
+				<td>Mã định danh duy nhất cho mỗi lớp
+				<td>Số nguyên
+			<tr><td>Name
+				<td>Tên lớp
+				<td>Chuỗi 10 kí tự
+			<tr><td>K
+				<td>Khoá
+				<td>Số nguyên
+
+			<tr><th>Subject
+				<th colspan=2>Môn
+			<tr><td>ID
+				<td>Mã định danh
+				<td>Số nguyên
+			<tr><td>Name
+				<td>Tên bộ môn
+				<td>Chuỗi 30 kí tự
+
+			<tr><th>Student
+				<th colspan=2>Sinh viên
+			<tr><td>ID
+				<td>Mã định danh
+				<td>Số nguyên
+			<tr><td>IDCode
+				<td>Mã sinh viên
+				<td>Chuỗi 8 kí tự
+			<tr><td>FirstName
+				<td>Tên
+				<td>Chuỗi 13 kí tự
+			<tr><td>LastName
+				<td>Họ và đệm
+				<td>Chuỗi 30 kí tự
+			<tr><td>DoB
+				<td>Ngày sinh (Date of Birth)
+				<td>Ngày tháng
+
+			<tr><th>
+				<th colspan=2>
+			<tr><td>
+				<td>
+				<td>
+			<tr><td>
+				<td>
+				<td>
+			<tr><td>
+				<td>
+				<td>
+			<tr><td>
+				<td>
+				<td>
+		</table>
+<h1>Thiết kế mức khái niệm</h1>
+	Click vào <a href=db.png target=_blank>đây</a> để xem thiết kế.
+</body>
+</html>
