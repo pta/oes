@@ -22,7 +22,7 @@ class Database extends DBConnection
 	function ensureStudent ($student_id, $firstname, $lastname, $dob, $class)
 	{
 		if ($student_id != null)
-			$id = $this->getValue ("select ID from oes_Student where Student_ID = '$student_id'");
+			$id = $this->getValue ("select ID from oes_Student where IDCode = '$student_id'");
 
 		if ($id == null)
 		{
@@ -59,7 +59,7 @@ class Database extends DBConnection
 		$dob = str_value ($dob);
 		$class = num_value ($class);
 
-		return $this->getValue ("select ID from oes_Student where (Student_ID = $student_id) and (FirstName = $firstname) and LastName = $lastname and DoB = $dob and Class = $class");
+		return $this->getValue ("select ID from oes_Student where (IDCode = $student_id) and (FirstName = $firstname) and LastName = $lastname and DoB = $dob and Class = $class");
 	}
 
 	function insertClass ($class)
@@ -114,11 +114,11 @@ class Database extends DBConnection
 		return $this->getLastInsertID();
 	}
 
-	function insertChoice ($question, $text, $correct)
+	function insertChoice ($question, $text, $correct, $exclusive)
 	{
 		$text = str_value ($text);
 
-		$this->query ("insert into oes_Choice values (null, $question, $text, $correct)");
+		$this->query ("insert into oes_Choice values (null, $question, $text, $correct, $exclusive)");
 		return $this->getLastInsertID();
 	}
 
@@ -128,7 +128,7 @@ class Database extends DBConnection
 				. " where Student = $student and Exam = $exam");
 	}
 
-	function createTest ($student, $exam, $subject, $noq, $max_noc)
+	function createTest ($student, $exam, $subject, $noq)
 	{
 		$subject = num_value ($subject);
 
@@ -139,37 +139,20 @@ class Database extends DBConnection
 		$questions = fetch_column ($result);
 		mysql_free_result ($result);
 
-		foreach ($questions as $ord => $question)
+		foreach ($questions as $question)
 		{
-			$n = $max_noc - 1;
-
-			$result = $this->query (
-					"(select ID from oes_Choice"
-							. " where Question = $question and Correct = 1"
-							. " order by rand() limit 1)"
-					. "union"
-					. "(select ID from oes_Choice"
-							. " where Question = $question and Correct = 0"
-							. " order by rand() limit $n)"
-					. "order by rand()");
-			$choices = fetch_column ($result);
-			mysql_free_result ($result);
-
-			foreach ($choices as $choice)
-			{
-				$this->insertTestChoice ($ord, $test, $choice);
-			}
+			$this->insertTQ ($test, $question);
 		}
 
 		return $test;
 	}
 
-	function insertTestChoice ($ord, $test, $choice)
+	function insertTQ ($test, $question)
 	{
-		$this->query ("insert into oes_Test_Choice values ($ord, $test, $choice)");
+		$this->query ("insert into oes_TQ values (null, $test, $question)");
 	}
 
-	function insertTestAnswer ($test, $choice)
+	function insertAnswer ($tq, $choice)
 	{
 		$this->query ("delete from oes_Test_Answer where Test = $test and Answer in (select ID from oes_Choice where Question = (select Question from oes_Choice where ID = $choice))");
 		$this->query ("insert into oes_Test_Answer values ($test, $choice)");
@@ -195,15 +178,13 @@ class Database extends DBConnection
 					0.5 + rand() * 4,
 					0.5 + rand() * (select count(*) from oes_Teacher),
 					' . (mt_rand (5, 9) * 5) . ',
+					' . (mt_rand (4, 9) * 5) . ',
 					NOW() + INTERVAL (RAND() * 91 - 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND,
 					if (rand()<0.6, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND),
-					if (rand()<0.8, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND),
-					' . (mt_rand (4, 9) * 5) . ',
-					' . mt_rand (3, 5) . ',
-					rand())');
+					if (rand()<0.8, null, NOW() - INTERVAL (RAND() * 45) DAY + INTERVAL (RAND() * 172801 - 86400) SECOND))');
 		}
 
-		$this->query ('update oes_Exam set Start_Time = Sched_Time where End_Time is not null and Start_Time is null');
+		$this->query ('update oes_Exam set StartTime = Schedule where EndTime is not null and StartTime is null');
 	}
 }
 

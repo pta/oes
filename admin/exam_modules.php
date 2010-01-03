@@ -25,13 +25,13 @@ include_once "../lib/util.php";
 					oes_Subject.Name as Môn,
 					Time as Lần,
 					E.ID as ID,
-					Sched_Time, Start_Time, End_Time
+					Schedule, StartTime, EndTime
 				from (select * from oes_Exam
-						where End_Time is null or End_Time > CURRENT_DATE - INTERVAL 1 MONTH
+						where EndTime is null or EndTime > CURRENT_DATE - INTERVAL 1 MONTH
 					) as E
 					join oes_Class on E.Class = oes_Class.ID
 					join oes_Subject on E.Subject = oes_Subject.ID
-				order by Sched_Time desc");
+				order by Schedule desc");
 
 		echo '<table class=examtable cellspacing="0"><tr>';
 
@@ -50,9 +50,9 @@ include_once "../lib/util.php";
 
 			$style = '';
 
-			if ($row['End_Time'])
+			if ($row['EndTime'])
 				$style .= ' finished';
-			else if ($row['Start_Time'])
+			else if ($row['StartTime'])
 				$style .= ' running';
 
 			if ($ex == $exam) $style .= ' current';
@@ -66,12 +66,12 @@ include_once "../lib/util.php";
 
 			echo '<td>';
 
-			if ($row['End_Time'])
+			if ($row['EndTime'])
 				echo '<span class=finished>Đã kết thúc</span>';
-			else if ($row['Start_Time'])
+			else if ($row['StartTime'])
 				echo '<span class=running>Đang thi</span>';
 			else
-				echo mb_ucfirst (relative_time (strtotime ($row['Sched_Time'])));
+				echo mb_ucfirst (relative_time (strtotime ($row['Schedule'])));
 		}
 
 		echo '</table>';
@@ -85,9 +85,9 @@ include_once "../lib/util.php";
 			$action = $_GET['action'];
 
 			if ($action == "start")
-				$db->query ("update oes_Exam set Start_Time = now() where ID = $exam");
+				$db->query ("update oes_Exam set StartTime = now() where ID = $exam");
 			else if ($action == "end")
-				$db->query ("update oes_Exam set End_Time = now() where ID = $exam");
+				$db->query ("update oes_Exam set EndTime = now() where ID = $exam");
 			else
 				throw new Exception ("UnknowActionException");
 		}
@@ -99,12 +99,10 @@ include_once "../lib/util.php";
 					LastName,
 					FirstName,
 					Duration,
-					NoQ,
-					Max_NoC,
-					Mul_Choice,
-					Sched_Time,
-					Start_Time,
-					End_Time
+					Schedule,
+					StartTime,
+					EndTime,
+					NoQ
 				from (select * from oes_Exam where ID = $exam) as E
 					join oes_Teacher on E.Teacher = oes_Teacher.ID");
 
@@ -120,26 +118,22 @@ include_once "../lib/util.php";
 		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
 				. '><td>Số lượng<td>' . $row['NoQ'] . ' câu hỏi';
 		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
-				. '><td>Tối đa<td>' . $row['Max_NoC'] . ' lựa chọn';
-		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
-				. '><td>Lựa chọn<td>' . ($row['Mul_Choice']?'nhiều đáp án':'một đáp án');
-		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
-				. '><td>Lịch thi<td>' . $row['Sched_Time'];
+				. '><td>Lịch thi<td>' . $row['Schedule'];
 		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
 				. '><td>Tổng số<td>'
 				. $db->getValue ("select count(ID) from oes_Test where Exam = $exam")
 				. ' bài dự thi';
 
 		echo '<tr' . ($c++ & 1 ? ' class=odd' : '');
-		if (!$row['Start_Time'])
+		if (!$row['StartTime'])
 			echo "><td><a href=# onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$exam&action=start\")'>Bắt đầu</a><td>";
 		else
 		{
-			echo '><td>Bắt đầu<td>' . $row['Start_Time'];
+			echo '><td>Bắt đầu<td>' . $row['StartTime'];
 
 			echo '<tr' . ($c++ & 1 ? ' class=odd' : '');
-			if ($row['End_Time'])
-				echo '><td>Kết thúc<td>' . $row['End_Time'];
+			if ($row['EndTime'])
+				echo '><td>Kết thúc<td>' . $row['EndTime'];
 			else
 				echo "><td><a href=# onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$exam&action=end\")'>Kết thúc</a><td>";
 		}
@@ -150,7 +144,7 @@ include_once "../lib/util.php";
 	{
 			/* if no row available => stop autoload interval */
 		$running = $db->getValue (
-				"select (End_Time is null and Start_Time is not null)
+				"select (EndTime is null and StartTime is not null)
 				from oes_Exam where ID = $exam");
 
 		if (!$running)
@@ -159,14 +153,13 @@ include_once "../lib/util.php";
 		$noq = $db->getValue ("select NoQ from oes_Exam where ID = $exam");
 
 		$result = $db->query ("select
-				Student_ID,
+				IDCode,
 				LastName,
 				FirstName,
 				DoB,
-				T.Time_Spent,
-				(select count(Answer) from oes_Test_Answer where Test = T.ID) as Done,
-				(select count(Answer) from oes_Test_Answer where Test = T.ID
-							and (select Correct from oes_Choice where Answer = oes_Choice.ID)) as Correct
+				T.TimeSpent,
+				(select count(ID) from oes_Answer join oes_TQ where (Test = T.ID)) as Done,
+				0 as Correct
 			from oes_Student join
 				(select * from oes_Test where Exam = $exam) as T
 				on T.Student = oes_Student.ID");
@@ -182,10 +175,10 @@ include_once "../lib/util.php";
 			{
 				echo (($c++)&1)?"<tr class=alt>":"<tr>";
 
-				echo '<td>' . $row['Student_ID'];
+				echo '<td>' . $row['IDCode'];
 				echo '<td>' . $row['LastName'] . ' ' . $row['FirstName'];
 				echo '<td>' . $row['DoB'];
-				echo '<td align=right>' . $row['Time_Spent'] . ' phút';
+				echo '<td align=right>' . $row['TimeSpent'] . ' phút';
 				echo '<td align=right>' . $row['Done'] . ' câu';
 				echo '<td align=right>' . $row['Correct'] . ' câu';
 				echo '<td align=right>' . ($row['Done'] ? round (100 * $row['Correct'] / $row['Done']) . '%' : '---');

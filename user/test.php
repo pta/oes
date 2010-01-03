@@ -32,8 +32,7 @@ include_once "../lib/Database.php";
 
 			try
 			{
-				$test = $db->createTest ($student, $eid, $exam['Subject'],
-						$exam['NoQ'], $exam['Max_NoC']);
+				$test = $db->createTest ($student, $eid, $exam['Subject'], $exam['NoQ']);
 
 				$db->commit();
 			}
@@ -72,14 +71,13 @@ include_once "../lib/Database.php";
 				E.Name as Name,
 				oes_Subject.Name as Subject,
 				Time,
-				(select Time_Spent from oes_Test where Exam = E.ID and Student = $student) as Time_Spent,
+				(select TimeSpent from oes_Test where Exam = E.ID and Student = $student) as TimeSpent,
 				Duration,
-				(select count(Answer) from oes_Test_Answer
-						where Test = (select ID from oes_Test where Exam = E.ID and Student = $student)) as Done,
-				NoQ,
-				Mul_Choice
+				(select count(ID) from oes_Answer join oes_TQ where Test =
+						(select ID from oes_Test where Exam = E.ID and Student = $student)) as Done,
+				NoQ
 			from (select * from oes_Exam where Class = $class
-					and Start_Time is not null and End_Time is null) as E
+					and StartTime is not null and EndTime is null) as E
 				join oes_Subject on E.Subject = oes_Subject.ID");
 
 	if (mysql_num_rows ($result) == 0)
@@ -91,7 +89,7 @@ include_once "../lib/Database.php";
 
 	echo '<h2>Chọn môn thi</h2>';
 	echo '<table class=examtable cellspacing="0"><tr>';
-	echo '<th>Tên<th>Môn<th>Lần<th>Đã dùng<th>Đã làm<th>Lựa chọn';
+	echo '<th>Tên<th>Môn<th>Lần<th>Đã dùng<th>Đã làm';
 
 	$c = 0;
 
@@ -106,9 +104,8 @@ include_once "../lib/Database.php";
 		echo '<td>' . $row['Name'];
 		echo '<td>' . $row['Subject'];
 		echo '<td align=right>' . $row['Time'];
-		echo '<td align=right>' . ($row['Time_Spent']?$row['Time_Spent']:0) . '/' . $row['Duration'] . ' phút';
+		echo '<td align=right>' . ($row['TimeSpent']?$row['TimeSpent']:0) . '/' . $row['Duration'] . ' phút';
 		echo '<td align=right>' . $row['Done'] . '/'. $row['NoQ'] . ' câu';
-		echo '<td align=right>' . ($row['Mul_Choice']?'nhiều đáp án':'một đáp án');
 	}
 
 	echo '</table>';

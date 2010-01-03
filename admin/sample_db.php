@@ -48,7 +48,8 @@ include_once "../lib/TXTGen.php";
 					{
 						$choice = $txtGen->randSentence();
 						$correct = (mt_rand (0, 3) == 0)?'true':'false';
-						$db->insertChoice ($questionID, $choice, $correct);
+						$exclusive = (mt_rand (0, 3) == 0)?'true':'false';
+						$db->insertChoice ($questionID, $choice, $correct, $exclusive);
 					}
 				}
 			}

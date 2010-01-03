@@ -33,7 +33,7 @@ include_once "../lib/Database.php";
 
 	function get_arr_qoc ($db, $test)
 	{
-		$result = $db->query ("select Question, Ord from oes_Choice join (select Choice, Ord from oes_Test_Choice where Test = $test) as A on ID = Choice group by Question order by Ord");
+		$result = $db->query ("select Question, ID from oes_Choice join (select Choice, Ord from oes_Test_Choice where Test = $test) as A on ID = Choice group by Question order by Ord");
 		$arr_qoc = fetch_columns ($result);
 		mysql_free_result ($result);
 
@@ -183,7 +183,7 @@ include_once "../lib/Database.php";
 
 		case 'clock':
 		{
-			$ts = $db->getValue ("select Time_Spent from oes_Test where ID = $test");
+			$ts = $db->getValue ("select TimeSpent from oes_Test where ID = $test");
 
 			if ($ts == null) $ts = 0;
 
@@ -198,7 +198,7 @@ include_once "../lib/Database.php";
 			if ($ts < $duration)
 			{
 				echo "<div class=title>Thời gian</div>";
-				$db->query ("update oes_Test set Time_Spent = " . ($ts + 1)
+				$db->query ("update oes_Test set TimeSpent = " . ($ts + 1)
 						. " where ID = $test");
 			}
 			else
@@ -216,7 +216,7 @@ include_once "../lib/Database.php";
 
 		case 'proc':
 		{
-			$done = $db->getValue ("select count(Answer) from oes_Test_Answer where Test = $test");
+			$done = $db->getValue ("select count(TQ) from oes_Answer where TQ in (select ID from oes_TQ where $test)");
 
 			if ($done == null) $done = 0;
 
@@ -224,7 +224,7 @@ include_once "../lib/Database.php";
 				$noq = $_SESSION['NoQ'];
 			else
 			{
-				$noq = $db->getValue ("select count(distinct Ord) from oes_Test_Choice where Test = $test");
+				$noq = $db->getValue ("select count(ID) from oes_TQ where Test = $test");
 				$_SESSION['NoQ'] = $noq;
 			}
 
