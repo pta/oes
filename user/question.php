@@ -83,7 +83,7 @@ include_once "../lib/Database.php";
 
 		<script>
 			clock.insert ('clock', '*');
-			clock.load('question_modules.php?id=clock');
+			clock.load('question_clock.php');
 			clockInterval = setInterval ("clock.load()", <?php echo A_MINUTE?>);
 		</script>
 
