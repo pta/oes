@@ -26,10 +26,13 @@ include_once "../lib/Database.php";
 
 	<link href="abutton.css" rel="stylesheet" type="text/css">
 	<link href="question.css" rel="stylesheet" type="text/css">
-	<link href="../ptajax/module.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="../ptajax/module.js"></script>
+	<script type="text/javascript" src="../js/ptajax.js"></script>
 
 	<script type="text/javascript">
+
+		var main = new Loader();
+		var clock = new Loader();
+
 		var TIME_OUT = false;
 		var clockInterval;
 		var ord;
@@ -73,24 +76,23 @@ include_once "../lib/Database.php";
 
 <body>
 <div id=all>
-	<script>insertModule ('main', 'question_modules.php?id=main')</script>
+	<script>main.insert('main')</script>
 
 	<div id=control>
 		<a class=button href='login.php'>Thoát</a>
 
 		<script>
-			insertModule ('clock', 'question_modules.php?id=clock')
-			clockInterval = setInterval (
-					"loadModule ('clock', 'question_modules.php?id=clock')",
-					<?php echo A_MINUTE?>);
+			clock.insert ('clock', '*');
+			clock.load('question_modules.php?id=clock');
+			clockInterval = setInterval ("clock.load()", <?php echo A_MINUTE?>);
 		</script>
 
-		<script>insertModule ('proc', 'question_modules.php?id=proc')</script>
+		<script>main.insert('proc')</script>
 
 		<a class=button href='javascript:onNext()'>Tiếp theo</a>
 		<a class=button href='javascript:onSkip()'>Câu hỏi chưa chọn</a>
 
-		<script>insertModule ('list', 'question_modules.php?id=list')</script>
+		<script>main.insert('list')</script>
 	</div>
 </div>
 </body>
