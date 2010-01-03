@@ -76,7 +76,6 @@ create table oes_Exam
 	Teacher		INT,
 	Duration	INT,
 	NoQ		INT,
-	NoMCQ		INT,
 	Schedule	DATETIME,
 	StartTime	DATETIME,
 	EndTime		DATETIME,
