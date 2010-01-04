@@ -83,13 +83,27 @@ include_once "../lib/Database.php";
 		else
 			return $ord;
 	}
+
+	function get_arr_rowTQ ($db, $test)
+	{
+		static $arr_rowTQ = null;
+
+		if ($arr_rowTQ == null)
+		{
+			$result = $db->query ("select * from oes_TQ where Test = $test");
+			$arr_rowTQ = fetch_columns ($result);
+			mysql_free_result ($result);
+		}
+
+		return $arr_rowTQ;
+	}
 ?>
 <?php
 	session_start();
 
 	if (! (isset ($_SESSION['student'])
 			&& isset ($_SESSION['test'])
-			&& isset ($_GET['id'])))
+			&& isset ($_GET['action'])))
 	{
 		echo "Invalid session";
 		return;
@@ -97,12 +111,99 @@ include_once "../lib/Database.php";
 
 	$student = $_SESSION['student'];
 	$test = $_SESSION['test'];
-	$id = $_GET['id'];
+	$action = $_GET['action'];
 
 	$db = new Database (DB_HOST, DB_USER, DB_PASS);
 	$db->selectDatabase (DB_NAME);
 
-	switch ($id)
+	$give['list'] = false;
+	$give['main'] = false;
+	$give['proc'] = false;
+
+	$tq = null;
+
+	if (isset ($_GET['tq']))
+		$tq = $_GET['tq'];
+	else
+	{
+		$arr_rowTQ = get_arr_rowTQ ($db, $test);
+		$tq = $arr_rowTQ[0]['ID'];
+	}
+
+	switch ($action)
+	{
+		case 'answer':
+			if (!isset ($_SESSION['TIME_OUT']))
+			{
+				$ended = $db->getValue ("select (EndTime is not null) from oes_Exam where ID = (select Exam from oes_Test where ID = $test)");
+
+				if (!$ended)
+				{
+					$db->insertAnswer ($tq, $_GET['choice']);
+					$give['list'] = $give['main'] = $give['proc'] = true;
+				}
+				else
+				{
+					echo '<script>parent.onTimeOut()</script>';
+					$_SESSION['TIME_OUT'] = true;
+				}
+			}
+			break;
+
+		case 'init':
+			$give['list'] = $give['main'] = $give['proc'] = true;
+			break;
+
+		case 'select':
+			$give['list'] = $give['main'] = true;
+			break;
+
+		case 'next':
+			$give['list'] = $give['main'] = true;
+			break;
+
+		case 'skip':
+			$give['list'] = $give['main'] = true;
+			break;
+	}
+
+	if ($give['list'])
+	{
+		$arr_rowTQ = get_arr_rowTQ ($db, $test);
+
+		$arr_Answer = array();
+		foreach ($arr_rowTQ as $rowTQ)
+		{
+			$idTQ = $rowTQ['ID'];
+
+			$result = $db->query ("select Choice from oes_Answer where TQ = $idTQ");
+
+			if (mysql_num_rows ($result) > 0)
+				$arr_Answer[$idTQ] = fetch_column ($result);
+
+			mysql_free_result ($result);
+		}
+
+		echo '<div id=list>';
+
+		foreach ($arr_rowTQ as $o => $rowTQ)
+		{
+			$idTQ = $rowTQ['ID'];
+
+			echo '<a class=\'question';
+			if ($tq == $idTQ)				echo ' current';
+			if (isset ($arr_Answer[$idTQ]))	echo ' answered';
+			echo '\'';
+
+			echo " href='javascript:actionSelect($idTQ)'>";
+			printf ("Câu %02d", $o + 1);
+			echo '</a>';
+		}
+
+		echo '</div>';
+	}
+
+	switch ($action)
 	{
 		case 'list':
 		{
@@ -163,14 +264,14 @@ include_once "../lib/Database.php";
 
 			foreach ($arr_it as $i => $it)
 			{
-				$id = $it['ID'];
+				$action = $it['ID'];
 
 				$eo = ($i&1)?'odd':'even';
-				$val = ($id==$answer)?'check':'box';
-				$cls = ($id==$answer)?'chose':'';
+				$val = ($action==$answer)?'check':'box';
+				$cls = ($action==$answer)?'chose':'';
 
 				$td_img = "<td><img src='../images/$val.png' height=30"
-						. " onclick='onChoose ($ord, $id)'>";
+						. " onclick='onChoose ($ord, $action)'>";
 
 				echo "<div class='choice $eo $cls'><table>";
 				echo $td_img . '<td width=100%>' . $it['Text'] . $td_img;

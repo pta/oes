@@ -35,35 +35,30 @@ include_once "../lib/Database.php";
 
 		var TIME_OUT = false;
 		var clockInterval;
-		var ord;
+		var tq;
 
-		function onChoose (ord, answer)
+		function actionAnswer (tq, choice)
 		{
 			if (!TIME_OUT)
 			{
-				loadModule ('main', 'question_modules.php?id=main&ord=' + ord + '&ans=' + answer);
-				loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
-				loadModule ('proc', 'question_modules.php?id=proc');
+				main.load ('question_modules.php?action=answer&tq=' + tq + '&choice=' + choice);
 			}
 		}
 
-		function onSelect (ord)
+		function actionSelect (tq)
 		{
-			this.ord = ord;
-			loadModule ('main', 'question_modules.php?id=main&ord=' + ord);
-			loadModule ('list', 'question_modules.php?id=list&ord=' + ord);
+			this.tq = tq;
+			main.load ('question_modules.php?action=select&tq=' + tq);
 		}
 
-		function onSkip()
+		function actionSkip()
 		{
-			loadModule ('main', 'question_modules.php?id=main&skip&ord=' + ord);
-			loadModule ('list', 'question_modules.php?id=list&skip&ord=' + ord);
+			main.load ('question_modules.php?action=skip&tq=' + tq);
 		}
 
-		function onNext()
+		function actionNext()
 		{
-			loadModule ('main', 'question_modules.php?id=main&next&ord=' + ord);
-			loadModule ('list', 'question_modules.php?id=list&next&ord=' + ord);
+			main.load ('question_modules.php?action=skip&tq=' + tq);
 		}
 
 		function onTimeOut()
@@ -74,7 +69,7 @@ include_once "../lib/Database.php";
 	</script>
 </head>
 
-<body>
+<body onload="main.load('question_modules.php?action=init')">
 <div id=all>
 	<script>main.insert('main')</script>
 
@@ -89,8 +84,8 @@ include_once "../lib/Database.php";
 
 		<script>main.insert('proc')</script>
 
-		<a class=button href='javascript:onNext()'>Tiếp theo</a>
-		<a class=button href='javascript:onSkip()'>Câu hỏi chưa chọn</a>
+		<a class=button href='javascript:actionNext()'>Tiếp theo</a>
+		<a class=button href='javascript:actionSkip()'>Câu hỏi chưa chọn</a>
 
 		<script>main.insert('list')</script>
 	</div>
