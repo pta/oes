@@ -154,8 +154,37 @@ class Database extends DBConnection
 
 	function insertAnswer ($tq, $choice)
 	{
-		$this->query ("delete from oes_Answer where TQ = $tq");
-		$this->query ("insert into oes_Answer values ($tq, $choice)");
+		$result = $this->query ("select * from oes_Choice where ID = $choice");
+		$rowChoice = mysql_fetch_array ($result);
+		mysql_free_result ($result);
+
+		$isChose = $this->getValue ("select TQ from oes_Answer where TQ = $tq and Choice = $choice");
+
+		if ($rowChoice['Exclusive'])
+		{
+			if ($isChose) return false;
+
+			$this->begin();
+			$this->query ("delete from oes_Answer where TQ = $tq");
+			$this->query ("insert into oes_Answer values ($tq, $choice)");
+			$this->commit();
+		}
+		else
+		{
+			if ($isChose)
+				$this->query ("delete from oes_Answer
+						where TQ = $tq and Choice = $choice");
+			else
+			{
+				$this->begin();
+				$this->query ("delete from oes_Answer where TQ = $tq and
+						(select Exclusive from oes_Choice where ID = Choice) = 1");
+				$this->query ("insert into oes_Answer values ($tq, $choice)");
+				$this->commit();
+			}
+		}
+
+		return true;
 	}
 
 	function insertTest ($student, $exam)

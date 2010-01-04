@@ -94,9 +94,13 @@ include_once "../lib/Database.php";
 
 				if (!$ended)
 				{
-					$db->insertAnswer ($tq, $_GET['choice']);
-					update_map_TQ_Answer ($db, $tq);
-					$update['list'] = $update['main'] = $update['proc'] = true;
+					if ($db->insertAnswer ($tq, $_GET['choice']))
+					{
+						update_map_TQ_Answer ($db, $tq);
+						$update['list'] = $update['proc'] = true;
+					}
+
+					$update['main'] = true;
 				}
 				else
 				{
@@ -225,11 +229,24 @@ include_once "../lib/Database.php";
 			$idChoice = $rowChoice['ID'];
 
 			$eo = ($i&1) ? 'odd' : 'even';
-			$val = in_array ($idChoice, $arr_Answer) ? 'check' : 'box';
-			$cls = in_array ($idChoice, $arr_Answer) ? 'chose' : '';
 
-			$td_img = "<td><img src='../images/$val.png' height=30"
-					. " onclick='actionAnswer ($ord, $idChoice)'>";
+			if (in_array ($idChoice, $arr_Answer))
+			{
+				$img = $rowChoice['Exclusive'] ? 'radio' : 'check';
+				$cls = 'chose';
+			}
+			else
+			{
+				$img = $rowChoice['Exclusive'] ? 'circle' : 'box';
+				$cls = '';
+			}
+
+			$td_img = "<td><img src='../images/$img.png' height=30";
+
+			if ($img != 'radio')
+				$td_img	.= " onclick='actionAnswer ($ord, $idChoice)'";
+
+			$td_img .= ">";
 
 			echo "<div class='choice $eo $cls'><table>";
 			echo $td_img . '<td width=100%>' . $rowChoice['Text'] . $td_img;
