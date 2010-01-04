@@ -35,30 +35,30 @@ include_once "../lib/Database.php";
 
 		var TIME_OUT = false;
 		var clockInterval;
-		var tq;
+		var ord;
 
-		function actionAnswer (tq, choice)
+		function actionAnswer (ord, choice)
 		{
 			if (!TIME_OUT)
 			{
-				main.load ('question_modules.php?action=answer&tq=' + tq + '&choice=' + choice);
+				main.load ('question_modules.php?action=answer&ord=' + ord + '&choice=' + choice);
 			}
 		}
 
-		function actionSelect (tq)
+		function actionSelect (ord)
 		{
-			this.tq = tq;
-			main.load ('question_modules.php?action=select&tq=' + tq);
+			this.ord = ord;
+			main.load ('question_modules.php?action=select&ord=' + ord);
 		}
 
 		function actionSkip()
 		{
-			main.load ('question_modules.php?action=skip&tq=' + tq);
+			main.load ('question_modules.php?action=skip&ord=' + ord);
 		}
 
 		function actionNext()
 		{
-			main.load ('question_modules.php?action=skip&tq=' + tq);
+			main.load ('question_modules.php?action=next&ord=' + ord);
 		}
 
 		function onTimeOut()

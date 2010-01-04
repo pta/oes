@@ -10,7 +10,8 @@ include_once "../lib/Database.php";
 
 	// session_unset();
 	unset ($_SESSION['student'], $_SESSION['test'],
-		$_SESSION['TIME_OUT'], $_SESSION['duration'], $_SESSION['NoQ']);
+		$_SESSION['TIME_OUT'], $_SESSION['duration'], $_SESSION['NoQ'],
+		$_SESSION['arr_rowTQ'], $_SESSION['map_TQ_Answer']);
 
 	if (isset ($_POST['submit']))
 	{
