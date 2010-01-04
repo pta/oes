@@ -1,3 +1,4 @@
+docs/generate-images.sh
 docs/*~
 docs/*.dia.tmpfile
 docs/oes.sql
