@@ -59,6 +59,35 @@ include_once "../lib/Database.php";
 		$arr_rowTQ = get_arr_rowTQ ($db, $test);
 		return $arr_rowTQ[$ord]['ID'];
 	}
+
+	function get_qText ($db, $idQ)
+	{
+		if (!isset ($_SESSION['arr_qText']))
+			$_SESSION['arr_qText'] = array();
+
+		if (isset ($_SESSION['arr_qText'][$idQ]))
+			return $_SESSION['arr_qText'][$idQ];
+		else
+			return $_SESSION['arr_qText'][$idQ] =
+					$db->getValue ("select Text from oes_Question where ID = $idQ");
+	}
+
+	function get_arr_rowChoice ($db, $idQ)
+	{
+		if (!isset ($_SESSION['map_QC']))
+			$_SESSION['map_QC'] = array();
+
+		if (isset ($_SESSION['map_QC'][$idQ]))
+			return $_SESSION['map_QC'][$idQ];
+		else
+		{
+			$result = $db->query ("select * from oes_Choice where Question = $idQ");
+			$map_QC = fetch_columns ($result);
+			mysql_free_result ($result);
+
+			return $_SESSION['map_QC'][$idQ] = $map_QC;
+		}
+	}
 ?>
 <?php
 	session_start();
@@ -160,6 +189,59 @@ include_once "../lib/Database.php";
 			break;
 	}
 
+	if (isset ($update['main']))
+	{
+		echo '<div id=main>';
+
+		$arr_rowTQ = get_arr_rowTQ ($db, $test);
+		$idQ = $arr_rowTQ[$ord]['Question'];
+
+		printf ('<h3 align=center>Câu %02d</h3>', $ord + 1);
+
+		$qtext = get_qText ($db, $idQ);
+		echo "<div id=question>$qtext</div>";
+
+		$arr_rowChoice = get_arr_rowChoice ($db, $idQ);
+
+		$result = $db->query ("select Choice from oes_Answer where TQ = $tq");
+		$arr_Answer = fetch_column ($result);
+		mysql_free_result ($result);
+
+		echo '<div id=choices>';
+
+		foreach ($arr_rowChoice as $i => $rowChoice)
+		{
+			$idChoice = $rowChoice['ID'];
+
+			$eo = ($i&1) ? 'odd' : 'even';
+
+			if (in_array ($idChoice, $arr_Answer))
+			{
+				$img = $rowChoice['Exclusive'] ? 'radio' : 'check';
+				$cls = 'chose';
+			}
+			else
+			{
+				$img = $rowChoice['Exclusive'] ? 'circle' : 'box';
+				$cls = '';
+			}
+
+			$td_img = "<td><img src='../images/$img.png' height=30";
+
+			if ($img != 'radio')
+				$td_img	.= " onclick='actionAnswer ($ord, $idChoice)'";
+
+			$td_img .= ">";
+
+			echo "<div class='choice $eo $cls'><table>";
+			echo $td_img . '<td width=100%>' . $rowChoice['Text'] . $td_img;
+			echo '</table></div>';
+		}
+
+		echo '</div>';
+		echo '</div>';
+	}
+
 	if (isset ($update['list']))
 	{
 		echo '<div id=list>';
@@ -200,61 +282,6 @@ include_once "../lib/Database.php";
 		printf ("<div class=percent>%02d%%</div>", intval (100.0*$done/$noq));
 
 		echo "</div>";
-	}
-
-	if (isset ($update['main']))
-	{
-		echo '<div id=main>';
-
-		$arr_rowTQ = get_arr_rowTQ ($db, $test);
-		$idQ = $arr_rowTQ[$ord]['Question'];
-
-		printf ('<h3 align=center>Câu %02d</h3>', $ord + 1);
-
-		$qtext = $db->getValue ("select Text from oes_Question where ID = $idQ");
-		echo "<div id=question>$qtext</div>";
-
-		$result = $db->query ("select * from oes_Choice where Question = $idQ");
-		$arr_rowChoice = fetch_columns ($result);
-		mysql_free_result ($result);
-
-		$result = $db->query ("select Choice from oes_Answer where TQ = $tq");
-		$arr_Answer = fetch_column ($result);
-		mysql_free_result ($result);
-
-		echo '<div id=choices>';
-
-		foreach ($arr_rowChoice as $i => $rowChoice)
-		{
-			$idChoice = $rowChoice['ID'];
-
-			$eo = ($i&1) ? 'odd' : 'even';
-
-			if (in_array ($idChoice, $arr_Answer))
-			{
-				$img = $rowChoice['Exclusive'] ? 'radio' : 'check';
-				$cls = 'chose';
-			}
-			else
-			{
-				$img = $rowChoice['Exclusive'] ? 'circle' : 'box';
-				$cls = '';
-			}
-
-			$td_img = "<td><img src='../images/$img.png' height=30";
-
-			if ($img != 'radio')
-				$td_img	.= " onclick='actionAnswer ($ord, $idChoice)'";
-
-			$td_img .= ">";
-
-			echo "<div class='choice $eo $cls'><table>";
-			echo $td_img . '<td width=100%>' . $rowChoice['Text'] . $td_img;
-			echo '</table></div>';
-		}
-
-		echo '</div>';
-		echo '</div>';
 	}
 
 	echo "<script>parent.ord = $ord</script>";
