@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 ftpsync -qpc\
-	ignoremask="\.git|ftpup|init\.|config\.php|\.dia|\.print"\
+	ignoremask="\.git|ftpup|init\.|config\.php|\.dia|\.print|\.sh"\
 	. ftp://roto.freehostia.com/oes
