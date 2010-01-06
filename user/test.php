@@ -73,8 +73,10 @@ include_once "../lib/Database.php";
 				Time,
 				(select TimeSpent from oes_Test where Exam = E.ID and Student = $student) as TimeSpent,
 				Duration,
-				(select count(ID) from oes_Answer join oes_TQ where Test =
-						(select ID from oes_Test where Exam = E.ID and Student = $student)) as Done,
+				(select count(distinct ID) from oes_Answer join oes_TQ on ID = TQ
+						where Test =
+						(select ID from oes_Test where Exam = E.ID and Student = $student))
+						as Done,
 				NoQ
 			from (select * from oes_Exam where Class = $class
 					and StartTime is not null and EndTime is null) as E
