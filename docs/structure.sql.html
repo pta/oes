@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>structure.sql.html</title>
+<meta name="Generator" content="Vim/7.0">
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+<pre>
+<font color="#0000ff">-- Class</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Class
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	Name		<font color="#298a52"><b>CHAR</b></font>(<font color="#ff00ff">10</font>)	<font color="#6b59ce">unique</font> <font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+	K		<font color="#298a52"><b>INT</b></font>
+)
+
+<font color="#0000ff">-- Teacher</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Teacher
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	FirstName	<font color="#298a52"><b>VARCHAR</b></font>(<font color="#ff00ff">13</font>)	<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+	LastName	<font color="#298a52"><b>VARCHAR</b></font>(<font color="#ff00ff">30</font>)	<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>
+)
+
+<font color="#0000ff">-- Subject</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Subject
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	Name		<font color="#298a52"><b>VARCHAR</b></font>(<font color="#ff00ff">60</font>)	<font color="#6b59ce">unique</font> <font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>
+)
+
+<font color="#0000ff">-- Student</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Student
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	IDCode		<font color="#298a52"><b>CHAR</b></font>(<font color="#ff00ff">8</font>)		<font color="#6b59ce">unique</font>,
+	FirstName	<font color="#298a52"><b>VARCHAR</b></font>(<font color="#ff00ff">13</font>)	<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+	LastName	<font color="#298a52"><b>VARCHAR</b></font>(<font color="#ff00ff">30</font>)	<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+	DoB		<font color="#298a52"><b>DATE</b></font>		<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+	Class		<font color="#298a52"><b>INT</b></font>,
+
+	<font color="#6b59ce">UNIQUE</font> (FirstName, LastName, DoB, Class),
+	<font color="#6b59ce">FOREIGN KEY</font> (Class)	<font color="#6b59ce">REFERENCES</font> Class(<b>ID</b>)
+)
+
+<font color="#0000ff">-- Exam</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Exam
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	Name		<font color="#298a52"><b>VARCHAR</b></font>(<font color="#ff00ff">60</font>)	<font color="#6b59ce">unique</font> <font color="#6b59ce">null</font>,
+	Class		<font color="#298a52"><b>INT</b></font>,
+	Subject		<font color="#298a52"><b>INT</b></font>,
+	Time		<font color="#298a52"><b>TINYINT</b></font>(<font color="#ff00ff">1</font>),
+	Teacher		<font color="#298a52"><b>INT</b></font>,
+	Duration	<font color="#298a52"><b>INT</b></font>,
+	NoQ		<font color="#298a52"><b>INT</b></font>,
+	Schedule	<font color="#298a52"><b>DATETIME</b></font>,
+	StartTime	<font color="#298a52"><b>DATETIME</b></font>,
+	EndTime		<font color="#298a52"><b>DATETIME</b></font>,
+
+	<font color="#6b59ce">UNIQUE</font> (Class, Subject, Time),
+	<font color="#6b59ce">FOREIGN KEY</font> (Class)	<font color="#6b59ce">REFERENCES</font> Class(<b>ID</b>),
+	<font color="#6b59ce">FOREIGN KEY</font> (Subject)	<font color="#6b59ce">REFERENCES</font> Subject(<b>ID</b>),
+	<font color="#6b59ce">FOREIGN KEY</font> (Teacher)	<font color="#6b59ce">REFERENCES</font> Teacher(<b>ID</b>)
+)
+
+<font color="#0000ff">-- Question</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Question
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	Text		<font color="#298a52"><b>TEXT</b></font>		<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+	Subject		<font color="#298a52"><b>INT</b></font>,
+	Shuffleable	<font color="#298a52"><b>TINYINT</b></font>(<font color="#ff00ff">1</font>)	<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+
+	<font color="#6b59ce">FOREIGN KEY</font> (Subject)	<font color="#6b59ce">REFERENCES</font> Subject(<b>ID</b>)
+)
+
+<font color="#0000ff">-- Choice</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Choice
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	Question	<font color="#298a52"><b>INT</b></font>,
+	Text		<font color="#298a52"><b>TEXT</b></font>		<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+	Correct		<font color="#298a52"><b>TINYINT</b></font>(<font color="#ff00ff">1</font>)	<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+	Exclusive	<font color="#298a52"><b>TINYINT</b></font>(<font color="#ff00ff">1</font>)	<font color="#a52829"><b>not</b></font> <font color="#6b59ce">null</font>,
+
+	<font color="#6b59ce">FOREIGN KEY</font> (Question)	<font color="#6b59ce">REFERENCES</font> Question(<b>ID</b>)
+)
+
+<font color="#0000ff">-- Test</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Test
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	Student		<font color="#298a52"><b>INT</b></font>,
+	Exam		<font color="#298a52"><b>INT</b></font>,
+	TimeSpent	<font color="#298a52"><b>INT</b></font>,
+
+	<font color="#6b59ce">UNIQUE</font> (Student, Exam),
+	<font color="#6b59ce">FOREIGN KEY</font> (Student)	<font color="#6b59ce">REFERENCES</font> Student(<b>ID</b>),
+	<font color="#6b59ce">FOREIGN KEY</font> (Exam)	<font color="#6b59ce">REFERENCES</font> Exam(<b>ID</b>)
+)
+
+<font color="#0000ff">-- TestQuestion</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> TQ
+(
+	<b>ID</b>		<font color="#298a52"><b>INT</b></font>		<font color="#6b59ce">primary key</font>	<font color="#6b59ce">auto_increment</font>,
+	Test		<font color="#298a52"><b>INT</b></font>,
+	Question	<font color="#298a52"><b>INT</b></font>,
+
+	<font color="#6b59ce">UNIQUE</font> (Test, Question),
+	<font color="#6b59ce">FOREIGN KEY</font> (Test)	<font color="#6b59ce">REFERENCES</font> Test(<b>ID</b>),
+	<font color="#6b59ce">FOREIGN KEY</font> (Question)	<font color="#6b59ce">REFERENCES</font> Question(<b>ID</b>)
+)
+
+<font color="#0000ff">-- Answer</font>
+<font color="#a52829"><b>create</b></font> <font color="#6b59ce">table</font> Answer
+(
+	TQ		<font color="#298a52"><b>INT</b></font>,
+	Choice		<font color="#298a52"><b>INT</b></font>,
+
+	<font color="#6b59ce">PRIMARY KEY</font> (TQ, Choice),
+	<font color="#6b59ce">FOREIGN KEY</font> (TQ)	<font color="#6b59ce">REFERENCES</font> TQ(<b>ID</b>),
+	<font color="#6b59ce">FOREIGN KEY</font> (Choice)	<font color="#6b59ce">REFERENCES</font> Choice(<b>ID</b>)
+)
+</pre>
+</body>
+</html>

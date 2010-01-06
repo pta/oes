@@ -12,7 +12,7 @@
 		<div>Môi trưởng phát triển: XAMPP Lite 1.7.2</div>
 		<div>Ngôn ngữ: PHP 5.3.0</div>
 		<div>DBMS: MySQL 5.0.5</div>
-		<div>Giấy phép: <a href='GNU General Public License.html'>GPLv2</a></div>
+		<div>Giấy phép: <a target=_blank href=license.html>GPL3</a></div>
 	</div>
 
 	<div class=index>
@@ -41,24 +41,10 @@
 			Địa chỉ <a href='../user/index.php'>../user/index.php</a>
 
 			<p>Nếu là lần đầu tiên một Thí sinh đăng nhập, thì phải điền đầy đủ thông tin.
-			Từ lần sau, chỉ cần nhập MSV là đủ.
+			Từ lần sau, chỉ cần nhập Mã SV là đủ.
 
 	<h2 id=toc3>3. Thiết kế cơ sở dữ liệu</h2>
-		<img src='oes.png' width=100%>
-
-		<table class=tablelist>
-			<tr><td class=name>Class<td>Chứa ID, Tên và Khoá của lớp.
-			<tr><td class=name>Teacher<td>Chứa ID và Tên, Họ của giáo viên.
-			<tr><td class=name>Student<td>Chứa ID, MSV, Tên, Họ, ngày sinh và lớp của sinh viên.
-			<tr><td class=name>Subject<td>Chứa ID và Tên mỗi môn thi.
-			<tr><td class=name>Question<td>Ngân hàng câu hỏi: ID, Nội dung câu hỏi và môn.
-			<tr><td class=name>Choice<td>Ngân hàng câu trả lời: ID, câu hỏi, câu trả lời, đúng hay sai.
-			<tr><td class=name>Exam<td>Kì thi, buổi thi.
-			<tr><td class=name>Test<td>Bài thi của mỗi thi sinh.
-			<tr><td class=name>Test_Choice<td>Các câu hỏi nào có trong bài thi nào.
-			<tr><td class=name>Test_Answer<td>Các câu trả lời nào có trong bài thi nào.
-			<tr><td class=name>User<td>Tài khoản người quản lý, giáo viên. Có quyền tạo và quản lý các kì thi.
-		</table>
+		<blockquote><a target=_blank href=report.html>Báo cáo thiết kế cơ sở dữ liệu</a></blockquote>
 
 	<h2 id=toc4>4. Mã nguồn</h2>
 
@@ -77,7 +63,6 @@ oes
 │   └── tigra_calendar ........ (thư viện bảng lịch = javascript)
 │       └── img
 ├── lib ................... (mã php thư viện sử dụng chung)
-├── ptajax ................ (mã AJAX)
 ├── sql ................... (các truy vấn thiết lập SQL)
 └── user .................. (mã php cho các trang người dùng dự thi)</pre>
 

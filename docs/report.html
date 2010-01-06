@@ -9,50 +9,38 @@
 	<style>
 		body
 		{
-			counter-reset: h1;
+			counter-reset: h2;
 			font-family: sans-serif;
 		}
 
-		h1:before
-		{
-			counter-increment: h1;
-			content: counter(h1, upper-roman) ". ";
-		}
-		h1
-		{
-			counter-reset: h2;
-			text-align: justify;
-		}
 		h2:before
 		{
 			counter-increment: h2;
-			content: counter(h1) "." counter(h2) " ";
+			content: counter(h2, upper-roman) ". ";
 		}
-		h2 {counter-reset: h3;}
+		h2
+		{
+			counter-reset: h3;
+			text-align: justify;
+		}
 		h3:before
 		{
 			counter-increment: h3;
-			content: counter(h3, lower-alpha) ". ";
+			content: counter(h2) "." counter(h3) " ";
 		}
 
-		h1
+		h2
 		{
 			font-family: sans-serif;
 			font-variant: small-caps;
 			color: #446;
 		}
 
-		h2
+		h3
 		{
 			font-family: sans-serif;
 			font-style: italic;
 			color: #466;
-		}
-
-		h3
-		{
-			font-family: sans-serif;
-			color: #644;
 		}
 
 		th
@@ -84,12 +72,17 @@
 	</style>
 </head>
 <body>
-<div class=info>
-	<div>Hệ thống thi trắc nghiệm trực tuyến</div>
-	<div>Phạm Tuấn Anh - CN1K6E</div>
-</div>
+	<h1>BÁO CÁO THIẾT KẾ CƠ SỞ DỮ LIỆU</h1>
+	<div class=desc>OES - Hệ thống thi trắc nghiệm trực tuyến.</div>
 
-<h1>Mô tả hệ thống</h1>
+	<div class=info>
+		<div>Tác giả: PHẠM Tuấn Anh</div>
+		<div>Liên hệ: SpamAnytime at gmail dot com</div>
+		<div>DBMS: MySQL 5.0.5</div>
+		<div>Giấy phép: <a target=_blank href=license.html>GPL3</a></div>
+	</div>
+
+<h2>Mô tả hệ thống</h2>
 
 	<ul>
 		<li>Hệ thống thi trắc nghiệm trực tuyến, tập trung hoặc thi qua mạng.
@@ -111,9 +104,9 @@
 			tích luỹ.
 	</ul>
 
-<h1>Phân tích yêu cầu</h1>
+<h2>Phân tích yêu cầu</h2>
 
-	<h2>Các ứng dụng</h2>
+	<h3>Các ứng dụng</h3>
 
 		<ul>
 			<li>Trang quản trị giáo viên, môn, ngân hàng câu hỏi, ... dành cho người quản lý hệ thống.
@@ -121,7 +114,7 @@
 			<li>Trang dự thi, xem và làm bài thi, ... dành cho sinh viên hay thí sinh.
 		</ul>
 
-	<h2>Các thao tác thường dùng</h2>
+	<h3>Các thao tác thường dùng</h3>
 
 		<ul>
 			<li>Dự thi
@@ -146,7 +139,7 @@
 				</ul>
 		</ul>
 
-	<h2>Dữ liệu cần lưu trữ</h2>
+	<h3>Dữ liệu cần lưu trữ</h3>
 		<div style="width:600px; text-align: center">
 		<table class=table>
 			<tr><th>TEACHER
@@ -225,9 +218,6 @@
 			<tr><td>NoQ
 				<td>Số lượng câu hỏi
 				<td>Số nguyên
-			<tr><td>NoMCQ
-				<td>Số lượng cấu hỏi đa lựa chọn
-				<td>Số nguyên
 			<tr><td>Schedule
 				<td>Lịch thi
 				<td>Ngày tháng giờ
@@ -259,9 +249,6 @@
 			<tr><td>Text
 				<td>Nội dung mã html cho câu hỏi
 				<td>Chuỗi dài
-			<tr><td>MulChoice
-				<td>Cho phép câu hỏi đa lựa chọn?
-				<td>Logic (đúng/sai)
 			<tr><td>Shuffleable
 				<td>Cho phép đảo chỗ thứ tự các lựa chọn?
 				<td>Logic (đúng/sai)
@@ -299,21 +286,22 @@
 		</table>
 		</div>
 
-<h1>Thiết kế mức khái niệm</h1>
+<h2>Thiết kế mức khái niệm</h2>
 	Chọn định dạng ảnh
 	<ul>
 		<li><a href=concept.svg.svg target=_blank>SVG</a> (nhẹ)
-		<li><a href=concept.png target=_blank>PNG</a> (nặng, dành cho IE, không hỗ trợ SVG)
+		<li><a href=concept.png target=_blank>PNG</a> (nặng hơn, nếu không xem được SVG)
 	</ul>
 
-<h1>Thiết kế mức logic</h1>
+<h2>Thiết kế mức logic</h2>
 	Chọn định dạng ảnh
 	<ul>
 		<li><a href=logic.svg.svg target=_blank>SVG</a> (nhẹ)
-		<li><a href=logic.png target=_blank>PNG</a> (nặng, dành cho IE, không hỗ trợ SVG)
+		<li><a href=logic.png target=_blank>PNG</a> (nặng hơn, nếu không xem được SVG)
 	</ul>
 
-<h1>...</h1>
+<h2>Truy vấn tạo bảng (MySQL)</h2>
+	<iframe width=600 height=400 src=structure.sql.html></iframe>
 
 </body>
 </html>
