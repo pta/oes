@@ -43,7 +43,7 @@ include_once "../lib/Database.php";
 		{
 			$map_TQ_Answer = array();
 
-			$result = $db->query ("select ID from (select * from oes_TQ where Test = $test) as sTQ join oes_Answer on ID = TQ");
+			$result = $db->query ("select distinct ID from (select * from oes_TQ where Test = $test) as sTQ join oes_Answer on ID = TQ");
 
 			while ($row = mysql_fetch_array ($result))
 				$map_TQ_Answer[$row[0]] = true;
