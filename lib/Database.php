@@ -105,12 +105,12 @@ class Database extends DBConnection
 		return $this->getLastInsertID();
 	}
 
-	function insertQuestion ($text, $subject)
+	function insertQuestion ($text, $subject, $shuffleable)
 	{
 		$text = str_value ($text);
 		$subject = num_value ($subject);
 
-		$this->query ("insert into oes_Question values (null, $text, $subject)");
+		$this->query ("insert into oes_Question values (null, $text, $subject, $shuffleable)");
 		return $this->getLastInsertID();
 	}
 

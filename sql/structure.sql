@@ -94,6 +94,7 @@ create table oes_Question
 	ID		INT		primary key	auto_increment,
 	Text		TEXT		not null,
 	Subject		INT,
+	Shuffleable	TINYINT(1)	not null,
 
 	FOREIGN KEY (Subject)	REFERENCES oes_Subject(ID)
 )

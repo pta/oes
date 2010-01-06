@@ -41,7 +41,8 @@ include_once "../lib/TXTGen.php";
 				for ($i = 0; $i < 100; ++$i)
 				{
 					$question = $txtGen->randParagraph (mt_rand (1, 6));
-					$questionID = $db->insertQuestion ($question, $subject);
+					$shuffleable = (mt_rand (0, 1) == 0)?'true':'false';
+					$questionID = $db->insertQuestion ($question, $subject, $shuffleable);
 
 					$n = rand (4, 10);
 					for ($j = 0; $j < $n; ++$j)
