@@ -12,29 +12,28 @@ include_once "../config.php";
 ?>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<script type="text/javascript" src="../ptajax/module.js"></script>
-	<link href="../ptajax/module.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="../js/ptajax.js"></script>
 	<link href="exam.css" rel="stylesheet" type="text/css">
 
 	<script>
+		var loader = new Loader();
+
 		var statInterval;
 		var exam;
 
-		function onAutoStat()
+		function updateStat()
 		{
-			loadModule ('stat', 'exam_modules.php?id=stat&exam=' + exam);
+			loader.load ('exam_modules.php?action=stat&exam=' + exam);
 		}
 
-		function setAutoStat (ex)
+		function setStatInterval (ex)
 		{
 			exam = ex;
-			clearAutoStat();
-			statInterval = setInterval ('onAutoStat()',
-					<?php echo STAT_RELAD_INTERVAL?>);
-			onAutoStat();
+			clearStatInterval();
+			statInterval = setInterval ('updateStat()', <?php echo STAT_RELAD_INTERVAL?>);
 		}
 
-		function clearAutoStat()
+		function clearStatInterval()
 		{
 			if (statInterval)
 				clearInterval (statInterval);
@@ -42,7 +41,10 @@ include_once "../config.php";
 	</script>
 </head>
 <body>
-	<script>insertModule ('list', 'exam_modules.php?id=list');</script>
-	<script>insertModule ('detail', 'about:blank');</script>
-	<script>insertModule ('stat', 'about:blank');</script>
+	<script>
+		loader.insert ('list');
+		loader.insert ('detail');
+		loader.insert ('stat');
+		loader.load ('exam_modules.php?action=init');
+	</script>
 </body>

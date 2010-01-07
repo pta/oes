@@ -41,16 +41,81 @@ include_once "../lib/TXTGen.php";
 				for ($i = 0; $i < 100; ++$i)
 				{
 					$question = $txtGen->randParagraph (mt_rand (1, 6));
-					$shuffleable = (mt_rand (0, 1) == 0)?'true':'false';
-					$questionID = $db->insertQuestion ($question, $subject, $shuffleable);
 
-					$n = rand (4, 10);
-					for ($j = 0; $j < $n; ++$j)
+					$type = rand (0, 2);
+
+					switch ($type)
 					{
-						$choice = $txtGen->randSentence();
-						$correct = (mt_rand (0, 3) == 0)?'true':'false';
-						$exclusive = (mt_rand (0, 3) == 0)?'true':'false';
-						$db->insertChoice ($questionID, $choice, $correct, $exclusive);
+						case 0:	// single choice
+							$questionID = $db->insertQuestion ($question, $subject, 'true');
+
+							$n = mt_rand (3, 5);
+							$c = mt_rand (0, $n - 1);
+
+							for ($j = 0; $j < $n; ++$j)
+							{
+								$choice = $txtGen->randSentence();
+								$db->insertChoice ($questionID, $choice,
+										($j == $c) ? 'true' : 'false', 'true');
+							}
+							break;
+
+						case 1:	// multiple choice with an exclusive "no right answer" option
+							$questionID = $db->insertQuestion ($question, $subject, 'false');
+
+							$n = mt_rand (3, 4);
+							$nc = 'true';
+
+							for ($j = 0; $j < $n; ++$j)
+							{
+								$choice = $txtGen->randSentence();
+
+								if (mt_rand (0, 9) < 4)
+								{
+									$db->insertChoice ($questionID, $choice, 'true', 'false');
+									$nc = 'false';
+								}
+								else
+									$db->insertChoice ($questionID, $choice, 'false', 'false');
+							}
+
+							$choice = "Không có lựa chọn nào ở trên đúng.";
+							$db->insertChoice ($questionID, $choice, $nc, 'true');
+							break;
+
+						case 2:	// mixed
+							$questionID = $db->insertQuestion ($question, $subject, 'false');
+
+							$n = mt_rand (2, 3);
+							$nc = 'true';
+
+							for ($j = 0; $j < $n; ++$j)
+							{
+								$choice = $txtGen->randSentence();
+
+								if (mt_rand (0, 9) < 4)
+								{
+									$db->insertChoice ($questionID, $choice, 'true', 'false');
+									$nc = 'false';
+								}
+								else
+									$db->insertChoice ($questionID, $choice, 'false', 'false');
+							}
+
+							$n = mt_rand (1, 5 - $n);
+
+							if ($nc == 'true')
+								$c = mt_rand (0, $n - 1);
+							else
+								$c = -1;
+
+							for ($j = 0; $j < $n; ++$j)
+							{
+								$choice = $txtGen->randSentence();
+								$db->insertChoice ($questionID, $choice,
+										($j == $c) ? 'true' : 'false', 'true');
+							}
+							break;
 					}
 				}
 			}

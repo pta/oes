@@ -4,10 +4,38 @@ include_once "../lib/Database.php";
 include_once "../lib/util.php";
 ?>
 <?php
-	if (!isset ($_GET['id']))
+	function getCorrectCount ($db, $test)
+	{
+		$correct = 0;
+		$result = $db->query ("select ID, Question from oes_TQ where Test = $test");
+
+		while ($rowTQ = mysql_fetch_array ($result))
+		{
+			$tq = $rowTQ['ID'];
+			$wrong = $db->getValue ("select count(Choice) from oes_Answer where TQ = $tq and
+			(select Correct from oes_Choice where ID = Choice) = 0");
+
+			if (!$wrong)
+			{
+				$question = $rowTQ['Question'];
+
+				$noa = $db->getValue ("select count(Choice) from oes_Answer where TQ = $tq");
+				$noc = $db->getValue ("select count(ID) from oes_Choice where Question = $question and Correct = 1");
+
+				if ($noa === $noc)
+					++$correct;
+			}
+		}
+
+		mysql_free_result ($result);
+		return $correct;
+	}
+?>
+<?php
+	if (!isset ($_GET['action']))
 		return;
 
-	$id = $_GET['id'];
+	$action = $_GET['action'];
 
 	if (isset ($_GET['exam']))
 		$exam = $_GET['exam'];
@@ -17,8 +45,48 @@ include_once "../lib/util.php";
 	$db = new Database (DB_HOST, DB_USER, DB_PASS);
 	$db->selectDatabase (DB_NAME);
 
-	if ($id == 'list')
+	switch ($action)
 	{
+		case 'init':
+			$update['list'] = true;
+			break;
+
+		case 'detail':
+			$running = $db->getValue (
+					"select (EndTime is null and StartTime is not null)
+					from oes_Exam where ID = $exam");
+
+			if ($running)
+				echo "<script>parent.setStatInterval($exam);</script>";
+			else
+				echo "<script>parent.clearStatInterval();</script>";
+
+			$update['detail'] = $update['list'] = $update['stat'] = true;
+			break;
+
+		case 'start':
+			$db->query ("update oes_Exam set StartTime = now() where ID = $exam");
+			echo "<script>parent.setStatInterval($exam);</script>";
+
+			$update['detail'] = $update['list'] = true;
+			break;
+
+		case 'stop':
+			$db->query ("update oes_Exam set EndTime = now() where ID = $exam");
+			echo "<script>parent.clearStatInterval();</script>";
+
+			$update['detail'] = $update['list'] = $update['stat'] = true;
+			break;
+
+		case 'stat':
+			$update['stat'] = true;
+			break;
+	}
+
+	if (isset ($update['list']))
+	{
+		echo '<div id=list>';
+
 		$result = $db->query ("select
 					E.Name as Tên,
 					oes_Class.Name as Lớp,
@@ -59,7 +127,7 @@ include_once "../lib/util.php";
 
 			if (($i++) & 1) $style .= ' alt';
 
-			echo "<tr class='$style' onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$ex\")'>";
+			echo "<tr class='$style' onClick='loader.load (\"exam_modules.php?action=detail&exam=$ex\")'>";
 
 			for ($f = 0; $f < $nof; ++$f)
 				echo '<td>' . $row[$f];
@@ -75,25 +143,14 @@ include_once "../lib/util.php";
 		}
 
 		echo '</table>';
+		echo '</div>';
 
 		mysql_free_result ($result);
 	}
-	else if ($id == 'detail' && $exam)
+
+	if (isset ($update['detail']))
 	{
-		if (isset ($_GET['action']))
-		{
-			$action = $_GET['action'];
-
-			if ($action == "start")
-				$db->query ("update oes_Exam set StartTime = now() where ID = $exam");
-			else if ($action == "end")
-				$db->query ("update oes_Exam set EndTime = now() where ID = $exam");
-			else
-				throw new Exception ("UnknowActionException");
-		}
-
-		echo "<script>parent.loadModule ('list', 'exam_modules.php?id=list&exam=$exam');</script>";
-		echo "<script>parent.setAutoStat ($exam);</script>";
+		echo '<div id=detail>';
 
 		$result = $db->query ("select
 					LastName,
@@ -119,14 +176,10 @@ include_once "../lib/util.php";
 				. '><td>Số lượng<td>' . $row['NoQ'] . ' câu hỏi';
 		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
 				. '><td>Lịch thi<td>' . $row['Schedule'];
-		echo '<tr' . ($c++ & 1 ? ' class=odd' : null)
-				. '><td>Tổng số<td>'
-				. $db->getValue ("select count(ID) from oes_Test where Exam = $exam")
-				. ' bài dự thi';
 
 		echo '<tr' . ($c++ & 1 ? ' class=odd' : '');
 		if (!$row['StartTime'])
-			echo "><td><a href=# onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$exam&action=start\")'>Bắt đầu</a><td>";
+			echo "><td><a href=# onClick='loader.load (\"exam_modules.php?action=start&exam=$exam\")'>Bắt đầu</a><td>";
 		else
 		{
 			echo '><td>Bắt đầu<td>' . $row['StartTime'];
@@ -135,37 +188,39 @@ include_once "../lib/util.php";
 			if ($row['EndTime'])
 				echo '><td>Kết thúc<td>' . $row['EndTime'];
 			else
-				echo "><td><a href=# onClick='loadModule (\"detail\", \"exam_modules.php?id=detail&exam=$exam&action=end\")'>Kết thúc</a><td>";
+				echo "><td><a href=# onClick='loader.load (\"exam_modules.php?action=stop&exam=$exam\")'>Kết thúc</a><td>";
 		}
 
 		echo '</table>';
+		echo '</div>';
 	}
-	else if ($id == 'stat' && $exam)
-	{
-			/* if no row available => stop autoload interval */
-		$running = $db->getValue (
-				"select (EndTime is null and StartTime is not null)
-				from oes_Exam where ID = $exam");
 
-		if (!$running)
-			echo "<script>parent.clearAutoStat();</script>";
+	if (isset ($update['stat']))
+	{
+		echo '<div id=stat>';
 
 		$noq = $db->getValue ("select NoQ from oes_Exam where ID = $exam");
 
 		$result = $db->query ("select
+				T.ID as Test,
 				IDCode,
 				LastName,
 				FirstName,
 				DoB,
 				T.TimeSpent,
-				(select count(ID) from oes_Answer join oes_TQ where (Test = T.ID)) as Done,
-				0 as Correct
+				(select count(distinct ID) from oes_Answer join oes_TQ on ID = TQ
+						where Test = T.ID)
+						as Done
 			from oes_Student join
 				(select * from oes_Test where Exam = $exam) as T
 				on T.Student = oes_Student.ID");
 
-		if (mysql_num_rows ($result) != 0)
+		$nor = mysql_num_rows ($result);
+		if ($nor == 0)
+			echo "<div id=sum>Chưa có bài dự thi nào</div>";
+		else
 		{
+			echo "<div id=sum>Tổng số $nor bài dự thi</div>";
 			echo '<table class=examtable cellspacing="0"><tr>';
 			echo '<th>MSV<th>Họ tên<th>NS<th>Hết<th>Làm<th>Đúng<th>XS<th>Điểm';
 
@@ -175,18 +230,22 @@ include_once "../lib/util.php";
 			{
 				echo (($c++)&1)?"<tr class=alt>":"<tr>";
 
+				$correct = getCorrectCount ($db, $row['Test']);
+
 				echo '<td>' . $row['IDCode'];
 				echo '<td>' . $row['LastName'] . ' ' . $row['FirstName'];
 				echo '<td>' . $row['DoB'];
 				echo '<td align=right>' . $row['TimeSpent'] . ' phút';
 				echo '<td align=right>' . $row['Done'] . ' câu';
-				echo '<td align=right>' . $row['Correct'] . ' câu';
-				echo '<td align=right>' . ($row['Done'] ? round (100 * $row['Correct'] / $row['Done']) . '%' : '---');
-				echo '<td align=right>' . round (round (40 * $row['Correct'] / $noq) / 4, 2);
+				echo '<td align=right>' . $correct . ' câu';
+				echo '<td align=right>' . ($row['Done'] ? round (100 * $correct / $row['Done']) . '%' : '---');
+				echo '<td align=right>' . round (round (40 * $correct / $noq) / 4, 2);
 			}
 
 			echo '</table>';
 		}
+
+		echo '</div>';
 
 		mysql_free_result ($result);
 	}
