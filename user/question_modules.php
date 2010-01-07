@@ -215,6 +215,7 @@ include_once "../lib/Database.php";
 
 			$eo = ($i&1) ? 'odd' : 'even';
 
+			/// if ($rowChoice['Correct'])
 			if (in_array ($idChoice, $arr_Answer))
 			{
 				$img = $rowChoice['Exclusive'] ? 'radio' : 'check';
