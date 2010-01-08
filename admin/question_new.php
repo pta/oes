@@ -28,7 +28,9 @@ include_once "../lib/Database.php";
 
 		$choice = array();
 		for ($i = 0; strlen ($_POST["choice$i"]) > 0; ++$i)
-			$choice[$i] = array ($_POST["choice$i"], ($_POST["correct$i"] == 'on')?'true':'false');
+			$choice[$i] = array ($_POST["choice$i"],
+					isset ($_POST["correct$i"]) ? 'true' : 'false',
+					isset ($_POST["exclusive$i"]) ? 'true' : 'false');
 
 		$db->begin();
 
@@ -48,10 +50,11 @@ include_once "../lib/Database.php";
 				}
 			}
 
-			$questionID = $db->insertQuestion ($question, $subject);
+			$questionID = $db->insertQuestion ($question, $subject,
+					isset ($_POST['shuffleable']) ? 'true' : 'false');
 
 			foreach ($choice as $c)
-				$db->insertChoice ($questionID, $c[0], $c[1]);
+				$db->insertChoice ($questionID, $c[0], $c[1], $c[2]);
 
 			$db->commit();
 			echo "<center>Tạo câu hỏi mới thành công!</center>";
@@ -92,15 +95,16 @@ include_once "../lib/Database.php";
 			<tr><td>
 				<table>
 					<tr><td>Câu hỏi
-					<tr><td><textarea cols=40 rows=13 id=question name=question></textarea>
-					<tr><td>Lựa chọn
+					<tr><td><textarea cols=60 rows=6 id=question name=question></textarea>
+					<tr><td>Lựa chọn <label><input type=checkbox name=shuffleable>Cho phép đảo chỗ</label>
 					<tr><td>
 						<table>
 							<script>
-								for (var i = 0; i < 10; ++i)
+								for (var i = 0; i < 6; ++i)
 								{
-									document.writeln ("<tr><td><input size=40 name=choice" + i + ">");
+									document.writeln ("<tr><td><input size=34 name=choice" + i + ">");
 									document.writeln ("<label><input type=checkbox name=correct" + i + ">Đúng</label>");
+									document.writeln ("<label><input type=checkbox name=exclusive" + i + ">Duy nhất</label>");
 								}
 							</script>
 						</table>
