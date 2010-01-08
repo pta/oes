@@ -1,8 +1,9 @@
 <?php
 	session_start();
+	$_SESSION['page'] = 'sample_db.php';
+
 	if (!isset ($_SESSION['user']))
 	{
-		$_SESSION['page'] = 'sample_db.php';
 		header ("Location: login.php");
 		return;
 	}

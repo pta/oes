@@ -17,7 +17,13 @@
 				<a target=main href=login.php>Thoát</a>
 			</div>
 		<td width=100%>
-			<iframe frameborder=0 id=main name=main src='exam.php'></iframe>
+			<iframe frameborder=0 id=main name=main src=<?php
+				session_start();
+				if (isset ($_SESSION['page']))
+					echo $_SESSION['page'];
+				else
+					echo 'exam.php';
+			?>></iframe>
 	</table>
 </body>
 </html>

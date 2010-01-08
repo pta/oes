@@ -3,9 +3,10 @@ include_once "../config.php";
 ?>
 <?php
 	session_start();
+	$_SESSION['page'] = 'exam.php';
+
 	if (!isset ($_SESSION['user']))
 	{
-		$_SESSION['page'] = 'exam.php';
 		header ("Location: login.php");
 		return;
 	}

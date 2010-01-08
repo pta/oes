@@ -1,8 +1,9 @@
 <?php
 	session_start();
+	$_SESSION['page'] = 'question_new.php';
+
 	if (!isset ($_SESSION['user']))
 	{
-		$_SESSION['page'] = 'question_new.php';
 		header ("Location: login.php");
 		return;
 	}
