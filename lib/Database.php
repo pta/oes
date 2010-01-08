@@ -64,7 +64,10 @@ class Database extends DBConnection
 
 	function insertClass ($class)
 	{
-		$k = num_value ($class[4]);
+		if (count ($class) > 4)
+			$k = num_value ($class[4]);
+		else
+			$k = null;
 		$class = str_value ($class);
 
 		$this->query ("insert into oes_Class values (null, $class, $k)");
@@ -90,7 +93,7 @@ class Database extends DBConnection
 		return $this->getLastInsertID();
 	}
 
-	function insertExam ($name, $class, $subject, $time, $teacher, $duration, $sched_time, $noq, $max_noc, $mul_choice)
+	function insertExam ($name, $class, $subject, $time, $teacher, $duration, $noq, $sched_time)
 	{
 		$name = str_value ($name);
 		$class = num_value ($class);
@@ -98,10 +101,8 @@ class Database extends DBConnection
 		$teacher = num_value ($teacher);
 		$duration = num_value ($duration);
 		$noq = num_value ($noq);
-		$max_noc = num_value ($max_noc);
-		$mul_choice = $mul_choice?'true':'false';
 
-		$this->query ("insert into oes_Exam values (null, $name, $class, $subject, $time, $teacher, $duration, '$sched_time', null, null, $noq, $max_noc, $mul_choice)");
+		$this->query ("insert into oes_Exam values (null, $name, $class, $subject, $time, $teacher, $duration, $noq, '$sched_time', null, null)");
 		return $this->getLastInsertID();
 	}
 
