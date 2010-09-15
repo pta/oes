@@ -5,7 +5,7 @@ define ('DB_NAME', 'oes');
 define ('DB_USER', DB_NAME);
 define ('DB_PASS', '123456');
 
-define ('A_MINUTE', 6000);
-define ('STAT_RELAD_INTERVAL', 1000);
+define ('A_MINUTE', 60000);
+define ('STAT_RELAD_INTERVAL', 1300);
 
 ?>

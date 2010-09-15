@@ -1,0 +1,5 @@
+#!/bin/bash
+
+REMOTE=10.30.41.106:/opt/lampp/htdocs/oes
+
+rsync -avHue ssh ./ $REMOTE/ --exclude-from=sync.ignore --delete-excluded
