@@ -4,3 +4,4 @@ ftpup
 .print
 sync
 sync.ignore
+*~

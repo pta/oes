@@ -95,6 +95,7 @@ create table oes_Question
 	Text		TEXT		not null,
 	Subject		INT,
 	Shuffleable	TINYINT(1)	not null,
+	Rank		FLOAT,
 
 	FOREIGN KEY (Subject)	REFERENCES oes_Subject(ID)
 )
