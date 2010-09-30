@@ -42,13 +42,14 @@ include_once "../lib/TXTGen.php";
 				for ($i = 0; $i < 100; ++$i)
 				{
 					$question = $txtGen->randParagraph (mt_rand (1, 6));
+					$rank = mt_rand() / mt_getrandmax();
 
-					$type = rand (0, 2);
+					$type = mt_rand (0, 2);
 
 					switch ($type)
 					{
 						case 0:	// single choice
-							$questionID = $db->insertQuestion ($question, $subject, 'true');
+							$questionID = $db->insertQuestion ($question, $subject, 'true', $rank);
 
 							$n = mt_rand (3, 5);
 							$c = mt_rand (0, $n - 1);
@@ -62,7 +63,7 @@ include_once "../lib/TXTGen.php";
 							break;
 
 						case 1:	// multiple choice with an exclusive "no right answer" option
-							$questionID = $db->insertQuestion ($question, $subject, 'false');
+							$questionID = $db->insertQuestion ($question, $subject, 'false', $rank);
 
 							$n = mt_rand (3, 4);
 							$nc = 'true';
@@ -85,7 +86,7 @@ include_once "../lib/TXTGen.php";
 							break;
 
 						case 2:	// mixed
-							$questionID = $db->insertQuestion ($question, $subject, 'false');
+							$questionID = $db->insertQuestion ($question, $subject, 'false', $rank);
 
 							$n = mt_rand (2, 3);
 							$nc = 'true';
