@@ -1,4 +1,4 @@
-for F in logic.svg concept.svg
+for F in logic.svg concept.svg dataflow.svg
 do
 	inkscape -f "$F" -l "$F.svg" -T --vacuum-defs
 	inkscape -f "$F" -e "${F%%.svg*}.png" -w 1000
