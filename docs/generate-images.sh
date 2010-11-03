@@ -1,6 +1,14 @@
-for F in logic.svg concept.svg dataflow.svg
+#!/bin/bash
+
+for F in *.dia
 do
-	inkscape -f "$F" -l "$F.svg" -T --vacuum-defs
-	inkscape -f "$F" -e "${F%%.svg*}.png" -w 1000
-	#inkscape -f "$F" -e "${F%%.svg*}.print.png" -w 13000
+	SVG="${F%%.*}.svg"
+	PNG="${F%%.*}.png"
+
+	if [ "$SVG" -nt "$PNG" ]
+	then
+		inkscape -f "$SVG" -l "$SVG.svg" -T --vacuum-defs
+		inkscape -f "$SVG" -e "$PNG" -w 1000
+		#inkscape -f "$SVG" -e "hidpi_$PNG" -w 13000
+	fi
 done
