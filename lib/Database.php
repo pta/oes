@@ -64,10 +64,10 @@ class Database extends DBConnection
 
 	function insertClass ($class)
 	{
-		if (count ($class) > 4)
+		if (strlen ($class) > 4)
 			$k = num_value ($class[4]);
 		else
-			$k = null;
+			$k = 0;
 		$class = str_value ($class);
 
 		$this->query ("insert into oes_Class values (null, $class, $k)");
