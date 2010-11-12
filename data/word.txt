@@ -1,0 +1,359 @@
+Subject: Word
+Q Khi đang soạn thảo trên phần mềm Word, nếu muốn ghi dữ liệu vào 1 tệp thì ta chọn File trên thanh Menu sau đó chọn:
+-New
++Save
+-Open
+-Edit
+Q Khi đang soạn thảo trên phần mềm Word, nếu muốn mở 1 tệp thì ta chọn File trên thanh menu sau đó chọn:
+-New
+-Save
++Open
+-Edit
+Q Khi đang soạn thảo trên phần mềm Word, muốn sao chép một khối ta phải chọn khối muốn sao chép sau đó chọn: Edit rồi tiếp tục chọn :
++Copy
+-Cut
+-Insert
+-Select all
+Q Khi đang soạn thảo trên phần mềm Word, muốn di chuyển một khối ta phải chọn khối muốn sao chép sau đó chọn: Edit rồi tiếp tục chọn :
+-Copy
++Cut
+-Insert
+-Save
+Q Khi đang soạn thảo, muốn định dạng nhanh bằng thanh công cụ ta dùng thanh công cụ:
++Formatting
+-Standard
+-Autotext
+-Clipboad
+Q Khi muốn định dạng kí tự cho một đoạn văn bản đã được chọn ta chọn Format sau đó chọn :
++Font
+-Paragraph
+-Tab
+-Drop Tab
+Q Muốn thay đổi màu nền hoặc tạo khung cho một đoạn văn bản đã được chọn ta chọn Format sau dó chọn:
++Borders and Shading
+-Tab Stop
+-Font
+-Clipboad
+Q Trước khi in ta phải chọn cỡ giấy định in bằng cách chọn file, chọn Page Setup, rồi tiếp tục chọn:
++Paper size
+-Margins
+-Page break
+-Normal view
+Q Trước khi in nếu ta muốn đặt lề cho trang in trước hết ta làm bằng cách chọn file, chọn Page Setup, rồi tiếp tục chọn:
+-Layout
++Margins
+-Page break
+-Normal view
+Q Muốn chèn vào công thức toán học thì ta chọn Insert, chọn Object, chọn Creat new rồi tiếp tục chọn:
++Microsoft Equation…
+-Media Clip
+-Bitmap Image  d. Symbole
+Q Muốn in tất cả các trang trong văn bản trước hết ta làm bằng cách chọn File, chọn Print trong vùng Page range chọn
++All
+-Curent page
+-Pages
+-Selection
+Q Có mấy cách tạo mới một văn bản trong Word:
+-2 cách
++3 cách
+-4 cách
+-5 cách
+Câu 18: Thao tác Shift + Enter có  chức năng gì?
++Xuống hàng chưa kết thúc paragraph
+-Nhập dữ liệu theo hàng dọc
+-Xuống một trang màn hình
+-Tất cả đều sai
+Q Muốn xác định khoảng cách và vị trí ký tự, ta vào:
++Format/Paragragh
+-Format/Font
+-Format/Style
+-Format/Object
+Q Phím nóng Ctrl + Shift + =, có chức năng gì?
+-Bật hoặc tắt gạch dưới nét đôi
++Bật hoặc tắt chỉ số trên
+-Bật hoặc tắt chỉ số dưới
+-Trả về dạng mặc định
+Q Để gạch dưới mỗi từ một nét đơn, ngoài việc vào Format/Font, ta có thể dùng tổ hợp phím nà o:
+-Ctrl + Shift + D
+-Ctrl + Shift + A
++Ctrl + Shift + W
+-Ctrl + Shift + K
+Q Trong hộp thoại Format/Paragraph ngoà i việc có thể hiệu chỉnh lề cho đoạn, khoảng cách các đoạn, cácdò ng, cò n dùng là m chức năng nào sau đây:
+-Định dạng cột
+-Thay đổi font chữ
+-Canh chỉnh Tab
++Tất cả đều sai
+Q Trong phần File/ Page Setup mục Gutter có chức năng gì?
+-Quy định khoảng cách từ mép đến trang in
+-Quy định lề của trang in
+-Chia văn bản thành số đoạn theo ý muốn
++Phần chừa gáy để đóng thành tập.
+Q Để thay đổi đơn vị đo của thức, ta chọn:
+-Format/Tabs
+-Format/Object
++Tools/Option/General
+-Tools/Option/View
+Q Trong trang Format/Bullets and Numbering, nếu muốn chọn thông số khác ta vào mục Customize. Trong này, phần Number Format dùng để:
++Hiệu chỉnh ký hiệu của Number
+-Thay đổi font chữ
+-Thêm văn bản ở trước, sau dấu hoa thị
+-Hiệu chỉnh ký hiệu của Bullets
+Q Trong mục Format/Drop Cap, phần Distance form text dùng để xác định khoảng cách:
+-Giữa ký tự Drop Cap với lề trái
+-Giữa ký tự Drop Cap với ký tự tiếp theo
+-Giữa ký tự Drop Cap với lề phải
++Giữa ký tự Drop Cap với toàn văn bản
+Q Trong hộp thoại File/Page Setup khung Margins, mục Mirror Margins dù ng để:
+-Đặt lề cho văn bản cân xứng
++Đặt lề cho các trang chẵn và lẻ đối xứng
+-Đặt cho tiêu đề cân xứng với văn bản
+-Đặt lề cho các section đối xứng nhau
+Q Để dii chuyển con trỏ trong bảng Table, ta dùng phím nóng. Vậy phím nóng Shift + Tab dùng để:
++Di chuyển con trỏ đến ô liền trước
+-Thêm một tab vào ô
+-Di chuyển con trỏ đến hàng trên
+-Phím nóng trên không có chức năng gì
+Q Ví dụ ta gõ chữ n và nhấn phím spacebar, máy sẽ hiện ra cụm từ thông tin. Đây là chức năng:
++auto correct
+-auto Format
+-auto text
+-Tất cả đều sai
+Q Trong Format/ Tabs, mục Tab Stop position dùng để xác định khoảng cách:
++Từ lề trái đến vị trí Tab đã nhập
+-Từ lề phải đến vị trí Tab đã nhập
+-Cả a và b đều đúng
+-Cả a và b đều sai
+Q Để xem tà i liệu trước khi in, ta chọn File/Print Preview hoặc nhấn tổ hợp phím nóng:
+-Ctrl + Alt + P
++Ctrl + Alt + Format
+-Ctrl + Alt + B
+-Ctrl + Alt + 1
+Q Trong soạn thảo Word, muốn trình bày văn bản dạng cột (dạng thường thấy tên các trang báo và tạp chí), ta thực hiện:
+-Insert -> Column
+-View -> Column
++Format -> Column
+-Table -> Column
+Q Trong soạn thảo văn bản Word, công dụng của tổ hợp phím Ctrl + O là:
+-Mở một hồ sơ mới
+-Đóng hồ sơ đang mở
++Mở một hồ sơ đã có
+-Lưu hồ sơ vào đĩa
+Q Khi đang soạn thảo văn bản Word, muốn phục hồi thao tác vừa thực hiện thì bấm tổ hợp phím:
++Ctrl – Z
+-Ctrl – X
+-Ctrl - V
+-Ctrl - Y
+Q Trong khi làm việc với Word, tổ hợp phím tắt nào cho phép chọn tất cả văn bản đang soạn thảo:
++Ctrl + A
+-Alt + A
+-Alt + F
+-Ctrl + F
+Q Trong soạn thảo văn bản Word, công dụng của tổ hợp phím Ctrl - H là:
+-Tạo tệp văn bản mới
++Chức năng thay thế trong soạn thảo
+-Định dạng chữ hoa
+-Lưu tệp văn bản vào đĩa
+Q Trong chế độ tạo bảng (Table) của phần mềm Word, muốn tách một ô thành nhiều ô, ta thực hiện:
+-Table - Cells
+-Table - Merge Cells
+-Tools - Split Cells
++Table - Split Cells
+Q Trong MS Word, công dụng của tổ hợp phím Ctrl - S là:
+-Xóa tệp văn bản
+-Chèn kí hiệu đặc biệt
++Lưu tệp văn bản vào đĩa
+-Tạo tệp văn bản mới
+Q Khi làm việc với Word xong, muốn thoát khỏi, ta thực hiện:
+-View - Exit
+-Edit - Exit
+-Window - Exit
++File - Exit
+Q Trong soạn thảo văn bản Word, muốn tắt đánh dấu chọn khối văn bản (tô đen), ta thực hiện:
+-Bấm phím Enter
+-Bấm phím Space
++Bấm phím mũi tên di chuyển
+-Bấm phím Tab
+Q Trên màn hình Word, tại dòng có chứa các hình: tờ giấy trắng, đĩa vi tính, máy in, ..., được gọi là:
+-Thanh công cụ định dạng
++Thanh công cụ chuẩn
+-Thanh công cụ vẽ
+-Thanh công cụ bảng và đường viền
+Q Trong soạn thảo Word, để chèn tiêu đề trang (đầu trang và chân trang), ta thực hiện:
+-Insert - Header and Footer
+-Tools - Header and Footer
++View - Header and Footer
+-Format - Header and Footer
+Q Trong Word, để soạn thảo một công thức toán học phức tạp, ta thường dùng công cụ:
++Microsoft Equation
+-Ogranization Art
+-Ogranization Chart
+-Word Art
+Q Trong Word, để sao chép một đoạn văn bản vào Clipboard, ta đánh dấu đoạn văn, sau đó:
+-Chọn menu lệnh Edit - Copy
+-Bấm tổ hợp phím Ctrl - C
++Cả 2 câu a. b. đều đúng
+-Cả 2 câu a. b. đều sai
+Q Trong Word, để thuận tiện hơn trong khi lựa chọn kích thước lề trái, lề phải, ...; ta có thể khai báo đơn vị đo:
++Centimeters
+-Đơn vị đo bắt buộc là Inches
+-Đơn vị đo bắt buộc là Points
+-Đơn vị đo bắt buộc là Picas
+Q Trong soạn thảo Word, để tạo một bảng (Table), ta thực hiện:
+-Tools - Insert Table
+-Insert - Insert Table
+-Format - Insert Table
++Table - Insert Table
+Q Trong soạn thảo văn bản Word, muốn tạo ký tự Hoa đầu dòng của đoạn văn, ta thực hiện:
++Format - Drop Cap
+-Insert - Drop Cap
+-Edit - Drop Cap
+-View - Drop Cap
+Q Trong soạn thảo Word, công dụng của tổ hợp Ctrl - F là:
+-Tạo tệp văn bản mới
+-Lưu tệp văn bản vào đĩa
++Chức năng tìm kiếm trong soạn thảo
+-Định dạng trang
+Q Trong soạn thảo Word, muốn định dạng lại trang giấy in, ta thực hiện:
+-File - Properties
++File - Page Setup
+-File - Print
+-File - Print Preview
+Q Trong soạn thảo Word, muốn chuyển đổi giữa hai chế độ gõ là chế độ gõ chèn và chế độ gõ đè, ta bấm phím:
++Insert
+-Tab
+-Del
+-CapsLock
+Q Khi đang làm việc với Word, nếu lưu tệp vào đĩa, thì tệp đó:
+-Luôn luôn ở trong thư mục OFFICE
++Luôn luôn ở trong thư mục My Documents
+-Bắt buộc ở trong thư mục WINWORD
+-Cả 3 câu đều sai
+Q Trong WinWord, tổ hợp phím nào cho phép ngay lập tức đưa con trỏ về đầu văn bản:
+-Shift+Home
+-Atl+Home
++Ctrl+Home
+-Ctrl+Alt+Home
+Q Trong soạn thảo Word, muốn trình bày văn bản trong khổ giấy theo hướng ngang ta chọn mục:
+-Portrait
+-Right
+-Left
++Landscape
+Q Trong soạn thảo văn bản Word, để đóng một hồ sơ đang mở, ta thực hiện:
++File - Close
+-File - Exit
+-File - New
+-File - Save
+Q Trong soạn thảo Word, muốn chèn các kí tự đặc biệt vào văn bản, ta thực hiện:
+-View - Symbol
+-Format - Symbol
+-Tools - Symbol
++Insert - Symbol
+Q Trong Winword, muốn sử dụng chức năng sửa lỗi và gõ tắt, ta chọn:
+-Edit - AutoCorrect Options...
+-Window - AutoCorrect Options...
+-View - AutoCorrect Options...
++Tools - AutoCorrect Options...
+Q Trong khi soạn thảo văn bản, nếu kết thúc 1 đoạn (Paragraph) và muốn sang 1 đoạn mới:
+-Bấm tổ hợp phím Ctrl - Enter
++Bấm phím Enter
+-Bấm tổ hợp phím Shift - Enter
+-Word tự động, không cần bấm phím
+Q Trong khi soạn thảo văn bản, nếu khi kết thúc 1 đoạn văn mà ta muốn sang 1 trang mới thì:
++Bấm tổ hợp phím Ctrl - Enter
+-Bấm phím Enter
+-Bấm tổ hợp phím Shift - Enter
+-Bấm tổ hợp phím Alt - Enter
+Q Khi soạn thảo văn bản, để khai báo thời gian tự lưu văn bản, ta chọn:
++Tools - Option... Trong thẻ Save, đánh dấu chọn mục Save AutoRecover info every
+-File - Option... Trong thẻ Save, đánh dấu chọn mục Save AutoRecover info every
+-Format - Option... Trong thẻ Save, đánh dấu chọn mục Save AutoRecover info every
+-View - Option... Trong thẻ Save, đánh dấu chọn mục Save AutoRecover info every
+Q Khi soạn thảo văn bản trong Winword, muốn di chuyển từ 1 ô này sang ô kế tiếp về bên phải của một bảng (Table) ta bấm phím:
+-ESC
+-Ctrl
+-CapsLock
++Tab
+Q Trong soạn thảo Winword, muốn đánh số trang cho văn bản, ta thực hiện:
++Insert - Page Numbers
+-View - Page Numbers
+-Tools - Page Numbers
+-Format - Page Numbers
+Q Khi đang soạn thảo văn bản Word, muốn đánh dấu lựa chọn một từ, ta thực hiện:
++Nháy đúp chuột vào từ cần chọn
+-Bấm tổ hợp phím Ctrl - A
+-Nháy chuột vào từ cần chọn
+-Bấm phím Enter
+Q Khi soạn thảo văn bản trong Winword, để hiển thị trang sẽ in lên màn hình, ta chọn:
+-Edit - Print Preview
+-Format - Print Preview
++View - Print Preview
+-File - Print Preview
+Q Trong soạn thảo Winword, muốn định dạng ký tự, ta thực hiện:
++Format - Font
+-Format - Paragraph
+-Cả 2 câu đều đúng
+-Cả 2 câu đều sai
+Q Khi soạn thảo văn bản xong, để in văn bản ra giấy:
+-Chọn menu lệnh File - Print
+-Bấm tổ hợp phím Ctrl - P
++Các câu a. và b. đều đúng
+-Các câu a. và b. đều sai
+Q Trong WinWord, tổ hợp phím nào cho phép ngay lập tức đưa con trỏ về cuối văn bản:
+-Shift + End
+-Alt + End
++Ctrl + End
+-Ctrl + Alt + End
+Q Để tạo định dạng khổ giấy mặc nhiên là A4 khi soạn thảo văn bản trên Word 2003 ta thực hiện theo cách nào?
++Vào File/Page Setup, chọn nhãn Paper với Paper size là A4, nhấn Default
+-Vào Fle/Print, chọn Page size ở thuộc tính Properties là A4
+-Cả A và B đều đúng
+-Cả A và B đều sai
+Q Để tạo khoảng cách giữa các dòng là 1.5 lines, chúng ta thực hiện?
+-Trên thanh công cụ Formatting, chọn Line Spacing là 1.5
+-Vào Format/Paragraph, chọn Line Spacing là 1.5
++Cả A và B đều đúng
+-Cả A và B đều sai
+Q Tạo Font trong Word luôn mặc định là ".VnTime" khi soạn thảo văn bản?
+-Trên thanh Formatting chọn Font là ".VnTime"
++Vào Format/Font, chọn Font là ".VnTime", chọn Default
+-Cả A và B đều đúng
+-Cả A và B đều sai
+Q Cách chuyển đổi từ văn bản dạng bảng (Table) sang văn bản dạng Text thông thường?
+-Vào Table/Convert, chọn Text to Table
++Vào Table/Convert, chọn Table to Text
+-Cả 2 đều sai
+-Cả 2 đều đúng
+Q Để xem văn bản mình đang đánh có số lượng bao nhiêu từ, ta thực hiện bằng cách?
++Vào Tool, chọn Word Count…
+-Vào Tool, chọn AutoCorrect Options…
+-Cả A và B đều sai
+-Cả A và B đều đúng
+Q Nền văn bản (Background) mặc định của Word là màu trắng. Để thay đổi nền theo ý thích của mình chúng ta là như thế nào?
+-Vào Format/Paragraph…
++Vào Format/Background, chọn màu theo ý thích
+-Trong Word không hỗ trợ tính năng này
+Q Trong Windown, nhiều khi muốn hiển thị thước để định dạng Tabs bằng thước chẳng hạn, muốn hiển thị thước thì ta phải làm như thế nào ?
+-View / Toolbars / Drawing
+-View / Toolbars/ Standard
++View / Ruler
+-View / Toolbars / Formating
+Q Trong khi soạn thảo văn bản, giả sử bạn đã xóa nhầm một đoạn văn bản, bạn muốn khôi phục lại đoạn văn bản đó bạn làm như thế nào ?
+-Edit / Repeat tying
+-Edit / Select all
+-Edit / Paste
++Edit / Undo Clear
+Q Muốn đánh chữ số tự động ở đầu dòng cho các đoạn văn bản thì ta chọn mục nào ?
+-Format / Change Case
+-Format / Paragraph
+-Format / Border and Shading
++Format / Bullet and Numbering
+Q Muốn chèn thêm biểu đồ vào để minh họa cho văn bản. Ta chọn insert / Picture . Sau đó làm thế nào nữa ?
+-Chọn From File
++Chọn Chart
+-Chọn WordArt
+-Chọn Clip Art
+Q Trong khi soạn thảo văn bản, muốn đặt tiêu đề cho văn bản, ta phải làm như thế nào ?
++Chọn View / Header and footer
+-Chọn Insert / Break
+-Chọn Inset / Page Numbers
+-Chọn Insert / Symbol
