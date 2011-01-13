@@ -1,0 +1,2355 @@
+@@ Pascal
+?? Trong ngôn ngữ Pascal?
+** a, b, c đều đúng
+** 15, 47, -13 là các hằng nguyên
+** 4.0, 3E-7, 0.523 là các hằng thực
+** "a’, "+’, " " là các hằng kí tự
+
+?? Trong ngôn ngữ Pascal, với x, y thuộc loại integer?
+** x+2<>y là một biểu thức luận lý
+** x:=y là một biểu thức luận lý
+** x+2y-5 là một biểu thức luận lý
+** not (x+y) là một biểu thức luận lý
+
+?? Trong ngôn ngữ Pascal, với x, y thuộc loại integer?
+** Các câu trên đều sai
+** x=y là một biểu thức luận lý
+** (x<>0)or (2*y>5) là một biểu thức luận lý
+** x+2<>y+1 là một biểu thức luận lý
+
+?? Xét chương trình Pascal sau?
+PROGRAM Vidu;
+TYPE d=ARRAY [ 1..n] of integer;
+VAR i: integer; a:=d;
+BEGIN
+	Read(n);
+	FOR i:=1 TO n DO A[i]:=i+1;
+END
+** Chương trình báo lỗi ngữ pháp khi dịch
+** Chương trình báo lỗi khi thi hành
+** Cả hai câu trên đều sai
+** Cả hai câu trên đều đúng
+
+?? Cho khai báo sau? TYPE th=SET OF char; VAR I, j, n: integer; x, y, z: real; k: boolean; a, b: th; Hãy cho biết câu lệnh nào dưới đây bị sai:
+** n:=i/j;
+** n:=I DIV j;
+** z:=x/y;
+** k:=’c’ IN a;
+
+?? Cho khai báo sau: TYPE th=SET OF char; VAR I, j, n: integer; x, y, z: real; k: boolean; a, b: th; u, v: array[1..3] of integer; Hãy cho biết câu lệnh nào dưới đây bị sai?
+** a:=["a’,b]
+** n:=I DIV j;
+** z:=x/y;
+** k:=’c’ IN a
+
+?? Cho khai báo sau: TYPE th=SET OF char; VAR I, j, n: integer; x, y, z: real; k: boolean; a, b: th; u, v: array[1..3] of integer; Hãy cho biết câu lệnh nào dưới đây bị sai?
+** b:=b+’b’
+** n:=I DIV j;
+** z:=x/y;
+** k:=’c’ IN a
+
+?? Cho khai báo sau: TYPE th=SET OF char; VAR I, j, n: integer; x, y, z: real; k: boolean; a, b: th; u, v: array[1..3] of integer; Hãy cho biết câu lệnh nào dưới đây bị sai?
+** u:=u*v
+** n:=I DIV j;
+** z:=x/y;
+** k:=’c’ IN a
+
+?? Cho khai báo sau: VAR i: integer; c: char; r: real; Hãy cho biết nhóm lệnh nào sau đây viết đúng ngữ pháp?
+** Các lệnh r:=7; c:=’9’; i:=ord(c)
+** Các lệnh r:=7; i:=r; write(r)
+** Các lệnh c:=’9’ ;i:=9; if i=c then write("hop le’)
+** Cả ba nhóm lệnh trên đều có lỗi sai
+
+?? Cho khai báo sau: VAR i: integer; c: char; r: real; Hãy cho biết nhóm lệnh nào sau đây viết đúng ngữ pháp?
+** Cả ba nhóm lệnh trên đều có lỗi sai
+** Các lệnh r:=7; i:=r; write(r)
+** Các lệnh c:=’9’ ;i:=9; if i=c then write("hop le’)
+** Các lệnh r:=7; c:=ord(r); i:=ord(c)
+
+?? Cho khai báo sau: VAR i: integer; c: char; r: real; Hãy cho biết nhóm lệnh nào sau đây viết đúng ngữ pháp?
+** Các lệnh i:=7; r:=i; write(r)
+** Các lệnh c:=’9’; i:=9; if i=c then write("hop le’)
+** Các lệnh i:=7; c:=ord(r); i:=ord(c)
+** Cả ba nhóm lệnh trên đều có lỗi sai
+
+?? Cho khai báo sau: VAR i: integer; c: char; r: real; Hãy cho biết nhóm lệnh nào sau đây viết đúng ngữ pháp?
+** Các lệnh c:=’9’; i:=9; if i=ord(c) then write("hop le’)
+** Các lệnh i:=7; r:=9; writeln(r>i+1)
+** Các lệnh i:=7; c:=ord(r); r:=ord(c)
+** Cả ba nhóm lệnh trên đều có lỗi sai
+
+?? Cho x, y, z và t có loại integer. Sau khi thi hành các lệnh: x:=5; y:=3; z:=5; t:=6; If x>y then If y>z then t:=y ELSE t:=x Giá trị của t là bao nhiêu?
+** t:=5
+** t:=6
+** t:=7
+** t:=8
+
+?? Cho x, y, z, t thuộc kiểu integer. Sau khi thi hành các lệnh: x:=5; y:=3; z:=5; t:=4; IF x>=y THEN IF y>z-1 THEN t:=y ELSE t:=x+1 Giá trị của t là bao nhiêu?
+** t:=6
+** t:=4
+** t:=2
+** t:=8
+
+?? Cho x, y, z, t thuộc kiểu integer. Sau khi thi hành các lệnh: x:=5; y:=3; z:=5; t:=1; IF x>=y THEN IF y>=z-2 THEN t:=y+2 ELSE t:=x-1 Giá trị của t là bao nhiêu?
+** t:=5
+** t:=1
+** t:=2
+** t:=4
+
+?? Cho x, y, z, t thuộc kiểu integer. Sau khi thi hành các lệnh: x:=5; y:=3; z:=5; t:=5; IF x>=y THEN IF y+2>=z THEN t:=y-1 ELSE t:=x-1 Giá trị của t là bao nhiêu?
+** t:=2
+** t:=4
+** t:=6
+** t:=7
+
+?? Xét chương trình Pascal sau đây: PROGRAM TD; VAR i, j: integer; BEGIN i:=1; j:=2; IF (i<=1) AND (j>2) THEN IF (i>0) OR (j Write(3) ELSE Write(4) END.
+** Khi thi hành, chương trình không in ra gì cả
+** Khi thi hành, chương trình in ra 3
+** Khi thi hành, chương trình in ra 4
+** Khi dịch, chương trình báo lỗi ngữ pháp
+
+?? Xét chương trình Pascal sau đây: PROGRAM td; VAR i, j: integer; BEGIN i:=1; j:=3; IF (i<=1) AND (j>2) THEN IF (i:=0) OR (j Write(3) ELSE Write(4) END.
+** Khi dịch, chương trình báo lỗi ngữ pháp
+** Khi thi hành, chương trình in ra 3
+** Khi thi hành, chương trình in ra 4
+** Khi thi hành, chương trình không in ra gì cả
+
+?? Xét chương trình Pascal sau đây: PROGRAM td; VAR i, j: integer; BEGIN i:=1; j:=3; IF (i=1) AND (j>2) THEN IF (i>0) OR (j Write(3) ELSE Write(4) END.
+** Khi thi hành, chương trình in ra 4
+** Khi thi hành, chương trình in ra 3
+** Khi thi hành, chương trình không in ra gì cả
+** Khi dịch, chương trình báo lỗi ngữ pháp
+
+?? Các thành phần cơ bản của ngôn ngữ lập trình thường bao gồm?
+** Bảng chữ cái, cú pháp và ngữ nghĩa
+** Bảng chữ cái và cú pháp
+** Bảng chữ cái và ngữ nghĩa
+** Cú pháp và ngữ nghĩa
+
+?? Trong Turbo Pascal, Tên là một dãy liên tiếp không quá?
+** 127 kí tự
+** 8 kí tự
+** 16 kí tự
+** 255 kí tự
+
+?? Trong ngôn ngữ Pascal, ……………… được dùng với ý nghĩa riêng xác định, người lập trình không được sử dụng với ý nghĩa khác. Trong dấu ... là gì?
+** Tên dành riêng
+** Tên chuẩn
+** Tên do người lập trình đặt
+** Tất cả đều đúng
+
+?? Trong ngôn ngữ Pascal, ……………… được dùng với ý nghĩa riêng, xác định bằng cách khai báo trước khi sử dụng và không được trùng với tên dàng riêng. Trong dấu ... là gì?
+** Tên do người lập trình đặt
+** Tên chuẩn
+** Tên dành riêng
+** Tất cả đều đúng
+
+?? Trong ngôn ngữ Pascal, các đoạn chú thích được đặt giữa cặp dấu?
+** Dấu { và } hoặc (* và *)
+** Dấu { và } hoặc /* và */
+** Dấu /* và */ hoặc (* và *)
+** Tất cả các đáp án trên
+
+?? Biểu diễn nào sau đây không phải là biểu diễn hằng trong Pascal?
+** "C
+** "42’
+** -22
+** 4+4
+
+?? Trong ngôn ngữ Pascal, để khai báo tên chương trình ta sử dụng từ khóa nào?
+** PROGRAM
+** USES
+** VAR
+** BEGIN
+
+?? Trong ngôn ngữ Pascal, phần thân chương trình được mở đầu và kết thúc bởi?
+** BEGIN .... END.
+** VAR .... END.
+** USES ..... END.
+** Tất cả đều sai
+
+?? Trong ngôn ngữ Pascal, kiểu dữ liệu nào sau đây thể hiện kiểu dữ liệu kiểu số thực?
+** Real
+** Byte
+** Word
+** Integer
+
+?? Trong ngôn ngữ Pascal, kiểu dữ liệu nào sau đây thể hiện kiểu dữ liệu kiểu số nguyên?
+** Integer
+** Byte
+** Word
+** Real
+
+?? Trong ngôn ngữ Pascal, từ khoá nào dùng để khai báo biến?
+** VAR
+** VAW
+** VAY
+** VAT
+
+?? Kết quả của phép toán quan hệ cho giá trị?
+** Logic
+** Số
+** Nguyên
+** Thực
+
+?? Trong các biểu thức dưới đây, biểu thức nào là biểu thức số học trong ngôn ngữ Pascal?
+** 5*a + 6*b
+** 5>6
+** a>b
+** x<5
+
+?? Trong các biểu thức dưới đây, biểu thức nào là biểu thức quan hệ?
+** x<5
+** 5*a
+** 7+y
+** a*x*x
+
+?? Kí hiệu nào sau đây cho biết đó là lệnh gán?
+** :=
+** =
+** = =
+** !=
+
+?? Hàm số học nào dưới đây dùng để tính căn bặc hai của x?
+** sqrt(x)
+** sqr(x)
+** abs(x)
+** Tất cả đều sai
+
+?? Câu lệnh gán nào dưới đây là hợp lệ?
+** x:= 4*y
+** y = =4*x
+** 4:=4
+** Tất cả đều sai
+
+?? Để xuất câu thông báo ra màn hình, ta sử dụng thủ tục nào sau đây?
+** Write
+** Readln
+** Real
+** Read
+
+?? Để nhập dữ liệu vào từ bàn phím, ta sử dụng thủ tục nào sau đây?
+** Readln
+** Write
+** Real
+** Writeln
+
+?? Trong ngôn ngữ lập trình thường có các hằng?
+** Tất cả đều đúng
+** Hằng số học
+** Hằng lôgic
+** Hằng xâu
+
+?? Ngôn ngữ lập trình Pascal bao gồm?
+** Một hệ thống các ký hiệu, các quy tắc cú pháp và câu lệnh dùng để viết thuật toán giải các bài toán
+** Một hệ thống các ký hiệu
+** Một hệ thống các quy tắc cú pháp
+
+?? Ngôn ngữ lập trình bậc thấp (ngôn ngữ máy) sử dụng hệ đếm nhị phân tức là?
+** Hệ đếm chỉ có hai chữ số là 0 và 1
+** Hệ đếm chỉ có hai chữ số là 1 và 2
+** Cả 2 đáp án trên đều đúng
+
+?? Trong ngôn ngữ tập hợp một số mã nhị phân được thay bằng?
+** Các chữ cái
+** Các chữ cái và các ký tự đặc biệt
+** Các chữ số từ 0 đến 9
+
+?? Ngôn ngữ lập trình bậc cao đầu tiên ra đời vào năm nào?
+** 1958
+** 1959
+** 1960
+
+?? Ngôn ngữ lập trình Pascal có đặc điểm nổi bật là?
+** Cả 2 đáp án trên đều đúng
+** Là ngôn ngữ lập trình có tính cấu trúc và tính hệ thống
+** Là ngôn ngữ lập trình có định kiểu
+
+?? Các tệp *.BGI là các tệp chứa các điều khiển về?
+** Kiểu màn hình
+** Kiểu chữ trong đồ họa
+** Cả 2 đáp án trên đều đúng
+
+?? Khi làm việc với Pascal có 2 tệp đặc biệt được sinh ra để lưu giữ những quy định của người sử dụng và các thay đổi chương trình là?
+** TURBO.PCK và TURBO.TP
+** TURBO.PCK và TURBO.EXE
+** TURBO.TP và TURBO.TPL
+
+?? Các tệp *.CHR là các tệp chứa các điều khiển về?
+** Kiểu chữ trong đồ họa
+** Kiểu màn hình
+** Cả 2 đáp án trên đều đúng
+
+?? Phím F2 có tác dụng gì trong ngôn ngữ lập trình Pascal?
+** Ghi lại văn bản đang soạn thảo
+** Mở văn bản sẵn có trên đĩa
+** Tạo mới một văn bản
+
+?? Trong ngôn ngữ lập trình Pascal, sau khi ghi lại file đã soạn thảo thì file đó sẽ có phần đuôi mở rộng là?
+** *.PAS
+** *.TPU
+** *.DOC
+
+?? Phím F3 có tác dụng gì trong ngôn ngữ lập trình Pascal?
+** Mở văn bản sẵn có trên đĩa
+** Ghi lại văn bản đang soạn thảo
+** Tạo mới một văn bản
+
+?? Sau khi soạn thảo xong một chương trình ta có thể cho chạy thử ngay bằng cách bấm tổ hợp phím nào?
+** Ctrl + F9
+** Ctrl + F1
+** Ctrl + F2
+
+?? Tổ hợp phím Alt + X có chức năng gì?
+** Kết thúc chương trình soạn thảo trên Pascal
+** Dịch chương trình
+** Chạy chương trình
+
+?? Tên dùng để đặt cho hằng, biến, chương trình… được phép viết dài nhất là?
+** 127 ký tự
+** 130 ký tự
+** 135 ký tự
+
+?? Tổ hợp phím Alt + F9 có chức năng gì?
+** Dịch chương trình
+** Kết thúc chương trình soạn thảo trên Pascal
+** Chạy chương trình
+
+?? Tên dùng để đặt cho hằng, biến, chương trình… phải tuân theo quy định nào?
+** Cả 2 đáp án trên đều đúng
+** Tên phải bắt đầu bằng một chữ cái và không được dùng các ký tự đặc biệt
+** Tên không được để khoảng trống giữa các ký tự
+
+?? Trong một câu lệnh các từ khóa, tên hằng, tên biến… phải viết cách nhau bởi?
+** Dấu cách (bấm phím Space)
+** Dấu chấm phẩy ";"
+** Dấu hai chấm ":"
+
+?? Giữa các câu lệnh trong Pascal phải dùng phải dùng ký tự nào để ngăn cách?
+** Dấu chấm phẩy ";"
+** Dấu cách (bấm phím Space)
+** Dấu hai chấm ":"
+
+?? Để gán giá trị cho hằng, biến ta phải dùng ký hiệu gán là?
+** Dấu :=
+** Dấu :
+** Dấu =
+
+?? Trong chương trình những ghi chú hoặc lời giải thích có thể đưa vào trong dấu?
+** Cả 2 đáp án trên đều đúng
+** {…}
+** (*…*)
+
+?? Một chương trình lập bằng ngôn ngữ Pascal thông thường phải gồm 3 phần chính theo thứ tự nào sau đây?
+** Phần tiêu đề, phần thân chương trình, phần khai báo
+** Phần tiêu đề, phần khai báo, phần thân chương trình
+** Phần khai báo, phần tiêu đề, phần thân chương trình
+
+?? Phần tiêu đề thường bắt đầu bằng từ khóa nào?
+** PROGRAM
+** USES
+** VAR
+
+?? Để khai báo nhãn người ta dùng từ khóa nào sau đây?
+** LABLE
+** USES
+** CONST
+
+?? Để khai báo biến người ta dùng từ khóa nào sau đây?
+** VAR
+** USES
+** CONST
+
+?? Để khai báo các hàm người ta dùng từ khóa nào sau đây?
+** FUNCTION
+** TYPE
+** PROCEDURE
+
+?? Từ khóa USES dùng để?
+** Khai báo sử dụng các đơn vị chương trình - UNIT
+** Khai báo các chương trình con
+** Khai báo các giá trị mặc định
+
+?? Để mô tả các kiểu dữ kiệu mới người ta sử dụng từ khóa nào?
+** TYPE
+** USES
+** PROGRAM
+
+?? Từ khóa PROCEDURE dùng để?
+** Khai báo các chương trình con
+** Khai báo các kiểu người dùng định nghĩa
+** Khai bào thân chương trình
+
+?? Phần thân chương trình được đặt giữa 2 từ khóa nào sau đây?
+** BEGIN và END
+** PROGRAM và END
+** USES và END
+
+?? Khi xây dựng một chương trình lớn, có những phần đã hoàn chỉnh và có thể sử dụng chung cho một số chương trình khác, người ta thường ghi chúng riêng thành các phần gọi là?
+** Đơn vị chương trình (Unit)
+** Các tệp thực thi
+** Các chương trình khởi tạo
+
+?? Kiểu dữ liệu vô hướng là kiểu dữ liệu?
+** Gồm một tập các giá trị được sắp xếp theo một thứ tự nào đó
+** Có cùng một giá trị nhất định
+** Cả 2 đáp án trên đều đúng
+
+?? Kiểu dữ liệu logic Bun (Boolean) là kiểu dữ liệu chỉ nhận một trong hai giá trị nào sau đây?
+** TRUE (Đúng) hay FALSE (Sai)
+** Lớn hơn hay nhỏ hơn
+** Số âm hoặc số dương
+
+?? Cho biểu thức so sánh là: 12 < 30, đối với kiểu dữ liệu logic sẽ cho kết quả là?
+** TRUE
+** Không xác định
+** FALSE
+
+?? Dữ liệu kiểu WORD sử dụng 2 Bytes để lưu trữ dữ liệu và không xét dấu, do đó các số có thể xử lý được nằm trong khoảng từ?
+** 0 đến 65535
+** 0 đến 65530
+** 0 đến 65550
+
+?? Toán tử DIV trong dữ liệu kiểu số nguyên là phép chia?
+** Lấy phần nguyên
+** Lấy phần dư
+** Phép chia hết
+
+??Toán tử MOD trong dữ liệu kiểu số nguyên là phép chia?
+** Lấy số dư
+** Lấy phần nguyên
+** Phép chia hết
+
+?? Cho biết kết quả của phép tính sau?
+17 DIV 7 = ?
+17 MOD 7 = ?
+** 2 và 3
+** 3 và 2
+** 3 và 3
+
+?? Hằng, biến, kiểu dữ liệu bao giờ cũng phải khai báo ở?
+** Đầu chương trình
+** Cuối chương trình
+** Ở đâu cũng được
+
+?? Hằng số là đại lượng có giá trị?
+** Không thay đổi trong suốt quá trình xử lý
+** Luôn luôn thay đổi trong suốt quá trình xử lý
+** Ít khi thay đổi khi xử lý
+
+?? Chọn câu trả lời chính xác nhất?
+** Biến là những đại lượng mà giá trị của nó có thể thay đổi trong quá trình xử lý
+** Biến là những đại lượng mà giá trị của nó không thay đổi trong quá trình xử lý
+** Cả 2 đáp án trên đều đúng
+
+?? Đối với thủ tục nhập, xuất dữ liệu thì dữ liệu có thể được xuất ra đâu?
+** Có thể xuất ra máy in hoặc màn hình
+** Chỉ xuất ra màn hình
+** Chỉ xuất ra máy in
+
+?? Trong chế độ đồ họa màn hình được chia thành ma trận điểm, với màn hình VGA số điểm theo chiều ngang và theo chiều đứng thường là?
+** 640 và 480
+** 480 và 640
+** 680 và 460
+
+?? Các thủ tục trình bày màn hình trong Turbo Pascal 7.0 được ghi thành một Unit có tên là CRT và được đặt trong tệp?
+** TURBO.TPL
+** TURBO.EXE
+** GRAPH.TPU
+
+?? Để xóa toàn bộ màn, sau khi xóa con trỏ có tọa độ (1,1) ta sử dụng thủ tục?
+** CLRSCR
+** TEXTBACKGROUND(màu)
+** TEXTCOLOR(màu)
+
+?? Có 2 thủ tục viết dữ liệu ra màn hình là?
+** WRITE(A1,A2,A3,…) và WRITELN(A1,A2,A3,…)
+** READ(A1,A2,A3,…) và READLN(A1,A2,A3,…)
+** Cả 2 đáp án trên đều sai
+
+?? Đối với thủ tục WRITE(A1,A2,…) sau khi viết xong giá trị cuối cùng thì?
+** Con trỏ nằm nguyên tại vị trí kết thúc không chuyển xuống dòng dưới
+** Con trỏ sẽ được tự động chuyển xuống dòng tiếp theo
+** Con trỏ không xác định được vị trí
+
+?? Cho đoạn chương trình sau:
+Program Vietchu;
+Uses crt;
+Begin
+	Gotoxy(30,10);
+	Textcolor(red);
+	Textbackground(Yellow);
+	Write("Chuc mung nam moi’);
+End.
+Hãy cho biết kết quả hiển thị trên màn hình là gì?
+** Hiển thị dòng chữ "Chuc mung nam moi" màu đỏ trên nền vàng bắt đầu tại vị trí dòng 10 cột 30
+** Hiển thị dòng chữ "Chuc mung nam moi"
+** Hiển thị một màu nền vàng
+
+?? Thủ tục nào sau đây không viết gì ra màn hình và tự động chuyển con trỏ xuống dòng dưới?
+** WRITELN;
+** READLN;
+** Cả 2 đáp án trên đều sai
+
+?? Khi thực hiện lệnh: Write(123.456789:8); thì kết quả hiển thị trên màn hình sẽ là?
+** 1.23E+0.2
+** 123.456789
+** 123
+
+?? Để gán giá trị cho một biến nào đó có thể sử dụng một trong hai thủ tục chuẩn của Turbo Pascal là?
+** READ(x1,x2,…) và READLN(x1,x2,…)
+** WRITE(x1,x2,…) và WRITELN(x1,x2,…)
+** Cả 2 đáp án trên đều đúng
+
+?? Cấu trúc của câu lệnh rẽ nhánh là?
+** IF "điều kiện" THEN "công việc 1" ELSE "công việc 2"
+** IF "điều kiện" ELSE "công việc"
+** Cả 2 đáp án trên đều sai
+
+?? Trong cấu trúc tuyển chọn, lệnh tuyển chọn CASE .. OF .. bao giờ cũng phải bắt đầu bằng từ khóa CASE và kết thúc bằng từ khóa nào?
+** End;
+** Function
+** Begin
+
+?? Thủ tục Random(15) là một thủ tục chuẩn cho kết quả là một số ngẫu nhiên n (kiểu Integer). Giá trị của n nằm trong khoảng nào?
+** 0 <= n <= 15
+** 5 <= n <= 15
+** 0 <= n <= 10
+
+?? Sự khác nhau giữa mảng và chuỗi là ở chỗ khi định nghĩa mảng thì?
+** Số phần tử của mảng đã được xác định, còn số phần tử chuỗi có thể nhỏ hơn độ dài đã định nghĩa
+** Số phần tử chuỗi nhỏ hơn mảng
+** Số phần tử của mảng là xác định
+
+?? Mỗi phần tử của chuỗi được xác định bởi vị trí của nó trong chuỗi, để truy nhập vào một phần tử nào đó ta phải viết tên biến chuỗi kèm theo vị trí của ký tự đặt trong dấu?
+** [..]
+** {..}
+** (..)
+
+?? Hai chuỗi ký tự được gọi là bằng nhau nếu?
+** Cả 2 đáp án trên đều đúng
+** Các ký tự có cùng vị trí trong 2 chuỗi giống nhau
+** Độ dài thực của chúng bằng nhau
+
+?? Thủ tục DELAY(1000) là thủ tục có tác dụng?
+** Làm chậm chương trình lại 1000 Miligiây cho ta quan sát
+** Làm tăng tốc độ chương trình thêm 1000 Miligiây để chương trình dịch nhanh hơn
+** Trong Pascal không có thủ tục này
+
+?? Cho chuỗi sau:
+Diachi:= ' Khu Hoan kiem - Ha noi ';
+Sau khi sử dụng thủ tục DELETE(Diachi,15,9); thì chuỗi này sẽ còn lại là?
+** Khu Hoan kiem
+** Ha noi
+** Khu Hoan kiem - Ha noi
+
+?? Cho chuỗi sau:
+Diachi:= ' Khu Hoan kiem - Ha noi ';
+Sau khi sử dụng thủ tục INSERT('Tap the',Diachi,6); thì kết quả hiển thị của chuỗi này sẽ là?
+** Khu Tap the Hoan kiem
+** Tap the Khu Hoan kiem
+** Khu Hoan kiem Tap the
+
+?? Khai báo nào đúng?
+** Type T = Set of 0..9;
+** Type T = Set of Real;
+** Type T = Set of Integer;
+** Type T = Set of String;
+
+?? Khai báo nào sai?
+** Var T: Set of -10..300;
+** Var T: Set of Char;
+** Var T: Set of "A’..’z’;
+** Var T: Set of Boolean;
+
+?? Tổng của [1..5] + [3..10, 20] là tập hợp nào?
+** [1..10, 20]
+** [1..5]
+** [1..20]
+** [3..5]
+
+?? Hiệu của hai tập hợp [10..15]-[4..12] là tập hợp nào?
+** [13..15]
+** [4..15]
+** [4..10]
+** [10..12]
+
+?? Cho khai báo:
+Var T: Set of Char;
+ch: Char;
+Sau khi thực hiện các lệnh:
+T:=["A’.. "D’] * ["A’.. "Z’];
+For ch:=’A’ to "F’ do T:=T+[ch];
+Tập T sẽ là?
+** ["A’..’F’]
+** ["A’..’D’]
+** ["A’..’Z’]
+** ["C’..’F’]
+
+?? Cho khai báo:
+Var F: File of Integer;
+i ,j,k: Integer;
+Chọn câu có các lệnh đều đúng?
+** Assign(F,"T1.DAT’); Rewrite(F); Write(F,i,j,k);
+** Assign( F,T1.DAT); Rewrite(F); Write(F,i,j,k);
+** Assign(F,"T1.DAT’); Rewrite(F); Write(F, i+ j+ k);
+** Assign(F); Rewrite(F,"T1.DAT’); Write(F,i,j,k);
+
+?? Khi chạy chương trình:
+Var F: File of Char;
+ch: Char;
+Begin
+	Assign(F,"tt.txt’); Rewrite(F);
+	For ch:= "A’ to "F’ do Write(F,ch);
+	Seek(F,4); Read(F,ch);
+	Write(ch); Close(F);
+End.
+Kết quả in ra là?
+** E
+** F
+** C
+** D
+
+?? Cho khai báo:
+Var F: TEXT;
+Sau khi thực hiện các lệnh:
+Assign(F,"tt1.txt’); Rewrite(F);
+Write(F,123+456); Close(F);
+Nội dung của tập tin tt1.txt sẽ là?
+** 579
+** 123+456
+** 123456
+** 123 456
+
+?? Cho F1 là biến tập tin có định kiểu và F2 là biến tập tin văn bản. Lệnh nào không dùng được?
+** Seek(F2, 0);
+** Seek(F1, 0);
+** Write(Filesize(F1));
+** Write(FilePos(F1));
+
+?? Cho TT2.TXT là tập tin văn bản có nội dung là:
+Turbo Pascal 6.0
+Khi chạy chương trình:
+Var F: Text;
+St: String[20];
+Begin
+	Assign(F,"tt2.txt’); Reset(F);
+	Read(F, St); Write(St);
+	Close(F);
+End.
+Sẽ in ra chữ?
+** Turbo Pascal 6.0
+** Turbo
+** Pascal 6.0
+** Turbo Pascal
+
+?? Cho khai báo biến và khai báo đầu của thủ tục TT:
+Var x,y: Integer;
+St:String;
+Procedure TT(Var a: Integer; b: String);
+Lệnh nào đúng?
+** TT(x, St);
+** TT(x +1, St);
+** TT(10, St);
+** y:= TT(St, x);
+
+?? Khi chạy chương trình:
+Var x,y: Real;
+Function F(x,y: Real): Real;
+Begin
+	F:=x;
+	If x < y then F:= y;
+End;
+BEGIN
+	x:=10; y:=15;
+	Write(F(x, y): 0:0);
+END.
+Kết quả in ra?
+** 15
+** 10
+** 0
+** F(x,y)
+
+?? Cho a là biến nguyên a=3, và khai báo thủ tục:
+Procedure TT(x: Integer);
+Begin
+	x:=x+2;
+End.
+Sau khi gọi thủ tục TT(a) thì Giá trị của biến a là?
+** 3
+** 2
+** 5
+** 0
+
+?? Cho x, y là hai biến nguyên và khai báo thủ tục:
+Procedure Doicho(Var a: Integer; b: Integer);
+Var z: Integer;
+Begin
+	z:=a; a:=b; b:=z;
+End.
+Sau khi thực hiện các lệnh:
+x:=7; y:=3;
+Doicho(x,y);
+Thì giá trị của x, y là?
+** x=3, y=3
+** x=7, y=7
+** x=3, y=7
+** x=7, y=3
+
+?? Cho khai báo hàm đệ quy:
+Function F(a: Integer): Integer;
+Begin
+	If a=1 then F:=1 else F:= a*a+ F(a-1);
+End.
+Giá trị của hàm F(4) là?
+** 30
+** 1
+** 25
+** 14
+
+?? Khi chạy chương trình:
+Var x: Integer;
+Procedure TT;
+Begin
+	x:=4; x:= x+5;
+End;
+BEGIN
+	x:=0; TT;
+	Write(x);
+END.
+Kết quả in ra là?
+** 9
+** 4
+** 5
+** 0
+
+?? Khi chạy chương trình:
+Var x: Integer;
+Procedure TINH;
+Var x: Integer;
+Begin
+	x:=1; x:= x+12;
+End;
+BEGIN
+	x:=10; TINH;
+	Write(x);
+END.
+Kết quả in ra là?
+** 10
+** 12
+** 22
+** 13
+
+?? Khi chạy chương trình:
+Var x: Integer;
+Procedure TTA;
+Var x: Integer;
+Begin
+	x:= 7*5;
+	Write(x, ",’);
+End;
+BEGIN
+	x:=4; TTA;
+	Write(x:2);
+END.
+Kết quả in ra là?
+** 35, 4
+** 4, 35
+** 4, 75
+** 354
+
+?? Chọn khai báo đúng?
+** Type Phanso = Record
+Tu, Mau: Integer;
+End.
+** Type Phan so = Record;
+Tu so, Mau so: Integer;
+End.
+**Var Phanso = Record;
+Tu, Mau: Integer;
+End.
+** Type Record = Phanso;
+Tu, Mau: Integer;
+End.
+
+?? Chọn khai báo đúng?
+** e DIEM = Record;
+x,y: Real;
+end.
+** e DIEM = Record;
+x,y: Real;
+** e DIEM = Record;
+x, y;
+end.
+**DIEM = Record;
+x, y: Real;
+end.
+
+?? Cho khai báo biến và khai báo đầu của thủ tục TT:
+Var x,y: Integer;
+St:String;
+Procedure TT(Var a: Integer; b: String);
+Lệnh nào đúng?
+** x, St);
+** (x +1, St);
+** 10, St);
+** = TT(St, x);
+
+?? Khi chạy chương trình:
+Var x,y: Real;
+Function F(x,y: Real): Real;
+Begin
+	F:=x;
+	If x < y then F:= y;
+End;
+BEGIN
+	x:=10; y:=15;
+	Write(F(x, y): 0:0);
+END.
+Kết quả in ra?
+** 15
+** 10
+** 0
+** F(x,y)
+
+?? Cho a là biến nguyên a=3, và khai báo thủ tục:
+Procedure TT(x: Integer);
+Begin
+	x:=x+2;
+End.
+Sau khi gọi thủ tục TT(a) thì Giá trị của biến a là?
+** 3
+** 2
+** 5
+** 0
+
+?? Cho x, y là hai biến nguyên và khai báo thủ tục:
+Procedure Doicho(Var a: Integer; b: Integer);
+Var z: Integer;
+Begin
+	z:=a; a:=b; b:=z;
+End.
+Sau khi thực hiện các lệnh:
+x:=7; y:=3;
+Doicho(x,y);
+Thì giá trị của x, y là?
+** x=3, y=3
+** x=7, y=7
+** x=3, y=7
+** x=7, y=3
+
+?? Cho khai báo hàm đệ quy:
+Function F(a: Integer): Integer;
+Begin
+	If a=1 then F:=1 else F:= a*a+ F(a-1);
+End.
+Giá trị của hàm F(4) là?
+** 30
+** 1
+** 25
+** 14
+
+?? Khi chạy chương trình:
+Var x: Integer;
+Procedure TT;
+Begin
+	x:=4; x:= x+5;
+End;
+BEGIN
+	x:=0; TT;
+	Write(x);
+END.
+Kết quả in ra là?
+** 9
+** 4
+** 5
+** 0
+
+?? Khi chạy chương trình:
+Var x: Integer;
+Procedure TINH;
+Var x: Integer;
+Begin
+	x:=1; x:= x+12;
+End;
+BEGIN
+	x:=10; TINH;
+	Write(x);
+END.
+Kết quả in ra là?
+** 10
+**
+**
+**
+
+?? Khi chạy chương trình:
+Var x: Integer;
+Procedure TTA;
+Var x: Integer;
+Begin
+	x:= 7*5;
+	Write(x, ",’);
+End;
+BEGIN
+	x:=4; TTA;
+	Write(x:2);
+END.
+Kết quả in ra là?
+** 35, 4
+** 4, 35
+** 4, 75
+** 354
+
+?? Chọn khai báo đúng?
+** Type DIEM = Record;
+x,y: Real;
+end.
+** Type DIEM = Record;
+x,y: Real;
+** Type DIEM = Record;
+x, y;
+end.
+** DIEM = Record;
+x, y: Real;
+end.
+
+?? Khai báo đầu chương trình con nào đúng?
+** Function F: Boolean;
+** Procedure TT: Integer;
+** Proceduce TT(K: Integer);
+** Function F(Ch: Char);
+
+?? Cho khai báo biến và khai báo đầu của hàm F:
+Var x,S: Real;
+n: Integer;
+FUNCTION F(y: Real; m: Integer): Real;
+Lời gọi hàm nào dưới đây là đúng?
+** S:= F( x, n);
+** S:= F(n, x);
+** S:= F( n);
+** S:= F( x);
+
+?? Cho khai báo biến và khai báo đầu của thủ tục TT như sau: Var x,S: Integer;
+ch: Char;
+Procedure TT(y: Integer; kytu: char);
+Lệnh gọi thủ tục nào đúng?
+** TT(x, ch);
+** S:= TT(x, ch);
+** TT(ch, x);
+** TT;
+
+?? Khi chạy chương trình:
+Procedure TINHS;
+Var i,S: integer;
+Begin
+	S:=1;
+	For i:=1 to 4 do S:=S*I;
+	Write(S);
+End;
+BEGIN
+	TINHS;
+END.
+Kết quả in ra sẽ là?
+** 24
+** 12
+** 6
+** 4
+
+?? Cho khai báo hàm:
+Function F(x: Integer): Integer;
+Begin
+F:=x*x;
+End.
+Giá trị của F(2+1) là?
+** 9
+** 3
+** 4
+** 1
+
+?? Cho khai báo hàm:
+Function F(x,y: Integer): Integer;
+Begin
+If x < y then F:=x else F:=y;
+End.
+Giá trị của F(9,0) là?
+** 0
+** 1
+** 2
+** 3
+
+?? Cho khai báo hàm:
+Function F(k: Integer): Integer;
+Begin
+F:=2*k+1;
+End.
+Giá trị của hàm F(F(1)) là?
+** 7
+** 3
+** 5
+** 1
+
+?? Khi chạy chương trình: Procedure TT(a: Integer);
+Begin
+Repeat;
+a:= 2*a;
+Until a > 15;
+Write(a);
+End;
+BEGIN
+TT(2); END.
+Kết quả in ra là?
+** 32
+** 9
+** 16
+** 2
+
+?? Cho khai báo đầu của một hàm:
+Function F(k: Integer): String;
+Begin
+If k mod 2=0 then F:= "Chan’ else F:= "Le’;
+End.
+Muốn gán X:= F(5) thì biến X phải khai báo kiểu gì?
+** Var X: String;
+** Var X: Real;
+** Var X: Integer;
+** Var X: Char;
+
+?? Cho khai báo đầu của một hàm:
+Function F(k: Integer): String;
+Begin
+If k mod 2=0 then F:= 'Chan' else F:= 'Le';
+End.
+Muốn in Write(F(y)) thì biến y phải khai báo kiểu gì?
+** Var y: Integer;
+** Var y: Real;
+** Var y: String;
+** Var y: Char;
+
+?? Cho khai báo:
+Var Chuoi: string[10];
+x: real;
+Lệnh nào sau đây là đúng?
+** Chuoi:= x;
+** Chuoi:= Str(x:5:2);
+** Str(x:5:2, Chuoi);
+** x:= Chuoi;
+
+?? Cho St là biến chuỗi, sau khi thực hiện hai lệnh:
+St:= Copy( 'PASCAL VERSION 5.5' , 8, 7);
+Write(St);
+Kết quả in lên màn hình là?
+** VERSION
+** VERSION 5.5
+** PASCAL
+** 5.5
+
+?? Cho St là biến chuỗi, sau khi thực hiện bốn lệnh:
+St:=’ABCDEF’;
+Delete(St, 3, 2);
+Insert("XYZ’, St, 2);
+Write(St);
+Kết quả in lên màn hình là?
+** AXYZBEF
+** ABXYZEF
+** AXYZBCDEF
+** AXYZ
+
+?? Cho i và x là hai biến kiểu nguyên. Khi thực hiện lệnh:
+VAL('1234', x, i);
+Giá trị của x và i là bao nhiêu?
+** x = 1234 , i = 0
+** x = 0 , i = 1234
+** x = 1234 , i = 4
+** x = 0 , i = 0
+
+?? Cho các biến St chuỗi và k nguyên. Sau khi gán:
+St:='Sinh vien Tin hoc hoc Tin hoc';
+k := Pos('Tin', ST);
+Giá trị của k là?
+** k=11
+** k=13
+** k=26
+** k=23
+
+?? Khi chạy chương trình:
+Var St: string;
+i,L: integer;
+Begin
+St:='Hom nay thuc tap' L:=Length(St);
+For i:= 1 to L do
+If (St[i] >= 'a') and (St[i] <= 'z') then St[i]:= Upcase (St[i]);
+Write(St);
+End.
+Chương trình in ra?
+** HOM NAY THUC TAP
+** Hom Nay Thuc Tap
+** hom nay thuc tap
+** Hom nay thuc tap
+
+?? Khi chạy chương trình:
+Var St: String;
+i,L: integer;
+Begin
+St:='ABCD'; L:= Length(St);
+For i:= L Downto 1 do write (St[i]);
+End.
+Chương trình in ra?
+** ABCD
+** DCAB
+** 4321
+** DCBA
+
+?? Cho St là biến chuỗi và St:= "AAABAAB’
+Sau khi thực hiện hai lệnh:
+While St[1]=’A’ do Delete(St,1,1);
+Write(St);
+Kết quả in ra là?
+** AABAAB
+** BAAB
+** BB
+** AAA
+
+?? Khai báo đầu thủ tục nào đúng?
+** Procedure TT(x: Integer; Var a: Real);
+** Procedure TT(x: Integer): Real;
+** Procedure TT(x: Integer; x: Real);
+** Procedure TT(x);
+
+?? Khai báo đầu hàm nào đúng?
+** Function F(x: integer): Real;
+** Function F(x: real);
+** Function F(x): Real;
+** Function F(St: String[20]): Integer;
+
+?? Cho khai báo biến:
+Var A: array[1..5] of Integer;
+Chọn lệnh đúng?
+** A[2]:= -6
+** A[1]:= 4/2
+** A(3):= 6
+** A:= 10
+
+?? Trong khai báo sau còn bỏ trống … một chỗ, vì chưa xác định được kiểu dữ liệu của biến Max:
+Var A: Array["a’..’d’] of Real;
+Ch: Char;
+Max: …
+Muốn biến Max lưu giá trị lớn nhất của mảng A thì cần khai báo biến Max kiểu gì vào chỗ …?
+** Real
+** Char
+** String
+** Integer
+
+?? Cho khai báo:
+Var A: Array[1..4] of Integer;
+i: Integer;
+Sau khi thực hiện các lệnh:
+For i:=1 to 4 do A[i]:= i;
+For i:=1 to 4 do A[i]:= A[i]+1;
+Thì mảng A có giá trị là?
+** A[1]=2, A[2]=3, A[3]=4, A[4]=5
+** A[1]=1, A[2]=2, A[3]=3, A[4]=4
+** A[1]=0, A[2]=1, A[3]=2, A[4]=3
+** A[1]=1, A[2]=1, A[3]=1, A[4]=1
+
+?? Khai báo nào đúng?
+** Const n=2 m=3;
+Var A: array[1..n,1..m] of integer;
+** Var A: array[1..n,1..m] of integer;
+** Var n, m : integer;
+A: array[1..n,1..m] of integer;
+** Var A: array[3, 2] of Integer;
+
+?? Cho khai báo:
+Var A: array[1..2,1..3] of Real;
+i,j: integer;
+Ðể nhập dữ liệu cho ma trận A, chọn?
+** For i:=1 to 2 do
+For j:=1 to 3 do
+Begin
+Write('Nhập A[",i,j,"]:’);
+readln(A[i, j]);
+End.
+** Write('Nhập A:’); Readln(A);
+** For i:=1 to 2 do Readln(A[i,j]);
+** For i:=1 to 2 do
+For j:=1 to 3 do
+Write('Nhập A[',i,j,']:’);
+Readln(A[i,j]);
+
+?? Cho khai báo:
+Var A: array[1..2,1..3] of Real;
+i,j: integer;
+Max: Real;
+Ðể tìm số lớn nhất của ma trận A, chọn câu nào?
+** Max:=A[1,1];
+For i:=1 to 2 do
+For j:=1 to 3 do
+If Max < A[i,j] then Max:=A[i,j];
+** Max:=A[1,1];
+If Max < A[i,j] then Max:=A[i,j];
+**Max:=A[1,1];
+For i:=1 to 2 do
+If Max < A[i,j] then Max:=A[i,j];
+**A[1,1]:=Max;
+For i:=1 to 2 do
+For j:=1 to 3 do
+If Max < A[i,j] then A[i,j]:=Max;
+
+?? Khi chạy chương trình:
+Var A: array[1..2,1..3] of integer;
+i,j,S: integer;
+Begin
+A[1,1]:= 3; A[1,2]:= -1; A[1,3]:= -4;
+A[2,1]:= -9; A[2,2]:= 0; A[2,3]:= 5;
+S:=0;
+for i:=1 to 2 do
+for j:=1 to 3 do
+If A[i,j] < 0 then S:=S+1;
+Write(S);
+End.
+Kết qủa in ra gía trị của S là?
+** 3
+** 0
+** -9
+** 5
+
+?? Cho X1, X2,...Xn là một mảng số thực. Ðể tính biểu thức:
+S=(1/N)*(X1 + X2 + … + XN);
+Ta có đoạn chương trình sau gồm ba lệnh, một lệnh còn bỏ trống …:
+S:=0;
+For i:=1 to N do S:= S + X[i];
+...
+Hãy điền lệnh thích hợp vào chỗ …?
+** S:= S/N;
+** Write('S=', S);
+** Readln(S);
+** Writeln(N);
+
+?? Cho biến SS kiểu lô gic. Lệnh nào làm SS có giá trị là TRUE?
+** SS:= 'PASCAL' < 'pascal';
+** SS:= 'a' < 'A';
+** SS:= 'A' = 'a';
+** SS:= 'an' < 'a';
+
+??  Cho khai báo:
+Var Ho,ten: String[15];
+Lệnh nào sau đây là sai?
+** Write('Ho ten la : 'Ho Ten);
+** Write('Ho ten la : '+ Ho + Ten);
+** Write('Ho ten la : ',Ho , Ten);
+** Write('Ho ten la : ',Ho + Ten);
+
+?? Cho S,i và N>0 là các biến nguyên. Ðể tính S=N!, chọn câu nào?
+** S:=1 For i:=1 to N do S:=S*i
+** S:=0 For i:=1 to N do S:=S*i
+** S:=1 For i:=1 to N do S:=S*N
+** S:=1 For i:=1 to N do S:=S+i
+
+?? Cho S = 12 + 22 + ... + 1002. Nhóm lệnh nào tính Sai giá trị của S?
+** S:=1 FOR i:=1 TO 100 DO S:=S+i*i
+** S:=0 FOR i:=1 TO 100 DO S:=S+i*i
+** S:=0 FOR i:=1 TO 100 DO S:=S+SQR(i)
+** S:=0 FOR i:=100 DOWNTO 1 DO S:=S+i*i
+
+?? Khi chạy chương trình:
+Var S,i,j: Integer;
+Begin
+S:=0;
+for i:=1 to 3 do
+for j:=1 to 4 do S:=S+1;
+End.
+Giá trị sau cùng của S là?
+** 12
+** 0
+** 3
+** 4
+
+?? Cho S và i biến kiểu nguyên. Khi chạy đoạn chương trình:
+S:= 0 i:= 1;
+While i<= 6 do
+Begin
+S:= S + i;
+i:= i + 2;
+End;
+Giá trị sau cùng của S là?
+** 9
+** 6
+** 11
+** 0
+
+?? Khi chạy chương trình:
+Var S,i: Integer;
+Begin
+S:=0;
+i:=1;
+Repeat
+S:= S + i * i;
+i:= i + 1;
+Until i > 4
+End.
+Giá trị sau cùng của S là?
+** 30
+** 0
+** 14
+** 16
+
+?? Cho i là biến nguyên. Khi chạy đoạn chương trình:
+i:=5;
+Repeat
+i:= i + 1;
+Until i > 4
+Giá trị sau cùng của i là?
+** 6
+** 4
+** 5
+** 0
+
+?? Cho m, n, i là các biến nguyên. Khi chạy đoạn chương trình:
+m:=4; n:=5; i:=5;
+Repeat
+i:=i+1;
+Until (i Mod m = 0) and (i Mod n = 0);
+Giá trị sau cùng của i là?
+** 20
+** 5
+** 4
+** 0
+
+?? Cho chương trình:
+Var A: Real;
+Begin
+. . .
+While A = 0 do
+Begin
+Write ('nhap A # 0:');
+Readln(A);
+End;
+End.
+Ðể lệnh Readln(A) được thực hiện ít nhất một lần, phải điền vào chỗ … lệnh nào trong các lệnh dưới đây?
+** A:=0
+** A:=1
+** A:=-1
+** A <> 0
+
+?? Chọn khai báo đúng?
+** Var A: array[1..10] of integer;
+** Var A= array[1..10] of integer;
+** Var A:= array[1..10] of integer;
+** Var A: array[1,10] of integer;
+
+?? Cho khai báo:
+Var
+A: Array[1..4] of Real;
+i: Integer;
+Ðể nhập dữ liệu cho A, chọn câu nào?
+** For i:=1 to 4 do
+Begin
+Write("Nhập A[", i, "]:’)
+Readln(A[i]);
+End.
+** For i:=1 to 4 do
+Write('Nhập A[", i, "]:’);
+Readln(A[i]);
+**For i:=1 to 4 do
+Readln('Nhập A[", i, "]:’);
+**Write("Nhập A:’);
+Readln(A);
+
+?? Lệnh nào sau đây in ra màn hình số lớn nhất giữa A và B?
+** If A > B then write(B) else write(A)
+** If A > B then write(A) else write(B)
+** If A > B then Readln(A) else Readln(B)
+** If A < B then writeln(A) else writeln(B)
+
+?? Cho N là biến kiểu nguyên, chọn câu đúng cú pháp?
+** If N < 10 then write ('Nho hon 10') else write ('Lon hon 10')
+** If N < 10 then writeln ('Nho hon 10') else write ('Lon hon 10')
+** If N < 10 Write ('Nho hon 10') else then write ('Lon hon 10')
+** If N < 10 then N := 10 else N > 20 then write ('N > 20')
+
+?? Kiểm tra nếu ba số a, b, c đều lớn hơn 1 thì in số 1, chọn lệnh nào?
+** If (a > 1) and ( b > 1) and ( c > 1) then write(1)
+** If (a > 1) or (b > 1) or (c > 1) then write(1)
+** If a > 1 and b > 1 and c > 1 then write(1)
+** If a, b , c đều > 1 then write(1)
+
+?? Cho i là biến nguyên. Sau khi thực hiện các lệnh?
+i:=2;
+Case i of
+1: i:=i+1;
+2: i:=i+2;
+3: i:=i+3;
+End;
+Giá trị sau cùng của i là?
+** 4
+** 2
+** 3
+** 5
+
+?? Cho N là biến nguyên, sau khi thực hiện các lệnh:
+N:= 9;
+If N< 0 then writeln("So am’)
+else
+Case N mod 2 of
+0: Writeln("Chan’);
+1: Writeln("Le’);
+End;
+Kết quả in lên màn hình là?
+** Le
+** Chan
+** So am
+** Không in gì cả
+
+?? Giả sử i là biến nguyên, sau khi thực hiện các lệnh:
+i:=5;
+Case i of
+1: i:=i+1;
+2: i:=i+2;
+3: i:=i+3;
+else i:=2*i;
+End;
+Thì giá trị sau cùng của i là?
+** 10
+** 6
+** 8
+** 9
+
+?? Cho ch biến ký tự, i biến nguyên, sau khi thực hiện các lệnh:
+i:= -15;
+ch:='E';
+Case i of
+0..14 : ch:='D';
+15..20: ch:='C';
+21..24: ch:='B'
+else ch:='A';
+End;
+Thì giá trị sau cùng của ch là?
+** 'A'
+** 'B'
+** 'C'
+** 'E'
+
+?? Cho ch biến ký tự, i biến nguyên. Ðể gán trị cho biến ch, thì lệnh:
+Case i of
+0,1,2 : ch:='A';
+3..8 : ch:='B';
+else ch:='C';
+end;
+Tương đương với nhóm lệnh nào?
+** If i<0 then ch:=’C’
+else
+if i<=2 then ch:=’A’
+else
+if i<=8 then ch:=’B’
+else ch:=’C’
+**If (i >= 0) and (i<= 2) then ch:='A';
+if (i>=3) and (i<=8) then ch:='B'
+else
+ch:='C'
+** If i<0 then ch:=’A’
+else
+if i<=2 then ch:=’C’
+else
+if i<=8 then ch:=’A’
+else ch:=’C’
+**If (i >= 0) and (i<= 2) then ch:='C';
+if (i>=3) and (i<=8) then ch:='C'
+else
+ch:='A'
+
+?? Khi chạy chương trình:
+Var S,i: Integer;
+Begin i := 3 S:= 40;
+if ( i > 5 ) then S:= 5 * 3 + ( i ) * 2
+else
+if ( i > 2 ) then S:= 5 * i
+else S:= 0
+End.
+Giá trị sau cùng của S là?
+** 15
+** 0
+** 19
+** 40
+
+?? Cho S và i là biến nguyên. Khi chạy đoạn chương trình:
+s:=0;
+For i:=1 to 10 do s := s+i;
+Writeln(s);
+Kết quả in lên màn hình là?
+** 55
+** 11
+** 100
+** 101
+
+?? Cho x, y, z là các biến kiểu thực, lệnh nào sau đây là sai?
+** x+y:=z
+** x:=y+z
+** Readln(x,y,z)
+** Writeln(x+y, z:0:2)
+
+?? Cho x, y là các biến kiểu thực, lệnh nào là đúng?
+** Readln(x,y);
+** Readln(x,5);
+** Readln("x= ',x);
+** Readln(x:5:2);
+
+?? Cho x là biến kiểu thực, sau khi thực hiện hai lệnh:
+x:=10
+Writeln(x)
+Kết qủa in lên màn hình là?
+** 1.0000000000E+01
+** 10
+** 10.00
+** +1.0000000000E+01
+
+?? Cho biến X kiểu thực và gán X:=2.41
+Ðể in lên màn hình như sau:
+X= 12.41
+Ta chọn lệnh nào?
+** Wzriteln('X= ',X:5:2)
+** Writeln(X)
+** Writeln(X:5)
+** Writeln('X=,X:5:2')
+
+?? Kiểu dữ liệu của biểu thức: 4 div 6 + 6/3 + Ord("A’) là kiểu?
+** Thực
+** Nguyên
+** Logic
+** Ký tự
+
+?? Khai báo kiểu liệt kê như sau là sai?
+Type
+Mau = (XANH, do, tim, Vang)
+Vì?
+** Tên do trùng với từ khóa
+** Tên XANH viết chữ hoa
+** Tên Vang có chữ V hoa
+** Tên tim viết chữ thường
+
+?? Khai báo nào sau đây là đúng?
+** Var x,y: Integer;
+** Var x,y = Integer;
+** Var x,y of Integer;
+** Var x,y:= Integer;
+
+?? Cho khai báo:
+Var Ho,ten: String[15]
+Lệnh nào sau đây là Sai?
+** Write('Ho ten la: ' Ho Ten)
+** Write(' Ho ten la : ' + Ho + Ten)
+** Write(' Ho ten la : ',Ho,Ten)
+** Write(' Ho ten la : ',Ho + Ten)
+
+?? Cho i, j, k là 3 biến nguyên, để nhập dữ liệu cho lệnh:
+Readln(i,j,k)
+Cách nhập nào sau đây là Sai?
+** 3,4,5?
+** 3 4 5?
+** 3? 4? 5?
+** Cả 3 câu trên đều sai
+
+?? Cho i, j, k là ba biến nguyên, để nhập dữ liệu cho lệnh:
+Readln(i,j,k)
+Cách nhập nào đúng?
+** 3 4 5?
+** 3,4,5?
+** 3? 4? 4+1?
+** 3? 4? E?
+
+?? Cho khai báo biến sau:
+Var m, n: integer;
+x, y: Real;
+Lệnh nào sau đây sai?
+** n:= 3.5
+** m:= -4
+** x:= 6
+** y:= +10.5
+
+?? Ðể tính giá trị: x=(-b/2a), chọn cách viết nào sau đây?
+** x:= -b/2/a
+** x:= -b/2a
+** x:= -b/2*a
+** Tất cả các phương án trên đều đúng
+
+?? Biểu thức: 25 div 3 + 5/2*3 có giá trị là bao nhiêu?
+** 15.5
+** 8.0
+** 9.5
+** 15.0
+
+?? Cho phương trình: ax2 + bx + c = 0
+Giả sử a <> 0 và Delta:= b*b- 4*a*c > 0. Một nghiệm của phương trình là?
+** X:= (-b + SQRT(Delta))/(2*a)
+** X:= -b + SQRT(Delta)/(2*a)
+** X:= (-b + SQRT(Delta))/2*a
+** X:= (-b -SQR(Delta))/2/a
+
+?? Cho ch là biến có kiểu Char. Lệnh nào sau đây là đúng?
+** ch:=chr(65)
+** ch:="a"
+** ch:=65
+** ch:='abcd'
+
+?? Biến X được khai báo là kiểu integer. Lệnh nào sau đây là sai?
+** X:= SQRT(49)
+** X:= round(275/3)
+** X:= 210 div 4
+** X:= ABS(-453)
+
+?? Biểu thức nào sau đây có giá trị TRUE?
+** Not (49.5 + 2 < 5) or (2 > 4 div 2)
+** (100 > 76) and ('B' < 'A')
+** (49.5 + 2 < 5) and (2 < 4 div 2)
+** 2*(3+5) < 18 div 4*4
+
+?? Khi chạy chương trình sau:
+Var St,St1: String;
+Begin
+St:= '123';
+St1:= '456';
+Write(St + St1);
+End.
+Kết quả in ra là?
+** 123456
+** '123456'
+** 579
+** Tất cả các câu trên đều sai
+
+?? Sau phép gán sau: Ch := CHR(ORD('a')- 32) thì giá trị của Ch là?
+** 'A'
+** 65
+** A
+** 'A'
+
+?? Khi chạy chương trình:
+Var a,b,c,N: integer;
+Begin
+N:=546;
+a:=N div 100;
+b:=(N Mod 100) div 10;
+c:=(N Mod 100) Mod 10;
+Write(a+b+c);
+End.
+Kết quả in ra là?
+** 15
+** 546
+** 5
+** 6
+
+?? Tính cấu trúc của ngôn ngữ Pascal được thể hiện?
+** Cả 3 đáp án trên đều đúng
+** Trong việc tổ chức các dữ liệu
+** Trong việc tổ chức các câu lệnh
+** Trong việc tổ chức chương trình
+
+?? Ðiều gì làm cho Pacal được đánh giá cao và trở thành một trong những ngôn ngữ thảo chương phổ biến nhất hiện nay?
+** Nó là một ngôn ngữ chặt chẽ cả về mặt cú pháp và về mặt dữ liệu
+** Nó là ngôn ngữ đầu tiên đưa ra và thể hiện được khái niệm lập trình có cấu trúc
+** Nó là ngôn ngữ có văn phạm sáng sủa, dễ hiểu, có khả năng đủ mạnh
+** Cả 3 đáp án trên đều đúng
+
+?? Khẳng định nào sau đây là đúng?
+** VAR, BEGIN, End là các từ khóa của Pascal
+** Các ký hiệu a, b, g, d đều thuộc bộ ký tự cơ bản của Pascal
+** Var, begin, Integer, Real là các từ khóa của Pascal
+** VAR, Var, vaR, var là các từ khóa khác nhau của Pascal
+
+?? Tên nào đặt Sai quy định của Pascal?
+** Noi sinh
+** Giai_Ptrinh_Bac_2
+** Ngaysinh
+** Sv2000
+
+?? Mục nào có các Tên đều đặt đúng quy định của Pascal?
+** Xx1, X2
+** x1, X-2
+** CONST, X_234
+** X[1], x2
+
+?? Chọn câu Sai trong các câu sau đây.
+Trong một chương trình Pascal, có thể không có?
+** Phần thân chương trình
+** Phần khai báo biến
+** Phần đầu chương trình
+** Phần khai báo hằng
+
+?? Dấu hiệu kết thúc chương trình Pascal là?
+** End.
+** End;
+** End:
+** End!
+
+?? Trong Pascal, lệnh nào có tác dụng xóa màn hình?
+** Clrscr
+** CLRSSR
+** CLRSR
+** Clrscl
+
+?? Trong Pascal, nếu muốn dùng lệnh xóa màn hình Clrscr thì phải khai báo thế nào ở ngay sau phần tiêu đề chương trình?
+** Uses CRT
+** USES Graph
+** Use CRT
+** Không khai báo gì cả
+
+?? Khẳng định nào sau đây là Sai:
+Trong Turbo Pascal?
+** Để mở một tập tin cũ, gõ phím F1
+** Để lưu chương trình lên đĩa, gõ phím F2 hoặc chọn lệnh File/Save
+** Để tìm lỗi cú pháp của chương trình, gõ phím Alt_F9, hay F9
+** Để chạy chương trình, gõ phím Ctrl_F9 hoặc chọn lệnh Run/Run
+
+?? Trong Turbo Pascal có sẵn một thủ tục khởi tạo chế độ đồ họa là?
+** Initgraph(var GD,GM: Integer, DP:string[n]);
+** Graph(var GD,GM: Integer, DP:string[n]);
+** Unitgraph(var GD,GM: Integer, DP:string[n]);
+
+?? Cho ví dụ sau:
+Program Ve_hinh_tron;
+Uses graph;
+Var GD,GM: Integer;
+Begin
+GD:= detect; Initgraph(GD,GM,’b:\tp\bgi’);
+If graphresult <> grok then halt(1);
+Circle(320,240,50);
+Readln; CloseGraph;
+End.
+Hãy cho biết kết quả của đoạn chương trình trên?
+** Là một chương trình vẽ một đường tròn có tâm tại chính giữa màn hình và bán kính là 50 Pixel
+** Vẽ hình tròn có bán kình là 240 Pixel
+** Vẽ hình tròn có bán kính là 320 Pixel
+
+?? Hàm nhận giá trị là Grok, điều này có ý nghĩa?
+** Tốt, không có lỗi
+** Không tìm thấy đơn vị đồ họa
+** Không có phần cứng đồ họa
+
+?? Hàm nhận giá trị là Grnotdetected, điều này có ý nghĩa?
+** Không có phần cứng đồ họa
+** Không tìm thấy các tệp điều khiển màn hình đồ họa
+** Không tìm thấy đơn vị đồ họa
+
+?? Để vẽ hình trong Pascal người ta sử dụng lệnh MOVETO(x,y). Lệnh này có tác dụng?
+** Di chuyển con trỏ tới tọa độ x,y (với x là hoành độ, y là tung độ)
+** Di chuyển con trỏ tới một tọa độ tùy ý
+** Cả 2 đáp án trên đều đúng
+
+?? Thủ tục vẽ một đường thẳng từ tọa độ x1,y1 đến tọa độ x2,y2 là?
+** LINE(x1,y1,x2,y2)
+** BAR(x1,y1,x2,y2)
+** RECTANGLE(x1,y1,x2,y2)
+
+?? Thủ tục CIRCLE(x,y,r) có tác dụng gì trong chế độ đồ họa?
+** Vẽ đường tròn tâm tại tọa độ x,y bán kính bằng r Pixel
+** Vẽ đường tròn tâm tại tọa độ x,r bán kính bằng y Pixel
+** Vẽ đường tròn tâm tại tọa độ y,r bán kính bằng x Pixel
+
+?? Thủ tục BAR(x1,y1,x2,y2): Vẽ một hình chữ nhật góc trên bên trái có tọa độ có tọa độ x1,y1 góc dưới bên phải có tọa độ x2,y2. Khi dùng kết hợp với thủ tục nào sẽ đồng thời cho phép kẻ các vân hoa trên nền và tô màu cho nền?
+** SETFILLSTYLE(n1,n2)
+** LINETO(x,y)
+** PUTPIXEL(x,y,n)
+
+?? Khi đang làm việc trong chế độ đồ họa, muốn viết chữ trong các hình vẽ ta sử dụng thủ tục nào sau đây?
+** Cả 2 đáp án trên đều đúng
+** OUTTEXTXY(x,y,chuỗi)
+** OUTTEXT(Chuỗi)
+
+?? Thủ tục SOUND(n) có tác dụng?
+** Tạo ra âm thanh với tần số n, ở đây n phải là một số nguyên dương
+** Kéo dài tín hiệu âm thanh trong khoảng thời gian n miligiây
+** Ngắt tín hiệu âm thanh
+
+?? Bảng điểm của một lớp học bao gồm các thành phần sau: Hoten, Gioitinh, Lop, Diachi, Toan, Ly, Hoa,…, các thành phần này tạo nên dữ liệu cho một người trong đơn vị và được gọi là?
+** Một bản ghi
+** Một trường
+** Một đơn vị cấu trúc
+
+?? Tệp dữ liệu là một dãy các phần tử được sắp xếp như thế nào?
+** Một cách tuần tự
+** Một cách không tuần tự
+** Cả 2 đáp án trên đều sai
+
+?? Theo quy định của DOS, tên tệp được đặt như thế nào?
+** Cả 2 đáp án trên đều đúng
+** Phần tên dài không quá 8 ký tự
+** Phần đuôi dài không quá 3 ký tự
+
+?? Các loại tệp nào dưới đây được sử dụng trong Pascal?
+** Tệp có định kiểu, tệp văn bản và tệp không định kiểu
+** Tệp có định kiểu và tệp không định kiểu
+** Tệp có định kiểu và tệp văn bản
+
+?? Tác dụng lớn nhất của kiểu dữ liệu Tệp là?
+** Có thể lưu giữ các dữ liệu nhập vào từ bàn phím cùng các kết quả xử lý trong bộ nhớ RAM ra tệp để dùng nhiều lần
+** Có thể lưu giữ các dữ liệu nhập vào từ bàn phím cùng các kết quả xử lý trong bộ nhớ RAM ra tệp để dùng duy nhất một lần
+** Lưu kết quả đã được xử lý
+
+?? Tệp có định kiểu được khai báo sau từ khóa nào?
+** TYPE
+** VAR
+** BEGIN
+
+?? Tệp truy nhập trực tiếp là tệp?
+** Có thể truy nhập vào phần tử bất kỳ trong tệp
+** Không thể truy nhập vào phần tử nào của tệp
+** Chỉ truy nhập vào một phần tử
+
+?? Để mở một tệp chuẩn bị lưu trữ dữ liệu Pascal sử dụng các thủ tục chuẩn nào sau đây?
+** Cả 2 đáp án trên đều đúng
+** ASSIGN(Biến tệp, Tên tệp);
+** REWRITE(Biến tệp);
+
+?? Các phần tử của Tệp được lưu giữ tuần tự thành một dãy và việc truy nhập vào phần tử phụ thuộc vào thiết bị đọc, ghi của máy vi tính. Turbo Pascal có thể xử lý các loại tệp là?
+** Cả 2 loại tệp nêu trên
+** Tệp truy nhập tuần tự
+** Tệp truy nhập trực tiếp
+
+?? Các kiểu dữ liệu chủ yếu xử lý trong bộ nhớ RAM và in kết quả ra màn hình hoặc máy in. Khi kết thúc chương trình hoặc mất điện cả dữ liệu nhập vào và kết quả xử lý đều?
+** Bị mất
+** Tồn tại trên RAM
+** Tồn tại trên ROM
+
+?? Chương trình con trong Turbo Pascal thông thường gồm mấy loại và là những loại gì?
+** 2 loại (là chương trình con Hàm - Function và chương trình con Thủ tục - Procedure)
+** 1 loại (là chương trình con Thủ tục - Procedure)
+** 1 loại (là chương trình con Hàm - Function)
+
+?? Chương trình con Hàm (Function) là một loại chương trình con cho kết quả là?
+** Một giá trị vô hướng
+** Một giá trị xác định
+** Cả 2 đáp án trên đều đúng
+
+?? Trong Turbo Pascal đã có sẵn một số chương trình con. Vậy sin(x), sqrt(x)… thuộc chương trình con nào?
+** Function
+** Procedure
+** Cả 2 loại trên
+
+?? Trong Turbo Pascal đã có sẵn một số chương trình con. Vậy read(), write(), gotoxy(x1,x2)… thuộc chương trình con nào?
+** Procedure
+** Function
+** Cả 2 loại trên
+
+?? Kiểu của tham số trong chương trình con phải là?
+** Cả 2 đáp án trên đều đúng
+** Kiểu đã được định nghĩa sẵn trong Pascal
+** Kiểu đã được định nghĩa trong phần đầu chương trình chính
+
+?? Nếu không muốn thay đổi giá trị của các tham số thực trong chương trình chính khi truyền nó cho chương trình con thì tham số hình thức trong chương trình con phải là?
+** Tham trị
+** Tham biến
+** Tham trị hay tham biến đều không quan trọng
+
+?? Biến khai báo ở đầu chương trình chính được gọi là?
+** Biến toàn cục
+** Biến cục bộ
+** Cả 2 đáp án trên đều sai
+
+?? Chọn câu trả lời đúng nhất: Biến cục bộ là?
+** Những biến khai báo trong chương trình con chỉ có tác dụng trong nội bộ chương trình con đó
+** Những biến khai báo ở đầu chương trình chính
+** Những biến khai báo trong chương trình con
+
+?? Thủ tục RMDIR(Tên thư mục) cho phép?
+** Xóa một thư mục rỗng trên ổ đĩa hiện thời
+** Chuyển thư mục có tên viết trong dấu ngoặc đơn thành thư mục hiện thời
+** Đổi từ tên cũ thành tên mới
+
+?? Thủ tục CLREOL có tác dụng?
+** Xóa các ký tự từ vị trí hiện thời đến hết dòng
+** Xóa sạch màn hình, đưa con trỏ về tọa độ (1,1)
+** Chuyển con trỏ tới một tọa độ nào đó
+
+?? Thủ tục nào sau đây không viết gì ra màn hình và tự động chuyển con trỏ xuống dòng dưới?
+** WRITELN;
+** READLN;
+** Cả 2 đáp án trên đều sai
+
+?? Khi thực hiện lệnh: Write(123.456789:8); thì kết quả hiển thị trên màn hình sẽ là?
+** 1.23E+0.2
+** 123.456789
+** 123
+
+?? Kiểu dữ liệu vô hướng là kiểu dữ liệu?
+** Gồm một tập các giá trị được sắp xếp theo một thứ tự nào đó
+** Có cùng một giá trị nhất định
+** Cả 2 đáp án trên đều đúng
+
+?? Kiểu dữ liệu logic Bun (Boolean) là kiểu dữ liệu chỉ nhận một trong hai giá trị nào sau đây?
+** TRUE (Đúng) hay FALSE (Sai)
+** Lớn hơn hay nhỏ hơn
+** Số âm hoặc số dương
+
+?? Cho biểu thức so sánh là: 12 < 30, đối với kiểu dữ liệu logic sẽ cho kết quả là?
+** TRUE
+** Không xác định
+** FALSE
+
+?? Dữ liệu kiểu WORD sử dụng 2 Bytes để lưu trữ dữ liệu và không xét dấu, do đó các số có thể xử lý được nằm trong khoảng từ?
+** 0 đến 65535
+** 0 đến 65530
+** 0 đến 65550
+
+?? Toán tử DIV trong dữ liệu kiểu số nguyên là phép chia?
+** Lấy phần nguyên
+** Lấy phần dư
+** Phép chia hết
+
+?? Toán tử MOD trong dữ liệu kiểu số nguyên là phép chia?
+** Lấy số dư
+** Lấy phần nguyên
+** Phép chia hết
+
+?? Cho biết kết quả của phép tính sau?
+17 DIV 7 = ?
+17 MOD 7 = ?
+** 2 và 3
+** 3 và 2
+** 3 và 3
+
+?? Hằng, biến, kiểu dữ liệu bao giờ cũng phải khai báo ở?
+** Đầu chương trình
+** Cuối chương trình
+** Ở đâu cũng được
+
+?? Hằng số là đại lượng có giá trị?
+** Không thay đổi trong suốt quá trình xử lý
+** Luôn luôn thay đổi trong suốt quá trình xử lý
+** Ít khi thay đổi khi xử lý
+
+?? Chọn câu trả lời chính xác nhất?
+** Biến là những đại lượng mà giá trị của nó có thể thay đổi trong quá trình xử lý
+** Biến là những đại lượng mà giá trị của nó không thay đổi trong quá trình xử lý
+** Cả 2 đáp án trên đều đúng
+
+?? Một chương trình lập bằng ngôn ngữ Pascal thông thường phải gồm 3 phần chính theo thứ tự nào sau đây?
+** Phần tiêu đề, phần thân chương trình, phần khai báo
+** Phần tiêu đề, phần khai báo, phần thân chương trình
+** Phần khai báo, phần tiêu đề, phần thân chương trình
+
+?? Phần tiêu đề thường bắt đầu bằng từ khóa nào?
+** PROGRAM
+** USES
+** VAR
+
+?? Để khai báo nhãn người ta dùng từ khóa nào sau đây?
+** LABLE
+** USES
+** CONST
+
+?? Để khai báo biến người ta dùng từ khóa nào sau đây?
+** VAR
+** USES
+** CONST
+
+?? Để khai báo các hàm người ta dùng từ khóa nào sau đây?
+** FUNCTION
+** TYPE
+** PROCEDURE
+
+?? Từ khóa USES dùng để?
+** Khai báo sử dụng các đơn vị chương trình - UNIT
+** Khai báo các chương trình con
+** Khai báo các giá trị mặc định
+
+?? Để mô tả các kiểu dữ kiệu mới người ta sử dụng từ khóa nào?
+** TYPE
+** USES
+** PROGRAM
+
+?? Từ khóa PROCEDURE dùng để?
+** Khai báo các chương trình con
+** Khai báo các kiểu người dùng định nghĩa
+** Khai bào thân chương trình
+
+?? Phần thân chương trình được đặt giữa 2 từ khóa nào sau đây?
+** BEGIN và END
+** PROGRAM và END
+** USES và END
+
+?? Khi xây dựng một chương trình lớn, có những phần đã hoàn chỉnh và có thể sử dụng chung cho một số chương trình khác, người ta thường ghi chúng riêng thành các phần gọi là?
+** Đơn vị chương trình (Unit)
+** Các tệp thực thi
+** Các chương trình khởi tạo
+
+?? Phím F3 có tác dụng gì trong ngôn ngữ lập trình Pascal?
+** Mở văn bản sẵn có trên đĩa
+** Ghi lại văn bản đang soạn thảo
+** Tạo mới một văn bản
+
+?? Sau khi soạn thảo xong một chương trình ta có thể cho chạy thử ngay bằng cách bấm tổ hợp phím nào?
+** Ctrl + F1
+** Ctrl + F9
+** Ctrl + F2
+
+?? Tổ hợp phím Alt + X có chức năng gì?
+** Kết thúc chương trình soạn thảo trên Pascal
+** Dịch chương trình
+** Chạy chương trình
+
+?? Tên dùng để đặt cho hằng, biến, chương trình… được phép viết dài nhất là?
+** 127 ký tự
+** 130 ký tự
+** 135 ký tự
+
+?? Tổ hợp phím Alt + F9 có chức năng gì?
+** Dịch chương trình
+** Kết thúc chương trình soạn thảo trên Pascal
+** Chạy chương trình
+
+?? Tên dùng để đặt cho hằng, biến, chương trình… phải tuân theo quy định nào?
+** Cả 2 đáp án trên đều đúng
+** Tên phải bắt đầu bằng một chữ cái và không được dùng các ký tự đặc biệt
+** Tên không được để khoảng trống giữa các ký tự
+
+?? Trong một câu lệnh các từ khóa, tên hằng, tên biến… phải viết cách nhau bởi?
+** Dấu cách (bấm phím Space)
+** Dấu chấm phẩy ";"
+** Dấu hai chấm ":"
+
+?? Giữa các câu lệnh trong Pascal phải dùng phải dùng ký tự nào để ngăn cách?
+** Dấu chấm phẩy ";"
+** Dấu cách (bấm phím Space)
+** Dấu hai chấm ":"
+
+?? Để gán giá trị cho hằng, biến ta phải dùng ký hiệu gán là?
+** Dấu :=
+** Dấu :
+** Dấu =
+
+?? Trong chương trình những ghi chú hoặc lời giải thích có thể đưa vào trong dấu?
+** Cả 2 đáp án trên đều đúng
+** {…}
+** (*…*)
+
+?? Ngôn ngữ lập trình Pascal bao gồm?
+** Một hệ thống các ký hiệu, các quy tắc cú pháp và câu lệnh dùng để viết thuật toán giải các bài toán
+** Một hệ thống các ký hiệu
+** Một hệ thống các quy tắc cú pháp
+
+?? Ngôn ngữ lập trình bậc thấp (ngôn ngữ máy) sử dụng hệ đếm nhị phân tức là?
+** Hệ đếm chỉ có hai chữ số là 0 và 1
+** Hệ đếm chỉ có hai chữ số là 1 và 2
+** Cả 2 đáp án trên đều đúng
+
+?? Trong ngôn ngữ tập hợp một số mã nhị phân được thay bằng?
+** Các chữ cái
+** Các chữ cái và các ký tự đặc biệt
+** Các chữ số từ 0 đến 9
+
+?? Ngôn ngữ lập trình bậc cao đầu tiên ra đời vào năm nào?
+** 1958
+** 1959
+** 1960
+
+?? Ngôn ngữ lập trình Pascal có đặc điểm nổi bật là?
+** Cả 2 đáp án trên đều đúng
+** Là ngôn ngữ lập trình có tính cấu trúc và tính hệ thống
+** Là ngôn ngữ lập trình có định kiểu
+
+?? Các tệp *.BGI là các tệp chứa các điều khiển về?
+** Kiểu màn hình
+** Kiểu chữ trong đồ họa
+** Cả 2 đáp án trên đều đúng
+
+?? Khi làm việc với Pascal có 2 tệp đặc biệt được sinh ra để lưu giữ những quy định của người sử dụng và các thay đổi chương trình là?
+** TURBO.PCK và TURBO.TP
+** TURBO.PCK và TURBO.EXE
+** TURBO.TP và TURBO.TPL
+
+?? Các tệp *.CHR là các tệp chứa các điều khiển về?
+** Kiểu chữ trong đồ họa
+** Kiểu màn hình
+** Cả 2 đáp án trên đều đúng
+
+?? Phím F2 có tác dụng gì trong ngôn ngữ lập trình Pascal?
+** Ghi lại văn bản đang soạn thảo
+** Mở văn bản sẵn có trên đĩa
+** Tạo mới một văn bản
+
+?? Trong ngôn ngữ lập trình Pascal, sau khi ghi lại file đã soạn thảo thì file đó sẽ có phần đuôi mở rộng là?
+** *.PAS
+** *.TPU
+** *.DOC
+
+?? Đối với thủ tục nhập, xuất dữ liệu thì dữ liệu có thể được xuất ra đâu?
+** Có thể xuất ra máy in hoặc màn hình
+** Chỉ xuất ra màn hình
+** Chỉ xuất ra máy in
+
+?? Trong chế độ đồ họa màn hình được chia thành ma trận điểm, với màn hình VGA số điểm theo chiều ngang và theo chiều đứng thường là?
+** 640 và 480
+** 480 và 640
+** 680 và 460
+
+?? Các thủ tục trình bày màn hình trong Turbo Pascal 7.0 được ghi thành một Unit có tên là CRT và được đặt trong tệp?
+** TURBO.TPL
+** TURBO.EXE
+** GRAPH.TPU
+
+?? Lệnh GOTOXY(x,y) có tác dụng?
+** Đưa con trỏ màn hình đến vị trí có tọa độ (x,y), trong đó x là hoành độ 1 <= x <= 80, y là tung độ 1 <= y <= 25
+** Đưa con trỏ màn hình đến vị trí có tọa độ (x,y), trong đó x là tung độ 1 <= x <= 80, y là hoành độ 1 <= y <= 25
+** Đưa con trỏ màn hình đến vị trí có tọa độ (x,y), trong đó x là hoành độ 1 <= x <= 25, y là tung độ 1 <= y <= 80
+
+?? Để xóa toàn bộ màn, sau khi xóa con trỏ có tọa độ (1,1) ta sử dụng thủ tục?
+** CLRSCR
+** TEXTBACKGROUND(màu)
+** TEXTCOLOR(màu)
+
+?? Có 2 thủ tục viết dữ liệu ra màn hình là?
+** WRITE(A1,A2,A3,…) và WRITELN(A1,A2,A3,…)
+** READ(A1,A2,A3,…) và READLN(A1,A2,A3,…)
+** Cả 2 đáp án trên đều sai
+
+?? Đối với thủ tục WRITE(A1,A2,…) sau khi viết xong giá trị cuối cùng thì?
+** Con trỏ nằm nguyên tại vị trí kết thúc không chuyển xuống dòng dưới
+** Con trỏ sẽ được tự động chuyển xuống dòng tiếp theo
+** Con trỏ không xác định được vị trí
+
+?? Cho đoạn chương trình sau:
+Program Vietchu;
+Uses crt;
+Begin
+Gotoxy(30,10);
+Textcolor(red);
+Textbackground(Yellow);
+Write("Chuc mung nam moi’);
+End.
+** Hãy cho biết kết quả hiển thị trên màn hình là gì?
+** Hiển thị dòng chữ "Chuc mung nam moi" màu đỏ trên nền vàng bắt đầu tại vị trí dòng 10 cột 30
+** Hiển thị dòng chữ "Chuc mung nam moi"
+** Hiển thị một màu nền vàng
+
+?? Trong ngôn ngữ Pascal, từ khoá nào dùng để khai báo biến?
+** VAR
+** VAW
+** VAY
+** VAT
+
+?? Kết quả của phép toán quan hệ cho giá trị?
+** Logic
+** Số
+** Nguyên
+** Thực
+
+?? Trong các biểu thức dưới đây, biểu thức nào là biểu thức số học trong ngôn ngữ Pascal?
+** 5*a + 6*b
+** 5>6
+** a>b
+** x<5
+
+?? Trong các biểu thức dưới đây, biểu thức nào là biểu thức quan hệ?
+** x<5
+** 5*a
+** 7+y
+** a*x*x
+
+?? Kí hiệu nào sau đây cho biết đó là lệnh gán?
+** :=
+** =
+** = =
+** !=
+
+?? Hàm số học nào dưới đây dùng để tính căn bặc hai của x?
+** sqrt(x)
+** sqr(x)
+** abs(x)
+** Tất cả đều sai
+
+?? Câu lệnh gán nào dưới đây là hợp lệ?
+** x:= 4*y
+** y = =4*x
+** 4:=4
+** Tất cả đều sai
+
+?? Để xuất câu thông báo ra màn hình, ta sử dụng thủ tục nào sau đây?
+** Write
+** Readln
+** Real
+** Read
+
+?? Để nhập dữ liệu vào từ bàn phím, ta sử dụng thủ tục nào sau đây?
+** Readln
+** Write
+** Real
+** Writeln
+
+?? Trong ngôn ngữ lập trình thường có các hằng?
+** Tất cả đều đúng
+** Hằng số học
+** Hằng lôgic
+** Hằng xâu
+
+** Các thành phần cơ bản của ngôn ngữ lập trình thường bao gồm?
+** Bảng chữ cái, cú pháp và ngữ nghĩa
+** Bảng chữ cái và cú pháp
+** Bảng chữ cái và ngữ nghĩa
+** Cú pháp và ngữ nghĩa
+
+?? Trong Turbo Pascal, Tên là một dãy liên tiếp không quá?
+** 127 kí tự
+** 8 kí tự
+** 16 kí tự
+** 255 kí tự
+
+?? Trong ngôn ngữ Pascal, ……………… được dùng với ý nghĩa riêng xác định, người lập trình không được sử dụng với ý nghĩa khác. Trong dấu ... là gì?
+** Tên dành riêng
+** Tên chuẩn
+** Tên do người lập trình đặt
+** Tất cả đều đúng
+
+?? Trong ngôn ngữ Pascal, ……………… được dùng với ý nghĩa riêng, xác định bằng cách khai báo trước khi sử dụng và không được trùng với tên dàng riêng. Trong dấu ... là gì?
+** Tên do người lập trình đặt
+** Tên chuẩn
+** Tên dành riêng
+** Tất cả đều đúng
+
+?? Trong ngôn ngữ Pascal, các đoạn chú thích được đặt giữa cặp dấu?
+** Dấu { và } hoặc (* và *)
+** Dấu { và } hoặc /* và */
+** Dấu /* và */ hoặc (* và *)
+** Tất cả các đáp án trên
+
+?? Biểu diễn nào sau đây không phải là biểu diễn hằng trong Pascal?
+** "C
+** "42’
+** -22
+** 4+4
+
+?? Trong ngôn ngữ Pascal, để khai báo tên chương trình ta sử dụng từ khóa nào?
+** PROGRAM
+** USES
+** VAR
+** BEGIN
+
+?? Trong ngôn ngữ Pascal, phần thân chương trình được mở đầu và kết thúc bởi?
+** BEGIN .... END.
+** VAR .... END.
+** USES ..... END.
+** Tất cả đều sai
+
+?? Trong ngôn ngữ Pascal, kiểu dữ liệu nào sau đây thể hiện kiểu dữ liệu kiểu số thực?
+** Real
+** Byte
+** Word
+** Integer
+
+??  Trong ngôn ngữ Pascal, kiểu dữ liệu nào sau đây thể hiện kiểu dữ liệu kiểu số nguyên?
+** Integer
+** Byte
+** Word
+** Real
+
+?? Cho khai báo sau: VAR i: integer; c: char; r: real; Hãy cho biết nhóm lệnh nào sau đây viết đúng ngữ pháp?
+** Các lệnh i:=7; r:=i; write(r)
+** Các lệnh c:=’9’; i:=9; if i=c then write("hop le’)
+** Các lệnh i:=7; c:=ord(r); i:=ord(c)
+** Cả ba nhóm lệnh trên đều có lỗi sai
+
+?? Cho khai báo sau: VAR i: integer; c: char; r: real; Hãy cho biết nhóm lệnh nào sau đây viết đúng ngữ pháp?
+** Các lệnh c:=’9’; i:=9; if i=ord(c) then write("hop le’)
+** Các lệnh i:=7; r:=9; writeln(r>i+1)
+** Các lệnh i:=7; c:=ord(r); r:=ord(c)
+** Cả ba nhóm lệnh trên đều có lỗi sai
+
+?? Cho x, y, z và t có loại integer. Sau khi thi hành các lệnh: x:=5; y:=3; z:=5; t:=6; If x>y then If y>z then t:=y ELSE t:=x Giá trị của t là bao nhiêu?
+** t:=5
+** t:=6
+** t:=7
+** t:=8
+
+?? Cho x, y, z, t thuộc kiểu integer. Sau khi thi hành các lệnh: x:=5; y:=3; z:=5; t:=4; IF x>=y THEN IF y>z-1 THEN t:=y ELSE t:=x+1 Giá trị của t là bao nhiêu?
+** t:=6
+** t:=4
+** t:=2
+** t:=8
+
+?? Cho x, y, z, t thuộc kiểu integer. Sau khi thi hành các lệnh: x:=5; y:=3; z:=5; t:=1; IF x>=y THEN IF y>=z-2 THEN t:=y+2 ELSE t:=x-1 Giá trị của t là bao nhiêu?
+** t:=5
+** t:=1
+** t:=2
+** t:=4
+
+?? Cho x, y, z, t thuộc kiểu integer. Sau khi thi hành các lệnh: x:=5; y:=3; z:=5; t:=5; IF x>=y THEN IF y+2>=z THEN t:=y-1 ELSE t:=x-1 Giá trị của t là bao nhiêu?
+** t:=2
+** t:=4
+** t:=6
+** t:=7
+
+?? Xét chương trình Pascal sau đây: PROGRAM TD; VAR i, j: integer; BEGIN i:=1; j:=2; IF (i<=1) AND (j>2) THEN IF (i>0) OR (j Write(3) ELSE Write(4) END.
+** Khi thi hành, chương trình không in ra gì cả
+** Khi thi hành, chương trình in ra 3
+** Khi thi hành, chương trình in ra 4
+** Khi dịch, chương trình báo lỗi ngữ pháp
+
+?? Xét chương trình Pascal sau đây: PROGRAM td; VAR i, j: integer; BEGIN i:=1; j:=3; IF (i<=1) AND (j>2) THEN IF (i:=0) OR (j Write(3) ELSE Write(4) END.
+** Khi dịch, chương trình báo lỗi ngữ pháp
+** Khi thi hành, chương trình in ra 3
+** Khi thi hành, chương trình in ra 4
+** Khi thi hành, chương trình không in ra gì cả
+
+?? Xét chương trình Pascal sau đây: PROGRAM td; VAR i, j: integer; BEGIN i:=1; j:=3; IF (i=1) AND (j>2) THEN IF (i>0) OR (j Write(3) ELSE Write(4) END.
+** Khi thi hành, chương trình in ra 4
+** Khi thi hành, chương trình in ra 3
+** Khi thi hành, chương trình không in ra gì cả
+** Khi dịch, chương trình báo lỗi ngữ pháp
+
+
+?? Trong ngôn ngữ Pascal?
+** a, b, c đều đúng
+** 15, 47, -13 là các hằng nguyên
+** 4.0, 3E-7, 0.523 là các hằng thực
+** "a’, "+’, " " là các hằng kí tự
+
+?? Trong ngôn ngữ Pascal, với x, y thuộc loại integer?
+** x+2<>y là một biểu thức luận lý
+** x:=y là một biểu thức luận lý
+** x+2y-5 là một biểu thức luận lý
+** not (x+y) là một biểu thức luận lý
+
+?? Trong ngôn ngữ Pascal, với x, y thuộc loại integer?
+** Các câu trên đều sai
+** x=y là một biểu thức luận lý
+** (x<>0)or (2*y>5) là một biểu thức luận lý
+** x+2<>y+1 là một biểu thức luận lý
+
+?? Xét chương trình Pascal sau? PROGRAM Vidu; TYPE d=ARRAY [ 1..n] of integer; VAR i: integer; a:=d; BEGIN Read(n); FOR i:=1 TO n DO A[i]:=i+1; END
+** Chương trình báo lỗi ngữ pháp khi dịch
+** Chương trình báo lỗi khi thi hành
+** Cả hai câu trên đều sai
+** Cả hai câu trên đều đúng
+
+?? Cho khai báo sau? TYPE th=SET OF char; VAR I, j, n: integer; x, y, z: real; k: boolean; a, b: th; Hãy cho biết câu lệnh nào dưới đây bị sai:
+** n:=i/j;
+** n:=I DIV j;
+** z:=x/y;
+** k:=’c’ IN a;
+
+?? Cho khai báo sau: TYPE th=SET OF char; VAR I, j, n: integer; x, y, z: real; k: boolean; a, b: th; u, v: array[1..3] of integer; Hãy cho biết câu lệnh nào dưới đây bị sai?
+** a:=["a’,b]
+** n:=I DIV j;
+** z:=x/y;
+** k:=’c’ IN a
+
+?? Cho khai báo sau: TYPE th=SET OF char; VAR I, j, n: integer; x, y, z: real; k: boolean; a, b: th; u, v: array[1..3] of integer; Hãy cho biết câu lệnh nào dưới đây bị sai?
+** b:=b+’b’
+** n:=I DIV j;
+** z:=x/y;
+** k:=’c’ IN a
+
+?? Cho khai báo sau: TYPE th=SET OF char; VAR I, j, n: integer; x, y, z: real; k: boolean; a, b: th; u, v: array[1..3] of integer; Hãy cho biết câu lệnh nào dưới đây bị sai?
+** u:=u*v
+** n:=I DIV j;
+** z:=x/y;
+** k:=’c’ IN a
+
+?? Cho khai báo sau: VAR i: integer; c: char; r: real; Hãy cho biết nhóm lệnh nào sau đây viết đúng ngữ pháp?
+** Các lệnh r:=7; c:=’9’; i:=ord(c)
+** Các lệnh r:=7; i:=r; write(r)
+** Các lệnh c:=’9’ ;i:=9; if i=c then write("hop le’)
+** Cả ba nhóm lệnh trên đều có lỗi sai
+
+?? Cho khai báo sau: VAR i: integer; c: char; r: real; Hãy cho biết nhóm lệnh nào sau đây viết đúng ngữ pháp?
+** Cả ba nhóm lệnh trên đều có lỗi sai
+** Các lệnh r:=7; i:=r; write(r)
+** Các lệnh c:=’9’ ;i:=9; if i=c then write("hop le’)
+** Các lệnh r:=7; c:=ord(r); i:=ord(c)

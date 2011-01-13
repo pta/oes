@@ -1,0 +1,1274 @@
+@@ Java
+?? Nếu muốn sinh ra một số nguyên ngẫu nhiên từ 1à6, biểu thức nào sau đây được dùng?
+** (int)(Math.random()*6)
+** (int)(Math.random()*6)+1
+** (int)(Math.random()+6)
+** Math.random()*6
+?? Cho đoạn mã bên, kết quả của đoạn mã trên là?
+int i = 0;
+do {
+	System.out.println("I am in the do block");
+} while (i>0);
+** I am in the do block
+** Lỗi lúc thực thi (runtime)
+** Lỗi biên dịch ở dòng số 4
+** Không in ra gì cả
+?? Giá trị của biểu thức sau trong Java là bao nhiêu: 100 % 24 / 3
+** 1
+** 1.3333333333333333
+** 0
+** 2
+?? Cho đoạn mã sau.
+
+Sau khi thực hiện xong các câu lệnh, giá trị của biến c là bao nhiêu?
+** 44
+** 45
+** 44.0
+** 45.0
+?? Giả sử a và b được định nghĩa như sau: double[] a = {0.1,0.2,0.3};	double[] b = {0.1,0.2,0.3};
+Kết quả của biểu thức a==b là gì?
+** False
+** Lỗi biên dịch
+** True
+** Lỗi thực thi
+?? Khai báo nào sau đâu là một định danh (identifier) hợp lệ?
+** oneForAll
+** 1_4_all
+** 1ForAll
+** 1forall
+?? Muốn khai báo hằng số PI  trong Java thì dùng câu lệnh nào sau đây?
+** final double PI = 3.14159;
+** final constant double PI = 3.14159;
+** final PI = 3.14159;
+** tant double PI = 3.14159;
+?? Phát biểu nào sau đây đúng nhất về 2 phương thức overloading?
+** Thuộc hai lớp khác nhau
+** Cùng tên khác danh sách đối số
+** Thuộc hai lớp có quan hệ kế thừa
+** Cùng tên khác kiểu trả về
+?? Định nghĩa một mảng 2 chiều, cách nào sau đây không đúng?
+** double[][] values = new double[8][];
+** double[][] values = new double[][8];
+** double[][] values = new double[2][0];
+** double[][] values = new double[2][8];
+?? Lỗi xảy ra trong quá trình biên dịch từ tập tin nguồn (.java) sang tập tin bytecode (.class) được gọi là?
+** Lỗi thực thi
+** Lỗi luận lý
+** Tất cả đều sai
+** Lỗi cú pháp
+?? Trong Java, tham số kiểu nguyên của một phương thức sẽ được truyền
+** Theo tham chiếu
+** Tùy vào trường hợp
+**  Theo tham trị
+** Tất cả đều sai
+?? Giá trị của biến y sau khi thực hiện biểu thức y = (4 > 0) ? 1 : -1; là bao nhiêu?
+** 1
+** -1
+** True
+** false
+?? Từ nào không phải là từ khóa trong Java?
+** class
+** void
+** public
+** static
+?? Kết quả của biểu thức 25/4 là bao nhiêu?
+** 6
+**  7
+** 7.0
+** 6.0
+?? Để chuyển một chuỗi chứa giá trị nguyên (String) sang một số nguyên (int) thì sẽ dùng phương thức nào sau đây?
+** parseInt()
+** toInteger()
+** toInt()
+** parseInteger()
+?? Đoạn mã sau: System.out.println(""+x+y); sẽ in ra giá như thế nào nếu x và y là kiểu int,  x=10 và y=5
+** 105
+** 10 5
+** Báo lỗi
+** 15
+??  Trong Java, kiểu dữ liệu nào không phải là kiểu dữ liệu tham chiếu?
+** BufferedReader
+** float
+** Array
+** String
+?? Chọn phát biểu đúng:
+** Ca hai lua chon deu dung
+** InputStream và OuputStream là 2 luồng dữ liệu kiểu byte
+** Reader và Writer là 2 luồng dữ liệu kiểu character.
+** Ca hai lua chon deu sai
+?? Cho biết cách tạo một thể hiện của InputStreamReader từ một thể hiện của InputStream
+** Tạo một thể hiện của InputStream rồi truyền vào cho hàm khởi tạo của InputStreamReader
+** Sử dụng phương thức createReader() của lớp InputStream
+** Sử dụng phương thức createReader() của lớp InputStreamReader
+** Tất cả các câu trên đều sai
+?? Lớp nào sau đây dùng để thực hiện các thao tác nhập xuất cơ bản với console :
+** System
+** Math
+** String
+** StringBuffer
+?? Cú pháp của hàm main trong java có dạng nào sau đây
+** public static void main( String arg[])
+** static static void main( String arg[])
+** public void  static main( String arg[])
+** public static void main( String arg)
+?? Để nhập dữ liệu từ bàn phím thông qua đối tượng
+** BufferedReader
+** Cin
+** scanf
+** Không phải là các phương án trên
+?? Để nhập dữ liệu từ bàn phím trong Java sử dụng qua đối tượng khai báo
+** DataInputStream
+** Scanner
+** BufferedReader
+** Tất cả các phương án trên
+?? Đâu là hàm để chuyển đổi từ kiểu chuỗi thành số nguyên
+** Integer.parseInt( )
+** Float.parseFloat( )
+** Int.parseInt( )
+** float.parsefloat( )
+?? Đâu là hàm để chuyển đổi từ kiểu chuỗi thành số thực
+** Float.parseFloat( )
+** Int.parseInt( )
+** float.parsefloat( )
+** Integer.parseInt( )
+?? Một kiểu dữ liệu số có dấu có 2 giá trị +0 và -0 bằng nhau:
+** Đúng
+** Sai
+** Chỉ đúng với kiểu số nguyên
+** Chỉ đúng với kiểu số thực
+?? Chọn khai báo tên đúng:
+** Big01LongStringWidthMeaninglessName
+** $int
+** bytes
+** Tất cả các câu trên đều đúng
+?? Chọn khai báo đúng cho phương thức main()
+** public static void main( )
+** public void main(String[] arg)
+** public static void main(String[] args)
+** public static int main(String[] arg)
+?? Chọn thứ tự đúng của các thành phần trong một tập tin nguồn :
+**  Khai báo package đầu tiên; thứ tự của câu lệnh import và khai báo lớp là tùy ý.
+**  Câu lệnh import, khai báo package, khai báo lớp.
+**  Khai báo package, câu lệnh import, khai báo lớp
+** Câu lệnh import trước tiên; thứ tự của khai báo package và khai báo lớp là tùy ý.
+?? Cho câu lệnh sau: int[] x = new int[25];
+Chọn kết quả đúng sau khi thi hành câu lệnh trên
+** x[24] chưa được định nghĩa
+** x[25] có giá trị 0
+**  x[0] = có giá trị null
+** x.length = 25
+?? Cho biết giá trị của x, a và b sau khi thi hành đoạn mã sau:
+1 : int x, a = 6, b = 7;
+2 : x = a++ + b++;
+** x = 13, a = 6, b = 7
+** x = 15, a = 7, b = 8
+** x = 15, a = 6, b = 7
+** x = 13, a = 7, b = 8
+?? Biểu thức nào sau đây là hợp lệ
+** itn x = 6; if (!(x > 3)) {}
+** int x = 6;x = !x;
+** int x = 6; x = ~x;
+** int x = 6; x= *x;
+?? Biểu thức nào sau đây hợp lệ
+** String x = null; int y = (x != null) && (x.length() > 0) ? x.length() : 0;
+** String x = "Hello"; int y = 9; x +=y;
+** String x = "Hello"; int y = 9; x = x + y;
+** Tất cả các câu trên đều đúng
+?? Cho biết kết quả của đoạn mã sau:
+1 : int x = 3; int y = 10;
+2 : System.out.println(y % x);
+** 1
+** 0
+** 2
+** 3
+?? Chọn câu khai báo không hợp lệ
+** abstract double d;
+** String s;
+** abstract final double hyperbolCosine();
+** Tất cả các câu trên đều đúng
+?? Chọn dòng phát sinh lỗi khi biên dịch
+1 : byte b = 2;
+2 : byte b1 = 3;
+3 : b = b * b1;
+** Dòng 1
+** Dòng 2
+** Dòng 3
+** Tất cả các câu trên đều sai
+?? Trong đoạn mã sau kiểu dữ liệu của biến result có thể là những kiểu nào?
+1 : byte b = 11;
+2 : short s =13;
+3 : result = b * ++s;
+** int, long, float, double
+** byte, short, int, long, float, double
+** boolean, byte, short, char, int, long, float, double
+** byte, short, char, int, long, float, double
+?? Cho đoạn mã sau :
+1 :	Racoon rocky;
+2 :	SwampThing pogo;
+3 :	Washer w;
+4 :
+5 :	rocky = new Racooon();
+6 :	w = rocky;
+7 :	pogo = w;
+** Dòng 6 sẽ không biên dịch; cần phải có phép ép kiểu để chuyển từ kiểu Racoon sang kiểu Washer
+** Dòng 7 sẽ không biên dịch; cần có phép ép kiểu để chuyển từ kiểu Washer sang kiểu SwampThing
+** Đoạn mã sẽ biên dịch nhưng sẽ phát sinh Exception ở dòng 7 vì chuyển đổi kiểu khi thực thi từ interface sang class là không được phép
+** Đoạn mã sẽ biên dịch và sẽ phát sinh Exception ở dòng 7 vì kiểu lớp của w tại thời điểm thực thi không thể chuyển sang kiểu SwampThing
+?? Trong ngôn ngữ lập trình java có phân biệt chữ in hoa và in thường không ?
+** Có
+** không
+?? Đoạn mã nào sau đây in ra màn hình chữ "Equal":
+** int x = 100; float y = 100.0F;
+if (x == y)
+{
+System.out.println("Equal");
+}
+** Integer x = new Integer(100);
+Integer y = new Integer(100);
+if (x == y)
+{     System.out.println("Equal");   }
+**  String x = "100"; String y = "100";
+if (x == y)
+{  System.out.println("Equal");   }
+** Float x = new Float(100);
+Float y = new Floatr(100);
+if (x == y)
+{   System.out.println("Equal");   }
+
+?? Cho biết kết quả sau khi thi hành chương trình sau:
+1 : public class Short{
+2 : 	public static void main(String[] args){
+3 : 		StringBuffer s = new StringBuffer("Hello");
+4 : 		if ((s.length() > 5) &&
+5 : 		s.append(" there").equals("False")))
+6 : 			;//do nothing
+7 : 		System.out.println("value is " + s);
+8 :	 }
+9 : }
+** Lỗi biên dịch tại dòng 4 và 5
+** Giá trị xuất là Hello
+** Không có giá trị xuất
+** Thông báo NullPointerException
+?? Cho biết kết quả sau khi biên dịch và thi hành chương trình sau:
+1 : public class Conditional{
+2 : public static void mai n(String[] args){
+3 : int x = 4;
+4 : System.out.println("value is " +
+5 : ((x > 4 ? 99.99 : 9));
+6 : }
+7 : }
+** Kết quả là: value is 9
+** Kết quả là: value is 99.99
+** Kết quả là: value is 9.0
+** Lỗi biên dịch tại dòng số 5
+?? Cho biết kết quả của đoạn mã sau:
+1 : int x = 3; int y = 10;
+2 : System.out.println(y % x);
+** 1
+** 2
+** 3
+** 4
+?? Chọn phát biểu đúng cho chương trình sau
+1 : class StaticStuff
+2 : {
+3 : 	static int x = 10;
+4 :
+5 : 	static {x += 5;}
+6 :
+7 : 	public static void main(String args[])
+8 : 	{
+9 : 		System.out.pritln("x = " + x);
+10: 	}
+11:
+12: 	static {x /= 5}
+13: }
+** Lỗi  dòng 5 và 12 bỡi vì thiếu tên phương thức và kiểu trả về
+** Chương trình chạy và cho kết quả x = 10
+** Chương trình chạy và cho kết quả x = 15
+** Chương trình chạy và cho kết quả x = 3
+?? Dòng lệnh nào sau đây sẽ không thể biên dịch:
+1 : byte b = 5;
+2 : char c = "5’;
+3 : short s = 55;
+4 : int i = 555;
+5 : float f = 555.5f;
+6 : b = s;
+7 : i = c;
+8 : if (f > b)
+9 : f = i;
+** Dòng 2
+** Dòng 3
+** Dòng 4
+** Dòng 5
+?? Java là gì? (theo định nghĩa của Khoa học máy tính)
+** Là ngôn ngữ lập trình hướng đối tượng
+** Là một loại cà fê
+** Là một loại trang web
+** Không phải các đáp án trên
+?? Java chạy trên nền hệ điều hành .........
+** Tất cả các phương án trên
+** Windows
+** Unix/Linux
+** Macs
+?? Tất cả các chương trình ứng dụng Java phải có phương thức nào để thực thi
+** Main()
+** Hello()
+** Start()
+** Method()
+?? Câu lệnh để thực hiện chương trình Java đã được biên dịch là:
+** java
+** run
+** execute
+** javac
+?? Thành phần nào không được sử dụng trong phần khai báo biến
+** Phép gán
+** Kiểu dữ liệu
+** Dấu chấm phẩy
+** Tên định dang
+?? Kết quả khi thực hiện biên dịch đoạn chương trình sau
+public class MyClass
+{
+	final int i ;
+	public static void main(String[] arguments)
+	{
+		System.out.println(new MyClass().i);
+	}
+}
+** Đưa ra lỗi biên dịch
+** In ra giá trị bằng 0
+** Đưa ra lỗi thực thi
+** Không phải là các đáp án trên
+??Giá trị nào trong các giá trị sau có thể gán cho biến kiểu char
+(1) 'A' 		(2)  9
+(3) "Hello"		(4)  12.3
+** (1) và (2)
+** (1), (2) và (3)
+** (1)
+** Không phải là các phương án trên
+?? Khi thực hiện cộng số thực, số nguyên và byte lại với nhau thì kết quả có kiểu
+** float
+** int
+** byte
+** double
+?? Phương thức HelloWorld() là phương thức kiểu void và không có đối số. Nếu cần phải định nghĩa phương thức theo yêu cầu này thì phương thức phải được khai báo có dạng
+** void HelloWorld();
+** HelloWorld();
+** HelloWorld(void);
+** void HelloWorld(void);
+?? Phương thức min() để tìm min của hai số nguyên được khai báo có dạng
+** public void min (int a, int b);
+** public void min();
+** public void min (int a, b);
+** public int min (a, b);
+?? Các file nguồn của java được lưu với phần mở rộng là?
+** .java
+** .class
+** .src
+** .javadoc
+?? Ngôn ngữ Java hỗ trợ các kiểu chú thích kiểu
+** Block, line and Javadoc
+** Javadoc, literal and String
+** Javadoc, char and String
+** Single, multiple and quote
+?? Trong ngôn ngữ Java, đối số của hàm được mô tả trong cặp dấu
+** ( )
+** { }
+** [ ]
+** ‘ ’
+?? Đâu là giá trị được mô tả cho kiểu só nguyên
+(1) 0							(2) -5
+(3) 0416						(4) 0xabcdef
+** 1 và 2
+** Tất cả các phương án trên
+** Không phải các phương án trên
+** 1,2 và 3
+?? Kết quả thu được như thế nào khi thực hiện đoạn mã sau:
+class MyClass
+{
+ public static void main(String []args)
+ {
+   final int i = 100;
+   byte b = i;
+   System.out.println(b);
+ }
+}
+** Biên dịch thành công và in ra 100
+** Đưa ra lỗi biên dịch
+** Đưa ra ngoại lệ
+** Không có phương án nào đúng
+?? Kết quả in ra khi thực hiện đoạn chương trình sau
+public class Question01 {
+	public static void main(String[] args){
+		int y=0;				//line 1
+		int x=z=1;				//line 2
+		System.out.println(y+","+x+","+z);	//line 3
+	}
+}
+** In ra 0,1,1
+** Lỗi xảy ra trong quá trình biên dịch ở dòng 1
+** In ra 0,0,1
+** Lỗi xảy ra trong quá trình biên dịch ở dòng 3
+??Kiểu dữ liệu byte nhận giá trị trong phạm vi nào?
+** -128 to 127
+** (-2 power 8 )-1 to 2 power 8
+** -255 to 256
+** Phụ thuộc vào thực thi của máy ảo Java
+?? Từ khóa nào không có trong java
+** then
+** if
+** while
+** case
+?? Cách đặt tên nào là không được phép
+** 2variable
+** variable2
+** _whatavariable
+** _3_
+?? Điều gì sẽ xảy ra khi thực hiện biên dịch và thực thi đoạn chương trình sau?
+public class MyClass{
+	static int i;
+	public static void main(String argv[ ]){
+		System.out.println( i );
+	}
+}
+** Xảy ra lỗi do biến i chưa khởi tạo
+** null
+** 1
+** 0
+?? Chương trình được viết bằng ngôn ngữ Jav có thể chạy trên bất kỳ nền nào bởi vì...
+** Máy ảo JVM được tích hợp trong chương trình
+** Lập trình Java được kế thừa từ C++
+** Trình biên dịch được xác định bởi trình biên dịch của C++
+** Hàm API thực hiện các thao tác
+?? Mục đích của hàm main là ...
+** Để thực hiện các thao tác bắt đầu của chương trình
+** Để xây dựng giao diện người dùng
+** Để nắm giữ các hàm API của các ứng dụng
+** Để tạo các nút bấm và các thanh cuộn
+?? Mục đích chính của các câu lệnh import là...
+** Để tham chiếu tới các lớp mà không cần tiền tố
+** Để tránh khỏi phải khai báo biến
+** Để tránh thực hiện lời gọi tới các phương thức
+** Để gọi tới các ảnh mà bạn muốn sử dụng
+?? Cho biết biến sum sau khi chạy chương trình dưới đây là:
+class Test
+{
+	int i, sum;
+	i=5; sum=0;
+	while(i>0)
+	{
+		i--;
+		sum=sum + i;
+	}
+}
+**10;
+**15;
+**12;
+** 8;
+?? Các khai báo phương thức main sau đây khai báo nào đúng:
+** public static void main(String [] args){}
+** public main(String args[]) {}
+** public void main(String []args){}
+** public void static main(String [] args){}
+?? Các câu lệnh sau đây câu lệnh nào không hợp lệ:
+** if ((b!=a) or (b<c)) {a=b+c;}
+** if ((a != b) && (a > c)) {b=c+a;}
+** if ((a=b) && (b=c)) {a=c;}
+** if ((b==a) || (b !=c)) {a!=c;}
+?? Các khai báo phương thức sau đây, khai báo nào đúng:
+** public void paint(Graphic g){}
+** public  min(float x, float y){  }
+** private int Max(int x, float y){}
+** private void paint(Graphic g){}
+?? Các khai báo sau đây khai báo nào đúng:
+** static String x;
+** private string y;
+** private Float x1;
+** button b1;
+?? Các câu lệnh sau câu lệnh nào sai:
+** String st = String();
+** String  str1 = new String();
+** String str2 = new String(“Hello”,30);
+** String st3 = "Bai thi";
+?? Các câu lệnh sau câu lệnh nào đúng:
+** Tat ca cac phuong an deu dung
+** String st1 = "Bai thi";
+** String  str1 = new String();
+** String str2 = new String(“Hello”,30);
+?? Cho khai báo phương thức sau: 			private void max(float  x, fload  y){}
+Các khẳng định sau đây khẳng định nào đúng:
+** phương thức này chỉ được truy xuất bên trong lớp chứa nó.
+** phương thức này có thể truy xuất từ bất kỳ lớp bên ngoài nào.
+** chỉ các lớp dẫn xuất của lớp chứa phương thức này mới truy xuất được nó.
+** Cả 3 khẳng định trên đều đúng
+?? Các khai báo phương thức main sau đây khai báo nào đúng:
+** public static void main(String [] args){}
+** public void static main(String [] args){}
+** public main(String args[]) {}
+** public void main(String []args){}
+?? Các khai báo biến sau đây, khai báo nào không hợp lệ.
+** static string s = new string("Hello");
+** static float x[]  = new float[100];
+** static Button b= new Button();
+** static Date toDay=new Date();
+?? Các định nghĩa phương thức sau đây định nghĩa nào sai:
+** static void My(float x){x=5;return x}
+** final float MyMethd(float y){}
+** private float MyMethd(float z, int i){z=10;return z;}
+** protected float MyMethd(float r, String s){r=10;return r;}
+?? Với khai báo biến s bằng câu lệnh: static String s, các khởi tạo dưới đây, khởi tạo nào sai:
+** s= s + "789";
+** s=  new String("12");
+** s = "3456";
+** s = s & "10";
+?? Câu lện khai báo biến: int i,j và float x,y ; các phép gán dưới đây phép gán nào sai:
+** i = Integer.parseInteger("123");
+** x = Float.parseFloat("0.123");
+** y = Float.parseFloat("123");
+** j = Integer.parseInt("123");
+??Các lệnh xuất kết quả dưới đây, lệnh nào sai:
+**System.out.print("Hello"," CN14L1 ", "class");
+**System.out.print("Hello"+" CN14L1 " + "class");
+**System.out.print("Hello"+50/15);
+**System.out.print("Hello"+50/15+ "bye");
+??Các phương thức dưới đây, phương thức nào không cần cài đặt code.
+**abstract void MyMethod(String s){... }
+**public void MyMethod(String s){ ...}
+**static void MyMethod(String s){..}
+**final void MyMethod(String s) { }
+??Các lớp dưới đây, lớp nào không thuộc luồng vào ra (I/O):
+**System
+**InputStream
+**Reader
+**Writer
+??Nếu có cả 3 khai báo class, import, packageb trong cùng một tập tin mã nguồn thì chúng phải xuất hiện theo thứ tự nào là hợp lệ:
+**package, import, class
+**class, import, package
+**import, class, package
+**package, class, import
+??Cho đoạn chương trình:
+int[] x = new int[25];
+Chọn phát biểu đúng:
+**Giá trị của x[24] là null
+**x[24] không tồn tại
+**Giá trị của x[24] là 0
+**Tất cả câu trên đều sai
+??Biểu thức nào sau đây là hợp lệ. Chọn câu tra lời thích hợp nhất:
+**int x = 6; if (!(x>3)) {}
+**int x = 6; x != x;
+**int x = 6; x = ~x;
+**Cả câu b) và câu c) đều đúng
+
+??Constructor là :
+**Các hàm có tên trùng với tên lớp và không có kiểu dữ liệu của hàm.
+**Hàm có tên trùng với tên lớp, kiểu dữ liệu của hàm là void
+**Hàm có tên trùng tên lớp và có dấu ngã ‘~’ trước tên hàm.
+**Các hàm có tên trùng với tên lớp và không có tham số.
+??Phát biểu nào sau đây là sai
+**Hàm destructor không thể là một hàm ảo.
+**Mỗi lớp chỉ có duy nhất một hàm destructor
+**Hàm constructor không thể là một hàm ảo.
+**Một lớp có thể có nhiều hàm constructor.
+??Để so sánh nội dung của 2 chuỗi, ta dùng phương thức nào sau đây?
+**equals()
+**isEquals()
+**equal()
+**isEqual()
+??Nếu String name = "TP HCM"; thì câu lệnh name.length(); sẽ trả về bao nhiêu?
+**6
+**5
+**7
+**8
+??Khi khai báo một lớp, từ khóa nào đi ngay trước tên lớp
+**Class
+**Static
+**Public
+**Abstract
+??Phát biểu nào sau đây đúng nhất về 2 phương thức overriding?
+**Thuộc hai lớp có quan hệ kế thừa
+**Cùng tên khác kiểu trả về
+**Cùng tên khác danh sách đối số
+**Thuộc cùng một lớp
+??Lớp String  thuộc package
+**java.util
+**java.lang
+**javax.util
+**java.string
+??Để tham chiếu đến phương thức trong lớp cơ sở, ta dùng từ khóa nào sau đây?
+**super
+**subclass
+**this
+**parent
+??Muốn khai báo một thuộc tính trong một lớp được chia sẻ bởi tất cả các đối tượng thuộc lớp đó thì dùng từ khóa nào sau đây?
+**Static
+**shared
+**all
+**Unique
+??Phương thức nào sau đây sẽ làm cho giá trị biến s bị thay đổi
+**s.replace()
+**s.concat()
+**s.toUpperCase()
+**s.toLowerCase()
+??Trong lớp String hàm toUpperCase() dùng để
+**Chuyển đổi đã chuổi thành chữ hoa
+**Chuyển đổi ký tự đầu mỗi từ thành chữ hoa
+**Chuyển đổi ký tự cuối cùng thành chữ hoa
+**Chuyển đổi chuỗi thành chữ thường
+??Đâu là cú pháp của hàm copyValueOf:
+**String copyValueOf( char ch[], int start, int num)
+**void copyValueOf( char ch[], int start, int num)
+**String copyValueOf( char ch, int start, int num)
+**String copyValueOf( char ch[], float start, int num)
+??Đâu là cách khai báo tạo ra chuỗi ký tự
+**Cả hai phương án đều đúng
+**String s;
+**String s = new String( “Test”)
+**Cả hai phương án đều sai
+*Chọn phát biểu đúng cho hàm khởi tạo
+**Trình biên dịch sẽ tự động tạo hàm khởi tạo mặc định nếu lớp không định nghĩa hàm khởi tạo
+**Một lớp sẽ kết thừa các hàm khởi tạo từ lớp cha
+**Tất cả các hàm khởi tạo có kiểu trả về là void
+**Tất cả các câu trên đều sai
+??Chọn câu phát biểu đúng
+**Cả hai lựa chọn đều đúng
+**Một lớp trừu tượng không thể chứa phương thức final
+**Một lớp final không thể chứa các phương thức trừu tượng
+**Cả hai lựa chọn đều sai
+??Đoạn mã sau sai chỗ nào?
+Public class Questuon{
+public static void main( String arg[]){
+Boolean b = new Boolean(“TRUE”);
+if (b){
+for(Integer I = 0; i<10; ++i){
+System.out.println(i);
+}
+}
+}
+**Chỉ số của câu lệnh for là int thay vì Integer
+**Đoạn mã không có lỗi
+**Điều kiện câu lệnh if phải có kiểu boolean thay vì Boolean
+**Trong java không có kiểu logic Boolean
+??Hãy cho biết kết xuất của đoạn chương trình sau:
+Class S1{
+	Public static void main( String arg[]){
+		new S2();	}
+	S1(){ System.out.print(“S1”);}
+}
+Class S2 extends S1{
+	S2(){ System.out.print(“S2”); }
+}
+**S1S2
+**S1
+**S2
+**S2S1
+??Cho biết kết xuất của đoạn chương trình sau:
+class Question{
+	String s = “Outer”;
+	Public static void main( String arg[]){
+		S2 s2 = new S2();
+		S2.display();
+	}
+}
+class S1{
+	String s = “S1”;
+	void display(){ System.out.print(s); 	}
+}
+class S2 extends S1{
+	String s = “S2”;
+}
+**S1
+**S2
+**null
+**S1S2
+??Cho đoạn mã sau:
+1 : class Q6{
+2 : public static void main(String args[]){
+3 : Holder h = new Holder();
+4 : h.held = 100;
+5 : h.bump(h);
+6 : System.out.println(h.held);
+7 : }
+8 : }
+9 : class Holder{
+10 : public int held;
+11 : public void bump(Holder theHolder){
+12 : theHolder.held++;
+13 : }
+14 : }
+Giá trị in ra của câu lệnh ở dòng thứ 6 là:
+**101
+**0
+**1
+**100
+??Cho đoạn mã sau:
+1 : class Q7{
+2 : public static void main(String args[]){
+3 : double d = 12.3;
+4 : Decrementer dec = new Decrementer();
+5 : dec.decrement(d);
+6 : System.out.println(d);
+7 : }
+8 : }
+9 : class Decrementer{
+10 : public void decrement(double decMe){
+11 : decMe = decMe - 1.0;
+12 : }
+13 : }
+Giá trị in ra của câu lệnh ở dòng thứ 6 là:
+**11.3
+**0.0
+**-1.0
+**12.3
+??Chọn cách sửa ít nhất để đoạn mã sau biên dịch đúng
+3 : final class Aaa
+4 : {
+5 : int xxx;
+6 : void yyy(){xxx = 1;}
+7 : }
+8 :
+9 :
+10 : class Bbb extends Aaa
+11 : {
+12 : final Aaa finalRef = new Aaa();
+13 :
+14 : final void yyy()
+15 : {
+16 : System.out.println("In method yyy()");
+17 : finalRef.xxx = 12345;
+18 : }
+19 : }
+**Xóa từ final ở dòng 3 và 12
+**Xóa từ final ở dòng 3
+**Xoá từ final ở dòng 12
+**Không cần phải chỉnh sửa gì
+??Cho đoạn mã sau:
+1 : class SuperDuper
+2 : {
+3 : void aMethod(){}
+4 : }
+5 :
+6 : class Sub extends SuperDuper
+7 : {
+8 : void aMethod(){}
+9 : }
+Hãy chọn từ khóa chỉ phạm vi hợp lệ đứng trước aMethod()
+**Tất cả các câu trên đều đúng
+**default
+**protected
+**public
+??Cách lập trình mà tập trung gồm các thành phần đối tượng là đặc trưng của ngôn ngữ
+**Ngôn ngữ lập trình hướng đối tượng
+**Ngôn ngữ máy
+**Hệ thống xử lý theo từng dòng lệnh
+**Ngôn ngữ xử lý hướng thủ tục
+??Các thuộc tính của đối tượng được mô tả dưới dạng
+**Behavior
+**State
+**Method
+**Procedures
+??Phương thức loại nào trong các loại sau không được quyền truy cập đển để thay đổi trong Java
+**private
+**protected
+**public
+**private protected
+??Kết quả thực hiện của đoạn chương trình sau:
+ public class MyClass
+ {
+  public static void main(String args[])
+  {
+    System.out.println("In first main()");
+  }
+  public static void  main(char args[])
+  {
+    System.out.println('a');
+  }
+ }
+** Biên dịch có lỗi và đưa ra thông báo lỗi "Duplicate main() method declaration"
+**Biên dịch thành công nhưng sẽ đưa ra lỗi xảy ra ngoại lệ khi chạy
+** Biên dịch thành công và đưa màn hình kết quả “In first main()" khi chạy với đối số của ‘a’
+** Biên dịch thành công và đưa ra màn hình kết quả “a” khi chạy với đối số của ‘a’
+??Kết quả thu được như thế nào khi thực hiện đoạn mã sau:
+class MyClass
+{
+  public static void main (String args[])
+  {
+   String s1[] = new String[5];
+   String str = s1[0].toUpperCase();
+   System.out.println(str);
+  }
+}
+**Sẽ in ra giá trị null
+**Đưa ra ngoại lệ NullPointerException
+**Sẽ không thực thi được
+**Sẽ in ra giá trị NULL
+??Kết quả thực hiện của đoạn mã sau:
+if("String".toString() = = "String")
+    System.out.println("Equal");
+else
+    System.out.println("Not Equal");
+**Đoạn mã sẽ biên dịch và in ra giá trị “Not Equal”
+**Đoạn mã sẽ thực thi và in ra giá trị “Equal”
+**Đoạn mã sẽ xảy ra lỗi biên dịch
+**Không có các phương án đúng
+??Kết quả thực hiện của đoạn mã sau:
+ if(" String ".trim() = = "String")
+    System.out.println("Equal");
+else
+    System.out.println("Not Equal");
+**Đoạn mã sẽ biên dịch và in ra giá trị “Not Equal”
+**Đoạn mã sẽ thực thi và in ra giá trị “Equal”
+**Đoạn mã sẽ xảy ra lỗi biên dịch
+**Không có các phương án đúng
+??Cho biết kết quả in ra của đoạn chương trình sau
+public class AQuestion
+{
+     public void method(Object o)
+     {
+         System.out.println("Object Verion");
+     }
+ public void method(String s)
+ {
+    System.out.println("String Version");
+ }
+ public static void main(String args[])
+ {
+     AQuestion question = new AQuestion();
+     question.method(null);
+ }
+}
+**Đoạn mã biên dịch rõ ràng và hiển thị kết quả “String Version"
+**Đoạn mã không biên dịch
+**Đoạn mã biên dịch rõ ràng và hiển thị kết quả "Object Version".
+**Đoạn mã xảy ra ngoại lệ Exception khi thực hiện
+??Kết quả thực hiện của đoạn mã sau:
+public class AQuestion
+{
+ private int i = j;
+ private int j = 10;
+ public static void main(String args[])
+ {
+      System.out.println((new AQuestion()).i);
+ }
+}
+**Không có lỗi và in ra kết quả là 0
+**Biên dịch lỗi do giới hạn truy cập đến biến kiểu private của AQuestion
+**Biên dịch lỗi do tham chiếu ngược
+**Không có lỗi và in ra kết quả là 10
+??Cho biết kết quả in ra khi thực hiện đoạn chương trình sau:
+import java.io.*;
+public class Question05 {
+public static void main(String[] args) {
+Question05Sub myref = new Question05Sub();
+try{
+myref.test();
+}catch(IOException ioe){}
+}
+void test() throws IOException{
+System.out.println("In Question05");
+throw new IOException();
+}
+}
+class Question05Sub extends Question05 {
+void test() {
+System.out.println("In Question05Sub");
+}
+}
+**In Question05Sub
+**In Question05  Sub
+**In Question05 In Question05
+**In Question05
+??Kết quả gì sẽ xảy ra khi thực hiện biên dịch và thực thi đoạn chương trình sau
+public class Q {
+ public static void main(String argv[]){
+ int anar[]=new int[5];
+ System.out.println(anar[0]);
+ }
+}
+**0
+**Lỗi: mảng anar được tham chiếu đến trước khi khởi tạo
+**null
+**5
+??Hàm cấu tử được sử dụng với mục đích...
+**Để khởi tại cho đối tượng được tạo mới
+**Để giải phóng bộ nhớ
+**Để import các gói khi cần sử dụng
+**Để tạo máy ảo JVM cho các applet
+??Các câu lệnh sau đây câu lệnh nào không hợp lệ:
+**if ((b==a) and (b<c)) {}
+** if ((a > b) && (a > c)) {}
+**if ((b#a) || (b==c)) {}
+**if ((b==a) || (b !=c)) {}
+??Cho khai báo phương thức sau:                    private void max(float  x, fload  y){   }
+Các khẳng định sau đây khẳng định nào đúng:
+**phương thức này chỉ được truy xuất bên trong lớp chứa nó.
+**phương thức này có thể truy xuất từ bất kỳ lớp bờn ngoài nào.
+**chỉ các lớp dẫn xuất của lớp chứa phương thức này mới truy xuất được nó.
+**Cả 3 khẳng định trên đều đúng
+??Cho khai báo phương thức sau:
+public void Product(int x,  String s){}
+Các khẳng định sau đây khẳng định nào đúng:
+**phương thức này có thể truy xuất từ bất kỳ lớp bên ngoài nào.
+**phương thức này chỉ được truy xuất bên trong lớp chứa nó.
+**chỉ các lớp dẫn xuất của lớp chứa phương thức này mới truy xuất được nó.
+**Cả 3 khẳng định trên đều đúng
+??Các khai báo lớp sau đây, khai báo nào đúng:
+**abstract class  Class_Name {  }
+ **class_Name extends Applet{}
+**public  Class_name  extends JPanel{  }
+ **public Class_name  extends Applet()
+??Cho đoạn chương trình dưới đây:
+class Car{
+public  String  NhaSX;
+public String  model;
+protected int NamSX;
+private  double Gia;
+public Car (String madeBy, String name, int years, int pass, float cost)
+{  NhaSX = madeBy;  model = name; NamSX = years;    Gia = cost; }
+}
+Phương thức Car gọi là phương thức gì:
+**Phương thức khởi tạo
+**Phương thức cấu trúc
+**Phương thức thông báo
+**Phương thức trừu tượng
+??Cho lớp MyClass như sau.
+Import java.io.*;
+class MyClass{
+static BufferedReader buf= new BufferedReader(new InputStreamReader(System.in));
+public static void main(String args[]){
+String  m=new String(); float x;
+m= buf.readLine();
+try{
+x=Float.parseFloat(m);
+}catch(Exception e){}
+}
+}
+Khẳng định nào là đúng trong các khẳng định sau:
+**Biến m, x khai báo trong phương thức main
+**Không thể chuyển đổi một chuỗi sang số thực
+**Luồng nhập ngoài cặp lệnh try... catch
+**Biến m, x không khai báo static
+??Cho khởi tạo lớp A như sau:
+public class A{  String ten = new String();  static int tuoi;
+public A(String a, int b) { this.ten = a; this.tuoi = b;} }
+Chọn trả lời đúng nhất trong các đoạn mã hoặc câu sau:
+**Hai cách khai báo trên đều đúng
+**   class B{
+static A a=new A("Alen",18);
+public static void main(String args[]){
+String s= a.ten;   int t=a.tuoi; } }
+**class C{
+A x = new A("Alen", 18);
+}
+**Hai cách khai báo trên đều sai
+??Chọn câu đúng nhất trong các câu sau:
+**Muốn truy cập lớp từ lớp ngoài, phải có chỉ định truy xuất lớp là public;
+**Mỗi lớp phải có một phương thức cấu trúc.
+**Lớp không có phương thức cấu trúc thì không thể truy cập từ lớp ngoài;
+**Lớp không có phương thức main thì không thể truy cập từ lớp ngoài;
+??Khởi tạo biến chuỗi String s = new String("Hello Java"), các lệnh dưới đây, lệnh nào không hợp lệ:
+**int i = leng(s);
+**int i = s.length();
+**s.toLowerCase();
+**s.toUpperCase();
+??Cho đoạn mã với 2 cách đọc biến kiểu String s1, s2 từ bàn phím.
+import java.io.*;
+class  ReadString{
+public static void main(String args[]){
+String s1 = new String();
+String s2 = new String();
+BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+DataInputStream df = new DataInputStream(System.in);
+try{
+s1 = bf.readLine();
+s2 = df.readLine();
+}catch(IOException e){}
+}
+}
+Hãy chọn câu trả lời đúng
+**Cả hai cách đọc đều đúng
+**Cách đọc s1 đúng
+**Cách đọc s2 đúng
+**Cả hai cách đọc đều sai.
+??Các định nghĩa dưới đây, định nghĩa nào chính xác nhất:
+**Cả ba phát biểu đều đúng
+**Cho phép các phương thức trong một lớp khai báo: trùng tên, trùng tham số và khác kiểu dữ liệu trả về.
+**Cho phép các phương thức trong một lớp khai báo: trùng tên, khác số lượng và kiểu dữ liệu của tham số.
+**Cho phép các phương thức trong một lớp khai báo: trùng tên, khác tham số, cùng kiểu dữ liệu trả về.
+??Các định nghĩa phương thức sau đây định nghĩa nào sai:
+**static void My(float x){x=5; return x}
+**final float MyMethd(float y){}
+**private float MyMethd(float z, int i){z=10; return z;}
+**protected float MyMethd(float r, String s){r=10; return r;}
+??Khởi tạo biến chuỗi String s = new String("Hello Java"), các lệnh dưới đây, lệnh nào không hợp lệ:
+**int i = leng(s);
+**int i = s.length();
+**s.toLowerCase();
+**s.toUpperCase();
+??Cho đoạn chương trình sau:
+1. class Q4 {
+2. public static void main( String args[]){
+3. 	Holder h = new Holder( );
+4. 	h.held = 100;
+5.	h.bump(h);
+6.	System.out.println(h.held);
+7. 	}
+8. }
+9. class Holder{
+10. 	public int held;
+11.	public void bump( Holder theHolder) {
+12.	theHolder.held++;
+13. 	}
+14. }
+Cho biết kết quả xuất ra ở dòng số 6 của đoạn chương trình  trên:
+**101
+**0
+**1
+**100
+??Cho đoạn chương trình sau:
+1. class Q5{
+2. 	public static void main( String args[]){
+3. 		double d = 12.3;
+4. 		Decrementer dec = new Decrementer( );
+5. 		dec.decrement(d);
+6. 		System.out.println(d);
+7. 	}
+8. }
+9. class Decrementer{
+10.	 public void decrement( double decMe) {
+11. 		decMe = decMe - 1.0;
+12.	 }
+13. }
+Cho biết kết quả xuất ra ở dòng số 6 của đoạn chương trình trên:
+**11.3
+**0.0
+**-1.0
+**12.3
+??Lớp nào sau đây dùng để thực hiện các thao tác nhập xuất cơ bản console
+**System
+**Math
+**String
+**StringBuffer
+??Cho đoạn chương trình sau:
+1. class MyClass
+2. {
+3. 	void myMethod( int i ){ System.out.println(“int version”); }
+4. 	void myMethod( String s) { System.out.println(“String version”); }
+5. 	public static void main( String args[])
+6. 	{
+7.		 MyClass obj = new MyClass();
+8. 		char ch = ‘c’;
+9. 		obj.myMethod(ch);
+10. 	}
+11. }
+Hãy chọn phát biểu đúng:
+**Đoạn chương trình thi hành và in ra kết quả là: int version
+**Dòng 4 không thể biên dịch vì không thể override các phương thức có kiểu trả về là void
+**Dòng số 9 sẽ phát sinh 1 biệt lệ
+**Dòng số 9 không thể biên dịch vì phương thức myMethod không nhận tham số kiểu char
+??Cho biết kết quả của đoạn chương trình sau:
+1. public class Test
+2. {
+3. 	public void method()
+4. 	{
+5. 		for(int i=0; i<3; i++)
+6. 		{
+7. 			System.out.print(i);
+8. 		}
+9. 		System.out.print(i);
+10.	 }
+11. }
+**Có lỗi khi biên dịch
+**0122
+**0123
+**Tất cả các câu trên đều sai
+??Đoạn mã sau sai chỗ nào?
+public class Question
+{
+public static void main( String args[])
+{
+Boolean b = new Boolean(“TRUE”);
+if (b)
+{
+for( Integer i = 0; i<10 ; ++i)
+System.out.println(i);
+}
+}
+}
+**Biến i trong câu lệnh for phải là int chứ không phải Integer
+**Đoạn mã không có lỗi
+**Điều kiện của câu lệnh if phải có kiểu boolean chứ không phải Boolean
+**Cả câu b) và câu c) đều đúng
+??Chọn phát biểu thích hợp nhất:
+**Một lớp khai báo trừu tượng (abtract) không thể có những phương thức khai báo final
+**Một lớp khai báo final không thể có những phương thức khai báo trừu tượng (abstract)
+**Cả hai phát biểu đều đúng
+**Cả hai phát biểu đều sai
+??Cho biết thay đổi tối thiểu nào sẽ giúp cho đoạn chương trình bên dưới biên dịch thành công. Chọn câu trả lời thích hợp nhất.
+1. final class A
+2.{
+3. 	int x;
+4. 	void yMethod() { x = 1;}
+5. }
+6.
+7.
+8. class B extends A
+9. {
+10. 	final A finalref = new A();
+11.
+12.	 final void yMethod()
+13.	{
+14.		System.out.println(“Phuong thuc yMethod”);
+15.	finalref.x = 12345;
+16.	 }
+17.}
+**Loại bỏ từ khóa final trên dòng số 1
+**Loại bỏ từ khóa final trên dòng số 10
+**Loại bỏ dòng 15
+**Không cần thay đổi gì cả đoạn chương trình trên sẽ biên dịch thành công
+??Cho biết kết quả in ra của đoạn chương trình sau:
+class Value
+2. {
+3. 	public int i = 15;
+4. }
+5. public class Test
+6. {
+7.	 publci static void main( String argv[])
+8. 	{
+9. 		Test t = new Test();
+10.		 t.first();
+11. 	}
+12. 	public void first()
+13. 	{
+14.		 int i = 5;
+15.	 	Value v = new Value(0);
+16. 		v.i = 25;
+17. 		second(v,i);
+18. 		System.out.println(v.i);
+19. 	}
+20. 	public void second( Value v, int i)
+21. 	{
+22.		 i = 0;
+23. 		v.i = 20;
+24. 		Value val = new Value();
+25. 		v = val;
+26.		 System.out.println( v.i + “” + i );
+27. 	}
+28. }
+** 20  0  20
+**15  0   20
+**15  0  15
+** 0  15  20
+??Cho đoạn chương trình bên dưới:
+1. class A
+2. {
+3. 	void aMethod() {}
+4. }
+5.
+6. class B extends A
+7. {
+8.	 void aMethod(){ }
+9. }
+Cho biết khai báo nào ( public, protected, private) là hợp lệ nếu đặt trước phương thức aMethod() trên dòng số 3.
+**public
+**protected
+**private
+**Cả 3 câu a, b, c đều sai
+??Cho định nghĩa của một lớp Test như sau:
+public class Test {
+2. 	public float aMethod( float a, float b ) {
+3.  	}
+4. ......
+5. }
+Phương thức nào bên dưới là không hợp lệ nếu ta thêm vào dòng số 4 của đoạn chương trình trên:
+**public float aMethod( float c, float d ) { }
+**public int aMethod ( int a, int b ) { }
+**public float aMethod( float a, float b, float c ) throws Exception { }
+**private float aMethod( int a, int b, int c ) { }
+??Cho hai lớp Test1 và Test2 định nghĩa trong hai file khác nhau. Cụ thể như sau:
+1. public class Test {
+2. public float aMethod( float a, float b ) throws IOException
+3. {
+4. }
+5. }
+1. public class Test2 extends Test1 {
+2. ......
+3. }
+Phương nào bên dưới là Không hợp lệ nếu ta thêm vào dòng số 2 của lớp có tên là Test2
+**public float aMethod( float p, float q) { }
+**public int aMethod( int a, int b ) throws Exception { }
+**float aMethod ( float a, float b) { }
+**public float aMethod( float a, float b) { }
+??Cho hai lớp Base và Sub định nghĩa trong 2 tập tin  khác nhau:
+1.  public class Base{
+2. 	public void method( int i) {
+3. 		System.out.println(“Value is” + i);
+4. 	}
+5. }
+1.  public class Sub extends Base {
+2. 	public void method( int j ) {
+3. 		System.out.println(“This value is” + j);
+4. 	}
+5.	 public void method( String s) {
+6. 		System.out.println(“I was passed” +s);
+7. 	}
+8. 	public static void main( String args[] ) {
+9. 		Base b1 = new Base();
+10. 		Base b2 = new Sub();
+11. 		b1.method(5);
+12. 		b2.method(6);
+13. 	}
+14. }
+Hãy cho biết kết xuất chương trình khi thực hiện phương thức main của lớp Sub
+**Value is 5
+    Value is 6
+**This value is 5
+    This value is 6
+** Value is 5
+     This value is 6
+** This value is 5
+     Value is 6
+??Chọn phát biểu đúng cho hàm khởi tạo (constructor):
+**Trình biên dịch sẽ tự động tạo hàm khởi tạo mặc định nếu lớp không định nghĩa hàm khởi tạo
+**Một lớp con sẽ kế thừa các hàm khởi tạo từ lớp cha
+**Tất cả các hàm khởi tạo có kiểu trả về là void
+**Tất cả các câu trên đều sai
+??Chọn phát biểu đúng đối với đoạn chương trình bên dưới:
+1.  String s1 = “abc” + “def”;
+2.  String s2 = s1;
+3.  if ( s1 == s2 )
+4. 	System.out.println(“ So sanh == thanh cong” );
+5. if ( s1.equals( s2 ))
+6. 	System.out.println(“ Phuong thuc equals co ket qua dung” );
+**Cả dòng lệnh số 4 và số 6 đều thực hiện
+**Dòng lệnh số 4 thực hiện, còn dòng số 6 thì không
+**Dòng lệnh số 6 thực hiện, còn dòng số 4 thì không
+**Cả dòng lệnh số 4 và số 6 đều không thực hiện
+??Cho đoạn chương trình khai báo như sau:
+public class MyClass {
+public static void main( String[] args){
+C c = new C( );
+System.out.println(c.max(13,29));
+}
+}
+class A{
+int max(int x, int y) { if (x>y) return x; else return y;}
+}
+class B extends A{
+int max(int x, int y) { return super.max(y,x)-10; }
+}
+class C extends B {
+int max(int x, int y) { return super.max(x+10,y+10); }
+}
+Hãy chọn phát biểu đúng:
+**Chương trình biên dịch thành công và in ra giá trị 39 khi thi hành
+**Chương trình không thể biên dịch vì phương thức max( ) trong lớp B truyền tham số khi gọi hàm super.max(y,x) sai vị trí
+**Chương trình biên dịch thành công và in ra giá trị 23 khi thi hành
+**Chương trình biên dịch thành công và in ra giá trị 29 khi thi hành
+??Đoạn mã nào cho phép in ra dòng chữ “test” lên màn hình
+** int x=012;
+if ( x==10) { System.out.println(“test”); }
+** int x=10.0;
+if ( x==10.0) { System.out.println(“test”); }
+**int x=10f;
+if ( x==10.0) { System.out.println(“test”); }
+** int x=10L;
+if ( x==10.0) { System.out.println(“test”); }

@@ -60,11 +60,13 @@ a {text-decoration: none;}
 	background-color: #ADF;
 	padding: 10px;
 	text-align: justify;
+	white-space: pre;
 }
 
 #main #choices
 {
 	margin: 10px 20px;
+	white-space: pre;
 }
 
 #main #choices .choice td {text-align: justify;}

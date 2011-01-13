@@ -1,0 +1,640 @@
+@@ Excel
+?? Một bảng tính worksheet bao gồm:
+** 256 cột và 65536 dòng
+** 265 cột và 65563 dòng
+** 266 cột và 65365 dòng
+** 256 cột và 65365 dòng
+?? Các địa chỉ sau đây là địa chỉ gì: $A1, B$5, C6, $L9, $DS7
+** Địa chỉ hỗn hợp
+** Địa chỉ tương đối
+** Địa chỉ tuyệt đối
+** Tất cả đều đúng
+?? Trong các dạng địa chỉ sau đây, địa chỉ nào là địa chỉ tuyệt đối?
+** $B$1:$D$10
+** B$1:D$10
+** $B1:$D10
+** B$1$:D$10$
+?? Khi đang làm việc với Excel, tổ hợp phím nào cho phép ngay lập tức đưa con trỏ về ô đầu tiên (ô A1) của bảng tính?
+** Ctrl + Home
+** Shift + Home
+** Alt + Home
+** Shift + Ctrl + Home
+?? Trong khi làm việc với Excel, muốn di chuyển con trỏ ô về ô A1, ta bấm?
+** Ctrl - Home
+** Shift - Home
+** Tab - Home
+** Ctrl - Shift - Home
+?? Trong bảng tính Excel, giao của một hàng và một cột được gọi là?
+** Ô
+** Dữ liệu
+** Trường
+** Công thức
+?? Trong bảng tính Excel, khối ô là tập hợp nhiều ô kế cận tạo thành hình chữ nhật, Địa chỉ khối ô được thể hiện như câu nào sau đây là đúng?
+** B1:H15
+** B1...H15
+** B1-H15
+** B1..H15
+??  Trong bảng tính Excel, để chèn thêm một cột vào trang tính, ta thực hiện:
+** Format - Cells - Insert Columns
+** Table - Insert Columns
+** Table - Insert Cells
+** Insert - Columns
+?? Trong bảng tính Excel, để chèn thêm một hàng  vào trang tính, ta thực hiện:
+** Insert - Columns
+** Table - Insert Row
+** Table - Insert Cells
+** Format - Cells - Insert Row
+?? Trong bảng tính Excel, muốn xóa hẳn một cột  ra khỏi trang tính, ta đánh dấu khối chọn hàng này và thực hiện?
+** Edit - Delete
+** Nhấn phím Delete
+** Table - Delete Rows
+** Tools - Delete
+?? Trong bảng tính Excel, muốn xóa hẳn một hàng ra khỏi trang tính, ta đánh dấu khối chọn hàng này và thực hiện?
+** Edit - Delete
+** Nhấn phím Delete
+** Table - Delete Rows
+** Tools - Delete
+?? Để làm ẩn một cột bất kỳ trên bảng tính Excel ta chọn cột cần làm ẩn, sau đó?
+** Cả A và B đều đúng
+** Vào Format/Column, chọn Hide
+** Kích chuột phải lên cột chọn, nhấn Hide
+** Cả A và B đều sai
+?? Trong Excel chèn thêm Sheet mới vào bảng tính chọn?
+** Insert --> Worksheet
+** Edit --> Move or Copy Sheet …
+** Format --> Sheet
+** Edit --> Delete Sheet
+?? Khi đang làm việc với Excel, có thể di chuyển từ sheet này sang sheet khác bằng cách sử dụng các phím hoặc các tổ hợp phím:
+** Ctrl-Page Up ; Ctrl- Page Down
+** Page Up ; Page Down
+** Cả 2 câu đều đúng
+** Cả 2 câu đều sai
+?? Trong Excel xóa một Sheet trong  bảng tính chọn?
+** Edit --> Delete Sheet
+** Insert --> Worksheet
+** Edit --> Sheet --> Sheet
+** Format --> Delete Sheet
+?? Trong bảng tính Excel, nếu trong một ô tính có các kí hiệu ****#, điều đó có nghĩa là gì?
+** Cột chứa ô đó có độ rộng quá hẹp nên không hiển thị hết chữ số
+** Chương trình bảng tính bị nhiễm virus
+** Công thức nhập sai và Excel thông báo lỗi
+** Hàng chứa ô đó có độ cao quá thấp nên không hiển thị hết chữ số
+?? Khi gõ công thức xong, rồi Enter, máy hiện ra #REF! có nghĩa là :
+** Giá trị tham chiếu không tồn tại
+** Không tìm thấy tên hàm
+** Không tham chiếu đến được
+** Tập hợp rỗng.
+?? Khi gõ công thức xong, rồi Enter, máy hiện ra #N/A có nghĩa là :
+** Không tham chiếu đến được
+** Không tìm thấy tên hàm
+** Giá trị tham chiếu không tồn tại
+** Tập hợp rỗng
+??  Trong Excel, khi viết sai tên hàm trong tính toán, chương trình thông báo lỗi?
+** #NAME!
+** #VALUE!
+** #N/A!
+** #DIV/0!
+?? Trong bảng tính Excel, tại ô A2 có sẵn giá trị số 25; Tại ô B2 gõ vào công thức =SQRT(A2) thì nhận được kết quả:
+** 5
+** 0
+** #VALUE!
+**  #NAME!
+?? Kết quả của công thức sau : = INT(4.567) là :
+** 4
+** 2
+** -2
+** tất cả đều sai
+?? Công thức sau : = ROUND(136485.22,3) sẽ cho kết quả là :
+** 137,000.22
+** 136,000.22
+** 136000
+** 137000
+??  Hàm nào trong các hàm dưới đây là hàm cho phần dư của phép chia nguyên N cho M
+** MOD(N,M)
+** SUM(….)
+** ABS(N)
+** PI()
+?? Biểu thức sau cho giá trị là bao nhiêu?			=AND(5>4, 6<9, 2<1)
+** False
+** True
+** #Name?
+** # Value!
+?? Biểu thức sau cho giá trị là bao nhiêu?		=OR(5>4, 6<9, 2<1)
+** True
+** False
+** #Name?
+** # Value!
+?? Biểu thức sau cho giá trị là bao nhiêu?		=AND(5>4, 6<9, OR(2<1,3>2))
+** True
+** False
+** #Name?
+** # Value!
+?? Trong bảng tính Excel, hàm nào sau đây cho phép tính tổng các giá trị kiểu số thỏa mãn một điều kiện cho trước?
+** SUM
+** COUNTIF
+** COUNT
+** SUMIF
+?? Một cửa hàng văn phòng phẩm, có bán các loại hàng hoá như: vở, bút bi, thước, phấn, …; ta có thể sử dụng hàm gì để giúp cửa hàng tính được tổng số tiền bán được của từng loại hàng hóa?
+** SUMIF
+** IFSUM
+** SUM
+** Một hàm khác
+?? Hàm nào trong các hàm dưới đây là hàm tìm giá trị lớn nhất của các giá trị có trong danh sách
+** MAX(Danh sách các trị)
+** MIN(Danh sách các trị)
+**  SUM(Danh sách các trị)
+** AVERAGE(Danh sách các trị)
+?? Trong bảng tính Excel, tại ô A2 gõ vào công thức =MAX(30,10,65,5) thì nhận được kết quả tại ô A2 là:
+** 30
+** 5
+** 65
+** 110
+?? Biểu thức sau trả lại kết quả là bao nhiêu: =Sum(4,6,-2,9,s)
+** #Name?
+** 5
+** 17
+** #Value!
+?? Biểu thức sau trả lại kết quả là bao nhiêu?	=AVERAGE(4,6,7,8)
+** 6.25
+** 25
+** 8
+** 4
+?? Hàm nào trong các hàm sau đây là hàm cho độ dài của chuỗi TEXT
+** LEN(TEXT )
+** LOWER(TEXT)
+** UPPER(TEXT)
+** PROPER(TEXT)
+?? Biểu thức sau đây cho kết quả là bao nhiêu?		=Left("HaNoi")
+** Kết quả là chữ "H"
+** Sai cú pháp
+** Kết quả là chữ "i"
+** Kết quả là chữ "Ha"
+?? Để cắt được 2 ký tự cuối trong từ “Hanoi” biểu thức nào dưới đây là đúng?
+** = Right(“Hanoi”,2)
+** =Right(“Hanoi”,1)
+** = Mid(“Hanoi”,2)
+** = Left(“Hanoi”,2)
+?? Biểu thức sau cho kết quả là bao nhiêu? =Len(“Hanoi”)
+** 5
+** 3
+** 4
+** 6
+?? Trong bảng tính Excel, tại ô A2 có sẵn dữ liệu là dãy kí tự "Tin hoc van phong" ; Tại ô B2 gõ vào công thức =LOWER(A2) thì nhận được kết quả?
+** tin hoc van phong
+** TIN HOC VAN PHONG
+** Tin hoc van phong
+** Tin Hoc Van Phong
+?? Trong bảng tính Excel, tại ô A2 có sẵn dữ liệu là dãy kí tự "Tin hoc van phong" ; Tại ô B2 gõ vào công thức =PROPER(A2) thì nhận được kết quả?
+** Tin Hoc Van Phong
+** TIN HOC VAN PHONG
+** Tin hoc van phong
+** tin hoc van phong
+?? Trong bảng tính Excel, tại ô A2 có sẵn dữ liệu là dãy kí tự "TIN HOC VAN PHONG" ; Tại ô B2 gõ vào công thức =UPPER(A2) thì nhận được kết quả?
+** TIN HOC VAN PHONG
+** Tin hoc van phong
+** tin hoc van phong
+** Tin Hoc Van Phong
+?? Để chuyển chữ “hanoi” thành “HANOI” ta sử dụng hàm nào dưới đây?
+** =Upper(“hanoi”)
+** =Lower(“hanoi”)
+** =Trim(“hanoi”)
+** =Len(“Hanoi”)
+?? Để chuyển chữ "HANOI" thành "hanoi" ta sử dụng hàm nào dưới đây?
+** =Lower("HANOI")
+** =Upper("HANOI")
+** =Trim("HANOI")
+** =Len("HANOI")
+?? Trong Excel hàm dùng để chuyển chuỗi các chữ số sang số là hàm nào trong các hàm sau?
+** Value(số)
+** Left(chuỗi, n)
+** Right(chuỗi, n)
+** Mid(chuỗi, m, n)
+?? Để chuyển từ “KDHanoi” thành từ “KDHN”
+** =Replace(“KDHanoi”, 4,4, “N”)
+** =Replace(“KDHanoi”, 4,2,“N”)
+** =Replace(“KDHanoi”,2, 4, “N”)
+**  =Replace(“KDHanoi”, 4,4, “HN”)
+?? Biểu thức sau cho kết quả là bao nhiêu?	=YEAR(0.007)
+** 1900
+** #Name?
+** #Value!
+** Tất cả đều sai
+?? Trong Excel, giả sử ô A1 của bảng tính lưu trị ngày 15/10/1970. Kết quả hàm =YEAR(A1) là bao nhiêu?
+** 1970
+** VALUE#?
+** 15
+** 10
+?? Trong Excel, giả sử ô A1 của bảng tính lưu trị ngày 15/10/1970. Kết quả hàm =MONTH(A1) là bao nhiêu?
+** 10
+** VALUE#?
+** 15
+** 1970
+?? Biểu thức sau cho kết quả là bao nhiêu?		=DAY("15-Apr-1998")
+** 15
+** 1988
+** 8
+** Tất cả đều sai
+?? Biểu thức =TODAY() sau cho kết quả là bao nhiêu?
+** Ngày tháng hiện tại trong hệ thống máy tính
+** Ngày tháng hiện tại
+** Năm hiện tại
+** Tháng hiện tại
+?? Giả sử ngày hệ thống của máy tính là: 8/18/2008; Khi đó tại ô A2 gõ vào công thức =Today()-1 thì nhận được kết quả là?
+** 8/17/2008
+** 0
+** #VALUE!
+** #NAME!
+?? Trong bảng tính Excel, tại ô A2 gõ vào công thức =IF(3>5,100,IF(5<6,200,300)) thì kết quả nhận được tại ô A2 là?
+** 200
+** 100
+** 300
+** False
+?? Trong bảng tính Excel, điều kiện trong hàm IF được phát biểu dưới dạng một phép so sánh. Khi cần so sánh khác nhau thì sử dụng kí hiệu nào?
+** <>
+** &
+** #
+** ><
+?? Biểu thức sau cho kết quả là bao nhiêu nếu DTB = 6?		=If(DTB>=5, Dau, Truot)
+** #Name
+** Dau
+** Truot
+** Cả 3 phương án trên đều sai
+?? Biểu thức sau cho kết quả là bao nhiêu nếu DTB = 9?        =If(DTB>=5, "TB",If(DTB>=6.5, "Kha",If(DTB>= 8, "Gioi", "Yeu")))
+** Gioi
+** Kha
+** TB
+** Yeu
+?? Biểu thức sau cho kết quả là bao nhiêu nếu DTB = 9 và HK loại C:
+			=If(OR(DTB>=8, HK= "A"),1000,300)
+** 1000
+** 300
+** False
+** #Value!
+?? Nếu có N giá trị lựa chọn  ứng với n điều kiện khác nhau. để lấy một giá trị thoả màn một điều kiện nào đó ta phải sử dụng hàm IF lồng nhau bao nhiêu lần
+** n-1 lần
+** n-2 lần
+** n lần
+** n-1 lần nếu n < =9
+?? Trong bảng tính Excel, để sửa dữ liệu trong một ô tính mà không cần nhập lại, ta thực hiện:
+**Nháy chuột chọn ô tính cần sửa, rồi bấm phím F2
+** Nháy chuột chọn ô tính cần sửa, rồi bấm phím F4
+** Nháy chuột chọn ô tính cần sửa, rồi bấm phím F10
+** Nháy chuột chọn ô tính cần sửa, rồi bấm phím F12
+?? Các kiểu dữ liệu thông dụng của Excel là:
+** Kiểu chuỗi, kiểu số, kiểu lôgic, kiểu ngày tháng, kiểu công thức
+** Kiểu chuỗi, kiểu văn bản, kiểu ngày tháng
+** Kiểu số, kiểu lôgic, kiểu ngày tháng
+** Kiểu công thức, kiểu hàm, kiểu số, kiểu ngày tháng
+?? Trong bảng tính Excel, tại ô A2 có sẵn giá trị chuỗi "Tin hoc"; ô B2 có giá trị số 2008. Tại ô C2 gõ vào công thức =A2+B2 thì nhận được kết quả:
+** #VALUE!
+** Tin hoc
+** 2008
+** Tin hoc2008
+?? Trong khi làm việc với Excel, để nhập vào công thức tính toán cho một ô, trước hết ta phải gõ:
+** Dấu bằng (=)
+** Dấu chấm hỏi (?)
+** Dấu hai chấm (:)
+** Dấu đô la ($)
+?? Câu nào sau đây sai? Khi nhập dữ liệu vào bảng tính Excel thì:
+** Dữ liệu kiểu số sẽ mặc nhiên căn thẳng lề trái
+** Dữ liệu kiểu kí tự sẽ mặc nhiên căn thẳng lề trái
+** Dữ liệu kiểu thời gian sẽ mặc nhiên căn thẳng lề phải
+** Dữ liệu kiểu ngày tháng sẽ mặc nhiên căn thẳng lề phải
+?? Trong bảng tính Excel, để lọc dữ liệu tự động, sau khi chọn khối cần lọc, ta thực hiện:
+** View - Filter - AutoFilter
+** Format - Filter - AutoFilter
+** Insert - Filter - AutoFilter
+** Data - Filter - AutoFilter
+?? Trong bảng tính Excel, tại ô A2 có sẵn giá trị số không (0); Tại ô B2 gõ vào công thức =5/A2 thì nhận được kết quả?
+** #DIV/0!
+**  0
+** 5
+** #VALUE!
+??  Để có thể cuộn chữ thành nhiều dòng trong ô, ta dùng
+** Alt + Enter
+** Format Cells, chọn Wrap Text
+** Format Cells, chọn Orientation
+**  Format Cells, Chọn Shrink to fit
+?? Trong bảng tính Excel, muốn sắp xếp danh sách dữ liệu theo thứ tự tăng (giảm), ta thực hiện:
+** Data - Sort
+** Tools - Sort
+** File - Sort
+** Format - Sort
+?? Tài liệu Excel sau khi được đánh được lưu mặc định trong My Document. Vậy để thay đổi nơi mặc định khi lưu cần?
+** Vào File/Save As, chọn vị trí cần lưu
+** Vào Tool/Options, chọn thẻ General, thay đổi đường dẫn mới ở mục Default file location
+**Vao File/Save, chon vi tri can luu
+** Vào Tool/Options, chọn thẻ Save, thay đổi đường dẫn mới ở mục Default file location
+?? Để thực hiện in một bảng tính thì thực hiện như sau:
+** Chọn File/Print
+** Chọn Edit/Print
+** Chọn File/Sheet/Print
+** Chọn Tool/Print
+?? Để thực hiện thay đổi kiểu định dạng cho chữ số, chọn:
+** Format/Cell/ Number
+** File/Format
+** Format/Number
+** Tool/Format Number
+?? Để thực hiện tính toán phân nhóm trong Excel. thực hiện chọn:
+** Data à Subtotal
+** Tool à Subtotal
+** Format à Subtotal
+** Tool à Subtotal
+?? Để tính giá trị cho cột tuổi ô B2 trong hình dưới dùng  công thức nào dưới đây là đúng
+**  =Year(Today())-Year(A2)
+**  =Year(A2)-Year(Date)
+** =Year(A2) +Year(Date)
+** Không có đáp án nào là đúng
+??  Giá trị của ô C4 là bao nhiêu khi copy từ công thức của ô C3
+** qkd
+**  ktd
+** LEFT($B$4,3)
+** LEFT($B$3,3)
+?? Giá trị của C4 là gì khi copy công thức của C3
+**  “đỗ”
+** IF(B3>=”15”,”đỗ”,”trượt”)
+** “trượt”
+** IF(B4>=”15”,”đỗ”,”trượt”)
+?? Trong Excel cú pháp hàm SUMIF nào là đúng:
+** SumIf(range, criteria,[sum_range])
+** SumIf(criteria, range,[sum_range])
+** SumIf(range)
+**  SumIf(range, criteria)
+?? Trong Excel cú pháp hàm COUNTIF nào là đúng?
+** COUNTIF(range,criteria)
+** COUNTIF(criteria,range)
+** COUNTIF(criteria,range,col_index_num)
+** COUNTIF(range,criteria,col_index_num)
+?? Hàm nào sai trong các hàm số sau?
+** =INT(số 1, số 2): hàm cho kết quả là phần nguyên của phép chia
+** =MOD(số 1, số 2): hàm cho kết quả là phần dư của phép chia
+** =AVERAGE(số 1, số 2, …): hàm cho kết quả là trung bình cộng của dãy số
+** =MIN(số 1, số 2, …): hàm cho kết quả là số nhỏ nhất của dãy số
+?? Trong Excel cú pháp hàm ROUND nào là đúng?
+** ROUND( number, num_digits)
+** ROUND (num_digits, number)
+** ROUND( rangle, criteria)
+** ROUND( criteria, rangle)
+??  Trong Excel cú pháp hàm LEFT nào là đúng?
+**  LEFT( text, [num_chars])
+** LEFT( num_chars, text)
+**  LEFT( text)
+**  LEFT( text, start, num_chars)
+?? Trong Excel cú pháp hàm RIGHT nào là đúng?
+** RIGHT( text, [num_chars])
+** RIGHT( num_chars, text)
+** RIGHT( text)
+** RIGHT( text, start, num_chars)
+?? Trong Excel cú pháp hàm MID nào là đúng?
+** MID( text, start_num, num_chars)
+** MID( text, num_chars, start_num)
+** MID( text, num_chars)
+** MID( text, start, num_chars)
+?? Trong Excel cú pháp hàm IF nào là đúng?
+** IF(logical_test,value_if_true,value_if_false)
+** IF(value_if_true, value_if_false, logical_test)
+** IF(logical_test,value_if_false,value_if_true)
+** IF(value_if_false,value_if_true,logical_test
+?? Trong Excel cú pháp hàm RANK nào là đúng?
+** RANK( number, ref, [order])
+** RANK( ref, number, [order])
+** RANK( number, [order], ref)
+** RANK( number, [order], ref)
+?? Trong Excel cú pháp hàm VLOOKUP nào là đúng?
+** VLOOKUP(lookup_table, table_array, col_index_num, [rangle_lookup])
+** VLOOKUP(table_array, lookup_table, col_index_num, [rangle_lookup])
+** VLOOKUP(col_index_num, lookup_table, table_array,  [rangle_lookup])
+** VLOOKUP(lookup_table, col_index_num, table_array, [rangle_lookup])
+?? Trong Excel cú pháp hàm HLOOKUP nào là đúng
+** HLOOKUP(lookup_table, table_array, row_index_num, [rangle_lookup])
+** HLOOKUP(table_array, lookup_table, row_index_num, [rangle_lookup])
+** HLOOKUP(row_index_num, lookup_table, table_array,  [rangle_lookup])
+** HLOOKUP(lookup_table, row_index_num, table_array, [rangle_lookup])
+?? Trong Excel cú pháp hàm INDEX nào là đúng
+** INDEX( array, row_num, [column_num])
+** INDEX(row_num, [column_num], array)
+** INDEX(row_num, array, [column_num])
+** INDEX( [column_num], array, row_num)
+?? Trong Excel cú pháp hàm MATCH nào là đúng
+** MATCH(lookup_table, lookup_array, [match_type] )
+** MATCH(lookup_array, lookup_table, [match_type] )
+** MATCH([match_type], lookup_table, lookup_array )
+** MATCH([match_type], lookup_array, lookup_table )
+?? Trong Excel cú pháp hàm DCOUNT nào là đúng:
+** DCOUNT(database, field, criteria)
+** DCOUNT(field, criteria)
+** DCOUNT(database, field)
+** DCOUNT(field, criteria, database)
+?? Trong Excel cú pháp hàm DSUM nào là đúng:
+** DSUM(database, field, criteria)
+** DSUM(field, criteria)
+** DSUM(database, field)
+** DSUM(field, criteria, database)
+?? Trong Excel cú pháp hàm DMAX  nào là đúng:
+** DMAX(database, field, criteria)
+** DMAX(field, criteria)
+** DMAX(database, field)
+** DMAX(field, criteria, database)
+?? Trong Excel cú pháp hàm DSUM nào là đúng:
+** DSUM(database, field, criteria)
+** DSUM(field, criteria)
+** DSUM(field, criteria, database)
+** DSUM(database, field)
+?? Trong Excel cú pháp hàm DMIN nào là đúng:
+** DCOUNT(database, field, criteria)
+** DCOUNT(database, field)
+** DCOUNT(field, criteria)
+** DCOUNT(field, criteria, database,)
+??  Giá trị của ô C3  (hình vẽ) là bao nhiêu?
+**  thị
+** thị b
+** lê thị
+** một giá trị khác
+?? Biểu thức sau trả lại kết quả là bao nhiêu:=Sum(A1:A5) Với giá trị cho trong hình vẽ
+** 15
+** -9
+** #Name?
+** #Value!
+?? Biểu thức sau trả lại kết quả là bao nhiêu:=Max(A1:A5)+Count(A1:A5)
+**  10
+**  7
+** #Name?
+** Tất cả các câu trên đều sai
+?? Để tính tổng số sinh viên cho ô B6 ở hình dưới  công thức nào sau đây là đúng?
+** =Counta(B2:B5)
+** =Sum(B2:B5)
+** =Count(B2:B5)
+** Không có đáp án đúng
+??Để hiện/ẩn chế độ ô lưới trong bảng tính Excel ta làm theo cách nào?
+**Vào Tools/Options --> chon nhãn View, chọn/bỏ chọn vào mục Gridlines
+**Vào Tools/Options --> chon nhãn View, chọn/bỏ chọn vào mục Formulas
+**Vào Tools/Options --> chon nhãn View, chọn/bỏ chọn vào mục Sheet tabs
+**Vào Tools/Options --> chon nhãn View, chọn/bỏ chọn vào mục Page breaks
+??Trong Excel, tại ô A2 có giá trị là chuỗi "Tinhoc" ; Tại ô C2 gõ vào công thức =A2 thì nhận được kết quả là?
+**Tinhoc
+**#Value!
+**TINHOC
+**TinHoc
+??Trong Excel, tại ô A2 có giá trị là số 2008. Tại ô B2 gõ công thức =LEN(A2) thì nhận được kết quả?
+**4
+** #Value
+**0
+**2008
+??Trong Excel, tại ô A2 có giá trị là số 10 ; ô B2 có giá trị là số 3. Tại ô C2 gõ công thức =MOD(A2,B2) thì nhận được kết quả?
+**1
+**10
+**3
+** #Value
+??Trong bảng tính Excel, tại ô A2 có sẵn giá trị chuỗi TINHOC; Tại ô B2 gõ vào công thức =VALUE(A2) thì nhận được kết quả?
+** #VALUE!
+**Tinhoc
+**TINHOC
+**6
+??Trong bảng tính Excel, muốn xóa hẳn một hàng ra khỏi trang tính, ta đánh dấu khối chọn hàng này và thực hiện?
+**Table - Delete Rows
+**Nhấn phím Delete
+**Edit - Delete
+**Tools - Delete
+??Trong bảng tính Excel, tại ô A2 có sẵn giá trị chuỗi 2008 ; Tại ô B2 gõ vào công thức =VALUE(A2) thì nhận được kết quả?
+**#NAME!
+**Giá trị kiểu số 2008
+**Giá trị kiểu chuỗi 2008
+**#VALUE!
+??Giả sử tại ô D2 có công thức =B2*C2/100. Nêu sao chép công thức đến ô G6 sẽ có công thức là?
+**E6*F6/100
+**E7*F7/100
+**B6*C6/100
+**E2*C2/100
+??Trong Excel biểu thức =MID("A123B",3,2) sẽ trả về kết quả là bao nhiêu?
+**23
+**A1
+**3B
+**A123B
+??Trong Excel biểu thức =24*2+5*2+(20-10)/2 sẽ trả về kết quả là bao nhiêu?
+**47
+**271
+**138
+**Không thể thực hiện được biểu thức trên
+??Trong Excel hàm dùng để chuyển chuỗi số sang số là hàm nào trong các hàm sau?
+**Value(số)
+**Left(chuỗi, n)
+**Right(chuỗi, n)
+**Mid(chuỗi, m, n)
+??Trong Excel hàm SUM("3",2,1) sẽ trả về trị?
+**6
+**3
+**2
+**Báo lỗi do không cộng được chuỗi
+??Trong Excel sau khi nhập công thức sau:	="123"-"23" ta có kết quả?
+**100
+**123
+**23
+**Máy báo lỗi
+??Trong Excel ô A1 chứa trị "-3"; ô A2 chứa trị 2. Hàm MOD(A1,A2) sẽ trả về trị?
+**1
+**"-1"
+**0.5
+**"-0.5"
+??Biểu thức =TODAY() sau cho kết quả là bao nhiêu?
+**Ngày tháng hiện tại trong hệ thống máy tính
+**Ngày tháng hiện tại
+**Năm hiện tại
+**Tháng hiện tại
+??Biểu thức sau đây cho kết quả là bao nhiêu?	=Left("HaNoi")
+**Kết quả là chữ "H"
+**Sai cú pháp
+**Kết quả là chữ "i"
+**Kết quả là chữ "Ha"
+??Để cắt được 2 ký tự cuối trong từ "Hanoi" biểu thức nào dưới đây là đúng?
+**=Right("Hanoi",2)
+**=Right("Hanoi",1)
+**=Mid("Hanoi",2)
+**=Left("Hanoi",2)
+??Biểu thức sau cho kết quả là bao nhiêu?	=Len("Hanoi")
+**5
+**4
+**3
+**6
+??Để cắt được từ "an" trong từ "Hanoi" biểu thức nào sau đây là đúng?
+**=Mid("Hanoi",2,2)
+**=Mid("Hanoi",3,2)
+**=Mid("Hanoi",2,3)
+**=Right("Hanoi",2)
+??Để hiển thị được ngày theo mẫu sau 22/07/2000 ta phải dùng định dạng nào trong các dạng sau?
+**dd/MM/yyyy
+**dd/MM/yy
+**mm/dd/yyyy
+**mm/dd/yy
+??Trong Excel ô A1 chứa trị "-9.8". Công thức =A1-INT(A1) sẽ trả về trị?
+**"0.2"
+**"-10"
+**"0"
+**"-0.8"
+??Biểu thức sau cho kết quả là bao nhiêu nếu DTB = 9 và HK loại C trong đó DTB: Điểm trung bình. HK: Hạnh kiểm
+=If(OR(DTB>=8, HK= "A"),1000,300)
+**1000
+**300
+**False
+**#Value!
+??Hàm If có thể lồng vào nhau bao nhiêu lần?
+**7
+**8
+**5
+**6
+??Biểu thức sau cho kết quả là bao nhiêu nếu DTB = 9 và HK loại C trong đó DTB: Điểm trung bình. HK: Hạnh kiểm
+=If(AND(DTB>=8, HK= "A"),300,1000)
+**1000
+**300
+**True
+**False
+??Biểu thức sau cho kết quả là bao nhiêu?	=DAY("15-Apr-1998")
+**15
+**1988
+**8
+**Tất cả các phương án trên đều sai
+??Biểu thức sau cho kết quả là bao nhiêu?	=DAY("30/02/2002")
+**Value!
+**30
+**2002
+**2
+??Biểu thức sau cho kết quả là bao nhiêu?	=MONTH("28/2/2002")
+**Value!
+**28
+**2002
+**2
+??Biểu thức sau cho kết quả là bao nhiêu? 	 =MONTH("6-May")
+**5
+**28
+**6
+**7
+??Biểu thức sau cho kết quả là bao nhiêu?
+=YEAR(0.007)
+**1900
+**#Name?
+**#Value!
+**Tất cả đều sai
+??Để luôn chỉ chọn in một vùng nào đó trong bảng tính Excel chúng ta cần thao tác?
+**Bôi đen vùng cần in, sau đó vào File/Print Area, chọn Set Print Area
+**Vào File/Print, chọn OK
+**Cả 2 cách trên đều đúng
+??Khi muốn lặp lại tiêu đề cột ở mỗi trang in, chúng ta cần thực hiện?
+**Vào File/Page Setup, chọn thẻ Sheet, tích vào mục Row and column headings
+**Trong Excel luôn mặc định sẵn khi in lặp lại tiêu đề
+**Cả A và B đều sai
+??Để làm ẩn một cột bất kỳ trên bảng tính Excel ta chọn cột cần làm ẩn, sau đó?
+**Vào Format/Column, chọn Hide
+**Kích chuột phải lên cột chọn làm ẩn, nhấn Hide
+**Cả A và B đều đúng
+??Khi vào File/Page Setup, chúng ta chọn thẻ Margins để làm gì?
+**Căn chỉnh lề đoạn văn cần in
+**Chỉnh cỡ giấy khi in
+**Chỉnh hướng giấy in
+??Khi vào Format/Cells, thẻ Border có tác dụng gì?
+**Tạo khung viền cho bảng tính cần chọn
+**Chỉnh Font chữ cho đoạn văn
+**Chỉnh màu cho chữ
+??Trong Excel cú pháp hàm COUNTIF nào đúng?
+**COUNTIF(range,criteria)
+**COUNTIF(criteria,range)
+**COUNTIF(criteria,range,col_index_num)
+**COUNTIF(range,criteria,col_index_num)
