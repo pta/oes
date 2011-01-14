@@ -52,7 +52,7 @@ include_once "../lib/Database.php";
 			}
 
 			$questionID = $db->insertQuestion ($question, $subject,
-					isset ($_POST['shuffleable']) ? 'true' : 'false');
+					isset ($_POST['shuffleable']) ? 'true' : 'false', 0.5);
 
 			foreach ($choice as $c)
 				$db->insertChoice ($questionID, $c[0], $c[1], $c[2]);
