@@ -28,7 +28,7 @@ include_once "../lib/Database.php";
 	if (isset ($_POST['submit']))
 	{
 		$search = $_POST['search'];
-		$query = "SELECT oes_Question.ID, Text, Name FROM oes_Question join oes_Subject on oes_Subject.ID = oes_Question.Subject where Text like '%".$search."%'";
+		$query = "SELECT oes_Question.ID, Text, Name FROM oes_Question join oes_Subject on oes_Subject.ID = oes_Question.Subject where Newer is null and Text like '%".$search."%'";
 
 		if (($subject = $_POST['subject']) > 0)
 		{

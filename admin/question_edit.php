@@ -63,7 +63,7 @@ include_once "../lib/Database.php";
 					isset ($_POST['shuffleable']) ? 'true' : 'false', 0.5);
 
 			foreach ($choice as $c)
-				$db->updateChoice ($questionID, $c[0], $c[1], $c[2]);
+				$db->insertChoice ($questionID, $c[0], $c[1], $c[2]);
 
 			$db->commit();
 			echo "<center>Chỉnh sửa câu hỏi thành công!</center>";

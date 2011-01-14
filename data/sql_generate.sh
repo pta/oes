@@ -29,7 +29,7 @@ do
 	then
 		QUESTION="`echo ${LINE:2}`"
 		echo
-		echo "REPLACE INTO oes_Question values (null, '$QUESTION', @SubjectID, $SHUFFLEABLE, $RANK);"
+		echo "REPLACE INTO oes_Question values (null, '$QUESTION', @SubjectID, $SHUFFLEABLE, $RANK, null);"
 		echo "set @QuestionID = LAST_INSERT_ID();"
 		CORRECT=true
 

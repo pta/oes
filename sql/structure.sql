@@ -96,7 +96,9 @@ create table oes_Question
 	Subject		INT,
 	Shuffleable	TINYINT(1)	not null,
 	Rank		FLOAT,
+	Newer		INT,
 
+	FOREIGN KEY (Newer)	REFERENCES oes_Question(ID),
 	FOREIGN KEY (Subject)	REFERENCES oes_Subject(ID)
 )
 collate utf8_unicode_ci

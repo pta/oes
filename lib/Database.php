@@ -111,8 +111,19 @@ class Database extends DBConnection
 		$text = str_value ($text);
 		$subject = num_value ($subject);
 
-		$this->query ("insert into oes_Question values (null, $text, $subject, $shuffleable, $rank)");
+		$this->query ("insert into oes_Question values (null, $text, $subject, $shuffleable, $rank, null)");
 		return $this->getLastInsertID();
+	}
+
+	function updateQuestion ($question, $text, $subject, $shuffleable, $rank)
+	{
+		$text = str_value ($text);
+		$subject = num_value ($subject);
+
+		$this->query ("insert into oes_Question values (null, $text, $subject, $shuffleable, $rank, $question)");
+		$id = $this->getLastInsertID();
+		$this->query ("update oes_Question set Newer = $id where ID = $question");
+		return $id;
 	}
 
 	function insertChoice ($question, $text, $correct, $exclusive)
