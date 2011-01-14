@@ -88,7 +88,7 @@ include_once "../lib/Database.php";
 			foreach ($res as $question)
 			{
 				echo '<tr align=center><td>'.$question[0];
-				echo '<td><a href=question_edit.php?question='.$question[0].'>'.$question[1].'</a><td align=center>'.$question[2];
+				echo '<td><a href=question_edit.php?q='.$question[0].'>'.$question[1].'</a><td align=center>'.$question[2];
 			}
 			echo '</table>';
 		}

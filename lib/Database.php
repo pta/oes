@@ -117,11 +117,7 @@ class Database extends DBConnection
 
 	function updateQuestion ($question, $text, $subject, $shuffleable, $rank)
 	{
-		$text = str_value ($text);
-		$subject = num_value ($subject);
-
-		$this->query ("insert into oes_Question values (null, $text, $subject, $shuffleable, $rank, $question)");
-		$id = $this->getLastInsertID();
+		$id = $this->insertQuestion ($text, $subject, $shuffleable, $rank);
 		$this->query ("update oes_Question set Newer = $id where ID = $question");
 		return $id;
 	}

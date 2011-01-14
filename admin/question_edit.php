@@ -8,7 +8,7 @@
 		return;
 	}
 
-	if (!isset ($_GET['question']))
+	if (!isset ($_GET['q']))
 	{
 		header ("Location: question_search.php");
 		return;
@@ -26,7 +26,7 @@ include_once "../lib/Database.php";
 </HEAD>
 
 <?php
-	$question = $_GET['question'];
+	$q = $_GET['q'];
 
 	$db = new Database (DB_HOST, DB_USER, DB_PASS);
 	$db->selectDatabase (DB_NAME);
@@ -54,19 +54,21 @@ include_once "../lib/Database.php";
 				}
 				catch (Exception $e)
 				{
-					echo "<center>Không thể tạo <b>Môn</b> mới với tên '$newsubject'.</center>";
+					echo "<center>Không đặt tên <b>Môn</b> mới là '$newsubject'.</center>";
 					throw $e;
 				}
 			}
 
-			$questionID = $db->insertQuestion ($question, $subject,
+			$questionID = $db->updateQuestion ($q, $question, $subject,
 					isset ($_POST['shuffleable']) ? 'true' : 'false', 0.5);
 
 			foreach ($choice as $c)
 				$db->insertChoice ($questionID, $c[0], $c[1], $c[2]);
 
 			$db->commit();
-			echo "<center>Chỉnh sửa câu hỏi thành công!</center>";
+			//echo "<center>Chỉnh sửa câu hỏi thành công!</center>";
+			header ("Location: question_edit.php?q=$questionID");
+			return;
 		}
 		catch (Exception $e)
 		{
@@ -82,59 +84,66 @@ include_once "../lib/Database.php";
 			return -1;
 		}
 	}
+	else
+	{
+		$result = $db->query ("select * from oes_Question where ID = $q");
+		$question_assoc = fetch_assoc ($result);
+		mysql_free_result ($result);
 
-	$result = $db->query ("select * from oes_Question where ID = $question");
-	$question_assoc = fetch_assoc ($result);
-	mysql_free_result ($result);
+		$question = $question_assoc[0]['Text'];
+		$subject = $question_assoc[0]['Subject'];
+		$shuffleable = $question_assoc[0]['Shuffleable'];
 
-	$text = $question_assoc[0]['Text'];
-	$subject = $question_assoc[0]['Subject'];
-	$shuffleable = $question_assoc[0]['Shuffleable'];
-
-	$result = $db->query ("select * from oes_Choice where Question = $question");
-	$choice = fetch_columns ($result);
-	mysql_free_result ($result);
+		$result = $db->query ("select * from oes_Choice where Question = $q");
+		$choice = fetch_assoc ($result);
+		mysql_free_result ($result);
+	}
 ?>
 
 <BODY>
 <div align=center>
 	<h1>Sửa câu hỏi</h1>
 
-	<form action=question_edit.php method=POST>
+	<form action=# method=POST>
 		<table>
 			<tr><td align=center><label for=subject>Môn</label>
-					<select id=subject name=subject>
-						<option value=0>Tạo mới</option>
-						<?php
-							$arr = $db->getSubjectList();
-							foreach ($arr as $subject)
-								echo "<option value=$subject[1]>$subject[0]</option>";
-						?>
-					</select>
-					<input id=newsubject name=newsubject>
+					<?php
+						echo $db->getValue("select Name from oes_Subject where ID = $subject");
+						echo "<input type=hidden name=subject value=$subject>";
+					?>
 
 			<tr><td>
 				<table>
 					<tr><td>Câu hỏi
-					<tr><td><textarea cols=60 rows=6 id=question name=question></textarea>
-					<tr><td>Lựa chọn <label><input type=checkbox name=shuffleable>Cho phép đảo chỗ</label>
+					<tr><td><textarea cols=60 rows=6 id=question name=question><?php
+								echo $question;
+							?></textarea>
+					<tr><td>Lựa chọn <label><input type=checkbox name=shuffleable <?php
+								if ($shuffleable) echo 'checked';
+							?>>Cho phép đảo chỗ</label>
 					<tr><td>
 						<table>
-							<script>
-								for (var i = 0; i < 6; ++i)
+							<?php
+								for ($i = 0; $i < 6; ++$i)
 								{
-									document.writeln ("<tr><td><input size=34 name=choice" + i + ">");
-									document.writeln ("<label><input type=checkbox name=correct" + i + ">Đúng</label>");
-									document.writeln ("<label><input type=checkbox name=exclusive" + i + ">Duy nhất</label>");
+									echo "<tr><td><input size=34 name=choice$i value='";
+									if (isset($choice[$i])) echo $choice[$i]['Text'];
+									echo"'>";
+									echo "<label><input type=checkbox name=correct$i ";
+									if (isset($choice[$i]) && $choice[$i]['Correct']) echo 'checked';
+									echo ">Đúng</label>";
+									echo "<label><input type=checkbox name=exclusive$i ";
+									if (isset($choice[$i]) && $choice[$i]['Exclusive']) echo 'checked';
+									echo ">Duy nhất</label>";
 								}
-							</script>
+							?>
 						</table>
 				</table>
 
 			<tr align=center>
 				<td colspan=2>
 					<input type=reset value=Huỷ>
-					<input type=submit name=submit value='Hoàn thành'>
+					<input type=submit name=submit value='Lưu'>
 		</table>
 	</form>
 
