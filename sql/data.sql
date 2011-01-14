@@ -12,8 +12,10 @@ insert into oes_Teacher values (null, "Hữu", "Tố");
 insert into oes_Teacher values (null, "Giót", "Phan Đình");
 insert into oes_Teacher values (null, "Kích", "O Du");
 
+/*
 insert into oes_Subject values (null, "Xử lý ảnh");
 insert into oes_Subject values (null, "Trí tuệ nhân tạo");
 insert into oes_Subject values (null, "Cấu trúc dữ liệu và giải thuật");
+*/
 
 insert into oes_Student values (null, "0", "0", "0", "1945-09-02", 1);
