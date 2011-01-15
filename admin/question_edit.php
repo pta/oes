@@ -54,7 +54,7 @@ include_once "../lib/Database.php";
 				}
 				catch (Exception $e)
 				{
-					echo "<center>Không đặt tên <b>Môn</b> mới là '$newsubject'.</center>";
+					echo "<center>Không thể đặt tên <b>Môn</b> mới là '$newsubject'.</center>";
 					throw $e;
 				}
 			}
